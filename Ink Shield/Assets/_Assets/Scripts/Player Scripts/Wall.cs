@@ -6,7 +6,7 @@ namespace InkShield {
         
         
         [SerializeField] private float lifeTime = 3f;
-        
+        [SerializeField] private Animator wallAnimator;
         private Vector3 targetToLook;
         private BoxCollider thisCollider;
         private void Awake(){
@@ -14,6 +14,9 @@ namespace InkShield {
         }
         
         public void DestroyMySelf(){
+            wallAnimator.SetBool("Grow",false);
+        }
+        public void HideWall(){
             targetToLook = Vector3.zero;
             thisCollider.enabled = false;
             gameObject.SetActive(false);
@@ -26,7 +29,7 @@ namespace InkShield {
         }
         public void SetNextWall(Transform lookAtTarget){
             targetToLook = lookAtTarget.position;
-            // Debug.Log(" Wall "+ transform.name + "looking to " + lookAtTarget.name);
+            wallAnimator.SetBool("Grow",true);
             RotateToWardsTarget();
         }
         private void RotateToWardsTarget(){

@@ -7,9 +7,15 @@ namespace InkShield {
     public class CinematicCamera : MonoBehaviour {
         
 
-        [SerializeField] private CinemachineVirtualCamera gameViewCamera,playerViewCamera;
+        [SerializeField] private CinemachineVirtualCamera playerViewCamera;
+        [SerializeField] private CinemachineVirtualCamera gameViewCamera;
 
-
+        public static CinematicCamera current;
+        private void Awake(){
+            if(current == null){
+                current = this;
+            }
+        }
         public void OnGameEnd(){
             gameViewCamera.Priority = 5;
             playerViewCamera.Priority = 10;
@@ -19,6 +25,10 @@ namespace InkShield {
             gameViewCamera.Priority = 5;
 
         }
+        public void SetGameCamera(CinemachineVirtualCamera camera){
+            gameViewCamera = camera;
+        }
+
         
     }
 

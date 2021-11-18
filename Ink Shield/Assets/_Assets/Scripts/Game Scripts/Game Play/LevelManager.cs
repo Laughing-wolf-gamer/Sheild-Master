@@ -1,18 +1,19 @@
 using System;
 using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 using GamerWolf.Utils;
+using System.Collections.Generic;
 
 namespace InkShield {
     public class LevelManager : MonoBehaviour {
 
         [SerializeField] private List<LevelDataSO> levelList;
-        [SerializeField] private List<EnemyController> enemiesList;
         [SerializeField] private PlayerController player;
+        [SerializeField] private MultiTargetCameraController multiTargetCameraController,playerTargetCamera;
         public Action onFirstTouchOnScreen;
+        
         private string timerName = "Enemy Check timer";
-
+        private List<EnemyController> enemyList;
+        
 
         #region Singelton.......
 
@@ -25,23 +26,23 @@ namespace InkShield {
             }
         }
         #endregion
-
-
-
+        
 
         private void Start(){
-            enemiesList = new List<EnemyController>();
+            enemyList = new List<EnemyController>();
+            
             SpawnLevel();
-            onFirstTouchOnScreen += StartGame;
+            
 
         }
         public void CheckForAllEnemyDead(){
             if(player.GetIsDead()){
-                GameHandler.current.SetGameOver(false);
+                GameHandler.current.isPlayerDead = true;
+                PauseEnemyShooting();
                 return;
             }
-            for (int i = 0; i < enemiesList.Count; i++){
-                if(!enemiesList[i].GetIsDead()){
+            for (int i = 0; i < enemyList.Count; i++){
+                if(!enemyList[i].GetIsDead()){
                     return;
                 }
             }
@@ -50,29 +51,51 @@ namespace InkShield {
             }
         }
         private void SpawnLevel(){
+            playerTargetCamera.SetTargetToList(player.transform);
             int random = UnityEngine.Random.Range(0,levelList.Count);
             LevelData level =  Instantiate(levelList[random].levelData,transform.position,Quaternion.identity);
-            enemiesList = level.GetEnemieList();
-            for (int i = 0; i < enemiesList.Count; i++){
-                MultiTargetCameraController.current.SetTargetToList(player.transform);
-                MultiTargetCameraController.current.SetTargetToList(enemiesList[i].transform);
+
+            enemyList = level.GetEnemieList();
+            SetTargetToList();
+            onFirstTouchOnScreen += StartGame;
+        }
+        private void SetTargetToList(){
+            multiTargetCameraController.SetTargetToList(player.transform);
+            for (int i = 0; i < enemyList.Count; i++){
+                multiTargetCameraController.SetTargetToList(enemyList[i].transform);
             }
         }
+        
         private void StartGame(){
-            for (int e = 0; e < enemiesList.Count; e++){
-                enemiesList[e].StartGame();
+            for (int e = 0; e < enemyList.Count; e++){
+                enemyList[e].StartEnemy();
             }
-            TimerTickSystem.CreateTimer(CheckForAllEnemyDead,0.2f,timerName);
+            TimerTickSystem.CreateTimer(CheckForAllEnemyDead,0.1f,timerName);
         }
-        public void EndGame(){
-            for (int e = 0; e < enemiesList.Count; e++){
-                enemiesList[e].EndGame();
+        
+        private void PauseEnemyShooting(){
+            for (int e = 0; e < enemyList.Count; e++){
+                enemyList[e].PlayerDead(player.GetIsDead());
             }
-            TimerTickSystem.StopTimer(timerName);
 
         }
+        public void OnPlayerRevive(){
+            player.FillInk();
+            for (int e = 0; e < enemyList.Count; e++){
+                enemyList[e].PlayerDead(player.GetIsDead());
+            }
+        }
+        
+        public void EndGame(){
+            for (int e = 0; e < enemyList.Count; e++){
+                enemyList[e].EndGame();
+            }
+            TimerTickSystem.StopTimer(timerName);
+        }
         public void SubscribeToOnFirstTouch(){
-            onFirstTouchOnScreen?.Invoke();
+            if(onFirstTouchOnScreen != null){
+                onFirstTouchOnScreen();
+            }
         }
         
         

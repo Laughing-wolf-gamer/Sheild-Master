@@ -10,10 +10,14 @@ namespace GamerWolf.Utils.HealthSystem {
         [SerializeField] protected bool canHit;
         public event EventHandler onDead;
         public event EventHandler OnHit;
-        protected virtual void Start(){
-            RestHealth();   
+        protected virtual void Awake(){
+
+            ResetHealth();   
         }
-        public void RestHealth(){
+        protected virtual void Start(){
+        }
+        public void ResetHealth(){
+            Debug.Log(transform.name + " is Revived");
             isDead = false;
             currentHealth = maxHealth;
             SetCanDie(true);
@@ -24,6 +28,7 @@ namespace GamerWolf.Utils.HealthSystem {
                     currentHealth -= damageValue;
                     OnHit?.Invoke(this,EventArgs.Empty);
                     if(currentHealth <= 0 && !isDead){
+                        currentHealth = 0;
                         Die();
                     }
                 }

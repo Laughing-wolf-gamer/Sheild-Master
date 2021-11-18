@@ -4,80 +4,60 @@ using UnityEngine.EventSystems;
 namespace InkShield {
     public class PlayerInputController : MonoBehaviour {
         
-
+        [SerializeField] private LayerMask hitMask;
+        
         private bool isTouchDown;
         private bool isTouchMoving;
-        private bool isTouchUp;
+        private bool isTouchEnded;
 
         private Camera m_Camera;
         private Vector3 MousePoint;
-        private Touch touch;
+        
         private bool isFirstTouch;
+
+
+        public static PlayerInputController current;
+
+
         private void Awake(){
+            if(current == null){
+                current = this;
+            }
             m_Camera = Camera.main;
             isFirstTouch = false;
         }
 
-        private void Update(){
-        #if UNITY_EDITOR
-            Pc();
-        #else
-            Mobile();
-        #endif
-
-        }
         
-        private void Pc(){
+        
+        public void GetPcInput(){
 
             if(!EventSystem.current.IsPointerOverGameObject()){
                 isTouchDown = Input.GetMouseButtonDown(0);
                 isTouchMoving = Input.GetMouseButton(0);
-                isTouchUp = Input.GetMouseButtonUp(0);
-            }
-            if(isTouchUp){
-                if(!isFirstTouch){
-                    isFirstTouch = true;
-                    LevelManager.current.SubscribeToOnFirstTouch();
-                }
-            }
-            
-        }
-        private void Mobile(){
-            if(Input.touchCount > 0){
-                touch = Input.GetTouch(0);
-                int firstTouchId = touch.fingerId;
-                if(!EventSystem.current.IsPointerOverGameObject(firstTouchId)){
+                isTouchEnded = Input.GetMouseButtonUp(0);
+                if(isTouchEnded){
                     if(!isFirstTouch){
                         isFirstTouch = true;
                         LevelManager.current.SubscribeToOnFirstTouch();
                     }
-                    if(touch.phase == TouchPhase.Began){
-                        isTouchDown = true;
-                        isTouchMoving = false;
-                        isTouchUp = false;
-                    }else{
-                        isTouchDown = false;
-                    }
-
-
-                    if(touch.phase == TouchPhase.Moved){
-                        isTouchMoving = true;
-                        isTouchDown = false;
-                        isTouchUp = false;
-                    }else{
-                        isTouchMoving = false;
-                    }
-
-                    if(touch.phase == TouchPhase.Ended){
-                        isTouchUp = true;
-                        isTouchDown = false;
-                        isTouchMoving = false;
+                }
+            }
+            
+            
+        }
+        public void GetMobileInput(){
+            if(Input.touchCount > 0){
+                Touch touch = Input.touches[0];
+                int id = touch.fingerId;
+                if(!EventSystem.current.IsPointerOverGameObject(id)){
+                    isTouchDown = touch.phase == TouchPhase.Began ? true : false;
+                    isTouchMoving = touch.phase == TouchPhase.Moved ? true : false;
+                    isTouchEnded = touch.phase == TouchPhase.Ended ? true : false;
+                    if(isTouchEnded){
                         if(!isFirstTouch){
                             isFirstTouch = true;
                             LevelManager.current.SubscribeToOnFirstTouch();
                         }
-                    }else{
-                        isTouchUp = false;
                     }
                 }
             }
@@ -88,16 +68,16 @@ namespace InkShield {
             #if UNITY_EDITOR
             Ray ray = m_Camera.ScreenPointToRay(Input.mousePosition);
             #else
-            Ray ray = m_Camera.ScreenPointToRay(touch.GetTouch(0));
+            Touch touch = Input.touches[0];
+            Ray ray = m_Camera.ScreenPointToRay(touch.position);
             #endif
-            Plane groundPlane = new Plane(Vector3.up,Vector3.zero);
-            float maxDist;
-            if(groundPlane.Raycast(ray,out maxDist)){
-                Vector3 point = ray.GetPoint(maxDist);
+            // Plane groundPlane = new Plane(Vector3.up,Vector3.zero);
+            if(Physics.Raycast(ray,out RaycastHit hit,float.MaxValue,hitMask)){
+                Vector3 point = hit.point;
                 Debug.DrawLine(ray.origin,point);
                 return point;
             }else{
-                return Vector3.zero;
+                return ray.GetPoint(20);
             }
 
         }
@@ -110,7 +90,7 @@ namespace InkShield {
             return isTouchMoving;
         }
         public bool GetTouchEnded(){
-            return isTouchUp;
+            return isTouchEnded;
         }
         
         

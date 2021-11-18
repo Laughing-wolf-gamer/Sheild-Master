@@ -20,6 +20,11 @@ namespace InkShield {
         private void Awake(){
             rb = GetComponent<Rigidbody>();
         }
+        private void Start(){
+            GameHandler.current.onGameOver += (object sender , OnGamoverEventsAargs args) =>{
+                DestroyMySelf();
+            };
+        }
         
         public void SetCameFromEnemy(EnemyController enemyController){
             cameFromEnemy = enemyController;
@@ -39,7 +44,7 @@ namespace InkShield {
             rb.AddForce(transform.forward * moveForce,ForceMode.Impulse);
         }
         private void OnCollisionEnter(Collision colli){
-
+            rb.velocity = Vector3.zero;
             if(colli.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable)){
                 damagable.TakeHit(5);
                 DestroyMySelf();

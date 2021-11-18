@@ -2,7 +2,6 @@ using System;
 using UnityEngine;
 using System.Collections.Generic;
 
-
 namespace GamerWolf.Utils{
     public class TimerTickSystem{
         private static List<TimerTickSystem> activeTimerList;
@@ -15,10 +14,10 @@ namespace GamerWolf.Utils{
         }
         public static TimerTickSystem CreateTimer( Action _action,float _maxtimer,string _timerName = null){
             InitIfNeeded();
-            GameObject gameObject = new GameObject("Timer tick",typeof(MonoBehaviourHood));
-            TimerTickSystem timerTickSystem = new TimerTickSystem(_timerName,_action,_maxtimer,gameObject);
+            GameObject timerGameObject = new GameObject("Timer tick",typeof(MonoBehaviourHood));
+            TimerTickSystem timerTickSystem = new TimerTickSystem(_timerName,_action,_maxtimer,timerGameObject);
             activeTimerList.Add(timerTickSystem);
-            gameObject.GetComponent<MonoBehaviourHood>().onUpdateAction = timerTickSystem.Update;
+            timerGameObject.GetComponent<MonoBehaviourHood>().onUpdateAction = timerTickSystem.Update;
             return timerTickSystem;
         }
         private static void RemoveTimer(TimerTickSystem _timerTickSystem){

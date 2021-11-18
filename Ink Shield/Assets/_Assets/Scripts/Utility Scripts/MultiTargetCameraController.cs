@@ -16,26 +16,26 @@ namespace InkShield {
 
         [Header("Camera Movemnets")]
         [SerializeField] private float smoothSpeedTime = 0.5f;
-        [SerializeField] private List<Transform> targetsList;
         [SerializeField] private Vector3 offset;
         private Vector3 velocity;
+        private List<Transform> targetsList;
         private CinemachineVirtualCamera zoomCamera;
-        private bool isFollow;
+        
 
         #region Singelton.......
-        public static MultiTargetCameraController current;
+        // public static MultiTargetCameraController current;
         private void Awake(){
-            if(current == null){
-                current = this;
-            }else{
-                Destroy(current.gameObject);
-            }
+            // if(current == null){
+            //     current = this;
+            // }else{
+            //     Destroy(current.gameObject);
+            // }
+            targetsList = new List<Transform>();
         }
 
         #endregion
         private void Start(){
             zoomCamera = GetComponent<CinemachineVirtualCamera>();
-            targetsList = new List<Transform>();
         }
 
 
@@ -49,8 +49,7 @@ namespace InkShield {
             Move();
         }
         private void Zoom(){
-            Debug.Log(GetGreatestDistance());
-            float newZoom = Mathf.Lerp(maxZoom,minZoom,GetGreatestDistance());
+            float newZoom = Mathf.Lerp(maxZoom,minZoom,GetGreatestDistance()/zoomLiminter);
             zoomCamera.m_Lens.FieldOfView = Mathf.Lerp(zoomCamera.m_Lens.FieldOfView,newZoom,Time.deltaTime);
         }
         private float GetGreatestDistance(){
@@ -58,7 +57,6 @@ namespace InkShield {
             for (int i = 0; i < targetsList.Count; i++){
                 bounds.Encapsulate(targetsList[i].position);
             }
-            Debug.Log(bounds.size);
             return bounds.size.z + bounds.size.x;
         }
         private void Move(){
@@ -80,10 +78,13 @@ namespace InkShield {
             if(!targetsList.Contains(targets)){
                 targetsList.Add(targets);
             }
-            isFollow = true;
+            
         }
-        public void GameOver(){
-            isFollow = false;
+        
+        public void RemoveTarget(Transform targets){
+            if(targetsList.Contains(targets)){
+                targetsList.Remove(targets);
+            }
         }
 
         

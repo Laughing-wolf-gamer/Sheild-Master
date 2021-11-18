@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using GamerWolf.Utils;
+using UnityEngine.Animations.Rigging;
 using System.Collections.Generic;
 namespace InkShield {
 
@@ -16,23 +17,24 @@ namespace InkShield {
         [SerializeField] private float mouseObjectMoveSpeed = 20f;
         [SerializeField] private float maxDistanceForSpawn = 1f;
 
-        
+        [Header("Animation Rigging")]
+        [SerializeField] private Rig rig;
 
         #endregion
 
         #region Private Variables.....
-        private int currentInkAmount;
         private ObjectPoolingManager objectPoolingManager;
-        
-        private List<Wall> wallList;
         private PlayerInputController playerInputController;
+        private int currentInkAmount;
         private Vector3 previousMousePositon;
+        private List<Wall> wallList;
+        private bool onInkTankEmpty;
 
         #endregion
 
 
         #region System Events.....
-        public Action onInkUse;
+        public Action onInkChange;
 
         #endregion
 
@@ -45,30 +47,43 @@ namespace InkShield {
             wallList = new List<Wall>();
             currentInkAmount = maxInkAmount;
             objectPoolingManager = ObjectPoolingManager.current;
-            onInkUse += ()=>{
+            onInkChange += ()=>{
                 UIHandler.current.SetInkTankValue(GetInkNormalizedValue());
+            };
+            GameHandler.current.onGameOver += (object sender,OnGamoverEventsAargs e)=>{
+                rig.weight = 0f;
             };
         }
        
         public void TryDrawWall(){
             if(currentInkAmount > 0){
                 if(playerInputController.GetTouchStarted()){
+                    mouseObject.gameObject.SetActive(true);
                     mouseObject.position = Vector3.MoveTowards(mouseObject.position,playerInputController.GetMousePoint(),mouseObjectMoveSpeed * Time.deltaTime);
                     previousMousePositon = mouseObject.position;
                     SpawnWall();
-                    ReduceInkValue(1);
+                    ReduceInk(1);
+                    rig.weight = 1f;
                 }else if(playerInputController.GetTouchMoving()){
                     mouseObject.position = Vector3.MoveTowards(mouseObject.position,playerInputController.GetMousePoint(),mouseObjectMoveSpeed * Time.deltaTime);
-                    if(Vector3.Distance(previousMousePositon,mouseObject.position) >= maxDistanceForSpawn){
-                        SpawnWall();
+                    if(Vector3.Distance(mouseObject.position,previousMousePositon) >= maxDistanceForSpawn){
                         previousMousePositon = mouseObject.position;
-                        ReduceInkValue(1);
+                        SpawnWall();
+                        ReduceInk(1);
                         RotateWallTowardsNewWall();
+                        rig.weight = 1f;
                     }
                     
                 }
+                if(playerInputController.GetTouchEnded()){
+                    mouseObject.position = playerInputController.GetMousePoint();
+                    mouseObject.gameObject.SetActive(false);
+                    RotateWallTowardsNewWall();
+                    rig.weight = 0f;
+                }
             }
         }
+        
 
         private void SpawnWall(){
             GameObject w = objectPoolingManager.SpawnFromPool(PoolObjectTag.Wall,playerInputController.GetMousePoint(),Quaternion.identity);
@@ -80,12 +95,18 @@ namespace InkShield {
             }
             
         }
-        public void ReduceInkValue(int _value){
+        public void ReduceInk(int _value){
             currentInkAmount -= _value;
             if(currentInkAmount <= 0){
                 currentInkAmount = 0;
             }
-            onInkUse?.Invoke();
+            onInkChange?.Invoke();
+        }
+        public void FillInk(int _value){
+            if(currentInkAmount <= 0){
+                currentInkAmount += _value;
+                onInkChange?.Invoke();
+            }
         }
         public float GetInkNormalizedValue(){
             return currentInkAmount/(float)maxInkAmount;

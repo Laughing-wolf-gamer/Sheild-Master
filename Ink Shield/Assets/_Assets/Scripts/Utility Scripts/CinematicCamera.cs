@@ -8,7 +8,7 @@ namespace InkShield {
         
 
         [SerializeField] private CinemachineVirtualCamera playerViewCamera;
-        [SerializeField] private CinemachineVirtualCamera gameViewCamera;
+        private CinemachineVirtualCamera gameViewCamera;
 
         public static CinematicCamera current;
         private void Awake(){

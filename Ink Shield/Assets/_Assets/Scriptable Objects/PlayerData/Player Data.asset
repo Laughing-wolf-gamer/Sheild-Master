@@ -12,4 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e787769e49c66e4448eea2820e44118e, type: 3}
   m_Name: Player Data
   m_EditorClassIdentifier: 
-  maxCoinCount: 0
+  playerSaveData:
+    currentLevelNumber: 1
+    maxCoinCount: 0
+    currentExperience: 0
+  abiliys:
+  - {fileID: 11400000, guid: bdd96a405d83a6e4197e2f92396bc21a, type: 2}
+  - {fileID: 11400000, guid: c761f0f505e045b4286f328f3ee17056, type: 2}

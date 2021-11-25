@@ -1,70 +1,42 @@
 using UnityEngine;
+using Cinemachine;
 using System.Collections.Generic;
 namespace InkShield{ 
     public class LevelData : MonoBehaviour {
         
         [Header("Spawing Variables.")]
-        [SerializeField] private LayerMask ignoreLayer;
-        [SerializeField] private LayerMask enemyLayer;
-        [SerializeField] private int spawnNumber = 2;
-        [SerializeField] private Vector3 size;
-        [SerializeField] private Vector3 center;
-        
-        [SerializeField] private EnemyController enemyPrefab;
-        [SerializeField] private List<Vector3> spawnPointList;
-        [SerializeField] private bool ranomiseEnemyCount;
+        // [SerializeField] private EnemyType[] enemiesTypeToSpawn;
+        [SerializeField] private EnemyController[] enemyPrefabArray;
+        [SerializeField] private List<Transform> spawnPointList;
+        [SerializeField] private CinemachineVirtualCamera gameViewCamera;
         private List<EnemyController> enemiesList;
-
+        private EnemyController newEnemy;
         private void Awake(){
-            if(ranomiseEnemyCount){
-                spawnNumber = Random.Range(1,7);
-            }
-            FindSpawnPoints();
-            SpawnObjects();
+            SpawnEnemyes();
         }
-        
-        
-        private void FindSpawnPoints(){
-            spawnPointList = new List<Vector3>();
-            for(int i = 0; i < spawnNumber; i++){
-                Vector3 point = center + new Vector3(Random.Range(-size.x/2f,size.z/2f),0f,Random.Range(-size.z/2f,size.z/2f));
-                Ray ray = new Ray(point,Vector3.down);
-                if(Physics.Raycast(ray,out RaycastHit hit,float.MaxValue,ignoreLayer)){
-                    Vector3 setPoint = hit.point;
-                    if(Physics.CheckSphere(setPoint,2f,enemyLayer)){
-                        setPoint = transform.right + setPoint;
-                    }else{
-                        setPoint = hit.point;
-                    }
-                    if(!spawnPointList.Contains(setPoint)){
-                        spawnPointList.Add(setPoint);
-                    }
-                    
-                }
-            }
-            
+        private void Start(){
+            LevelManager.current.SetGameViewcamera(gameViewCamera);
         }
-
         public List<EnemyController> GetEnemieList(){
             return enemiesList;
         }
 
         
-        private void SpawnObjects(){
+        private void SpawnEnemyes(){
             enemiesList = new List<EnemyController>();
-            for (int i = 0; i < spawnPointList.Count; i++){
-                EnemyController newEnemy = Instantiate(enemyPrefab,spawnPointList[i],Quaternion.identity);
+            int spawnAmount = UnityEngine.Random.Range(1,spawnPointList.Count);
+            for (int i = 0; i < spawnAmount; i++){
+                int randEnemy = UnityEngine.Random.Range(0,enemyPrefabArray.Length);
+                newEnemy = Instantiate(enemyPrefabArray[randEnemy],spawnPointList[i].position,Quaternion.identity);
                 newEnemy.transform.SetParent(transform);
                 if(!enemiesList.Contains(newEnemy)){
                     enemiesList.Add(newEnemy);
                 }
                 
             }
+            
         }
-        private void OnDrawGizmos(){
-            Gizmos.color = Color.red;
-            Gizmos.DrawCube(transform.position + center,size);
-        }
+        
     }
 
 }

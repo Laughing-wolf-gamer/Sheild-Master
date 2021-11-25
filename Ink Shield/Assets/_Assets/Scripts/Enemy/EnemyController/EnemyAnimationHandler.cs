@@ -2,12 +2,11 @@ using UnityEngine;
 using GamerWolf.Utils;
 using UnityEngine.Animations.Rigging;
 namespace InkShield {
-    [RequireComponent(typeof(RagDollManagment))]
     public class EnemyAnimationHandler : MonoBehaviour {
         
 
-        private Animator animator;
         [SerializeField] private Rig rig;
+        private Animator animator;
 
         private void Awake(){
             animator = GetComponent<Animator>();
@@ -16,7 +15,7 @@ namespace InkShield {
             GameHandler.current.onGameOver += OnGameOver;
         }
         private void OnGameOver(object sender , OnGamoverEventsAargs e){
-            rig.weight = 0f;
+            StopRig();
             if(e.iswin){
                 PlayIsDeadAnimations();
             }else{
@@ -29,14 +28,19 @@ namespace InkShield {
             animator.SetInteger("dance Number",rand);
         }
         public void PlayIsDeadAnimations(){
+
             int rand = Random.Range(0,4);
             animator.SetInteger("death Numb",rand);
-
             animator.SetTrigger("isDead");
+            rig.weight = 0f;
         }
         public void PlayShootingAnimations(){
-            rig.weight = 1f;
+            rig.weight = Mathf.Lerp(rig.weight,1f,1f);
             animator.SetTrigger("Shoot");
+        }
+        public void StopRig(){
+            rig.weight = Mathf.Lerp(rig.weight,0f,1f);
+            
         }
         
     }

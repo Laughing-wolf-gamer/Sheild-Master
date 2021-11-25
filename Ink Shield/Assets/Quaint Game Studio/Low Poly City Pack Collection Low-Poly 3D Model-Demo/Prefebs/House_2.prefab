@@ -11,8 +11,7 @@ GameObject:
   - component: {fileID: 1819623139589277028}
   - component: {fileID: 1819623139589277031}
   - component: {fileID: 1819623139589277030}
-  - component: {fileID: -2074944541869836530}
-  - component: {fileID: 1076751891207432305}
+  - component: {fileID: 3751933442175062159}
   m_Layer: 0
   m_Name: House_2
   m_TagString: Untagged
@@ -57,6 +56,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -98,8 +98,9 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!64 &-2074944541869836530
-MeshCollider:
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3751933442175062159
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -108,21 +109,6 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7443724666282046697, guid: 35da5e21024891f49b2c3b8af47fb8bd, type: 3}
---- !u!64 &1076751891207432305
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1819623139589277033}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -7443724666282046697, guid: 35da5e21024891f49b2c3b8af47fb8bd, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 5.3172607, y: 0.5788338, z: 6.5921307}
+  m_Center: {x: -5.774496, y: 4.0992694, z: -2.3023367}

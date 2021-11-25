@@ -6,6 +6,7 @@ namespace InkShield {
         
         [SerializeField] private LayerMask hitMask;
         
+        [SerializeField] private LevelManager levelManager;
         private bool isTouchDown;
         private bool isTouchMoving;
         private bool isTouchEnded;
@@ -14,10 +15,8 @@ namespace InkShield {
         private Vector3 MousePoint;
         
         private bool isFirstTouch;
-
-
         public static PlayerInputController current;
-
+        
 
         private void Awake(){
             if(current == null){
@@ -32,53 +31,59 @@ namespace InkShield {
         public void GetPcInput(){
 
             if(!EventSystem.current.IsPointerOverGameObject()){
-                isTouchDown = Input.GetMouseButtonDown(0);
-                isTouchMoving = Input.GetMouseButton(0);
-                isTouchEnded = Input.GetMouseButtonUp(0);
+                isTouchDown = Input.GetMouseButtonDown(0) && GetMousePoint() != Vector3.zero;
+                isTouchMoving = Input.GetMouseButton(0) && GetMousePoint() != Vector3.zero;
+                isTouchEnded = Input.GetMouseButtonUp(0) && GetMousePoint() != Vector3.zero;
                 if(isTouchEnded){
                     if(!isFirstTouch){
                         isFirstTouch = true;
-                        LevelManager.current.SubscribeToOnFirstTouch();
-                    }
-                }
-            }
-            
-            
-        }
-        public void GetMobileInput(){
-            if(Input.touchCount > 0){
-                Touch touch = Input.touches[0];
-                int id = touch.fingerId;
-                if(!EventSystem.current.IsPointerOverGameObject(id)){
-                    isTouchDown = touch.phase == TouchPhase.Began ? true : false;
-                    isTouchMoving = touch.phase == TouchPhase.Moved ? true : false;
-                    isTouchEnded = touch.phase == TouchPhase.Ended ? true : false;
-                    if(isTouchEnded){
-                        if(!isFirstTouch){
-                            isFirstTouch = true;
-                            LevelManager.current.SubscribeToOnFirstTouch();
+                        if(levelManager != null){
+                            levelManager.SubscribeToOnFirstTouch();
+
                         }
                     }
                 }
             }
             
-
+            
         }
+        
+        public void GetMobileInputs(){
+            if(Input.touchCount > 0){
+                Touch touch = Input.touches[0];
+                int id = touch.fingerId;
+                if(!EventSystem.current.IsPointerOverGameObject(id)){
+                    isTouchDown = (touch.phase == TouchPhase.Began && GetMousePoint() != Vector3.zero) ? true : false;
+                    isTouchMoving = (touch.phase == TouchPhase.Moved && GetMousePoint() != Vector3.zero) ? true : false;
+                    isTouchEnded = (touch.phase == TouchPhase.Ended && GetMousePoint() != Vector3.zero) ? true : false;
+                    if(isTouchEnded){
+                        if(!isFirstTouch){
+                            isFirstTouch = true;
+                            if(levelManager != null){
+                                levelManager.SubscribeToOnFirstTouch();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
         public Vector3 GetMousePoint(){
             #if UNITY_EDITOR
             Ray ray = m_Camera.ScreenPointToRay(Input.mousePosition);
             #else
-            Touch touch = Input.touches[0];
+            Touch touch = Input.GetTouch(0);
             Ray ray = m_Camera.ScreenPointToRay(touch.position);
             #endif
-            // Plane groundPlane = new Plane(Vector3.up,Vector3.zero);
-            if(Physics.Raycast(ray,out RaycastHit hit,float.MaxValue,hitMask)){
-                Vector3 point = hit.point;
-                Debug.DrawLine(ray.origin,point);
-                return point;
+            Vector3 point = Vector3.zero;
+            if(Physics.Raycast(ray,out RaycastHit hit,300f,hitMask,QueryTriggerInteraction.Ignore)){
+                Debug.DrawLine(ray.origin,point,Color.cyan);
+                point = hit.point;
             }else{
-                return ray.GetPoint(20);
+                point = Vector3.zero;
             }
+            
+            return point;
 
         }
 

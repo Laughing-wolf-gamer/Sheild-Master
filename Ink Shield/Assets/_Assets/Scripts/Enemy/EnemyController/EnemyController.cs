@@ -5,41 +5,44 @@ using System.Collections;
 using GamerWolf.Utils.HealthSystem;
 
 namespace InkShield {
+    public enum EnemyType{
+        Normal,Armourd,Super
+    }
     
     public class EnemyController : HealthEntity {
-        
-        [SerializeField] private float cuttOffValue = 8f;
-        [SerializeField] private Transform firePoint;
+        [SerializeField] protected EnemyType enemyType;
+
+        [Header("Enemy Shooting")]
         [SerializeField] private GameObject wepon;
+        [SerializeField] private Transform firePoint;
         [SerializeField] private LayerMask wallLayer;
-        [SerializeField] private Rotator[] rotators;
-        [SerializeField] private EnemyAnimationHandler animationHandler;
-        
         [SerializeField] private float maxFireTime = 4f;
+
+        [Header("External References")]
+        [SerializeField] private EnemyAnimationHandler animationHandler;
+        [SerializeField] private HealthBar healthBar;
+        [SerializeField] private Rotator[] rotators;
+        
         private ObjectPoolingManager objectPoolingManager;
         private PlayerController player;
-        private Rigidbody rb;
         private string timerName = "Fire Timer";
-        private bool isPlayerDead;
-        private bool startDessolve;
+        
         protected override void Awake(){
             base.Awake();
-            rb = GetComponent<Rigidbody>();
-
         }
         
         protected override void Start(){
+            
+            base.OnHit += (object sender ,EventArgs e) => {
+                healthBar.UpdateHealthBar(base.GetHealthNormalized(),transform);
+            };
+            healthBar.HideHealthBar();
             base.Start();
             player = PlayerController.player;
             objectPoolingManager = ObjectPoolingManager.current;
-            
-            
         }
+        
         public void StartEnemy(){
-            int rand = UnityEngine.Random.Range(0,5);
-            if(rand > 3){
-                rb.AddForce((Vector3.up) * 2f,ForceMode.Impulse);
-            }
             Debug.Log("On Game Start");
             StartCoroutine(nameof(ShootingRoutine));
             base.onDead += (object sender,EventArgs e) =>{
@@ -54,11 +57,10 @@ namespace InkShield {
         
         
         private IEnumerator ShootingRoutine(){
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
             while(!isDead){
-                if(!isPlayerDead){
-                    Fire();
-                }
+                Fire();
+                
                 yield return new WaitForSeconds(maxFireTime);
             }
         }
@@ -73,19 +75,19 @@ namespace InkShield {
         }
         
 
-        private void Fire(){
-            if(!Physics.Raycast(transform.position,transform.forward,5f,wallLayer)){
-                wepon.SetActive(true);
-                GameObject projectile =  objectPoolingManager.SpawnFromPool(PoolObjectTag.Projectile,firePoint.position,firePoint.rotation);
-                Projectile bullet = projectile.GetComponent<Projectile>();
-                if(bullet != null){
-                    bullet.SetCameFromEnemy(this);
-                }
-                animationHandler.PlayShootingAnimations();
-            }else{
-                TakeHit(4);
+        protected virtual void Fire(){
+            
+            wepon.SetActive(true);
+            GameObject projectile =  objectPoolingManager.SpawnFromPool(PoolObjectTag.Projectile,firePoint.position,firePoint.rotation);
+            Projectile bullet = projectile.GetComponent<Projectile>();
+            if(bullet != null){
+                bullet.SetCameFromEnemy(this);
             }
+            animationHandler.PlayShootingAnimations();
+            
         }
+
+        
         
         private void RotateTowardsPlayer(){
             for (int i = 0; i < rotators.Length; i++){
@@ -93,13 +95,10 @@ namespace InkShield {
             }
         }
         
-        
-        public void PlayerDead(bool value){
-            if(!isDead){
-                isPlayerDead = value;
-            }
-            
+        public EnemyType GetEnemyType(){
+            return enemyType;
         }
+        
         
     }
 

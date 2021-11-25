@@ -13,7 +13,7 @@ namespace InkShield {
         }
         private void Start(){
             GameHandler.current.onGameOver += OnGameOver;
-            // player.onDead += OnPlayerDeath;
+            player.OnHit += OnPlayerDeath;
         }
         private void OnPlayerDeath(object sender,System.EventArgs e){
             PlayIsDeadAnimations();

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GamerWolf.Utils{
     [RequireComponent(typeof(Animator))]
     public class RagDollManagment : MonoBehaviour {
-
+        [SerializeField] private bool canRagDoll;
         [SerializeField] private Collider mainCollider;
         [SerializeField] private Rigidbody mainRigidBody;
         [SerializeField] private Collider[] bodyCollidersArray;
@@ -18,15 +18,19 @@ namespace GamerWolf.Utils{
 
         }
         public void StartRagDoll(){
-            mainRigidBody.AddForce(Vector3.up * 20f ,ForceMode.Impulse);
-            mainRigidBody.AddForce(transform.forward * -10f,ForceMode.Impulse);
-            ActivateRagdoll(true);
+            if(canRagDoll){
+                ActivateRagdoll(true);
+            }
         }
         private void ActivateRagdoll(bool activate){
             if(activate){
                 animator.enabled = false;
-                mainCollider.enabled = false;
-                mainRigidBody.isKinematic = true;
+                if(mainCollider != null){
+                    mainCollider.enabled = false;
+                }
+                if(mainRigidBody != null){
+                    mainRigidBody.isKinematic = true;
+                }
                 foreach(Collider collis in bodyCollidersArray){
                     collis.enabled = true;   
                 }
@@ -34,8 +38,13 @@ namespace GamerWolf.Utils{
                     rbs.isKinematic = false;
                 }
             }else{
-                mainCollider.enabled = true;
-                mainRigidBody.isKinematic = false;
+                if(mainCollider != null){
+                    mainCollider.enabled = true;
+
+                }
+                if(mainRigidBody != null){
+                    mainRigidBody.isKinematic = false;
+                }
                 foreach(Collider collis in bodyCollidersArray){
                     collis.enabled = false;   
                 }

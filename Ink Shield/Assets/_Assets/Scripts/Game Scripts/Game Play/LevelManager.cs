@@ -6,14 +6,13 @@ using System.Collections.Generic;
 namespace InkShield {
     public class LevelManager : MonoBehaviour {
 
-        [SerializeField] private List<LevelDataSO> levelList;
         [SerializeField] private PlayerController player;
-        [SerializeField] private MultiTargetCameraController multiTargetCameraController,playerTargetCamera;
+        [SerializeField] private List<LevelDataSO> levelList;
+        [SerializeField] private CinematicCamera cinematicCamera;
+
         public Action onFirstTouchOnScreen;
-        
-        private string timerName = "Enemy Check timer";
         private List<EnemyController> enemyList;
-        
+        private GameHandler gameHandler;
 
         #region Singelton.......
 
@@ -24,21 +23,18 @@ namespace InkShield {
             }else{
                 Destroy(current.gameObject);
             }
+            gameHandler = GetComponent<GameHandler>();
         }
         #endregion
         
 
         private void Start(){
             enemyList = new List<EnemyController>();
-            
             SpawnLevel();
-            
-
         }
         public void CheckForAllEnemyDead(){
             if(player.GetIsDead()){
-                GameHandler.current.isPlayerDead = true;
-                PauseEnemyShooting();
+                gameHandler.SetGameOver(false);
                 return;
             }
             for (int i = 0; i < enemyList.Count; i++){
@@ -47,56 +43,59 @@ namespace InkShield {
                 }
             }
             if(!player.GetIsDead()){
-                GameHandler.current.SetGameOver(true);
+                gameHandler.SetGameOver(true);
+                gameHandler.AddCoin(2);
             }
         }
         private void SpawnLevel(){
-            playerTargetCamera.SetTargetToList(player.transform);
-            int random = UnityEngine.Random.Range(0,levelList.Count);
-            LevelData level =  Instantiate(levelList[random].levelData,transform.position,Quaternion.identity);
-
+            int randLevel = UnityEngine.Random.Range(0,levelList.Count);
+            LevelData level =  Instantiate(levelList[randLevel].levelData,transform.position,Quaternion.identity);
             enemyList = level.GetEnemieList();
-            SetTargetToList();
             onFirstTouchOnScreen += StartGame;
         }
-        private void SetTargetToList(){
-            multiTargetCameraController.SetTargetToList(player.transform);
-            for (int i = 0; i < enemyList.Count; i++){
-                multiTargetCameraController.SetTargetToList(enemyList[i].transform);
-            }
-        }
+        
         
         private void StartGame(){
             for (int e = 0; e < enemyList.Count; e++){
                 enemyList[e].StartEnemy();
             }
-            TimerTickSystem.CreateTimer(CheckForAllEnemyDead,0.1f,timerName);
         }
         
-        private void PauseEnemyShooting(){
-            for (int e = 0; e < enemyList.Count; e++){
-                enemyList[e].PlayerDead(player.GetIsDead());
-            }
-
+        public void SetGameViewcamera(Cinemachine.CinemachineVirtualCamera camer){
+            cinematicCamera.SetGameCamera(camer);
         }
-        public void OnPlayerRevive(){
-            player.FillInk();
-            for (int e = 0; e < enemyList.Count; e++){
-                enemyList[e].PlayerDead(player.GetIsDead());
-            }
-        }
+        
         
         public void EndGame(){
             for (int e = 0; e < enemyList.Count; e++){
                 enemyList[e].EndGame();
             }
-            TimerTickSystem.StopTimer(timerName);
         }
         public void SubscribeToOnFirstTouch(){
             if(onFirstTouchOnScreen != null){
                 onFirstTouchOnScreen();
             }
+
         }
+        public void TryEnableAbilityWindow(){
+            UIHandler.current.EnableAbilityWindw(true);
+            if(enemyList.Count >= 3){
+            }else{
+                // UIHandler.current.EnableAbilityWindw(false);
+            }
+        }
+        public void KillOneEnemyBeforePlaying(){
+            int rand = UnityEngine.Random.Range(0,enemyList.Count);
+            enemyList[rand].TakeHit(2);
+            SubscribeToOnFirstTouch();
+            
+        }
+        public void ArmourForPlayer(){
+            SubscribeToOnFirstTouch();
+            player.ActivateForceField();
+            
+        }
+        
         
         
     }

@@ -11,13 +11,13 @@ namespace GamerWolf.Utils.HealthSystem {
         public event EventHandler onDead;
         public event EventHandler OnHit;
         protected virtual void Awake(){
-
             ResetHealth();   
         }
         protected virtual void Start(){
+            
         }
         public void ResetHealth(){
-            Debug.Log(transform.name + " is Revived");
+            Debug.Log("Health is Reset for " + transform.name);
             isDead = false;
             currentHealth = maxHealth;
             SetCanDie(true);
@@ -36,7 +36,11 @@ namespace GamerWolf.Utils.HealthSystem {
         }
         protected virtual void Die(){
             isDead = true;
+            Debug.Log(transform.name + " is Dead");
             onDead?.Invoke(this,EventArgs.Empty);
+        }
+        protected float GetHealthNormalized(){
+            return (float)currentHealth/maxHealth;
         }
         public virtual void SetCanDie(bool _value){
             canDie = _value;

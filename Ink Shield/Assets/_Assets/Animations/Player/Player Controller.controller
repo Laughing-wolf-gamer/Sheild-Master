@@ -20,7 +20,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 9392ee2c8e6d72043b1dcc1422e004ed, type: 2}
+  m_Motion: {fileID: -203655887218126122, guid: d7c1fa395c797cf4e933a5f9abc0ea0f, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -33,7 +33,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Standing Death Left
+  m_Name: Falling Forward Death
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -46,7 +46,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d6abe852f4f2a6343b7dfca51954c1cf, type: 2}
+  m_Motion: {fileID: -203655887218126122, guid: de35c925bdf8f2c4383f3a0b88d3b80b, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -189,7 +189,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 7e964446b7036aa4eb6af93beea2b01b, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: f0ff71dd675c5884f81e82d69be3c586, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -202,7 +202,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Standing Death Forward
+  m_Name: Falling Back Death
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -215,7 +215,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 024a0ce805757244c80ca9d4cac170f2, type: 2}
+  m_Motion: {fileID: -203655887218126122, guid: b72734c2f3458f94a893c0ff3e3bc46d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -340,7 +340,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: -203655887218126122, guid: 5daa9720ea35b6c4094c9407663a5afa, type: 3}
+  m_Motion: {fileID: -203655887218126122, guid: e778f26a2ed3d474296d4b52305a77ab, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -435,7 +435,7 @@ AnimatorState:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Standing React Death Backward
+  m_Name: Flying Back Death
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -448,7 +448,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: cfa267980c133994f974bae77cb9cd48, type: 2}
+  m_Motion: {fileID: -203655887218126122, guid: 30079a386f731a545a24d154c04aef8d, type: 3}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 

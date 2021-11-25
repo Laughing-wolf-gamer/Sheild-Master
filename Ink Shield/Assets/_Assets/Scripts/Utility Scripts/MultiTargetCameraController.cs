@@ -17,23 +17,10 @@ namespace InkShield {
         [Header("Camera Movemnets")]
         [SerializeField] private float smoothSpeedTime = 0.5f;
         [SerializeField] private Vector3 offset;
+        [Header("List Of Target")]
+        [SerializeField]private List<Transform> targetsList;
         private Vector3 velocity;
-        private List<Transform> targetsList;
         private CinemachineVirtualCamera zoomCamera;
-        
-
-        #region Singelton.......
-        // public static MultiTargetCameraController current;
-        private void Awake(){
-            // if(current == null){
-            //     current = this;
-            // }else{
-            //     Destroy(current.gameObject);
-            // }
-            targetsList = new List<Transform>();
-        }
-
-        #endregion
         private void Start(){
             zoomCamera = GetComponent<CinemachineVirtualCamera>();
         }

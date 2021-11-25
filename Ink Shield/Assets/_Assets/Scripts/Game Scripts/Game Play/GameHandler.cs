@@ -2,8 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+
 namespace InkShield {
     public class OnGamoverEventsAargs :EventArgs{
         public bool iswin;
@@ -29,18 +28,19 @@ namespace InkShield {
         #endregion
 
         #region Private Variables.......
+        private AdController adController;
         private UIHandler uIHandler;
         private LevelManager levelManager;
         #endregion
 
         #region System Events.....
         public event EventHandler<OnGamoverEventsAargs> onGameOver;
-        public bool isPlayerDead;
         #endregion
 
 
         #region Singelton.........
         public static GameHandler current;
+        private int randomAmountCoin;
         
         private void Awake(){
         #if UNITY_EDITOR
@@ -61,7 +61,13 @@ namespace InkShield {
 
 
         private void Start(){
-            canShowRewardedAds = AdController.current.IsRewardedAdLoaded();
+            adController = AdController.current;
+            if(adController.IsRewardedAdLoaded()){
+                SetCanRewardedShowAd(true);
+            }else{
+                SetCanRewardedShowAd(false);
+            }
+            randomAmountCoin = UnityEngine.Random.Range(200,500);
             levelManager = GetComponent<LevelManager>();
             uIHandler = UIHandler.current;
             StartCoroutine(nameof(GameStartRoutine));
@@ -69,50 +75,50 @@ namespace InkShield {
 
 
         private IEnumerator GameStartRoutine(){
+            uIHandler.ShowExtraLifeRewardAdWindow(false,0);
             onGameStart?.Invoke();
             while(!isGamePlaying){
                 yield return null;
             }
             
-            isGamePlaying = false;
+            isGamePlaying = true;
             StartCoroutine(nameof(GamePlayRoutine));
         }
         private IEnumerator GamePlayRoutine(){
             onGamePlaying?.Invoke();
+            
             while(!isGameOver){
-                if(isPlayerDead){
-                    if(canShowRewardedAds){
-                        uIHandler.ShowExtraLifeRewardAdWindow(true);
-                        if(isShowingRewardAds){
-                            uIHandler.ShowExtraLifeRewardAdWindow(false);
-                        }
-                    }else{
-                        uIHandler.ShowExtraLifeRewardAdWindow(false);
-                        SetGameOver(false);
-                    }
-                }
+                
+                levelManager.CheckForAllEnemyDead();
                 yield return null;
 
             }
-            uIHandler.ShowExtraLifeRewardAdWindow(false);
             onGameOver?.Invoke(this,new OnGamoverEventsAargs{iswin = this.isWon});
             onGameEnd?.Invoke();
             yield return new WaitForSeconds(1.5f);
+            if(canShowRewardedAds){
+                int rand =  UnityEngine.Random.Range(0,5);
+                if(rand >= 2){
+                    uIHandler.ShowExtraLifeRewardAdWindow(true,randomAmountCoin);
+                }else{
+                    uIHandler.ShowExtraLifeRewardAdWindow(false);
+                }
+            }
+            yield return new WaitForSeconds(1f);
             if(isWon){
                 onWin?.Invoke();
             }else{
+                if(canShowInterstetialAds){
+                    adController.ShowInterstitialAd();
+                }
                 onLoss?.Invoke();
             }
         }
         public void RevivePlayer(){
             // Calls After Player Watches Ads.............
-            isPlayerDead = false;
-            LevelManager.current.OnPlayerRevive();
-            AddCoin(20);
+            AddCoin(randomAmountCoin);
         }
-        private IEnumerator ReviveRoutine(){
-            yield return null;
-        }
+       
 
         public void PlayGame(){
             isGamePlaying = true;
@@ -125,7 +131,7 @@ namespace InkShield {
         }
         public void Restart(){
             if(isGameOver){
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                LevelLoader.current.PlayLevel(SceneIndex.Game_Scene);
             }
         }
         public void PlayInterStetialAds(){
@@ -140,7 +146,6 @@ namespace InkShield {
             canShowRewardedAds = value;
         }
         public void SetIsRewardedAdsPlaying(bool value){
-
             // Set If Player is Watching a Rewarded Ads....
             isShowingRewardAds = value;
         }
@@ -150,13 +155,10 @@ namespace InkShield {
         }
         public void AddCoin(int value){
             playerData.AddCoins(value);
+            uIHandler.UpdateCoinAmountUI();
         }
-        public void RemoveCoin(int value){
-            playerData.ReduceCoins(value);
-        }
-        public void SetIsPlayerDead(bool value){
-            isPlayerDead = value;
-        }
+        
+       
         
     }
 

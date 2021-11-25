@@ -6,12 +6,16 @@ namespace InkShield {
         
         
         [Header("External References")]
-        [Space(20)]
-        [SerializeField] private Transform targetPoint;
-        [SerializeField] private Transform onWinLookPoint;
-        [Space(20)]
+        [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private GameHandler gameHandler;
         [SerializeField] private PlayerAnimation playerAnimation;
+        [Header("Inputs Toggle")]
+        [SerializeField] private bool onPc = true;
+        [Space(20)]
+        [SerializeField] private Transform targetPoint;
+        [SerializeField] private GameObject forceFieldObject;
+        [SerializeField] private Transform onWinLookPoint;
+        
 
         #region Private Variables....
         private bool enableInpts;
@@ -22,6 +26,7 @@ namespace InkShield {
         #region Singelton...
         public static PlayerController player;
         protected override void Awake(){
+            base.Awake();
             if(player == null){
                 player = this;
             }else{
@@ -29,10 +34,9 @@ namespace InkShield {
             }
             wallCreater = GetComponent<WallCreater>();
             playerInputController = GetComponent<PlayerInputController>();
-            gameHandler.SetIsPlayerDead(GetIsDead());
-            
         }
         protected override void Start(){
+            
             base.Start();
             gameHandler.onGameOver += (object sender, OnGamoverEventsAargs args) =>{
                 RotatePlayer(onWinLookPoint.position);
@@ -42,15 +46,16 @@ namespace InkShield {
 
         private void Update(){
             if(enableInpts){
+                if(onPc){
+                    playerInputController.GetPcInput();
+                }else{
+                    playerInputController.GetMobileInputs();
+                }
                 wallCreater.TryDrawWall();
                 RotatePlayer(targetPoint.position);
-                #if UNITY_EDITOR
-                    playerInputController.GetPcInput();
-                #else
-                    playerInputController.GetMobileInput();
-                #endif
             }
         }
+        
 
         public void ActivateInputs(bool _value){
             enableInpts = _value;
@@ -64,8 +69,17 @@ namespace InkShield {
             base.ResetHealth();
             wallCreater.FillInk(20);
         }
-
-
+        
+        public int GetTouchCount(){
+            return wallCreater.GetTouchCount();
+        }
+        
+        public void OnLevelComplete(){
+            playerData.OnLevelComplete();
+        }
+        public void ActivateForceField(){
+            forceFieldObject.SetActive(true);
+        }
         
     }
 

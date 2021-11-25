@@ -13,14 +13,18 @@ namespace InkShield {
         [Space(20)]
 
         [Header("Movement Variables")]
+        [SerializeField] private LayerMask collisonMask;
         [SerializeField] private float moveForce = 20f;
         [SerializeField] private float maxLifeTime = 5f;
         private EnemyController cameFromEnemy;
-        private Rigidbody rb;
-        private void Awake(){
-            rb = GetComponent<Rigidbody>();
-        }
+        private bool Move;
         private void Start(){
+            PlayerController.player.onDead += (object sender,System.EventArgs e) =>{
+                DestroyMySelf();
+            };
+            cameFromEnemy.onDead += (object sender,System.EventArgs e) =>{
+                DestroyMySelf();
+            };
             GameHandler.current.onGameOver += (object sender , OnGamoverEventsAargs args) =>{
                 DestroyMySelf();
             };
@@ -28,32 +32,58 @@ namespace InkShield {
         
         public void SetCameFromEnemy(EnemyController enemyController){
             cameFromEnemy = enemyController;
+            // Move();
+            Move = true;
         }
 
 
         public void DestroyMySelf(){
+            onDestroy?.Invoke();
+            Move = false;
+            cameFromEnemy = null;
             gameObject.SetActive(false);
         }
 
         public void OnObjectReuse(){
-            Move();
+            // rb.velocity = Vector3.zero;
             Invoke(nameof(DestroyMySelf),maxLifeTime);
+            onResuse?.Invoke();
         }
         
-        private void Move(){
-            rb.AddForce(transform.forward * moveForce,ForceMode.Impulse);
+        private void Update(){
+            if(Move){
+                float moveDista = moveForce * Time.deltaTime;
+                CheckCollision(moveDista);
+                transform.Translate(Vector3.forward * moveDista);
+            }
+
         }
-        private void OnCollisionEnter(Collision colli){
-            rb.velocity = Vector3.zero;
-            if(colli.gameObject.TryGetComponent<IDamagable>(out IDamagable damagable)){
-                damagable.TakeHit(5);
-                DestroyMySelf();
-            }else{
-                rb.velocity = Vector3.zero;
-                transform.LookAt(cameFromEnemy.transform);
-                Move();
+        private void CheckCollision(float moveDistance){
+            Ray ray = new Ray (transform.position,transform.forward);
+            RaycastHit hit;
+            if(Physics.Raycast(ray,out hit,moveDistance,collisonMask,QueryTriggerInteraction.Collide)){
+                OnHitObject(hit);
             }
         }
+        private void OnHitObject(RaycastHit _hit){
+
+            if(_hit.transform.TryGetComponent<IDamagable>(out IDamagable damagable)){
+                damagable.TakeHit(1);
+                DestroyMySelf();
+            }else {
+                if(_hit.transform.TryGetComponent<ForcefieldImpact>(out ForcefieldImpact forcefield)){
+                    forcefield.OnImpcat(_hit);
+                    // forcefield.HideWall();
+                }
+                if(cameFromEnemy != null){
+                    transform.LookAt(cameFromEnemy.transform);
+                }else{
+                    DestroyMySelf();
+                }
+            }
+        }
+        
+        
         
         
     }

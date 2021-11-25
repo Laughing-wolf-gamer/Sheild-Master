@@ -1,8 +1,8 @@
 using System;
 using UnityEngine;
 using GamerWolf.Utils;
-using UnityEngine.Animations.Rigging;
 using System.Collections.Generic;
+using UnityEngine.Animations.Rigging;
 namespace InkShield {
 
     public class WallCreater : MonoBehaviour {
@@ -14,8 +14,8 @@ namespace InkShield {
 
         [Header("Mouse Targets")]
         [SerializeField] private Transform mouseObject;
-        [SerializeField] private float mouseObjectMoveSpeed = 20f;
-        [SerializeField] private float maxDistanceForSpawn = 1f;
+        [SerializeField] private float maxDistanceForSpawn = 2f;
+        [SerializeField] private float maxDistanceFromPlayer = 2f;
 
         [Header("Animation Rigging")]
         [SerializeField] private Rig rig;
@@ -25,11 +25,13 @@ namespace InkShield {
         #region Private Variables.....
         private ObjectPoolingManager objectPoolingManager;
         private PlayerInputController playerInputController;
+        [SerializeField] private int touchCount;
         private int currentInkAmount;
         private Vector3 previousMousePositon;
-        private List<Wall> wallList;
-        private bool onInkTankEmpty;
-
+        private ExpandingWall currentWall;
+        private Vector3 previousDir;
+        private Vector3 initPoint;
+        private float firstTouchDistacne;
         #endregion
 
 
@@ -44,7 +46,6 @@ namespace InkShield {
             playerInputController = GetComponent<PlayerInputController>();
         }
         private void Start(){
-            wallList = new List<Wall>();
             currentInkAmount = maxInkAmount;
             objectPoolingManager = ObjectPoolingManager.current;
             onInkChange += ()=>{
@@ -54,49 +55,60 @@ namespace InkShield {
                 rig.weight = 0f;
             };
         }
-       
+        
+        
         public void TryDrawWall(){
             if(currentInkAmount > 0){
+                mouseObject.position = playerInputController.GetMousePoint();
                 if(playerInputController.GetTouchStarted()){
-                    mouseObject.gameObject.SetActive(true);
-                    mouseObject.position = Vector3.MoveTowards(mouseObject.position,playerInputController.GetMousePoint(),mouseObjectMoveSpeed * Time.deltaTime);
-                    previousMousePositon = mouseObject.position;
-                    SpawnWall();
-                    ReduceInk(1);
-                    rig.weight = 1f;
-                }else if(playerInputController.GetTouchMoving()){
-                    mouseObject.position = Vector3.MoveTowards(mouseObject.position,playerInputController.GetMousePoint(),mouseObjectMoveSpeed * Time.deltaTime);
-                    if(Vector3.Distance(mouseObject.position,previousMousePositon) >= maxDistanceForSpawn){
-                        previousMousePositon = mouseObject.position;
-                        SpawnWall();
-                        ReduceInk(1);
-                        RotateWallTowardsNewWall();
-                        rig.weight = 1f;
+                    // Check if the Player is Touching the screen Very Far.
+                    firstTouchDistacne = Vector3.Distance(transform.position,playerInputController.GetMousePoint());
+                    // Set First Point.
+                    initPoint = mouseObject.position;
+                    if(firstTouchDistacne <= maxDistanceFromPlayer){
+                        ReduceInk();
+                        currentWall = SpawnNewWall(mouseObject.position);
+                        previousDir = (initPoint - mouseObject.position).normalized;
                     }
-                    
                 }
-                if(playerInputController.GetTouchEnded()){
-                    mouseObject.position = playerInputController.GetMousePoint();
-                    mouseObject.gameObject.SetActive(false);
-                    RotateWallTowardsNewWall();
-                    rig.weight = 0f;
+                if(playerInputController.GetTouchMoving()){
+                    if(firstTouchDistacne <= maxDistanceFromPlayer){
+                        Vector3 currentDir = (previousDir - mouseObject.position).normalized;
+                        currentWall.SetExpandDir(mouseObject.position);
+                        if(currentDir != previousDir){
+                            previousDir = currentDir;
+                            if(Vector3.Distance(initPoint,mouseObject.position) >= maxDistanceForSpawn){
+                                
+                                ExpandingWall wall = SpawnNewWall(currentWall.GetNewWallSpawnPoint());
+                                if(wall != currentWall){
+                                    currentWall = wall;
+                                }
+                                initPoint = mouseObject.position;
+                                ReduceInk();
+                            }
+                        }
+                    }
                 }
             }
-        }
-        
-
-        private void SpawnWall(){
-            GameObject w = objectPoolingManager.SpawnFromPool(PoolObjectTag.Wall,playerInputController.GetMousePoint(),Quaternion.identity);
-            Wall wall = w.GetComponent<Wall>();
-            if(wall != null){
-                if(!wallList.Contains(wall)){
-                    wallList.Add(wall);
-                }
+            if(playerInputController.GetTouchEnded()){
+                rig.weight = 0f;
+                touchCount++;
             }
             
         }
-        public void ReduceInk(int _value){
-            currentInkAmount -= _value;
+        private ExpandingWall SpawnNewWall(Vector3 pos){
+            GameObject obj = objectPoolingManager.SpawnFromPool(PoolObjectTag.Wall,pos,Quaternion.identity);
+            ExpandingWall wall = obj.GetComponent<ExpandingWall>();
+            if(wall != null){
+                return wall;
+            }
+            return null;
+        }
+        
+        
+        
+        public void ReduceInk(){
+            currentInkAmount--;
             if(currentInkAmount <= 0){
                 currentInkAmount = 0;
             }
@@ -105,35 +117,17 @@ namespace InkShield {
         public void FillInk(int _value){
             if(currentInkAmount <= 0){
                 currentInkAmount += _value;
-                onInkChange?.Invoke();
             }
+            onInkChange?.Invoke();
         }
         public float GetInkNormalizedValue(){
             return currentInkAmount/(float)maxInkAmount;
         }
         
-        private void RotateWallTowardsNewWall(){
-            for (int i = 0; i < wallList.Count; i++){
-                if(i != 0){
-                    if(i < wallList.Count - 1){
-                        wallList[i].SetNextWall(wallList[i + 1].transform);
-                        wallList.Remove(wallList[i]);
-                    }else{
-                        wallList[i].SetNextWall(mouseObject);
-                    }
-                }else{
-                    wallList[i].SetNextWall(mouseObject);
-                    wallList.Remove(wallList[0]);
-                }
-                
-            }
-            
+       
+        public int GetTouchCount(){
+            return touchCount;
         }
-        
-
-
-        
-        
     }
 
 }

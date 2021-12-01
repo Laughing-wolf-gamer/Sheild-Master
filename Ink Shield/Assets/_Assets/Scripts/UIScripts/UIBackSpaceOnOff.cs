@@ -9,6 +9,9 @@ namespace GamerWolf.Utils {
         private void Update(){
             if(Input.GetKeyDown(KeyCode.Escape)){
                 windowToActive.SetActive(true);
+                if(windowToDeactive == null){
+                    windowToDeactive = gameObject;
+                }
                 windowToDeactive.SetActive(false);
             }
         }

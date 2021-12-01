@@ -77,7 +77,12 @@ namespace InkShield {
             UpdateAbililyValueUI();
         }
         
-        
+        public void WatchRewardedAds(){
+            AdController.current.ShowRewardedAd();
+        }
+        public void WatchInterstetialAds(){
+            AdController.current.ShowInterstitialAd();
+        }
         
     }
     

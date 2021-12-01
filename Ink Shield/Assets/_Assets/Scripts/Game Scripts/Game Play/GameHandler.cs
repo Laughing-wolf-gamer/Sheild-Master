@@ -67,6 +67,12 @@ namespace InkShield {
             }else{
                 SetCanRewardedShowAd(false);
             }
+
+            if(adController.isInterstetialAdLoaded()){
+                SetCanShowInterstetialAds(true);
+            }else{
+                SetCanShowInterstetialAds(false);
+            }
             randomAmountCoin = UnityEngine.Random.Range(200,500);
             levelManager = GetComponent<LevelManager>();
             uIHandler = UIHandler.current;
@@ -95,14 +101,13 @@ namespace InkShield {
             }
             onGameOver?.Invoke(this,new OnGamoverEventsAargs{iswin = this.isWon});
             onGameEnd?.Invoke();
-            yield return new WaitForSeconds(1.5f);
             if(canShowRewardedAds){
-                int rand =  UnityEngine.Random.Range(0,5);
-                if(rand >= 2){
-                    uIHandler.ShowExtraLifeRewardAdWindow(true,randomAmountCoin);
-                }else{
-                    uIHandler.ShowExtraLifeRewardAdWindow(false);
-                }
+                uIHandler.ShowExtraLifeRewardAdWindow(true,randomAmountCoin); 
+                // int rand =  UnityEngine.Random.Range(0,5);
+                // if(rand >= 2){
+                // }else{
+                //     // uIHandler.ShowExtraLifeRewardAdWindow(false);
+                // }
             }
             yield return new WaitForSeconds(1f);
             if(isWon){
@@ -137,7 +142,7 @@ namespace InkShield {
         public void PlayInterStetialAds(){
             if(canShowInterstetialAds){
                 if(!isShowingRewardAds){
-                    AdController.current.ShowInterstitialAd();
+                    UIHandler.current.WatchInterstetialAds();
                 }
             }
         }

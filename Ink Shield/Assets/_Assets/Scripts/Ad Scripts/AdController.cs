@@ -180,6 +180,9 @@ namespace InkShield{
                 }
             }
         }
+        public bool isInterstetialAdLoaded(){
+            return interstitialAd.IsLoaded();
+        }
         public void HandleInterStetailAdFailedToLoad(object sender, AdFailedToLoadEventArgs args){
             GameHandler.current.SetCanShowInterstetialAds(false);
             if(!interstitialAd.IsLoaded()){

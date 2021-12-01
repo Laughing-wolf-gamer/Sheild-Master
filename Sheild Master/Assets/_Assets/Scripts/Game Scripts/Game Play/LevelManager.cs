@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using GamerWolf.Utils;
 using System.Collections.Generic;
 
 namespace SheildMaster {
@@ -13,6 +12,8 @@ namespace SheildMaster {
         public Action onFirstTouchOnScreen;
         private List<EnemyController> enemyList;
         private GameHandler gameHandler;
+        private float surviveTime;
+        private int randLevel;
 
         #region Singelton.......
 
@@ -33,7 +34,9 @@ namespace SheildMaster {
             SpawnLevel();
         }
         public void CheckForAllEnemyDead(){
+            surviveTime ++;
             if(player.GetIsDead()){
+                levelList[randLevel].playerDeathCountOnLevel++;
                 gameHandler.SetGameOver(false);
                 return;
             }
@@ -47,10 +50,20 @@ namespace SheildMaster {
                 gameHandler.AddCoin(2);
             }
         }
+        public void SetLevelEndResult(){
+            
+            if(player.GetIsDead()){
+                GameEventManager.OnGameLost(levelList[randLevel].name,surviveTime,levelList[randLevel].playerDeathCountOnLevel);
+            }else{
+                GameEventManager.OnGameWon(levelList[randLevel].name,surviveTime);
+            }
+        }
+        
         private void SpawnLevel(){
-            int randLevel = UnityEngine.Random.Range(0,levelList.Count);
-            LevelData level =  Instantiate(levelList[randLevel].levelData,transform.position,Quaternion.identity);
-            enemyList = level.GetEnemieList();
+            randLevel = UnityEngine.Random.Range(0,levelList.Count);
+            LevelData currentLevel =  Instantiate(levelList[randLevel].levelData,transform.position,Quaternion.identity);
+            
+            enemyList = currentLevel.GetEnemieList();
             onFirstTouchOnScreen += StartGame;
         }
         
@@ -86,7 +99,7 @@ namespace SheildMaster {
         }
         public void KillOneEnemyBeforePlaying(){
             int rand = UnityEngine.Random.Range(0,enemyList.Count);
-            enemyList[rand].TakeHit(2);
+            enemyList[rand].TakeHit(10);
             SubscribeToOnFirstTouch();
             
         }

@@ -27,6 +27,11 @@ namespace SheildMaster{
         public static LevelLoader current {get;private set;}
         private float totalProgress;
         private void Awake(){
+        #if UNITY_EDITOR
+            Debug.unityLogger.logEnabled = true;
+        #else
+            Debug.unityLogger.logEnabled = false;
+        #endif
             DontDestroyOnLoad(this.gameObject);
             if(current == null){
                 current = this;

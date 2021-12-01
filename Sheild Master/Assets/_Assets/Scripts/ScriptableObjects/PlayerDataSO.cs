@@ -9,7 +9,12 @@ namespace SheildMaster{
         
         public PlayerSaveData playerSaveData;
         public AbilitySO[] abiliys;
-        public Material currentSkinMaterial;
+        public Material playerSkinMaterial,playerClothMaterial,playerBeltMat;
+        private void OnValidate(){
+            if(playerSaveData.currentLevelNumber <= 0){
+                playerSaveData.currentLevelNumber = 1;
+            }
+        }
         
         public void AddCoins(int value){
             playerSaveData.maxCoinCount += value;
@@ -20,11 +25,17 @@ namespace SheildMaster{
                 playerSaveData.maxCoinCount = 0;
             }
         }
-        public bool GetCurentDailyBonuShown(){
-            return playerSaveData.isShownDailyBonus;
+        public bool GetDailyBonusWindowAlreadyShown(){
+            return playerSaveData.alreadyShownDailyBonusWindow;
         }
         public void SetDailyBonusAlreadyShown(bool _value){
-            playerSaveData.isShownDailyBonus = _value;
+            playerSaveData.alreadyShownDailyBonusWindow = _value;
+        }
+        public void SetClamedBonus(bool _value){
+            playerSaveData.isClamedDailyBonus = _value;
+        }
+        public bool GetIsClamedBonus(){
+            return playerSaveData.isClamedDailyBonus;
         }
         public void SetcurrentDay(int day){
             playerSaveData.currentDay = day;
@@ -82,7 +93,8 @@ namespace SheildMaster{
     [System.Serializable]
     public class PlayerSaveData {
         public int currentDay;
-        public bool isShownDailyBonus;
+        public bool alreadyShownDailyBonusWindow;
+        public bool isClamedDailyBonus;
         public int dimondAmount;
         public int currentLevelNumber;
         public int maxCoinCount;

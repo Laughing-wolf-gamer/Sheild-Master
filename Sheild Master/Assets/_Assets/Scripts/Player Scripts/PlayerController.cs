@@ -21,6 +21,7 @@ namespace SheildMaster {
         private bool enableInpts;
         private PlayerInputController playerInputController;
         private WallCreater wallCreater;
+        
         #endregion
 
         #region Singelton...
@@ -35,6 +36,7 @@ namespace SheildMaster {
             wallCreater = GetComponent<WallCreater>();
             playerInputController = GetComponent<PlayerInputController>();
         }
+        
         protected override void Start(){
             
             base.Start();
@@ -54,7 +56,6 @@ namespace SheildMaster {
                 wallCreater.TryDrawWall();
                 if(playerInputController.GetTouchMoving()){
                     RotatePlayer(targetPoint.position);
-
                 }
             }
         }

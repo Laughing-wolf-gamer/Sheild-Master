@@ -1,10 +1,9 @@
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Events;
+
 
 namespace SheildMaster {
     public class MainMenu : MonoBehaviour {
-
         [SerializeField] private UnityEvent onGameStart;
 
         private void Start(){
@@ -18,6 +17,7 @@ namespace SheildMaster {
                 Application.Quit();
             }
         }
+        
         
     }
 

@@ -12,7 +12,9 @@ namespace SheildMaster{
     public class ShopItemSO : ScriptableObject {
 
         public ShopItemType shopItemType;        
-        public Material itemMat;
+        public Material playerSkin;
+        public Material playerClothMat;
+        public Material playerBeltMat;
         public ShopItemData itemData;
         public int GetItemCost(){
             return itemData.cost;
@@ -23,6 +25,9 @@ namespace SheildMaster{
                     itemData.isSelected = true;
                 }
             }
+        }
+        public bool GetIsItemSelected(){
+            return itemData.isSelected;
         }
         public void UnSelectItem(){
             if(itemData.isSelected){

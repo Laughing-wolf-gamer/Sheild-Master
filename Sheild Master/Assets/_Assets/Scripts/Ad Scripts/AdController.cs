@@ -10,7 +10,7 @@ namespace SheildMaster{
 
         private readonly string interstitialId = "ca-app-pub-3940256099942544/1033173712";
         private readonly string rewardedId = "ca-app-pub-3940256099942544/5224354917";
-        private readonly string bannerId = "";
+        private readonly string bannerId = "ca-app-pub-3940256099942544/6300978111";
         private readonly string appId = "ca-app-pub-1447736674902262~2052801395";
 
         private RewardedAd rewardedAd;
@@ -89,7 +89,7 @@ namespace SheildMaster{
         
 
 
-        #region RewardedHandle
+        #region Rewarded Ad Handle
         private void RequestRewardedAd(){
             AdRequest request = new AdRequest.Builder().Build();
             rewardedAd.LoadAd(request);
@@ -101,6 +101,7 @@ namespace SheildMaster{
         public void ShowRewardedAd(){
             if (rewardedAd.IsLoaded()){
                 rewardedAd.Show();
+                GameEventManager.GetRewardAdClicked();
                 GameHandler.current.SetIsRewardedAdsPlaying(true);
             }else{
                 RequestRewardedAd();
@@ -169,6 +170,7 @@ namespace SheildMaster{
         public void ShowInterstitialAd(){
             if (interstitialAd.IsLoaded()){
                 interstitialAd.Show();
+                GameEventManager.GetInterStetialAdData();
             }
             else{
                 RequestInterstitial();

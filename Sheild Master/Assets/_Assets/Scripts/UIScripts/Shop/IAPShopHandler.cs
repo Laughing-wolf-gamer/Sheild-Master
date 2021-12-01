@@ -9,9 +9,12 @@ namespace SheildMaster {
         [SerializeField] private TextMeshProUGUI coinAmountText;
         [SerializeField] private PlayerDataSO playerData;
 
+        private void Start(){
+            SetUP();
+        }
 
         private void SetUP(){
-            coinAmountText.SetText(string.Concat(itemSO.CoinAmount.ToString()," Coins"));
+            coinAmountText.SetText(string.Concat(itemSO.CoinAmount.ToString()));
         }
         public void Buy(){
             playerData.AddCoins(itemSO.CoinAmount);

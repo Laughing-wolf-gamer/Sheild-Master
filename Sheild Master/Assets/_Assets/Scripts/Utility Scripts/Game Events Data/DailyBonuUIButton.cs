@@ -17,7 +17,7 @@ namespace SheildMaster {
             CheckForDailyReward();
         }
         public void CheckForDailyReward(){
-            if(playerDataSO.GetCurentDailyBonuShown()){
+            if(playerDataSO.GetIsClamedBonus()){
                 noitificationIcon.SetActive(false);
                 clameRewardButton.interactable = false;
             }else{
@@ -43,8 +43,11 @@ namespace SheildMaster {
 
                 }
             }
+            rewardNameText.SetText("REWARD CLAMED... \n No Reward For Today.. \n Come Back Tommorow");
+            todayNameText.SetText(" ");
             noitificationIcon.SetActive(false);
             playerDataSO.SetDailyBonusAlreadyShown(true);
+            playerDataSO.SetClamedBonus(true);
         }
         
         

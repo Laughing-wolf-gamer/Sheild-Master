@@ -4,7 +4,7 @@ using UnityEngine;
 namespace SheildMaster {
     public class PlayerInventroy : MonoBehaviour {
 
-        [SerializeField] private Material playerMat;
+        [SerializeField] private SkinnedMeshRenderer playerSkinMat,playerClothMat,playerBeltMat;
 
         [SerializeField] private PlayerDataSO playerDataSO;
 
@@ -12,7 +12,9 @@ namespace SheildMaster {
             SetcurrentSkin();
         }
         private void SetcurrentSkin()        {
-            playerMat = playerDataSO.currentSkinMaterial;
+            playerSkinMat.material = playerDataSO.playerSkinMaterial;
+            playerClothMat.material = playerDataSO.playerClothMaterial;
+            playerBeltMat.material = playerDataSO.playerBeltMat;
         }
         
     }

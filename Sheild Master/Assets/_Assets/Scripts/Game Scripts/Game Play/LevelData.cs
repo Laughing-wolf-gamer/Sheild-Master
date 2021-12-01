@@ -5,7 +5,6 @@ namespace SheildMaster{
     public class LevelData : MonoBehaviour {
         
         [Header("Spawing Variables.")]
-        // [SerializeField] private EnemyType[] enemiesTypeToSpawn;
         [SerializeField] private EnemyController[] enemyPrefabArray;
         [SerializeField] private List<Transform> spawnPointList;
         [SerializeField] private CinemachineVirtualCamera gameViewCamera;
@@ -35,6 +34,10 @@ namespace SheildMaster{
                 
             }
             
+        }
+        [ContextMenu("Set Max Look Distace")]
+        public void SetMaxLookDistance(){
+            gameViewCamera.m_Lens.FarClipPlane = 70;
         }
         
     }

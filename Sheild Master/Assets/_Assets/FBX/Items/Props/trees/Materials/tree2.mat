@@ -21,18 +21,33 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: tree2
-  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: ec24faeb611dde64980ed01e0ac672d3, type: 3}
   m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP _PARALLAXMAP _RECEIVE_SHADOWS_OFF
   m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2000
-  stringTagMap:
-    RenderType: Opaque
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_6f389fe8ab24464b9392e23a07a6c379:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_97c21011e46c447fb46d5f0a67c9a7b4:
+        m_Texture: {fileID: 2800000, guid: 1da674118c377654d96a812c9e1030c8, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_9eaba19222214c87bfef1314afb21606:
+        m_Texture: {fileID: 2800000, guid: cf6fde179e21bb04491b843bb4a69a15, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_f979164fc2fc464babb6974d52383e23:
+        m_Texture: {fileID: 2800000, guid: 3503dd4bce7e73a468b61de432d506e4, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: 3503dd4bce7e73a468b61de432d506e4, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -90,6 +105,9 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_d1c5795f8edb439bba4043b9e34e6f55: 0
+    - Vector1_99f533c95e724f18a072fbf9789acc6b: 0.5
+    - Vector1_bd52ad806d92427183805c59b9e6b502: 0
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
@@ -119,6 +137,8 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     m_Colors:
+    - Color_769bc1bfae7d424f8250e5d5ef1fbe2e: {r: 1, g: 1, b: 1, a: 1}
+    - Vector3_14e25eb93f1446e883bf3e72494b564a: {r: 0, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

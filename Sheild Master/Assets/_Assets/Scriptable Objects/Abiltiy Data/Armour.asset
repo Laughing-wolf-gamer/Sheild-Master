@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 1
   discription: Save You From One Bullet
-  isUnlocked: 0
-  abilityUseCount: 0
+  isUnlocked: 1
+  abilityUseCount: 50

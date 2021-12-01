@@ -24,6 +24,7 @@ namespace SheildMaster {
         [SerializeField] private bool isShowingRewardAds;
         [SerializeField] private bool canShowRewardedAds;
         [SerializeField] private bool canShowInterstetialAds;
+        [SerializeField] private bool isGamePause;
 
         #endregion
 
@@ -41,8 +42,8 @@ namespace SheildMaster {
         #region Singelton.........
         public static GameHandler current;
         private int randomAmountCoin;
-        
         private void Awake(){
+
         #if UNITY_EDITOR
             Debug.unityLogger.logEnabled = true;
         #else
@@ -56,12 +57,12 @@ namespace SheildMaster {
         }
 
         #endregion
-
-
         
 
+        
         private void Start(){
             adController = AdController.current;
+            onGameResume?.Invoke();
             if(adController.IsRewardedAdLoaded()){
                 SetCanRewardedShowAd(true);
             }else{
@@ -77,6 +78,19 @@ namespace SheildMaster {
             levelManager = GetComponent<LevelManager>();
             uIHandler = UIHandler.current;
             StartCoroutine(nameof(GameStartRoutine));
+            PlayerInputController.current.OnGamePause += OnGamePlayPause;
+        }
+        private void OnGamePlayPause(){
+            if(!isGameOver && isGamePlaying){
+                isGamePause = !isGamePause;
+                if(isGamePause){
+                    Time.timeScale = 0f;
+                    onGamePause?.Invoke();
+                }else{
+                    Time.timeScale = 1f;
+                    onGameResume?.Invoke();
+                }
+            }
         }
 
 
@@ -95,10 +109,12 @@ namespace SheildMaster {
             
             while(!isGameOver){
                 
+                
                 levelManager.CheckForAllEnemyDead();
                 yield return null;
 
             }
+            levelManager.SetLevelEndResult();
             onGameOver?.Invoke(this,new OnGamoverEventsAargs{iswin = this.isWon});
             onGameEnd?.Invoke();
             if(canShowRewardedAds){
@@ -119,20 +135,17 @@ namespace SheildMaster {
                 onLoss?.Invoke();
             }
         }
+       
+        
+        #region Public Methods.....
+        
         public void RevivePlayer(){
             // Calls After Player Watches Ads.............
             AddCoin(randomAmountCoin);
         }
-       
-
         public void PlayGame(){
             isGamePlaying = true;
             isGameOver = false;
-        }
-        public void SetGameOver(bool isWon){
-            isGamePlaying = false;
-            isGameOver = true;
-            this.isWon = isWon;
         }
         public void Restart(){
             if(isGameOver){
@@ -149,6 +162,12 @@ namespace SheildMaster {
                 }
             }
         }
+
+        #endregion
+
+
+        #region public Setters.......
+
         public void SetCanRewardedShowAd(bool value){
             // Set If Player can Watch an Reward Ad.
             canShowRewardedAds = value;
@@ -165,6 +184,13 @@ namespace SheildMaster {
             playerData.AddCoins(value);
             uIHandler.UpdateCoinAmountUI();
         }
+        public void SetGameOver(bool isWon){
+            isGamePlaying = false;
+            isGameOver = true;
+            this.isWon = isWon;
+        }
+
+        #endregion
         
        
         

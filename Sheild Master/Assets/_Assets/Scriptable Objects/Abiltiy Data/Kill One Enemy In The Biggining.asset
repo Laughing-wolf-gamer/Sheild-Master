@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 0
   discription: Kill one Random Enemy in the beggingin
-  isUnlocked: 0
-  abilityUseCount: 0
+  isUnlocked: 1
+  abilityUseCount: 50

@@ -12,7 +12,7 @@ namespace SheildMaster {
         [SerializeField] private DayOfWeek dayOfTheWeek;
         [SerializeField] private DailyRewardSO[] dailyRewardSOs;
         private void Awake(){
-            dayOfTheWeek = DayOfWeek.Saturday;
+            dayOfTheWeek = DateTime.Today.DayOfWeek;
         }
         private void Start() {
             int currentDay = (int)dayOfTheWeek;

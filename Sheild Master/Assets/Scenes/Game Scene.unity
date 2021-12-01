@@ -1540,7 +1540,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &283707890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2069,7 +2069,7 @@ MonoBehaviour:
   playerData: {fileID: 11400000, guid: e8274db418ab89f42b503eac970bd4b3, type: 2}
   gameHandler: {fileID: 392600967}
   playerAnimation: {fileID: 1229890516}
-  onPc: 0
+  onPc: 1
   targetPoint: {fileID: 199312660}
   forceFieldObject: {fileID: 361992713}
   onWinLookPoint: {fileID: 2066818494}
@@ -3099,6 +3099,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2ff6587ada0efd64fa98e54369ffab7f, type: 2}
   - {fileID: 11400000, guid: 332526c527fdd224ba5de62553b1af70, type: 2}
   - {fileID: 11400000, guid: aa5a125db9e7a5b4a9b103e621365e7e, type: 2}
+  - {fileID: 11400000, guid: 4e4a743a6abcf644c930a5c1af675734, type: 2}
+  - {fileID: 11400000, guid: ef41b7a28aa0a674f9bbe312a53033a6, type: 2}
+  - {fileID: 11400000, guid: 4dfea828c5b64a34fa8d2c76494d73b7, type: 2}
   cinematicCamera: {fileID: 392600969}
 --- !u!114 &392600969
 MonoBehaviour:
@@ -5600,7 +5603,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1124087753}
-  m_LocalRotation: {x: 0.09504467, y: 0.00000001765564, z: -0.0000000016857058, w: 0.995473}
+  m_LocalRotation: {x: 0.09504467, y: -0.00000001765564, z: 0.0000000016857058, w: 0.995473}
   m_LocalPosition: {x: 0.07000017, y: 5.465, z: -32.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -8994,7 +8997,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066818492}
-  m_LocalRotation: {x: 0.09504467, y: 0.00000001765564, z: -0.0000000016857058, w: 0.995473}
+  m_LocalRotation: {x: 0.09504467, y: -0.00000001765564, z: 0.0000000016857058, w: 0.995473}
   m_LocalPosition: {x: 0.07000017, y: 5.465, z: -32.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

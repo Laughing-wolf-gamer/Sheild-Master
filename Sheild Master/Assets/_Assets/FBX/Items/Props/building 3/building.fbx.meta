@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 42091cecf045d0e41bf1293271605355
+guid: 5074081109ab714418d0386ce52e8b70
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
@@ -11,7 +11,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: building_
-    second: {fileID: 2100000, guid: c784275ba2a0b8748bcc3dd056ccbd6d, type: 2}
+    second: {fileID: 2100000, guid: eadaac90916bfde41a4fdd499f2a00a7, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -42,7 +42,7 @@ ModelImporter:
     isReadable: 0
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: 1000
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
@@ -81,7 +81,7 @@ ModelImporter:
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
   referencedClips: []
-  importAnimation: 0
+  importAnimation: 1
   humanDescription:
     serializedVersion: 3
     human: []

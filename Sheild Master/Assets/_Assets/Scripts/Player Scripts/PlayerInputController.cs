@@ -16,7 +16,6 @@ namespace SheildMaster {
         
         private bool isFirstTouch;
         
-        public System.Action OnGamePause;
         public static PlayerInputController current;
 
         private void Awake(){
@@ -26,14 +25,7 @@ namespace SheildMaster {
             m_Camera = Camera.main;
             isFirstTouch = false;
         }
-
-        
-        
         public void GetPcInput(){
-
-            if(Input.GetKeyDown(KeyCode.Escape)){
-                OnGamePause?.Invoke();
-            }
             if(!EventSystem.current.IsPointerOverGameObject()){
                 isTouchDown = Input.GetMouseButtonDown(0) && GetMousePoint() != Vector3.zero;
                 isTouchMoving = Input.GetMouseButton(0) && GetMousePoint() != Vector3.zero;
@@ -42,7 +34,7 @@ namespace SheildMaster {
                     if(!isFirstTouch){
                         isFirstTouch = true;
                         if(levelManager != null){
-                            levelManager.SubscribeToOnFirstTouch();
+                            levelManager.StartGame();
 
                         }
                     }
@@ -53,9 +45,6 @@ namespace SheildMaster {
         }
         
         public void GetMobileInputs(){
-            if(Input.GetKeyDown(KeyCode.Escape)){
-                OnGamePause?.Invoke();
-            }
             if(Input.touchCount > 0){
                 Touch touch = Input.touches[0];
                 int id = touch.fingerId;
@@ -67,7 +56,7 @@ namespace SheildMaster {
                         if(!isFirstTouch){
                             isFirstTouch = true;
                             if(levelManager != null){
-                                levelManager.SubscribeToOnFirstTouch();
+                                levelManager.StartGame();
                             }
                         }
                     }

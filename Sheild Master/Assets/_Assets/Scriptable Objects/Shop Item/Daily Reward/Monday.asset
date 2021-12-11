@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Monday
   m_EditorClassIdentifier: 
   dayOfWeek: 1
-  discription: 1. Get Sheild
+  discription: Get Sheild
   dailyBonyData:
     coinAmount: 0
     shieldUseCount: 1

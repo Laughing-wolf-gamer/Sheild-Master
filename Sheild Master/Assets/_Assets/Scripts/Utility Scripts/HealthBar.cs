@@ -9,19 +9,20 @@ namespace GamerWolf.Utils.HealthSystem {
         [SerializeField] private Image bar;
         [SerializeField] private Canvas canvas;
         private Camera viewCam;
-        private void Awake(){
-            transform.LookAt(Camera.main.transform);
-            // viewCam =  Camera.main;
-        }
+        
+        
         private void Start(){
             canvas.worldCamera = viewCam;
             healthBar.gameObject.SetActive(true);
             bar.fillAmount = 1f;
+            transform.LookAt(viewCam.transform);
         }
+        private void LateUpdate(){
 
+            transform.LookAt(viewCam.transform);
+        }
         
-        public void UpdateHealthBar(float healthAmount,Transform toLook){
-            transform.LookAt(toLook);
+        public void UpdateHealthBar(float healthAmount){
             // ShowHealthBar();
             bar.fillAmount = healthAmount;
         }

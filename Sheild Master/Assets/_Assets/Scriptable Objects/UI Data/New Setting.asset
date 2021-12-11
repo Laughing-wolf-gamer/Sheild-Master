@@ -16,5 +16,6 @@ MonoBehaviour:
   settingsData:
     currentLanguage: 0
     isMusicOn: 1
-    isSoundOn: 0
+    isSoundOn: 1
+    notification: 0
     privacyAndPolicy: 

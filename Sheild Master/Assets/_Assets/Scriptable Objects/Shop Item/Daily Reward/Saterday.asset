@@ -13,12 +13,9 @@ MonoBehaviour:
   m_Name: Saterday
   m_EditorClassIdentifier: 
   dayOfWeek: 6
-  discription: '1. Get 50 Coins
+  discription: 'Get 50 Coins
 
-    2. Get One Sheild Abiltity
-
-    3. Get One Kill
-    One Enemy Abilitiy'
+'
   dailyBonyData:
     coinAmount: 50
     shieldUseCount: 1

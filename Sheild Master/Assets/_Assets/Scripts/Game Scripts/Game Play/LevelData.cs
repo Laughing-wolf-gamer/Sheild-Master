@@ -34,15 +34,15 @@ namespace SheildMaster{
                 spawnAmount = spawnPointList.Count;
             }
             for (int i = 0; i < spawnAmount; i++){
-                // if(playerDataSO.GetLevelNumber() <= 10){
-                //     randEnemy = 0;
-                // }else if(playerDataSO.GetLevelNumber() > 10 && playerDataSO.GetLevelNumber() <= 20){
-                //     randEnemy = UnityEngine.Random.Range(1,enemyPrefabArray.Length);
-                // }else if(playerDataSO.GetLevelNumber() > 20 && playerDataSO.GetLevelNumber() <= 25){
-                //     randEnemy = 2;
-                // }else{
-                // }
-                randEnemy = UnityEngine.Random.Range(0,enemyPrefabArray.Length);
+                if(playerDataSO.GetLevelNumber() <= 10){
+                    randEnemy = 0;
+                }else if(playerDataSO.GetLevelNumber() > 10 && playerDataSO.GetLevelNumber() <= 20){
+                    randEnemy = UnityEngine.Random.Range(1,enemyPrefabArray.Length);
+                }else if(playerDataSO.GetLevelNumber() > 20 && playerDataSO.GetLevelNumber() <= 25){
+                    randEnemy = 2;
+                }else{
+                    randEnemy = UnityEngine.Random.Range(0,enemyPrefabArray.Length);
+                }
                 newEnemy = Instantiate(enemyPrefabArray[randEnemy],spawnPointList[i].position,Quaternion.identity);
                 
 

@@ -33,7 +33,7 @@ namespace SheildMaster {
         protected override void Start(){
             
             base.OnHit += (object sender ,EventArgs e) => {
-                healthBar.UpdateHealthBar(base.GetHealthNormalized(),transform);
+                healthBar.UpdateHealthBar(base.GetHealthNormalized());
                 GameHandler.current.IncreaseKills();
             };
             healthBar.HideHealthBar();
@@ -47,8 +47,9 @@ namespace SheildMaster {
         }
         
         public void StartEnemy(){
-            Debug.Log("On Game Start");
+            Debug.Log("On Game Start " + transform.name);
             StartCoroutine(nameof(ShootingRoutine));
+            
             GameHandler.current.onGameOver += (object sender,OnGamoverEventsAargs e)=> {
                 StopCoroutine(nameof(ShootingRoutine));
                 wepon.SetActive(false);

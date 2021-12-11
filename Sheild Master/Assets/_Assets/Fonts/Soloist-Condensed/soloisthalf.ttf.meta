@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3aba1ebbe816f4744996dc5d8bb9b538
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - Soloist Halftone
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 7863eea12f6ef1347a0f2858625d3992, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

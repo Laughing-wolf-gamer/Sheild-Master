@@ -243,7 +243,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmosSize: 2
-  spawnOnAllPoint: 1
+  spawnOnAllPoint: 0
   playerDataSO: {fileID: 11400000, guid: e8274db418ab89f42b503eac970bd4b3, type: 2}
   enemyPrefabArray:
   - {fileID: 2631001762348821827, guid: 39a5aa1d7b013ab4f940deff40f0631c, type: 3}

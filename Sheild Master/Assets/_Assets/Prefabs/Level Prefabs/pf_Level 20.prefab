@@ -585,7 +585,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmosSize: 2
-  spawnOnAllPoint: 1
+  spawnOnAllPoint: 0
   playerDataSO: {fileID: 11400000, guid: e8274db418ab89f42b503eac970bd4b3, type: 2}
   enemyPrefabArray:
   - {fileID: 2631001762348821827, guid: 39a5aa1d7b013ab4f940deff40f0631c, type: 3}
@@ -784,7 +784,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8362965171026975845, guid: 425cd50a6934d5f44b9d1a8fdbe9653c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.5552387
+      value: -5.6
       objectReference: {fileID: 0}
     - target: {fileID: 8362965171026975845, guid: 425cd50a6934d5f44b9d1a8fdbe9653c, type: 3}
       propertyPath: m_LocalRotation.w

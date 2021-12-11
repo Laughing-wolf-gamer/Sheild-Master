@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sunday
   m_EditorClassIdentifier: 
   dayOfWeek: 0
-  discription: 1. Get 50 Coins
+  discription: Get 50 Coins
   dailyBonyData:
     coinAmount: 50
     shieldUseCount: 0

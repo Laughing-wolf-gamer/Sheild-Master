@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: ThursDay
   m_EditorClassIdentifier: 
   dayOfWeek: 4
-  discription: '1. Get 50 coins
+  discription: 'Get 50 coins
 
-    2. Get Kill One Enemy Abilitiy'
+'
   dailyBonyData:
     coinAmount: 50
     shieldUseCount: 0

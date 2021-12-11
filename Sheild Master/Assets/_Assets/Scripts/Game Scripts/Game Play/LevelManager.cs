@@ -9,12 +9,14 @@ namespace SheildMaster {
         [SerializeField] private List<LevelDataSO> levelDataList;
         [SerializeField] private CinematicCamera cinematicCamera;
         [SerializeField] private Camera UiCamera;
+        [SerializeField] private bool isTouchedtheScreen;
 
         public Action onFirstTouchOnScreen;
         private List<EnemyController> enemyList;
         private GameHandler gameHandler;
         private float surviveTime;
         private int randLevel;
+        private int currenCoinCount;
 
         #region Singelton.......
 
@@ -48,13 +50,20 @@ namespace SheildMaster {
             }
             if(!player.GetIsDead()){
                 gameHandler.SetGameOver(true);
+                UIHandler.current.SetCurrentLevelEarnedCoins(enemyList.Count);
             }
         }
         public void CollectCoin(){
-            if(player.GetTouchCount() == 1){
-                gameHandler.AddCoin(enemyList.Count + 2);    
-            }
-            gameHandler.AddCoin(enemyList.Count);
+            // if(player.GetTouchCount() == 1){
+            //     gameHandler.AddCoin(enemyList.Count);    
+            // }
+            UIHandler.current.SetCurrentLevelEarnedCoins(0);
+            
+            gameHandler.AddCoin(currenCoinCount);
+        }
+        public void AddTwiceMoney(){
+            currenCoinCount *= 2;
+            gameHandler.AddCoin(currenCoinCount);
         }
         
         public void SetLevelEndResult(){
@@ -74,11 +83,13 @@ namespace SheildMaster {
             for (int i = 0; i < enemyList.Count; i++){
                 enemyList[i].SetViewCameraForHealthBar(UiCamera);
             }
-            onFirstTouchOnScreen += StartGame;
+            currenCoinCount = enemyList.Count;
+            
         }
         
         
-        private void StartGame(){
+        public void StartGame(){
+            isTouchedtheScreen = true;
             for (int e = 0; e < enemyList.Count; e++){
                 enemyList[e].StartEnemy();
             }
@@ -96,6 +107,7 @@ namespace SheildMaster {
         }
         public void SubscribeToOnFirstTouch(){
             if(onFirstTouchOnScreen != null){
+                
                 onFirstTouchOnScreen();
             }
 

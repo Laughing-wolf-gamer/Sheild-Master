@@ -2,6 +2,8 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 using System.Collections;
+using UnityEngine.Rendering.Universal;
+using UnityEngine.Rendering;
 
 namespace SheildMaster {
     public class OnGamoverEventsAargs :EventArgs{
@@ -12,11 +14,13 @@ namespace SheildMaster {
         #region Exposed Variables........
 
         [Header("Events")]
+        [SerializeField] private Volume blurVolume;
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private UnityEvent onGameStart;
         [SerializeField] private UnityEvent onGamePlaying,onGamePause,onGameResume,onGameEnd,onWin,onLoss;
 
         [Header("Testing Variables")]
+
         [SerializeField] private bool isGamePlaying;
         [SerializeField] private bool isGameOver;
         [SerializeField] private bool isWon;
@@ -62,7 +66,8 @@ namespace SheildMaster {
 
         
         private void Start(){
-            
+            blurVolume.weight = 0f;
+            Time.timeScale = 1f;
             adController = AdController.current;
             onGameResume?.Invoke();
             if(adController != null){
@@ -87,9 +92,15 @@ namespace SheildMaster {
             levelManager = GetComponent<LevelManager>();
             uIHandler = UIHandler.current;
             StartCoroutine(nameof(GameStartRoutine));
-            PlayerInputController.current.OnGamePause += OnGamePlayPause;
+            
         }
-        private void OnGamePlayPause(){
+        private void Update(){
+            if(Input.GetKeyDown(KeyCode.Escape)){
+                OnGamePlayPause();
+            }
+        }
+        
+        public void OnGamePlayPause(){
             if(!isGameOver && isGamePlaying){
                 isGamePause = !isGamePause;
                 if(isGamePause){
@@ -126,16 +137,20 @@ namespace SheildMaster {
             levelManager.SetLevelEndResult();
             onGameOver?.Invoke(this,new OnGamoverEventsAargs{iswin = this.isWon});
             onGameEnd?.Invoke();
-            if(canShowRewardedAds){
+            if(!canShowRewardedAds){
+                uIHandler.ShowContinueButton();
+            }else{
+                uIHandler.ShowRewardAdWindow(true);
+            }
+            if(canShowInterstetialAds){
                 yield return new WaitForSeconds(0.5f);
-                uIHandler.ShowExtraLifeRewardAdWindow(true,randomAmountCoin);
-                // int rand =  UnityEngine.Random.Range(0,5);
-                // if(rand >= 2){
-                // }else{
-                //     uIHandler.ShowExtraLifeRewardAdWindow(false);
-                // }
+                int rand =  UnityEngine.Random.Range(0,5);
+                if(rand >= 2){
+                    PlayInterStetialAds();
+                }
             }
             yield return new WaitForSeconds(1f);
+            blurVolume.weight = 1f;
             if(isWon){
                 #if !UNITY_EDITOR
                 playerData.SetKillCouts(thisLevelKills);
@@ -154,9 +169,9 @@ namespace SheildMaster {
         
         #region Public Methods.....
         
-        public void RevivePlayer(){
+        public void GivePlayerTwiceCash(){
             // Calls After Player Watches Ads.............
-            AddCoin(randomAmountCoin);
+            levelManager.AddTwiceMoney();
         }
         
         public void IncreaseKills(){
@@ -173,6 +188,7 @@ namespace SheildMaster {
             }
         }
         public void BacktoMenu(){
+            Time.timeScale = 1f;
             LevelLoader.current.SwitchScene(SceneIndex.Main_Menu);
         }
         public void PlayInterStetialAds(){

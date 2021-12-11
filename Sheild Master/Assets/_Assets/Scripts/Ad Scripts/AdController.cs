@@ -154,7 +154,7 @@ namespace SheildMaster{
             AnayltyicsManager.current.OnAdcompleteAnayltyics_UnityAnayltics(true,UnityEngine.Analytics.AdvertisingNetwork.AdMob);
         }
         private void HandleUserEarnedReward(object sender, Reward args){
-            GameHandler.current.RevivePlayer();
+            GameHandler.current.GivePlayerTwiceCash();
             GameHandler.current.SetIsRewardedAdsPlaying(false);
             GameHandler.current.SetCanRewardedShowAd(false);
             RequestRewardedAd();

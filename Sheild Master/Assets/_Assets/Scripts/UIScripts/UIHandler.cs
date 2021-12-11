@@ -8,9 +8,9 @@ namespace SheildMaster {
         
         [SerializeField] private PlayerDataSO playerData;
         [Header("Texts")]
-        [SerializeField] private TextMeshProUGUI[] coinAmountText;
-        // [SerializeField] private TextMeshProUGUI randomAmountText;
-        [SerializeField] private TextMeshProUGUI levelNumberText;
+        [SerializeField] private TextMeshProUGUI[] levelNumberTexts;
+        [SerializeField] private TextMeshProUGUI[] TotalcoinAmountText,currentLevelCoinAmountText;
+
         [Header("Windows")]
         [SerializeField] private GameObject abilityWindow;
         [Header("Ad window")]
@@ -42,21 +42,34 @@ namespace SheildMaster {
         public void SetInkTankValue(float value){
             inkBarImage.fillAmount = value;
         }
-        public void ShowExtraLifeRewardAdWindow(bool value,int amount = 200){
+        public void ShowRewardAdWindow(bool value){
             // randomAmountText.SetText(string.Concat("Watch an ad to get Extra ",amount.ToString() ," coins"));
             coinRewardWindow.gameObject.SetActive(value);
-            coinRewardWindow.StartTimer();
+            ShowContinueButton();
             
+        }
+        public void ShowContinueButton(){
+            coinRewardWindow.StartTimer();
+        }
+        public void SetCurrentLevelEarnedCoins(int coinAmont){
+            for (int i = 0; i < currentLevelCoinAmountText.Length; i++){
+                currentLevelCoinAmountText[i].SetText(coinAmont.ToString());
+            }
         }
 
         public void UpdateCoinAmountUI(){
-            for (int i = 0; i < coinAmountText.Length; i++){
-                coinAmountText[i].SetText(playerData.GetCoinValue().ToString());
-                
+            for (int i = 0; i < TotalcoinAmountText.Length; i++){
+                TotalcoinAmountText[i].SetText(playerData.GetCoinValue().ToString());
             }
         }
         private void SetCurrentLevel(){
-            levelNumberText.SetText("Level " + playerData.GetLevelNumber().ToString());
+            for (int i = 0; i < levelNumberTexts.Length; i++){
+                if(playerData.GetLevelNumber() < 10){
+                    levelNumberTexts[i].SetText("Level 0" + playerData.GetLevelNumber().ToString());
+                }else{
+                    levelNumberTexts[i].SetText("Level " + playerData.GetLevelNumber().ToString());
+                }
+            }
         }
         public void UpdateAbililyValueUI(){
             armourAbilityCountText.SetText(armourForPlayerAbiliy.GetAbilityUseCount().ToString());

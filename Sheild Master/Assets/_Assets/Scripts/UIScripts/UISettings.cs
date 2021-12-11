@@ -4,7 +4,7 @@ namespace SheildMaster {
     public class UISettings : MonoBehaviour {
 
         [SerializeField] private SettingsSO settingsSO;
-        [SerializeField] private Color activeColor,nonActiveColor;
+        [SerializeField] private Sprite activeSprite,nonActiveSprite;
 
         [SerializeField] private Button musicButton,soundButton;
 
@@ -14,19 +14,19 @@ namespace SheildMaster {
         }
         private void RefreshMusicButton(){
             if(settingsSO.GetIsMusicOn()){
-                musicButton.image.color = activeColor;
+                musicButton.image.sprite = activeSprite;
 
             }else{
-                musicButton.image.color = nonActiveColor;
+                musicButton.image.sprite = nonActiveSprite;
             }
             
         }
         private void RefreshSoundButton(){
             if(settingsSO.GetIsSoundOn()){
-                soundButton.image.color = activeColor;
+                soundButton.image.sprite = activeSprite;
 
             }else{
-                soundButton.image.color = nonActiveColor;
+                soundButton.image.sprite = nonActiveSprite;
             }
         }
         
@@ -34,7 +34,7 @@ namespace SheildMaster {
             settingsSO.SetMusic();
             RefreshMusicButton();
         }
-        public void changeSound(){
+        public void ChangeSound(){
             settingsSO.SetSound();
             RefreshSoundButton();
         }

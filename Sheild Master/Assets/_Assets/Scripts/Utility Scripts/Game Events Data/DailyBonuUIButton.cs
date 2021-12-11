@@ -6,32 +6,20 @@ using System.Collections.Generic;
 
 namespace SheildMaster {
     public class DailyBonuUIButton : MonoBehaviour {
-        [SerializeField] private GameObject noitificationIcon;
+        
         [SerializeField] private Color normalColor,clamedColor;
         [SerializeField] private Image graphic;
-        // [SerializeField] private TextMeshProUGUI rewardNameText,todayNameText;
+        [SerializeField] private TextMeshProUGUI rewardCashAmount;
         [SerializeField] private DailyRewardSO todayReward;
         [SerializeField] private PlayerDataSO playerDataSO;
-        // private void Awake(){
-
-        // }
         private void Start(){
-            // graphic = GetComponent<Image>();
-            CheckForDailyReward();
+            SetTodayRewardView();
         }
-        // public void SetTodayRewardView(DailyRewardSO rewardSO){
-        //     todayReward = rewardSO;
-        //     // todayNameText.SetText(string.Concat(todayReward.dayOfWeek.ToString(), " Reward"));
-        //     // rewardNameText.SetText(todayReward.discription);
-        // }
+        public void SetTodayRewardView(){
+            // rewardCashAmount.SetText(todayReward.discription);
+        }
         
-        public void CheckForDailyReward(){
-            if(playerDataSO.GetIsClamedBonus()){
-                noitificationIcon.SetActive(false);
-            }else{
-                noitificationIcon.SetActive(true);
-            }
-        }
+        
         public void SetIsActive(bool value){
             if(value){
                 graphic.color = normalColor;
@@ -59,7 +47,6 @@ namespace SheildMaster {
             SetIsActive(false);
             // rewardNameText.SetText("REWARD CLAMED... \n No Reward For Today.. \n Come Back Tommorow");
             // todayNameText.SetText(" ");
-            noitificationIcon.SetActive(false);
             playerDataSO.SetDailyBonusAlreadyShown(true);
             playerDataSO.SetClamedBonus(true);
         }

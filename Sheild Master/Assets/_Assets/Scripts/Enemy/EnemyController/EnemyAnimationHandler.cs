@@ -12,6 +12,7 @@ namespace SheildMaster {
             animator = GetComponent<Animator>();
         }
         private void Start(){
+            rig.weight = 0f;
             randomJoyAnim = UnityEngine.Random.Range(1,3);
             randomDeathAnim = Random.Range(0,4);
             GameHandler.current.onGameOver += OnGameOver;
@@ -36,11 +37,11 @@ namespace SheildMaster {
             rig.weight = 0f;
         }
         public void PlayShootingAnimations(){
-            rig.weight = Mathf.Lerp(rig.weight,1f,1f);
+            rig.weight = 1f;
             animator.SetTrigger("Shoot");
         }
         public void StopRig(){
-            rig.weight = Mathf.Lerp(rig.weight,0f,1f);
+            rig.weight = 0f;
             
         }
         

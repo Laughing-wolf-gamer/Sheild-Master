@@ -7,28 +7,41 @@ using System.Collections.Generic;
 namespace SheildMaster {
     public class DailyBonuUIButton : MonoBehaviour {
         [SerializeField] private GameObject noitificationIcon;
-        [SerializeField] private TextMeshProUGUI rewardNameText,todayNameText;
-        [SerializeField] private Button clameRewardButton;
+        [SerializeField] private Color normalColor,clamedColor;
+        [SerializeField] private Image graphic;
+        // [SerializeField] private TextMeshProUGUI rewardNameText,todayNameText;
+        [SerializeField] private DailyRewardSO todayReward;
         [SerializeField] private PlayerDataSO playerDataSO;
-        private DailyRewardSO todayReward;
-        public void SetTodayRewardView(){
-            todayNameText.SetText(string.Concat(todayReward.dayOfWeek.ToString(), " Reward"));
-            rewardNameText.SetText(todayReward.discription);
+        // private void Awake(){
+
+        // }
+        private void Start(){
+            // graphic = GetComponent<Image>();
             CheckForDailyReward();
         }
+        // public void SetTodayRewardView(DailyRewardSO rewardSO){
+        //     todayReward = rewardSO;
+        //     // todayNameText.SetText(string.Concat(todayReward.dayOfWeek.ToString(), " Reward"));
+        //     // rewardNameText.SetText(todayReward.discription);
+        // }
+        
         public void CheckForDailyReward(){
             if(playerDataSO.GetIsClamedBonus()){
                 noitificationIcon.SetActive(false);
-                clameRewardButton.interactable = false;
             }else{
                 noitificationIcon.SetActive(true);
-                clameRewardButton.interactable = true;
             }
         }
-
-        public void setTodayReward(DailyRewardSO todayReward){
-            this.todayReward = todayReward;
+        public void SetIsActive(bool value){
+            if(value){
+                graphic.color = normalColor;
+            }else{
+                graphic.color = clamedColor;
+            }
         }
+        
+
+        
         public void ClamReward(){
             playerDataSO.AddCoins(todayReward.dailyBonyData.coinAmount);
             playerDataSO.AddDimond(todayReward.dailyBonyData.dimondAmount);
@@ -43,8 +56,9 @@ namespace SheildMaster {
 
                 }
             }
-            rewardNameText.SetText("REWARD CLAMED... \n No Reward For Today.. \n Come Back Tommorow");
-            todayNameText.SetText(" ");
+            SetIsActive(false);
+            // rewardNameText.SetText("REWARD CLAMED... \n No Reward For Today.. \n Come Back Tommorow");
+            // todayNameText.SetText(" ");
             noitificationIcon.SetActive(false);
             playerDataSO.SetDailyBonusAlreadyShown(true);
             playerDataSO.SetClamedBonus(true);

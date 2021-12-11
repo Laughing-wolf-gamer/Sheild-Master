@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada4e15629c6cbd41a1566ac7d42fffb, type: 3}
   m_Name: Yellow Skin
   m_EditorClassIdentifier: 
-  shopItemType: 1
+  shopItemType: 0
   playerSkin: {fileID: 2100000, guid: 1fa2370e71efc73449af0ba1fe4eb629, type: 2}
   playerClothMat: {fileID: 2100000, guid: 39e7d9524c7c49b43b094d5ff40df3b7, type: 2}
   playerBeltMat: {fileID: 2100000, guid: 5e67c750b3f9a4a41a5df82b8615d776, type: 2}

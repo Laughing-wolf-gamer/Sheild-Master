@@ -8,12 +8,13 @@ namespace SheildMaster {
         
         [SerializeField] private PlayerDataSO playerData;
         [Header("Texts")]
-        [SerializeField] private TextMeshProUGUI coinAmountText;
-        [SerializeField] private TextMeshProUGUI randomAmountText;
+        [SerializeField] private TextMeshProUGUI[] coinAmountText;
+        // [SerializeField] private TextMeshProUGUI randomAmountText;
         [SerializeField] private TextMeshProUGUI levelNumberText;
         [Header("Windows")]
         [SerializeField] private GameObject abilityWindow;
-        [SerializeField] private GameObject coinRewardWindow;
+        [Header("Ad window")]
+        [SerializeField] private AdView coinRewardWindow;
         [Header("Images")]
         [SerializeField] private Image inkBarImage;
 
@@ -42,11 +43,17 @@ namespace SheildMaster {
             inkBarImage.fillAmount = value;
         }
         public void ShowExtraLifeRewardAdWindow(bool value,int amount = 200){
-            randomAmountText.SetText("Get Extra " + amount.ToString());
-            coinRewardWindow.SetActive(value);
+            // randomAmountText.SetText(string.Concat("Watch an ad to get Extra ",amount.ToString() ," coins"));
+            coinRewardWindow.gameObject.SetActive(value);
+            coinRewardWindow.StartTimer();
+            
         }
+
         public void UpdateCoinAmountUI(){
-            coinAmountText.SetText(playerData.GetCoinValue().ToString());
+            for (int i = 0; i < coinAmountText.Length; i++){
+                coinAmountText[i].SetText(playerData.GetCoinValue().ToString());
+                
+            }
         }
         private void SetCurrentLevel(){
             levelNumberText.SetText("Level " + playerData.GetLevelNumber().ToString());
@@ -66,7 +73,7 @@ namespace SheildMaster {
                 KillOneEnemyBeforePlayingAbiliyButton.gameObject.SetActive(false);
             }
         }
-        public void EnableAbilityWindw(bool enable){
+        public void EnableAbilityWindow(bool enable){
             abilityWindow.SetActive(enable);
         }
         public void UseArmourForPlayerAbiliy(){

@@ -6,7 +6,6 @@ using GoogleMobileAds.Api;
 namespace SheildMaster{
 
     public class AdController : MonoBehaviour{
-        public static AdController current;
 
         private readonly string interstitialId = "ca-app-pub-3940256099942544/1033173712";
         private readonly string rewardedId = "ca-app-pub-3940256099942544/5224354917";
@@ -21,6 +20,7 @@ namespace SheildMaster{
 
         // private int npa;
 
+        public static AdController current;
 
         private void Awake(){
             if (current == null){
@@ -49,7 +49,10 @@ namespace SheildMaster{
             // Interstestial Ads...
             interstitialAd?.Destroy();
             interstitialAd = new InterstitialAd(interstitialId);
-            interstitialAd.OnAdClosed += (sender, args) => RequestInterstitial();
+            interstitialAd.OnAdClosed += (sender, args) => {
+                RequestInterstitial();
+                AnayltyicsManager.current.OnAdcompleteAnayltyics_UnityAnayltics(false,UnityEngine.Analytics.AdvertisingNetwork.AdMob);
+            };
             interstitialAd.OnAdFailedToLoad += HandleInterStetailAdFailedToLoad;
             interstitialAd.OnAdFailedToShow += HandleinterstitialAdAdFailedToShow;
             interstitialAd.OnAdLoaded += HandleInterStetialAdLoaded;
@@ -68,16 +71,16 @@ namespace SheildMaster{
             
 
             // Banner Ad.
-            bannerView?.Destroy();
+            // bannerView?.Destroy();
 
-            bannerView = new BannerView(bannerId,AdSize.SmartBanner,AdPosition.Bottom);
-            // Called When an ad is Closed.
-            bannerView.OnAdClosed += (object sender, EventArgs e) => RequestBannerAd();
-            // Called when an ad request has successfully loaded.
-            bannerView.OnAdLoaded += HandleOnAdLoaded;
-            // Called when an ad request failed to load.
-            bannerView.OnAdFailedToLoad += HandleOnAdFailedToLoad;
-            RequestBannerAd();
+            // bannerView = new BannerView(bannerId,AdSize.SmartBanner,AdPosition.BottomRight);
+            // // Called When an ad is Closed.
+            // bannerView.OnAdClosed += (object sender, EventArgs e) => RequestBannerAd();
+            // // Called when an ad request has successfully loaded.
+            // bannerView.OnAdLoaded += HandleOnAdLoaded;
+            // // Called when an ad request failed to load.
+            // bannerView.OnAdFailedToLoad += HandleOnAdFailedToLoad;
+            // RequestBannerAd();
 
         }
 
@@ -101,8 +104,8 @@ namespace SheildMaster{
         public void ShowRewardedAd(){
             if (rewardedAd.IsLoaded()){
                 rewardedAd.Show();
-                GameEventManager.GetRewardAdClicked();
                 GameHandler.current.SetIsRewardedAdsPlaying(true);
+                AnayltyicsManager.current.SetAdImpressionDataAnayltyics();
             }else{
                 RequestRewardedAd();
                 if (rewardedAd.IsLoaded()){
@@ -133,10 +136,9 @@ namespace SheildMaster{
 
         public void HandleRewardedAdOpening(object sender, EventArgs args){
             // AudioManager.i.PauseMusic(SoundType.Main_Sound);
+            AnayltyicsManager.current.SetAdImpressionDataAnayltyics();
         }
-        public void HandleInterstitialAdAdOpening(object sender, EventArgs args){
-            // AudioManager.i.PauseMusic(SoundType.Main_Sound);
-        }
+        
 
         public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args){
             if(!rewardedAd.IsLoaded()){
@@ -149,7 +151,7 @@ namespace SheildMaster{
             if (!rewardedAd.IsLoaded()){
                 RequestRewardedAd();
             }
-            
+            AnayltyicsManager.current.OnAdcompleteAnayltyics_UnityAnayltics(true,UnityEngine.Analytics.AdvertisingNetwork.AdMob);
         }
         private void HandleUserEarnedReward(object sender, Reward args){
             GameHandler.current.RevivePlayer();
@@ -170,7 +172,6 @@ namespace SheildMaster{
         public void ShowInterstitialAd(){
             if (interstitialAd.IsLoaded()){
                 interstitialAd.Show();
-                GameEventManager.GetInterStetialAdData();
             }
             else{
                 RequestInterstitial();
@@ -196,13 +197,17 @@ namespace SheildMaster{
                 RequestInterstitial();
             }
             GameHandler.current.SetCanShowInterstetialAds(false);
-            
         }
         public void HandleInterStetialAdLoaded(object sender,EventArgs args){
             if(GameHandler.current != null){
                 GameHandler.current.SetCanShowInterstetialAds(true);
             }
         }
+        public void HandleInterstitialAdAdOpening(object sender, EventArgs args){
+            // AudioManager.i.PauseMusic(SoundType.Main_Sound);
+            AnayltyicsManager.current.SetAdImpressionDataAnayltyics();
+        }
+        
 
         
         

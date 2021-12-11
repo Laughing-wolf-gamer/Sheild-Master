@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace SheildMaster{
     public enum SceneIndex{
-        persistantScene = 0,Main_Menu = 1,Game_Scene = 2, /*Level_2 = 3,Level_3 = 4,Level_4 = 5,Level_5 = 6,Level_6 = 7,Level_7 = 8,Level_8 = 9,Level_9 = 10,Level_10 = 11,
+        persistantScene = 1,Main_Menu = 2,Game_Scene = 3, /*Level_2 = 3,Level_3 = 4,Level_4 = 5,Level_5 = 6,Level_6 = 7,Level_7 = 8,Level_8 = 9,Level_9 = 10,Level_10 = 11,
         Level_11 = 12,Level_12 = 13,Level_13 = 14,Level_14 = 15,Level_15 = 16,Level_16 = 17,Level_17 = 18,Level_18 = 19,Level_19 = 20,Level_20 = 21
         ,Level_21 = 22,Level_22 = 23,Level_23 = 24,Level_24 = 25, Level_25 = 26, Level_26 = 27, Level_27 = 28,Level_28 = 29,Level_29 = 30,Level_30 = 31,Level_31 = 32,Level_32 = 33,
         Level_33 = 34,Level_34 = 35, Level_35 = 36,Level_36 = 37, Level_37 = 38, Level_38 = 39,Level_39 = 40, Level_40 = 41, Level_41 = 42, Level_42 = 43, Level_43 = 44,
@@ -60,6 +60,7 @@ namespace SheildMaster{
         }
         
         public void PlayLevel(){
+            // SceneIndex newLevel = (SceneIndex)UnityEngine.Random.Range(2,Enum.GetValues(typeof(SceneIndex)).Length);
             SwitchScene(currentLevel);
         }
         public void PlayLevel(SceneIndex level){
@@ -87,11 +88,12 @@ namespace SheildMaster{
         
         
         private IEnumerator GetLoadSceneProgress(SceneIndex _sceneToLoad){
+            float extraLoading = 2f;
             loadingScreen.SetActive(true);
             AsyncOperation operation = SceneManager.LoadSceneAsync((int)_sceneToLoad);
             totalProgress = 0f;
             while(!operation.isDone){
-                totalProgress = Mathf.Clamp01(operation.progress / 0.9f);
+                totalProgress = Mathf.Clamp01(operation.progress / 0.9f) + extraLoading;
                 loadingBar.fillAmount = totalProgress;
                 yield return null;
                 

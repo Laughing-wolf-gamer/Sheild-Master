@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/GPGS SignIn.unity
+    guid: 6aca75db2101a014d81fb205df9e3ad9
+  - enabled: 1
     path: Assets/Scenes/Initial Scene.unity
     guid: 8b6270e23368b8f47bea204f35f06b43
   - enabled: 1

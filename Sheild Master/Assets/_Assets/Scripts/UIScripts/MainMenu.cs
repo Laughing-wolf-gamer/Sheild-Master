@@ -5,7 +5,7 @@ using UnityEngine.Events;
 namespace SheildMaster {
     public class MainMenu : MonoBehaviour {
         [SerializeField] private UnityEvent onGameStart;
-
+        [SerializeField] private GameObject quitWindow,shopWindow,dailyRewardWindow;
         private void Start(){
             onGameStart?.Invoke();
         }
@@ -14,9 +14,18 @@ namespace SheildMaster {
         }
         private void Update(){
             if(Input.GetKeyDown(KeyCode.Escape)){
-                Application.Quit();
+                if(CanQuit()){
+                    quitWindow.SetActive(true);
+                }
             }
         }
+        private bool CanQuit(){
+            return !(shopWindow.activeInHierarchy || dailyRewardWindow.activeInHierarchy);
+        }
+        public void Quit(){
+            Application.Quit();
+        }
+        
         
         
     }

@@ -6,8 +6,9 @@ namespace SheildMaster {
     public class LevelManager : MonoBehaviour {
 
         [SerializeField] private PlayerController player;
-        [SerializeField] private List<LevelDataSO> levelList;
+        [SerializeField] private List<LevelDataSO> levelDataList;
         [SerializeField] private CinematicCamera cinematicCamera;
+        [SerializeField] private Camera UiCamera;
 
         public Action onFirstTouchOnScreen;
         private List<EnemyController> enemyList;
@@ -36,7 +37,7 @@ namespace SheildMaster {
         public void CheckForAllEnemyDead(){
             surviveTime ++;
             if(player.GetIsDead()){
-                levelList[randLevel].playerDeathCountOnLevel++;
+                levelDataList[randLevel].playerDeathCountOnLevel++;
                 gameHandler.SetGameOver(false);
                 return;
             }
@@ -47,23 +48,32 @@ namespace SheildMaster {
             }
             if(!player.GetIsDead()){
                 gameHandler.SetGameOver(true);
-                gameHandler.AddCoin(2);
             }
         }
+        public void CollectCoin(){
+            if(player.GetTouchCount() == 1){
+                gameHandler.AddCoin(enemyList.Count + 2);    
+            }
+            gameHandler.AddCoin(enemyList.Count);
+        }
+        
         public void SetLevelEndResult(){
             
             if(player.GetIsDead()){
-                GameEventManager.OnGameLost(levelList[randLevel].name,surviveTime,levelList[randLevel].playerDeathCountOnLevel);
+                AnayltyicsManager.current.OnGameLost_UnityAnayltics(levelDataList[randLevel].name,surviveTime,levelDataList[randLevel].playerDeathCountOnLevel);
             }else{
-                GameEventManager.OnGameWon(levelList[randLevel].name,surviveTime);
+                AnayltyicsManager.current.OnGameWon_UnityAnayltics(levelDataList[randLevel].name,surviveTime);
             }
         }
         
         private void SpawnLevel(){
-            randLevel = UnityEngine.Random.Range(0,levelList.Count);
-            LevelData currentLevel =  Instantiate(levelList[randLevel].levelData,transform.position,Quaternion.identity);
+            randLevel = UnityEngine.Random.Range(0,levelDataList.Count);
+            LevelData currentLevel =  Instantiate(levelDataList[randLevel].levelData,transform.position,Quaternion.identity);
             
             enemyList = currentLevel.GetEnemieList();
+            for (int i = 0; i < enemyList.Count; i++){
+                enemyList[i].SetViewCameraForHealthBar(UiCamera);
+            }
             onFirstTouchOnScreen += StartGame;
         }
         
@@ -91,15 +101,18 @@ namespace SheildMaster {
 
         }
         public void TryEnableAbilityWindow(){
-            UIHandler.current.EnableAbilityWindw(true);
             if(enemyList.Count >= 3){
+                UIHandler.current.EnableAbilityWindow(true);
             }else{
-                // UIHandler.current.EnableAbilityWindw(false);
+                UIHandler.current.EnableAbilityWindow(false);
             }
         }
         public void KillOneEnemyBeforePlaying(){
             int rand = UnityEngine.Random.Range(0,enemyList.Count);
-            enemyList[rand].TakeHit(10);
+            if(enemyList[rand].GetIsDead()){
+                rand = UnityEngine.Random.Range(0,enemyList.Count);
+            }
+            enemyList[rand].TakeHit(50);
             SubscribeToOnFirstTouch();
             
         }

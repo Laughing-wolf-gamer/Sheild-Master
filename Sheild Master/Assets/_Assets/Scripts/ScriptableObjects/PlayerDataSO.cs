@@ -10,6 +10,7 @@ namespace SheildMaster{
         public PlayerSaveData playerSaveData;
         public AbilitySO[] abiliys;
         public Material playerSkinMaterial,playerClothMaterial,playerBeltMat;
+        // public Material forceFeildMaterial;
         private void OnValidate(){
             if(playerSaveData.currentLevelNumber <= 0){
                 playerSaveData.currentLevelNumber = 1;
@@ -52,8 +53,24 @@ namespace SheildMaster{
         public int GetLevelNumber(){
             return playerSaveData.currentLevelNumber;
         }
+        public void SetHasAdsInGame(bool value){
+            playerSaveData.HasAdsInGame = value;
+        }
+        public bool GetHasAdsInGame(){
+            return playerSaveData.HasAdsInGame;
+        }
         public void OnLevelComplete(){
             playerSaveData.currentLevelNumber++;
+            AnayltyicsManager.current.SetPlayerLevelAnaylytics(playerSaveData.currentLevelNumber);
+            if(playerSaveData.currentLevelNumber >= 50){
+                PlayGamesController.PostAchivements(GPGSIds.achievement_bronze_sheild_master);
+            }
+            if(playerSaveData.currentLevelNumber >= 100){
+                PlayGamesController.PostAchivements(GPGSIds.achievement_silver_sheild_master);
+            }
+            if(playerSaveData.currentLevelNumber >= 150){
+                PlayGamesController.PostAchivements(GPGSIds.achievement_golden_sheild_master);
+            }
         }
         public void AddDimond(int amount){
             playerSaveData.dimondAmount += amount;
@@ -63,6 +80,24 @@ namespace SheildMaster{
             if(playerSaveData.dimondAmount <= 0){
                 playerSaveData.dimondAmount = 0;
             }
+        }
+        public void SetKillCouts(int amount){
+            playerSaveData.totalKillCounts += amount;
+            if(playerSaveData.totalKillCounts >= 1){
+                PlayGamesController.PostAchivements(GPGSIds.achievement_first_kill);
+            }
+            if(playerSaveData.totalKillCounts >= 10){
+                PlayGamesController.PostAchivements(GPGSIds.achievement_bronze_killer);
+            }
+            if(playerSaveData.totalKillCounts >= 100){
+                PlayGamesController.PostAchivements(GPGSIds.achievement_silver_killer);
+            }
+            if(playerSaveData.totalKillCounts >= 1000){
+                PlayGamesController.PostAchivements(GPGSIds.achievement_golden_killer);
+            }
+        }
+        public int GetTotalKillCount(){
+            return playerSaveData.totalKillCounts;
         }
         [ContextMenu("Save")]
         public void Save(){
@@ -92,13 +127,15 @@ namespace SheildMaster{
     }
     [System.Serializable]
     public class PlayerSaveData {
-        public int currentDay;
+        public bool HasAdsInGame;
         public bool alreadyShownDailyBonusWindow;
         public bool isClamedDailyBonus;
+        public int currentDay;
         public int dimondAmount;
         public int currentLevelNumber;
         public int maxCoinCount;
         public int currentExperience;
+        public int totalKillCounts = 0;
     }
 
 }

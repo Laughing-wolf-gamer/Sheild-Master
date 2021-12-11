@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ada4e15629c6cbd41a1566ac7d42fffb, type: 3}
   m_Name: Green Skin
   m_EditorClassIdentifier: 
-  shopItemType: 1
+  shopItemType: 0
   playerSkin: {fileID: 2100000, guid: aef17f0baa29e6741a932cae5d47a73b, type: 2}
   playerClothMat: {fileID: 2100000, guid: cd14c0e0272b1b548ac37f45d9bfb9d6, type: 2}
   playerBeltMat: {fileID: 2100000, guid: ee37f41ceea6d844caf21761e35a689a, type: 2}
   itemData:
-    cost: 50
-    isSelected: 1
-    isBought: 1
+    cost: 500
+    isSelected: 0
+    isBought: 0

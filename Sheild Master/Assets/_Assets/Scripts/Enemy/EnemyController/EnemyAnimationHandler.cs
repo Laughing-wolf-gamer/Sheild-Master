@@ -7,11 +7,13 @@ namespace SheildMaster {
 
         [SerializeField] private Rig rig;
         private Animator animator;
-
+        private int randomJoyAnim,randomDeathAnim;
         private void Awake(){
             animator = GetComponent<Animator>();
         }
         private void Start(){
+            randomJoyAnim = UnityEngine.Random.Range(1,3);
+            randomDeathAnim = Random.Range(0,4);
             GameHandler.current.onGameOver += OnGameOver;
         }
         private void OnGameOver(object sender , OnGamoverEventsAargs e){
@@ -24,13 +26,12 @@ namespace SheildMaster {
         }
         private void PlayIsWonAnimations(){
             animator.SetTrigger("isWon");
-            int rand = UnityEngine.Random.Range(1,3);
-            animator.SetInteger("dance Number",rand);
+            animator.SetInteger("dance Number",randomJoyAnim);
         }
         public void PlayIsDeadAnimations(){
 
-            int rand = Random.Range(0,4);
-            animator.SetInteger("death Numb",rand);
+            
+            animator.SetInteger("death Numb",randomDeathAnim);
             animator.SetTrigger("isDead");
             rig.weight = 0f;
         }

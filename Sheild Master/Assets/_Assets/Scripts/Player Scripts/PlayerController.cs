@@ -38,7 +38,7 @@ namespace SheildMaster {
         }
         
         protected override void Start(){
-            
+            forceFieldObject.SetActive(false);
             base.Start();
             gameHandler.onGameOver += (object sender, OnGamoverEventsAargs args) =>{
                 RotatePlayer(onWinLookPoint.position);

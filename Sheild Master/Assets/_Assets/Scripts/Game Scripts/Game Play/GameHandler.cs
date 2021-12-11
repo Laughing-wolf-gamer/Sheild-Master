@@ -29,6 +29,7 @@ namespace SheildMaster {
         #endregion
 
         #region Private Variables.......
+        private int thisLevelKills;
         private AdController adController;
         private UIHandler uIHandler;
         private LevelManager levelManager;
@@ -42,8 +43,8 @@ namespace SheildMaster {
         #region Singelton.........
         public static GameHandler current;
         private int randomAmountCoin;
-        private void Awake(){
-
+        private int[] coinAmountArray = new int[]{25,30,35,40,45,50};
+        private void Awake() {
         #if UNITY_EDITOR
             Debug.unityLogger.logEnabled = true;
         #else
@@ -61,20 +62,28 @@ namespace SheildMaster {
 
         
         private void Start(){
+            
             adController = AdController.current;
             onGameResume?.Invoke();
-            if(adController.IsRewardedAdLoaded()){
-                SetCanRewardedShowAd(true);
-            }else{
-                SetCanRewardedShowAd(false);
+            if(adController != null){
+                if(adController.IsRewardedAdLoaded()){
+                    SetCanRewardedShowAd(true);
+                }else{
+                    SetCanRewardedShowAd(false);
+                }
+                if(playerData.GetHasAdsInGame()){
+                    if(adController.isInterstetialAdLoaded()){
+                        SetCanShowInterstetialAds(true);
+                    }else{
+                        SetCanShowInterstetialAds(false);
+                    }
+                }
             }
 
-            if(adController.isInterstetialAdLoaded()){
-                SetCanShowInterstetialAds(true);
-            }else{
-                SetCanShowInterstetialAds(false);
-            }
-            randomAmountCoin = UnityEngine.Random.Range(200,500);
+            
+            int rand = UnityEngine.Random.Range(0,coinAmountArray.Length);
+            randomAmountCoin = coinAmountArray[rand];
+
             levelManager = GetComponent<LevelManager>();
             uIHandler = UIHandler.current;
             StartCoroutine(nameof(GameStartRoutine));
@@ -95,7 +104,7 @@ namespace SheildMaster {
 
 
         private IEnumerator GameStartRoutine(){
-            uIHandler.ShowExtraLifeRewardAdWindow(false,0);
+            // uIHandler.ShowExtraLifeRewardAdWindow(false,0);
             onGameStart?.Invoke();
             while(!isGamePlaying){
                 yield return null;
@@ -118,19 +127,25 @@ namespace SheildMaster {
             onGameOver?.Invoke(this,new OnGamoverEventsAargs{iswin = this.isWon});
             onGameEnd?.Invoke();
             if(canShowRewardedAds){
-                uIHandler.ShowExtraLifeRewardAdWindow(true,randomAmountCoin); 
+                yield return new WaitForSeconds(0.5f);
+                uIHandler.ShowExtraLifeRewardAdWindow(true,randomAmountCoin);
                 // int rand =  UnityEngine.Random.Range(0,5);
                 // if(rand >= 2){
                 // }else{
-                //     // uIHandler.ShowExtraLifeRewardAdWindow(false);
+                //     uIHandler.ShowExtraLifeRewardAdWindow(false);
                 // }
             }
             yield return new WaitForSeconds(1f);
             if(isWon){
+                #if !UNITY_EDITOR
+                playerData.SetKillCouts(thisLevelKills);
+                #endif
                 onWin?.Invoke();
             }else{
-                if(canShowInterstetialAds){
-                    adController.ShowInterstitialAd();
+                if(playerData.GetHasAdsInGame()){
+                    if(canShowInterstetialAds){
+                        adController.ShowInterstitialAd();
+                    }
                 }
                 onLoss?.Invoke();
             }
@@ -142,6 +157,11 @@ namespace SheildMaster {
         public void RevivePlayer(){
             // Calls After Player Watches Ads.............
             AddCoin(randomAmountCoin);
+        }
+        
+        public void IncreaseKills(){
+            thisLevelKills++;
+            
         }
         public void PlayGame(){
             isGamePlaying = true;
@@ -156,9 +176,11 @@ namespace SheildMaster {
             LevelLoader.current.SwitchScene(SceneIndex.Main_Menu);
         }
         public void PlayInterStetialAds(){
-            if(canShowInterstetialAds){
-                if(!isShowingRewardAds){
-                    UIHandler.current.WatchInterstetialAds();
+            if(playerData.GetHasAdsInGame()){
+                if(canShowInterstetialAds){
+                    if(!isShowingRewardAds){
+                        UIHandler.current.WatchInterstetialAds();
+                    }
                 }
             }
         }

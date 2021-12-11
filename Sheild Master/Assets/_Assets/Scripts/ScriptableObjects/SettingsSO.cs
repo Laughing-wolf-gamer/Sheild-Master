@@ -6,8 +6,32 @@ namespace SheildMaster {
     [CreateAssetMenu(fileName = "New Setting",menuName = "ScriptableObject/UI/Settings Data")]
     public class SettingsSO : ScriptableObject {
         public string savePlace = "Settings Data";
-        public SettingsData settingsData;
+        [SerializeField] private SettingsData settingsData;
 
+        public bool GetIsMusicOn(){
+            return settingsData.isMusicOn;
+        }
+        public bool GetIsSoundOn(){
+            return settingsData.isSoundOn;
+        }
+        public bool GetNotification(){
+            return settingsData.notification;
+        }
+        public void SetNotificaiton(){
+            settingsData.notification = !settingsData.notification;
+        }
+        public void SetMusic(){
+            settingsData.isMusicOn = !settingsData.isMusicOn;
+        }
+        public void SetSound(){
+            settingsData.isSoundOn = !settingsData.isSoundOn;
+        }
+        public int GetCurrentLanguage(){
+            return settingsData.currentLanguage;
+        }
+        public void SetCurrentLanguage(int value){
+            settingsData.currentLanguage = value;
+        }
         [ContextMenu("Save")]
         public void Save(){
             
@@ -34,6 +58,7 @@ namespace SheildMaster {
         public int currentLanguage;
         public bool isMusicOn;
         public bool isSoundOn;
+        public bool notification;
         public string privacyAndPolicy;
     }
     

@@ -15,7 +15,6 @@ namespace SheildMaster {
         [Header("Enemy Shooting")]
         [SerializeField] private GameObject wepon;
         [SerializeField] private Transform firePoint;
-        [SerializeField] private LayerMask wallLayer;
         [SerializeField] private float maxFireTime = 4f;
 
         [Header("External References")]
@@ -35,24 +34,28 @@ namespace SheildMaster {
             
             base.OnHit += (object sender ,EventArgs e) => {
                 healthBar.UpdateHealthBar(base.GetHealthNormalized(),transform);
+                GameHandler.current.IncreaseKills();
             };
             healthBar.HideHealthBar();
             base.Start();
             player = PlayerController.player;
             objectPoolingManager = ObjectPoolingManager.current;
+            base.onDead += (object sender,EventArgs e) =>{
+                animationHandler.PlayIsDeadAnimations();
+                StopCoroutine(nameof(ShootingRoutine));
+            };
         }
         
         public void StartEnemy(){
             Debug.Log("On Game Start");
             StartCoroutine(nameof(ShootingRoutine));
-            base.onDead += (object sender,EventArgs e) =>{
-                animationHandler.PlayIsDeadAnimations();
-                StopCoroutine(nameof(ShootingRoutine));
-            };
             GameHandler.current.onGameOver += (object sender,OnGamoverEventsAargs e)=> {
                 StopCoroutine(nameof(ShootingRoutine));
                 wepon.SetActive(false);
             };
+        }
+        public void SetViewCameraForHealthBar(Camera viewCamera){
+            healthBar.SetworldCamera(viewCamera);
         }
         
         

@@ -30,6 +30,7 @@ namespace SheildMaster{
         public void SaveGame(){
             // saveData.settingsData.Save();
             saveData.playerData.Save();
+            saveData.settingsSO.Save();
             for (int i = 0; i < saveData.itemSOArray.Length; i++){
                 saveData.itemSOArray[i].Save();
             }
@@ -38,17 +39,13 @@ namespace SheildMaster{
         [ContextMenu("LOAD GAME")]
         public void LoadGame(){
             saveData.playerData.Load();
-            // saveData.settingsData.Load();
+            saveData.settingsSO.Load();
             for (int i = 0; i < saveData.itemSOArray.Length; i++){
                 saveData.itemSOArray[i].Load();
             }
-            // saveData.coins.Load();
+            
         }      
-        public void ResetGame(){
-            // for (int i = 0; i < saveData.shopItemData.Length; i++){
-            //     saveData.shopItemData[i].Reset();
-            // }
-        }
+        
         private void OnApplicationQuit(){
             SaveGame();
             
@@ -59,6 +56,7 @@ namespace SheildMaster{
     public struct SaveData{
         public PlayerDataSO playerData;
         public ShopItemSO[] itemSOArray;
+        public SettingsSO settingsSO;
         
     }
 

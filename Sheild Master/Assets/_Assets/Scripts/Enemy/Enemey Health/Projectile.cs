@@ -9,15 +9,15 @@ namespace SheildMaster {
         [Header("Events")]
         [SerializeField] private UnityEvent onResuse;
         [SerializeField] private UnityEvent onDestroy;
-        
         [Space(20)]
-
         [Header("Movement Variables")]
         [SerializeField] private LayerMask collisonMask;
         [SerializeField] private float moveForce = 20f;
         [SerializeField] private float maxLifeTime = 5f;
         private EnemyController cameFromEnemy;
         private bool Move;
+        private int collisionCount;
+        private Collider m_collider;
         private void Start(){
             PlayerController.player.onDead += (object sender,System.EventArgs e) =>{
                 DestroyMySelf();
@@ -32,7 +32,6 @@ namespace SheildMaster {
         
         public void SetCameFromEnemy(EnemyController enemyController){
             cameFromEnemy = enemyController;
-            // Move();
             Move = true;
         }
 
@@ -42,20 +41,25 @@ namespace SheildMaster {
             Move = false;
             cameFromEnemy = null;
             gameObject.SetActive(false);
+            collisionCount = 0;
         }
 
         public void OnObjectReuse(){
-            // rb.velocity = Vector3.zero;
+            collisionCount = 0;
             Invoke(nameof(DestroyMySelf),maxLifeTime);
             onResuse?.Invoke();
         }
         
         private void Update(){
             if(Move){
-                float moveDista = moveForce * Time.deltaTime;
-                CheckCollision(moveDista);
-                transform.Translate(Vector3.forward * moveDista);
+                Movement();
             }
+
+        }
+        private void Movement(){
+            float moveDista = moveForce * Time.deltaTime;
+            CheckCollision(moveDista);
+            transform.Translate(Vector3.forward * moveDista);
 
         }
         private void CheckCollision(float moveDistance){
@@ -66,15 +70,30 @@ namespace SheildMaster {
             }
         }
         private void OnHitObject(RaycastHit _hit){
-
+            collisionCount++;
             if(_hit.transform.TryGetComponent<IDamagable>(out IDamagable damagable)){
                 damagable.TakeHit(1);
                 DestroyMySelf();
-            }else {
+            }else{
                 if(_hit.transform.TryGetComponent<ForcefieldImpact>(out ForcefieldImpact forcefield)){
                     forcefield.OnImpcat(_hit);
-                    // forcefield.HideWall();
                 }
+                // if(cameFromEnemy.GetEnemyType() == EnemyType.Armourd || cameFromEnemy.GetEnemyType() == EnemyType.Super){
+                //     if(_hit.transform.TryGetComponent<ExpandingWall>(out ExpandingWall wall)){
+                //         if(collisionCount <= 1){
+                //             moveForce *= 0.5f;
+                //             wall.DestroyMySelf();
+                //             Movement();
+                //         }else{
+                //             if(cameFromEnemy != null){
+                //                 transform.LookAt(cameFromEnemy.transform);
+                //             }else{
+                //                 DestroyMySelf();
+                //             }
+                //         }
+                //     }
+                // }else{
+                // }
                 if(cameFromEnemy != null){
                     transform.LookAt(cameFromEnemy.transform);
                 }else{

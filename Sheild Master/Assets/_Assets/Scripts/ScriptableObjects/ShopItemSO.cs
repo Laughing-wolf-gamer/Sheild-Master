@@ -16,6 +16,7 @@ namespace SheildMaster{
         public Material playerClothMat;
         public Material playerBeltMat;
         public ShopItemData itemData;
+        // public Material ForceFieldMat;
         public int GetItemCost(){
             return itemData.cost;
         }
@@ -28,6 +29,9 @@ namespace SheildMaster{
         }
         public bool GetIsItemSelected(){
             return itemData.isSelected;
+        }
+        public bool GetIsItemBought(){
+            return itemData.isBought;
         }
         public void UnSelectItem(){
             if(itemData.isSelected){

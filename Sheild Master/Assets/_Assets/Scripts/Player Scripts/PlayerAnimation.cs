@@ -1,20 +1,24 @@
 using UnityEngine;
-using GamerWolf.Utils;
+using GamerWolf.Utils.HealthSystem;
 
 namespace SheildMaster {
     public class PlayerAnimation : MonoBehaviour {
         
         
-        [SerializeField] private PlayerController player;
         private Animator animator;
+        [SerializeField] private HealthEntity player;
+        private int randomDeathAnim,randomJoyAnim;
 
         private void Awake(){
             animator = GetComponent<Animator>();
         }
         private void Start(){
+            randomDeathAnim =Random.Range(0,3);
+            randomJoyAnim = Random.Range(1,3);
             GameHandler.current.onGameOver += OnGameOver;
             player.OnHit += OnPlayerDeath;
         }
+        
         private void OnPlayerDeath(object sender,System.EventArgs e){
             PlayIsDeadAnimations();
         }
@@ -26,14 +30,14 @@ namespace SheildMaster {
             }
         }
         public void PlayIsWonAnimations(){
+            
             animator.SetTrigger("isWon");
-            int rand = Random.Range(0,4);
-            animator.SetInteger("dance Number",rand);
+            animator.SetInteger("dance Number",randomJoyAnim);
             
         }
         public void PlayIsDeadAnimations(){
-            int rand = Random.Range(0,4);
-            animator.SetInteger("death Numb",rand);
+            
+            animator.SetInteger("death Numb",randomDeathAnim);
             animator.SetTrigger("isDead");
         }
     }

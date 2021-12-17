@@ -12,4 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5ca87024d0c84a9468359738550dd45c, type: 3}
   m_Name: Level 10
   m_EditorClassIdentifier: 
+  playerDeathCountOnLevel: 0
   levelData: {fileID: 1092708319510975942, guid: 8e2990740ce3d45418c435b1d61b4aed, type: 3}
+  lostData:
+    spawnAmount: 0
+    lostOnThisLevel: 0
+    spawnPointlist: []

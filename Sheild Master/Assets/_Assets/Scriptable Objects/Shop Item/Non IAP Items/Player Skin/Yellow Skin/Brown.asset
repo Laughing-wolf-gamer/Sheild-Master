@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ada4e15629c6cbd41a1566ac7d42fffb, type: 3}
+  m_Name: Brown
+  m_EditorClassIdentifier: 
+  shopItemType: 0
+  itemDisplay: {fileID: 21300000, guid: 5e61356971d1e9847993bb9a18662f4b, type: 3}
+  playerSkin: {fileID: 2100000, guid: 1fa2370e71efc73449af0ba1fe4eb629, type: 2}
+  playerBelt: {fileID: 2100000, guid: 5e67c750b3f9a4a41a5df82b8615d776, type: 2}
+  playerCloths: {fileID: 2100000, guid: 39e7d9524c7c49b43b094d5ff40df3b7, type: 2}
+  itemData:
+    cost: 3000
+    isSelected: 0
+    isBought: 0

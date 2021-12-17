@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "43333696585-8tn4ljrg41bj8nloqmfllethchb6gm37.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.PlayResume.SheildMaster",
+            "certificate_hash": "b84f788ab9efbca828ae7f2ef1541227888de465"
+          }
+        },
+        {
           "client_id": "43333696585-1fh78c4gseoltq4hsv9nsv0ooqjhqj5s.apps.googleusercontent.com",
           "client_type": 3
         }

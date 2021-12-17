@@ -1,13 +1,13 @@
 using UnityEngine;
-using GamerWolf.Utils;
 using UnityEngine.Animations.Rigging;
+
 namespace SheildMaster {
     public class EnemyAnimationHandler : MonoBehaviour {
         
-
-        [SerializeField] private Rig rig;
-        private Animator animator;
+        
         private int randomJoyAnim,randomDeathAnim;
+        private Animator animator;
+        [SerializeField] private Rig rig;
         private void Awake(){
             animator = GetComponent<Animator>();
         }
@@ -20,6 +20,7 @@ namespace SheildMaster {
         private void OnGameOver(object sender , OnGamoverEventsAargs e){
             StopRig();
             if(e.iswin){
+                AudioManager.current.PlayMusic(SoundType.Enemy_Death);
                 PlayIsDeadAnimations();
             }else{
                 PlayIsWonAnimations();
@@ -31,7 +32,6 @@ namespace SheildMaster {
         }
         public void PlayIsDeadAnimations(){
 
-            
             animator.SetInteger("death Numb",randomDeathAnim);
             animator.SetTrigger("isDead");
             rig.weight = 0f;

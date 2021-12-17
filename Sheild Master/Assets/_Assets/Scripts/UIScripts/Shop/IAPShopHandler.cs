@@ -7,11 +7,12 @@ namespace SheildMaster {
         [SerializeField] private IAPItemSO itemSO;
         [SerializeField] private Button buyButton;
         [SerializeField] private TextMeshProUGUI coinAmountText;
-        [SerializeField] private TextMeshProUGUI[] totalCoinAmountTexts;
+        [SerializeField] private TextMeshProUGUI totalCoinAmountTexts;
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private bool RemoveAdsWindow;
-
+        
         private void Start(){
+            
             if(!RemoveAdsWindow){
                 SetUP();
             }else{
@@ -21,18 +22,18 @@ namespace SheildMaster {
                     buyButton.interactable = false;
                 }
             }
+            RefreshCoinAmount();
+            playerData.onCurrencyAmountChange += RefreshCoinAmount;
 
         }
+        
 
         private void SetUP(){
             coinAmountText.SetText(string.Concat(itemSO.CoinAmount.ToString()," CASH"));
             RefreshCoinAmount();
         }
         private void RefreshCoinAmount(){
-            for (int i = 0; i < totalCoinAmountTexts.Length; i++){
-                totalCoinAmountTexts[i].SetText(string.Concat(playerData.GetCoinValue().ToString()));
-                
-            }
+            totalCoinAmountTexts.SetText(string.Concat(playerData.GetTotalCoinValue().ToString()));
         }
         public void Buy(){
             playerData.AddCoins(itemSO.CoinAmount);
@@ -45,6 +46,7 @@ namespace SheildMaster {
         public void OnRemoveAds_PurchaseComplete(bool value){
             playerData.SetHasAdsInGame(value);
         }
+        
     }
 
 }

@@ -5,14 +5,15 @@ namespace SheildMaster {
     public class PlayerAnimation : MonoBehaviour {
         
         
-        private Animator animator;
         [SerializeField] private HealthEntity player;
         private int randomDeathAnim,randomJoyAnim;
+        private Animator animator;
 
         private void Awake(){
             animator = GetComponent<Animator>();
         }
         private void Start(){
+            
             randomDeathAnim =Random.Range(0,3);
             randomJoyAnim = Random.Range(1,3);
             GameHandler.current.onGameOver += OnGameOver;
@@ -26,6 +27,7 @@ namespace SheildMaster {
             if(e.iswin){
                 PlayIsWonAnimations();
             }else{
+                AudioManager.current.PlayOneShotMusic(SoundType.Player_Death);
                 PlayIsDeadAnimations();
             }
         }
@@ -36,7 +38,6 @@ namespace SheildMaster {
             
         }
         public void PlayIsDeadAnimations(){
-            
             animator.SetInteger("death Numb",randomDeathAnim);
             animator.SetTrigger("isDead");
         }

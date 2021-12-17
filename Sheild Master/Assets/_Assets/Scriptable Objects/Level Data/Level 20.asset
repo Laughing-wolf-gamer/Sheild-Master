@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDeathCountOnLevel: 0
   levelData: {fileID: 9174251735369368525, guid: 90882546efb70e74789f16ad87446545, type: 3}
+  lostData:
+    spawnAmount: 0
+    lostOnThisLevel: 0
+    spawnPointlist: []

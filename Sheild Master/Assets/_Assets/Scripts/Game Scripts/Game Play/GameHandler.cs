@@ -69,15 +69,16 @@ namespace SheildMaster {
             blurVolume.weight = 0f;
             Time.timeScale = 1f;
             adController = AdController.current;
+            adController.askinforExtraCoinFromGame = true;
             onGameResume?.Invoke();
             if(adController != null){
-                if(adController.IsRewardedAdLoaded()){
+                if(adController.IsRewardedAdsLoaded()){
                     SetCanRewardedShowAd(true);
                 }else{
                     SetCanRewardedShowAd(false);
                 }
                 if(playerData.GetHasAdsInGame()){
-                    if(adController.isInterstetialAdLoaded()){
+                    if(adController.isInterstialAdsLoaded()){
                         SetCanShowInterstetialAds(true);
                     }else{
                         SetCanShowInterstetialAds(false);
@@ -115,7 +116,7 @@ namespace SheildMaster {
 
 
         private IEnumerator GameStartRoutine(){
-            // uIHandler.ShowExtraLifeRewardAdWindow(false,0);
+            Invoke(nameof(InvokeStartGame),0.2f);
             onGameStart?.Invoke();
             while(!isGamePlaying){
                 yield return null;
@@ -123,12 +124,29 @@ namespace SheildMaster {
             
             isGamePlaying = true;
             StartCoroutine(nameof(GamePlayRoutine));
+            
+        }
+        private void InvokeStartGame(){
+            AudioManager.current.PlayMusic(SoundType.Game_Start);
+            Debug.Log("Start The Game After 0.2f seconds");
+            PlayGame();
         }
         private IEnumerator GamePlayRoutine(){
             onGamePlaying?.Invoke();
             
             while(!isGameOver){
-                
+                if(adController.IsRewardedAdsLoaded()){
+                    SetCanRewardedShowAd(true);
+                }else{
+                    SetCanRewardedShowAd(false);
+                }
+                if(playerData.GetHasAdsInGame()){
+                    if(adController.isInterstialAdsLoaded()){
+                        SetCanShowInterstetialAds(true);
+                    }else{
+                        SetCanShowInterstetialAds(false);
+                    }
+                }
                 
                 levelManager.CheckForAllEnemyDead();
                 yield return null;
@@ -137,10 +155,10 @@ namespace SheildMaster {
             levelManager.SetLevelEndResult();
             onGameOver?.Invoke(this,new OnGamoverEventsAargs{iswin = this.isWon});
             onGameEnd?.Invoke();
-            if(!canShowRewardedAds){
-                uIHandler.ShowContinueButton();
-            }else{
+            if(canShowRewardedAds){
                 uIHandler.ShowRewardAdWindow(true);
+            }else{
+                uIHandler.ShowRewardAdWindow(false);
             }
             if(canShowInterstetialAds){
                 yield return new WaitForSeconds(0.5f);
@@ -152,14 +170,16 @@ namespace SheildMaster {
             yield return new WaitForSeconds(1f);
             blurVolume.weight = 1f;
             if(isWon){
+                AudioManager.current.PlayMusic(SoundType.Player_Win);
                 #if !UNITY_EDITOR
                 playerData.SetKillCouts(thisLevelKills);
                 #endif
                 onWin?.Invoke();
             }else{
+                AudioManager.current.PlayMusic(SoundType.Player_Lost);
                 if(playerData.GetHasAdsInGame()){
                     if(canShowInterstetialAds){
-                        adController.ShowInterstitialAd();
+                        adController.ShowInterStaialAds();
                     }
                 }
                 onLoss?.Invoke();
@@ -179,17 +199,26 @@ namespace SheildMaster {
             
         }
         public void PlayGame(){
-            isGamePlaying = true;
-            isGameOver = false;
+            if(!isGamePlaying){
+                isGamePlaying = true;
+
+            }
+            // isGameOver = false;
         }
         public void Restart(){
             if(isGameOver){
+                AudioManager.current.StopAudio(SoundType.Player_Win);
+                AudioManager.current.StopAudio(SoundType.Player_Lost);
                 LevelLoader.current.PlayLevel(SceneIndex.Game_Scene);
             }
         }
         public void BacktoMenu(){
             Time.timeScale = 1f;
+            AudioManager.current.StopAudio(SoundType.Player_Win);
+            AudioManager.current.StopAudio(SoundType.Player_Lost);
+            AudioManager.current.StopAudio(SoundType.Enemy_Death);
             LevelLoader.current.SwitchScene(SceneIndex.Main_Menu);
+            adController.askinforExtraCoinFromGame = false;
         }
         public void PlayInterStetialAds(){
             if(playerData.GetHasAdsInGame()){
@@ -230,7 +259,14 @@ namespace SheildMaster {
 
         #endregion
         
-       
+       #region  Public Getters..........
+        public bool GetIslost(){
+            return !isWon;
+        }
+        public bool GetIsWon(){
+            return isWon;
+        }
+       #endregion
         
     }
 

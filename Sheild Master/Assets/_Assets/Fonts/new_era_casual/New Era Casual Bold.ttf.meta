@@ -1,0 +1,22 @@
+fileFormatVersion: 2
+guid: 3881294a4de57574c9e228972432b3bf
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - New Era Casual
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a6354f58a73d05846849003ab68ad49f, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

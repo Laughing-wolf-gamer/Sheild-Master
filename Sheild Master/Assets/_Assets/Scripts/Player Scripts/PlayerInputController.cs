@@ -5,6 +5,7 @@ namespace SheildMaster {
     public class PlayerInputController : MonoBehaviour {
         
         [SerializeField] private LayerMask hitMask;
+        [SerializeField] private GameObject[] playText;
         
         [SerializeField] private LevelManager levelManager;
         private bool isTouchDown;
@@ -14,7 +15,8 @@ namespace SheildMaster {
         private Camera m_Camera;
         private Vector3 MousePoint;
         
-        private bool isFirstTouch;
+        private bool isFirstTouchUp;
+        
         
         public static PlayerInputController current;
 
@@ -23,16 +25,25 @@ namespace SheildMaster {
                 current = this;
             }
             m_Camera = Camera.main;
-            isFirstTouch = false;
+            isFirstTouchUp = false;
         }
         public void GetPcInput(){
+            if(Input.GetMouseButtonDown(0)){
+                for (int i = 0; i < playText.Length; i++){
+                    if(playText[i].activeInHierarchy){
+                        playText[i].SetActive(false);
+                    }
+                    
+                }
+            }
             if(!EventSystem.current.IsPointerOverGameObject()){
                 isTouchDown = Input.GetMouseButtonDown(0) && GetMousePoint() != Vector3.zero;
                 isTouchMoving = Input.GetMouseButton(0) && GetMousePoint() != Vector3.zero;
                 isTouchEnded = Input.GetMouseButtonUp(0) && GetMousePoint() != Vector3.zero;
+                
                 if(isTouchEnded){
-                    if(!isFirstTouch){
-                        isFirstTouch = true;
+                    if(!isFirstTouchUp){
+                        isFirstTouchUp = true;
                         if(levelManager != null){
                             levelManager.StartGame();
 
@@ -45,6 +56,14 @@ namespace SheildMaster {
         }
         
         public void GetMobileInputs(){
+            if(Input.GetMouseButtonDown(0)){
+                for (int i = 0; i < playText.Length; i++){
+                    if(playText[i].activeInHierarchy){
+                        playText[i].SetActive(false);
+                    }
+                    
+                }
+            }
             if(Input.touchCount > 0){
                 Touch touch = Input.touches[0];
                 int id = touch.fingerId;
@@ -52,9 +71,10 @@ namespace SheildMaster {
                     isTouchDown = (touch.phase == TouchPhase.Began && GetMousePoint() != Vector3.zero) ? true : false;
                     isTouchMoving = (touch.phase == TouchPhase.Moved && GetMousePoint() != Vector3.zero) ? true : false;
                     isTouchEnded = (touch.phase == TouchPhase.Ended && GetMousePoint() != Vector3.zero) ? true : false;
+                    
                     if(isTouchEnded){
-                        if(!isFirstTouch){
-                            isFirstTouch = true;
+                        if(!isFirstTouchUp){
+                            isFirstTouchUp = true;
                             if(levelManager != null){
                                 levelManager.StartGame();
                             }

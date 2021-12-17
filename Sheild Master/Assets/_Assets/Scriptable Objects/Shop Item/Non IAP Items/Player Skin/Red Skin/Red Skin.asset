@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Red Skin
   m_EditorClassIdentifier: 
   shopItemType: 0
+  itemDisplay: {fileID: 21300000, guid: 6d8fa419e99283d4e823feca3c7c543c, type: 3}
   playerSkin: {fileID: 2100000, guid: b0d6ba278e157cb4186e8393a8de9fa4, type: 2}
-  playerClothMat: {fileID: 2100000, guid: 2341a383033bae143b5d184ac9ef34d7, type: 2}
-  playerBeltMat: {fileID: 2100000, guid: ca3bb4af717a21844955b80e544ef8a0, type: 2}
+  playerBelt: {fileID: 2100000, guid: ca3bb4af717a21844955b80e544ef8a0, type: 2}
+  playerCloths: {fileID: 2100000, guid: 2341a383033bae143b5d184ac9ef34d7, type: 2}
   itemData:
     cost: 2500
     isSelected: 0

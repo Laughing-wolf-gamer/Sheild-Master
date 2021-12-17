@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Brown Skin
   m_EditorClassIdentifier: 
   shopItemType: 0
-  playerSkin: {fileID: 2100000, guid: f2cdc1d54ff91cd42b22e9140ce26050, type: 2}
-  playerClothMat: {fileID: 2100000, guid: 33ceb61a72dcb6441a34d6af78338e8d, type: 2}
-  playerBeltMat: {fileID: 2100000, guid: f2cdc1d54ff91cd42b22e9140ce26050, type: 2}
+  itemDisplay: {fileID: 0}
+  playerSkin: {fileID: 2100000, guid: ca2c5cd8639cdff46a4ddf5765d07da5, type: 2}
+  playerBelt: {fileID: 2100000, guid: f2cdc1d54ff91cd42b22e9140ce26050, type: 2}
+  playerCloths: {fileID: 2100000, guid: 33ceb61a72dcb6441a34d6af78338e8d, type: 2}
   itemData:
     cost: 5500
     isSelected: 0

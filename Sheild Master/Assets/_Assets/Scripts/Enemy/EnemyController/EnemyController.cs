@@ -88,7 +88,7 @@ namespace SheildMaster {
                 bullet.SetCameFromEnemy(this);
             }
             animationHandler.PlayShootingAnimations();
-            
+            AudioManager.current.PlayMusic(SoundType.Fire_Sound);
         }
 
         

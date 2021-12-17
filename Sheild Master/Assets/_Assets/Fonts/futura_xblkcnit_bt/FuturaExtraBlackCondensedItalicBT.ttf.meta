@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8910dfb6ca141b74589c5bf6d2ec9d20
+guid: a33ec65960706f64fae2571343dbfb42
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -7,15 +7,16 @@ TrueTypeFontImporter:
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
-  includeFontData: 0
+  includeFontData: 1
   fontNames:
   - Futura XBlkCnIt BT
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 196a511f4f877e4418ccce641cb865cb, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   ascentCalculationMode: 1
   useLegacyBoundsCalculation: 0
-  shouldRoundAdvanceValue: 0
+  shouldRoundAdvanceValue: 1
   userData: 
   assetBundleName: 
   assetBundleVariant: 

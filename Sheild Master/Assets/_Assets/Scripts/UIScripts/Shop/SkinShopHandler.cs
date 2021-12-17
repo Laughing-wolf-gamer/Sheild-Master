@@ -5,30 +5,30 @@ using GamerWolf.Utils;
 namespace SheildMaster {
     public class SkinShopHandler : MonoBehaviour {
 
+        [SerializeField] private Button itemWindowButton,skinWindowButton;
+        [SerializeField] private Sprite highlightedSprite,nonHighLightedSprite;
         [SerializeField] private PlayerDataSO playerDataSO;
         [SerializeField] private Button purchaseButton,UseButton;
         [SerializeField] private TextMeshProUGUI skinNameText,itemCostText;
-        [SerializeField] private SkinnedMeshRenderer displayPlayerSkinMat,dispalyPlayerClothMat,displayPlayerBelt;
+        [SerializeField] private Image viewImage;
         [SerializeField] private TextMeshProUGUI coinAmountText;
         [SerializeField] private ShopItemSO[] itemSO;
         [SerializeField] private int currentItemIndex;
         private void Start(){
-            if(PlayerPrefs.HasKey("Current Index")){
-                currentItemIndex = PlayerPrefs.GetInt("Current Index");
-            }
+            // if(PlayerPrefs.HasKey("Current Index")){
+            //     currentItemIndex = PlayerPrefs.GetInt("Current Index");
+            // }
             RefreshShop();
+            
         }
+        
         public void RefreshShop(){
             for(int i = 0; i < itemSO.Length; i++){
                 if(i == currentItemIndex){
                     skinNameText.SetText(itemSO[i].name);
                     itemCostText.SetText(string.Concat(itemSO[i].GetItemCost().ToString()," $"));
-                    skinNameText.color = itemSO[i].playerSkin.color;
-                    displayPlayerSkinMat.material = itemSO[i].playerSkin;
-                    dispalyPlayerClothMat.material = itemSO[i].playerClothMat;
-                    displayPlayerBelt.material = itemSO[i].playerBeltMat;
-                    // if(itemSO[i].playerSkin != null){
-                    // }
+                    viewImage.sprite = itemSO[i].itemDisplay;
+                    
                 }
             }
             if(itemSO[currentItemIndex].GetIsItemBought()){
@@ -53,29 +53,48 @@ namespace SheildMaster {
             RefreshCoinValue();
             RefreshPurchaseData();
         }
+        public void OnShopClose(){
+            RefreshCoinValue();
+            for (int i = 0; i < itemSO.Length; i++){
+                if(itemSO[i].GetIsItemSelected()){
+                    PlayerPrefs.SetInt("Current Index",i);
+                    break;
+                }
+                
+            }
+            if(PlayerPrefs.HasKey("Current Index")){
+                currentItemIndex = PlayerPrefs.GetInt("Current Index");
+            }
+            RefreshShop();
+            
+        }
+        public void OnSkinWindowOpen(){
+            itemWindowButton.image.sprite = nonHighLightedSprite;
+            skinWindowButton.image.sprite = highlightedSprite;
+            
+        }
         public void RefreshCoinValue(){
-            coinAmountText.SetText(playerDataSO.GetCoinValue().ToString());
+            coinAmountText.SetText(playerDataSO.GetTotalCoinValue().ToString());
         }
         private void RefreshPurchaseData(){
             for(int i = 0; i < itemSO.Length; i++){
                 if(itemSO[i].GetIsItemSelected()){
                     playerDataSO.playerSkinMaterial = itemSO[i].playerSkin;
-                    playerDataSO.playerClothMaterial = itemSO[i].playerClothMat;
-                    playerDataSO.playerBeltMat = itemSO[i].playerBeltMat;
-                    // if(itemSO[i].playerSkin != null){
-                    // }
-
+                    playerDataSO.playerClothMaterial = itemSO[i].playerCloths;
+                    playerDataSO.playerBeltMat = itemSO[i].playerBelt;
                     break;
                 }
             }
         }
-
+        private void SaveCurrentItem(){
+            PlayerPrefs.SetInt("Current Index",currentItemIndex);
+        }
         public void ShowRight(){
             currentItemIndex++;
             if(currentItemIndex > itemSO.Length - 1){
                 currentItemIndex = 0;
             }
-            PlayerPrefs.SetInt("Current Index",currentItemIndex);
+            // SaveCurrentItem();
             RefreshShop();
         }
         public void ShowLeft(){
@@ -83,17 +102,18 @@ namespace SheildMaster {
             if(currentItemIndex < 0){
                 currentItemIndex = itemSO.Length - 1;
             }
-            PlayerPrefs.SetInt("Current Index",currentItemIndex);
+            // SaveCurrentItem();
             RefreshShop();
         }
         public void TryBuyItem(){
-            if(itemSO[currentItemIndex].TryBuyitems(playerDataSO.GetCoinValue())){
+            if(itemSO[currentItemIndex].TryBuyitems(playerDataSO.GetTotalCoinValue())){
+                AudioManager.current.PlayOneShotMusic(SoundType.Item_Purchase);
                 playerDataSO.ReduceCoins(itemSO[currentItemIndex].GetItemCost());
-                playerDataSO.playerSkinMaterial = itemSO[currentItemIndex].playerSkin;
-                playerDataSO.playerClothMaterial = itemSO[currentItemIndex].playerClothMat;
-                playerDataSO.playerBeltMat = itemSO[currentItemIndex].playerBeltMat;
-                // if(itemSO[currentItemIndex].playerSkin != null){
-                // }
+                if(itemSO[currentItemIndex].playerSkin != null){
+                    playerDataSO.playerSkinMaterial = itemSO[currentItemIndex].playerSkin;
+                    playerDataSO.playerClothMaterial = itemSO[currentItemIndex].playerCloths;
+                    playerDataSO.playerBeltMat = itemSO[currentItemIndex].playerBelt;
+                }
                 AnayltyicsManager.current.SetShopItemPurcases_UnityAnayltics(itemSO[currentItemIndex].name);
                 ToolTipSystem.showToolTip_static("Purchase Succesfull",Color.green);
                 if(itemSO[currentItemIndex].GetItemCost() >= 1500){
@@ -117,10 +137,11 @@ namespace SheildMaster {
                 if(currentItemIndex == i){
                     itemSO[currentItemIndex].SelectItem();
                     AnayltyicsManager.current.SetMostUsedSkin_UnityAnayltics(itemSO[currentItemIndex].name);
-                }else{
-                    if(itemSO[currentItemIndex].playerSkin != null){
-                        itemSO[i].UnSelectItem();
-                    }
+                }
+                else{
+                    itemSO[i].UnSelectItem();
+                    // if(itemSO[currentItemIndex].playerSkin != null){
+                    // }
                 }
                 
             }

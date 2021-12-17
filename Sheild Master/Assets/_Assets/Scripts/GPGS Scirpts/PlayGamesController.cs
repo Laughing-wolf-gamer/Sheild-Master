@@ -1,9 +1,12 @@
+using TMPro;
 using UnityEngine;
 using GooglePlayGames;
 using GooglePlayGames.BasicApi;
 using UnityEngine.SceneManagement;
 
 public class PlayGamesController : MonoBehaviour {
+
+    [SerializeField] private TextMeshProUGUI logingText;
     
     private void Awake(){
         #if UNITY_EDITOR
@@ -13,8 +16,13 @@ public class PlayGamesController : MonoBehaviour {
         #endif
     }
     private void Start(){
+#if UNITY_EDITOR
+        ChangeScene();
+#else 
         AuthenticateUser();
-    
+
+#endif
+        
     }
     
     
@@ -26,13 +34,15 @@ public class PlayGamesController : MonoBehaviour {
         Social.localUser.Authenticate((bool success) =>{
             if (success){
                 Debug.Log("Logged in to Google Play Games Services");
-
-                ChangeScene();
+                logingText.SetText(string.Concat("Logged in to Google Play Games Services"));
+                Invoke(nameof(ChangeScene),0.5f);
+                // ChangeScene();
             }
             else{
                 Debug.LogError("Unable to sign in to Google Play Games Services");
-                
-                ChangeScene();
+                logingText.SetText(string.Concat("Unable to sign in to Google Play Games Services"));
+                // ChangeScene();
+                Invoke(nameof(ChangeScene),0.5f);
             }
         });
         

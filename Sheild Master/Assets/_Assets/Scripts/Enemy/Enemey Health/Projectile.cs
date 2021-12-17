@@ -18,7 +18,9 @@ namespace SheildMaster {
         private bool Move;
         private int collisionCount;
         private Collider m_collider;
+        private AudioManager audioManager;
         private void Start(){
+            audioManager = AudioManager.current;
             PlayerController.player.onDead += (object sender,System.EventArgs e) =>{
                 DestroyMySelf();
             };
@@ -71,6 +73,7 @@ namespace SheildMaster {
         }
         private void OnHitObject(RaycastHit _hit){
             collisionCount++;
+            audioManager.PlayOneShotMusic(SoundType.Wall_hit);
             if(_hit.transform.TryGetComponent<IDamagable>(out IDamagable damagable)){
                 damagable.TakeHit(1);
                 DestroyMySelf();

@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: Defult Skin
   m_EditorClassIdentifier: 
   shopItemType: 0
+  itemDisplay: {fileID: 21300000, guid: cbd29c9920ae63049afbbb8301eef600, type: 3}
   playerSkin: {fileID: 2100000, guid: be176e129e6fe554eb27d884ed447f9e, type: 2}
-  playerClothMat: {fileID: 2100000, guid: 54478202e4334854497098bd40c21eff, type: 2}
-  playerBeltMat: {fileID: 2100000, guid: 1b344971b3f88d34ba1a8ccc830546f4, type: 2}
+  playerBelt: {fileID: 2100000, guid: 1b344971b3f88d34ba1a8ccc830546f4, type: 2}
+  playerCloths: {fileID: 2100000, guid: 54478202e4334854497098bd40c21eff, type: 2}
   itemData:
     cost: 0
     isSelected: 1

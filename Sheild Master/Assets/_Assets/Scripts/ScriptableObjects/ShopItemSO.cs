@@ -12,11 +12,11 @@ namespace SheildMaster{
     public class ShopItemSO : ScriptableObject {
 
         public ShopItemType shopItemType;        
+        public Sprite itemDisplay;
         public Material playerSkin;
-        public Material playerClothMat;
-        public Material playerBeltMat;
+        public Material playerBelt;
+        public Material playerCloths;
         public ShopItemData itemData;
-        // public Material ForceFieldMat;
         public int GetItemCost(){
             return itemData.cost;
         }

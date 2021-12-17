@@ -2,6 +2,7 @@ using System.IO;
 using UnityEngine;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+
 namespace SheildMaster {
     [CreateAssetMenu(fileName = "New Setting",menuName = "ScriptableObject/UI/Settings Data")]
     public class SettingsSO : ScriptableObject {

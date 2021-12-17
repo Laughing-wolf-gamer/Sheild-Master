@@ -17,6 +17,8 @@ namespace SheildMaster {
         private float surviveTime;
         private int randLevel;
         private int currenCoinCount;
+        private LevelDataSO currentUsedLevelDataSO;
+        private LevelData currentLevel;
 
         #region Singelton.......
 
@@ -50,7 +52,8 @@ namespace SheildMaster {
             }
             if(!player.GetIsDead()){
                 gameHandler.SetGameOver(true);
-                UIHandler.current.SetCurrentLevelEarnedCoins(enemyList.Count);
+                currenCoinCount = enemyList.Count;
+                UIHandler.current.SetCurrentLevelEarnedCoins(currenCoinCount);    
             }
         }
         public void CollectCoin(){
@@ -58,12 +61,13 @@ namespace SheildMaster {
             //     gameHandler.AddCoin(enemyList.Count);    
             // }
             UIHandler.current.SetCurrentLevelEarnedCoins(0);
-            
             gameHandler.AddCoin(currenCoinCount);
+            UIHandler.current.UpdateCoinAmountUI();
         }
         public void AddTwiceMoney(){
-            currenCoinCount *= 2;
+            currenCoinCount = currenCoinCount * 2;
             gameHandler.AddCoin(currenCoinCount);
+            UIHandler.current.UpdateCoinAmountUI();
         }
         
         public void SetLevelEndResult(){
@@ -77,7 +81,23 @@ namespace SheildMaster {
         
         private void SpawnLevel(){
             randLevel = UnityEngine.Random.Range(0,levelDataList.Count);
-            LevelData currentLevel =  Instantiate(levelDataList[randLevel].levelData,transform.position,Quaternion.identity);
+            currentUsedLevelDataSO = levelDataList[randLevel];
+            for (int i = 0; i < levelDataList.Count; i++){
+                if(levelDataList[i].GetIsLostOnLevel()){
+                    currentUsedLevelDataSO = levelDataList[i];
+                    break;
+                }
+            }
+            
+            if(!currentUsedLevelDataSO.GetIsLostOnLevel()){
+                
+                currentLevel = Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
+                currentLevel.SpawnEnemyes();
+            }else{
+                currentLevel =  Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
+                currentLevel.SpawnEnemyes(currentUsedLevelDataSO.GetSpawnPointList(),currentUsedLevelDataSO.GetSpawnAmount());
+                
+            }
             
             enemyList = currentLevel.GetEnemieList();
             for (int i = 0; i < enemyList.Count; i++){
@@ -112,13 +132,7 @@ namespace SheildMaster {
             }
 
         }
-        public void TryEnableAbilityWindow(){
-            if(enemyList.Count >= 3){
-                UIHandler.current.EnableAbilityWindow(true);
-            }else{
-                UIHandler.current.EnableAbilityWindow(false);
-            }
-        }
+        
         public void KillOneEnemyBeforePlaying(){
             int rand = UnityEngine.Random.Range(0,enemyList.Count);
             if(enemyList[rand].GetIsDead()){
@@ -133,7 +147,21 @@ namespace SheildMaster {
             player.ActivateForceField();
             
         }
-        
+        public void SetLostLevel(){
+            
+            if(gameHandler.GetIslost()){
+                currentUsedLevelDataSO.SetSpawnAmount(currentLevel.previousSpawnCount());
+                currentUsedLevelDataSO.SetLostBool(true) ;
+                currentUsedLevelDataSO.SetLostData(currentLevel.GetSpawnPoint());
+            }
+        }
+        public void SetWinLevel(){
+            if(gameHandler.GetIsWon()){
+                currentUsedLevelDataSO.SetLostBool(false);
+                currentUsedLevelDataSO.RemakeNewSpawnPoint();
+                currentUsedLevelDataSO.SetSpawnAmount(0);
+            }
+        }
         
         
     }

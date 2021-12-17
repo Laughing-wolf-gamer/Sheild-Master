@@ -14,7 +14,7 @@ namespace SheildMaster {
         [Header("Windows")]
         [SerializeField] private GameObject abilityWindow;
         [Header("Ad window")]
-        [SerializeField] private AdView coinRewardWindow;
+        [SerializeField] private GameObject adRewardButton;
         [Header("Images")]
         [SerializeField] private Image inkBarImage;
 
@@ -34,23 +34,21 @@ namespace SheildMaster {
             }
         }
         #endregion
+
         private void Start(){
+
             SetCurrentLevel();
             UpdateCoinAmountUI();
+            playerData.onCurrencyAmountChange += UpdateCoinAmountUI;
             UpdateAbililyValueUI();
         }
         public void SetInkTankValue(float value){
             inkBarImage.fillAmount = value;
         }
         public void ShowRewardAdWindow(bool value){
-            // randomAmountText.SetText(string.Concat("Watch an ad to get Extra ",amount.ToString() ," coins"));
-            coinRewardWindow.gameObject.SetActive(value);
-            ShowContinueButton();
-            
+            adRewardButton.SetActive(value);
         }
-        public void ShowContinueButton(){
-            coinRewardWindow.StartTimer();
-        }
+        
         public void SetCurrentLevelEarnedCoins(int coinAmont){
             for (int i = 0; i < currentLevelCoinAmountText.Length; i++){
                 currentLevelCoinAmountText[i].SetText(coinAmont.ToString());
@@ -59,7 +57,7 @@ namespace SheildMaster {
 
         public void UpdateCoinAmountUI(){
             for (int i = 0; i < TotalcoinAmountText.Length; i++){
-                TotalcoinAmountText[i].SetText(playerData.GetCoinValue().ToString());
+                TotalcoinAmountText[i].SetText(playerData.GetTotalCoinValue().ToString());
             }
         }
         private void SetCurrentLevel(){
@@ -74,17 +72,6 @@ namespace SheildMaster {
         public void UpdateAbililyValueUI(){
             armourAbilityCountText.SetText(armourForPlayerAbiliy.GetAbilityUseCount().ToString());
             KillOneEnemyCountText.SetText(KillOneEnemyBeforePlayingAbiliy.GetAbilityUseCount().ToString());
-            if(armourForPlayerAbiliy.GetAbilityUseCount() > 0){
-                
-                armourForPlayerAbiliyButton.gameObject.SetActive(true);
-            }else{
-                armourForPlayerAbiliyButton.gameObject.SetActive(false);
-            }
-            if(KillOneEnemyBeforePlayingAbiliy.GetAbilityUseCount() > 0){
-                KillOneEnemyBeforePlayingAbiliyButton.gameObject.SetActive(true);
-            }else{
-                KillOneEnemyBeforePlayingAbiliyButton.gameObject.SetActive(false);
-            }
         }
         public void EnableAbilityWindow(bool enable){
             abilityWindow.SetActive(enable);
@@ -101,12 +88,14 @@ namespace SheildMaster {
         }
         
         public void WatchRewardedAds(){
-            AdController.current.ShowRewardedAd();
+            AdController.current.ShowRewarededAds();
         }
         public void WatchInterstetialAds(){
-            AdController.current.ShowInterstitialAd();
+            AdController.current.ShowInterStaialAds();
         }
-        
+        public void PauseMusic(){
+            AudioManager.current.PauseMusic(SoundType.BGM);
+        }
     }
     
 

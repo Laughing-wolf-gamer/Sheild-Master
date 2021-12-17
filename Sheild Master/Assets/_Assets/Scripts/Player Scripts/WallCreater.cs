@@ -10,9 +10,10 @@ namespace SheildMaster {
 
         #region Exposed Variables...
         [Header("Ink Settings")]
+        
         [SerializeField] private int maxInkAmount = 100;
 
-        [Header("Mouse Targets")]
+        [Header("Mouse Targets Variables")]
         [SerializeField] private Transform mouseObject;
         [SerializeField] private float maxDistanceForSpawn = 2f;
         [SerializeField] private float maxDistanceFromPlayer = 2f;

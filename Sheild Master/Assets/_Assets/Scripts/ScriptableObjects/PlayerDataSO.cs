@@ -6,7 +6,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 namespace SheildMaster{
     [CreateAssetMenu(fileName = "New Player Data",menuName = "ScriptableObject/Player Data")]
     public class PlayerDataSO : ScriptableObject {
-        
+        public System.Action onCurrencyAmountChange;
         public PlayerSaveData playerSaveData;
         public AbilitySO[] abiliys;
         public Material playerSkinMaterial,playerClothMaterial,playerBeltMat;
@@ -19,12 +19,14 @@ namespace SheildMaster{
         
         public void AddCoins(int value){
             playerSaveData.maxCoinCount += value;
+            onCurrencyAmountChange?.Invoke();
         }
         public void ReduceCoins(int value){
             playerSaveData.maxCoinCount -= value;
             if(playerSaveData.maxCoinCount <= 0){
                 playerSaveData.maxCoinCount = 0;
             }
+            onCurrencyAmountChange?.Invoke();
         }
         public bool GetDailyBonusWindowAlreadyShown(){
             return playerSaveData.alreadyShownDailyBonusWindow;
@@ -44,7 +46,7 @@ namespace SheildMaster{
         public int GetcurrentDay(){
             return playerSaveData.currentDay;
         }
-        public int GetCoinValue(){
+        public int GetTotalCoinValue(){
             return playerSaveData.maxCoinCount;
         }
         public int GetExperience(){
@@ -80,6 +82,9 @@ namespace SheildMaster{
             if(playerSaveData.dimondAmount <= 0){
                 playerSaveData.dimondAmount = 0;
             }
+        }
+        public int GetDimondCount(){
+            return playerSaveData.dimondAmount;
         }
         public void SetKillCouts(int amount){
             playerSaveData.totalKillCounts += amount;

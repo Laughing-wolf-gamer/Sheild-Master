@@ -8,7 +8,7 @@ namespace SheildMaster {
 
         [SerializeField] private int currentDay;
         [SerializeField] private GameObject noitificationIcon;
-        [SerializeField] private TextMeshProUGUI[] totalCoinTexts;
+        [SerializeField] private TextMeshProUGUI totalCoinTexts;
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private Button claimRewardButton;
         [SerializeField] private GameObject eventCanvas;
@@ -74,7 +74,7 @@ namespace SheildMaster {
             }
             RefershCoin();
             CheckForDailyReward();
-            
+            playerData.onCurrencyAmountChange += RefershCoin;
 
         }
         private void CheckForDailyReward(){
@@ -86,9 +86,8 @@ namespace SheildMaster {
         }
         
         private void RefershCoin(){
-            for (int i = 0; i < totalCoinTexts.Length; i++){
-                totalCoinTexts[i].SetText(playerData.GetCoinValue().ToString()) ;
-            }
+            totalCoinTexts.SetText(playerData.GetTotalCoinValue().ToString()) ;
+            
         }
         
         public void SetAlreadShownEventCanvas(){

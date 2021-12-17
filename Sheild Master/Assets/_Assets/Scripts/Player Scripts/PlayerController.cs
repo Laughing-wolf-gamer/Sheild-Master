@@ -43,9 +43,15 @@ namespace SheildMaster {
             gameHandler.onGameOver += (object sender, OnGamoverEventsAargs args) =>{
                 RotatePlayer(onWinLookPoint.position);
             };
+            #if UNITY_EDITOR
+                onPc = true;
+            #else
+                onPc = false;
+            #endif
         }
         #endregion
 
+        
         private void Update(){
             if(enableInpts){
                 if(onPc){

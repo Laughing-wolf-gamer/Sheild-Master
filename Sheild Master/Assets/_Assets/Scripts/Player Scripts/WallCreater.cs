@@ -10,7 +10,7 @@ namespace SheildMaster {
 
         #region Exposed Variables...
         [Header("Ink Settings")]
-        
+        [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private int maxInkAmount = 100;
 
         [Header("Mouse Targets Variables")]
@@ -47,7 +47,7 @@ namespace SheildMaster {
             playerInputController = GetComponent<PlayerInputController>();
         }
         private void Start(){
-            currentInkAmount = maxInkAmount;
+            SetInkAmount();
             objectPoolingManager = ObjectPoolingManager.current;
             onInkChange += ()=>{
                 UIHandler.current.SetInkTankValue(GetInkNormalizedValue());
@@ -55,6 +55,18 @@ namespace SheildMaster {
             GameHandler.current.onGameOver += (object sender,OnGamoverEventsAargs e)=>{
                 rig.weight = 0f;
             };
+        }
+        private void SetInkAmount(){
+            if(playerData.GetLevelNumber() <= 25){
+                maxInkAmount = 20;
+            }
+            if(playerData.GetLevelNumber() > 25){
+                maxInkAmount = 30;
+            }
+            if(playerData.GetLevelNumber() >= 60){                
+                maxInkAmount = 50;
+            }
+            currentInkAmount = maxInkAmount;
         }
         
         
@@ -77,7 +89,7 @@ namespace SheildMaster {
                     if(firstTouchDistance <= maxDistanceFromPlayer){
                         Vector3 currentDir = (previousDir - mouseObject.position).normalized;
                         currentWall.SetExpandDir(mouseObject.position);
-                        if(currentDir != previousDir){
+                        if(previousDir != currentDir){
                             previousDir = currentDir;
                             if(Vector3.Distance(initPoint,mouseObject.position) >= maxDistanceForSpawn){
                                 

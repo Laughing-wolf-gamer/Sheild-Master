@@ -38,7 +38,7 @@ namespace SheildMaster {
         }
 
 
-        public void DestroyMySelf(){
+        public void DestroyMySelf(float delay = 0f){
             onDestroy?.Invoke();
             Move = false;
             cameFromEnemy = null;
@@ -81,22 +81,13 @@ namespace SheildMaster {
                 if(_hit.transform.TryGetComponent<ForcefieldImpact>(out ForcefieldImpact forcefield)){
                     forcefield.OnImpcat(_hit);
                 }
-                // if(cameFromEnemy.GetEnemyType() == EnemyType.Armourd || cameFromEnemy.GetEnemyType() == EnemyType.Super){
-                //     if(_hit.transform.TryGetComponent<ExpandingWall>(out ExpandingWall wall)){
-                //         if(collisionCount <= 1){
-                //             moveForce *= 0.5f;
-                //             wall.DestroyMySelf();
-                //             Movement();
-                //         }else{
-                //             if(cameFromEnemy != null){
-                //                 transform.LookAt(cameFromEnemy.transform);
-                //             }else{
-                //                 DestroyMySelf();
-                //             }
-                //         }
-                //     }
-                // }else{
-                // }
+                if(cameFromEnemy.GetEnemyType() == EnemyType.Armourd || cameFromEnemy.GetEnemyType() == EnemyType.Super){
+                    if(_hit.transform.TryGetComponent<ExpandingWall>(out ExpandingWall wall)){
+                        if(collisionCount <= 1){
+                            wall.DestroyMySelf();
+                        }
+                    }
+                }
                 if(cameFromEnemy != null){
                     transform.LookAt(cameFromEnemy.transform);
                 }else{

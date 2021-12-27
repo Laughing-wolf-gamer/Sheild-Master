@@ -1,81 +1,77 @@
 using TMPro;
-using System;
 using UnityEngine;
 using UnityEngine.UI;
-
+using System.Collections;
 namespace SheildMaster {
     public class GameEventManager : MonoBehaviour {
-
         [SerializeField] private int currentDay;
+        [SerializeField] private float closeTime = 2f;
         [SerializeField] private GameObject noitificationIcon;
-        [SerializeField] private TextMeshProUGUI totalCoinTexts;
+        [SerializeField] private TextMeshProUGUI totalCoinTexts,totalDimondText;
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private Button claimRewardButton;
         [SerializeField] private GameObject eventCanvas;
-        [SerializeField] private DayOfWeek dayOfTheWeek;
         [SerializeField] private DailyBonuUIButton[] rewardClameButtonArray;
-        [SerializeField] private DailyBonuUIButton CurrentBonusButton;
-
-        private void Awake(){
-            dayOfTheWeek = DateTime.Today.DayOfWeek;
-        }
+        [SerializeField] private TimeManager timeManager;
+        private DailyBonuUIButton CurrentBonusButton;
         private void Start() {
-            
-            int currentDay = (int)dayOfTheWeek;
-            if(playerData.GetcurrentDay() != currentDay){
-                eventCanvas.SetActive(true);
-                playerData.SetClamedBonus(false);
-                playerData.SetcurrentDay(currentDay);
-                if(!playerData.GetDailyBonusWindowAlreadyShown()){
-                    // eventCanvas.SetActive(true);
-                    if(playerData.GetIsClamedBonus()){
-                        eventCanvas.SetActive(false);
-                        playerData.SetDailyBonusAlreadyShown(false);
-                    }else{
-                        eventCanvas.SetActive(true);
-                        playerData.SetDailyBonusAlreadyShown(true);
-                    }
-                }else{
+            currentDay = playerData.GetcurrentDay();
+            if(timeManager.Ready()){
+                claimRewardButton.interactable = true;
+                if(playerData.GetIsClamedBonus()){
                     eventCanvas.SetActive(false);
-                    playerData.SetDailyBonusAlreadyShown(false);
+                }else{
+                    eventCanvas.SetActive(true);
                 }
             }else{
-                if(!playerData.GetDailyBonusWindowAlreadyShown()){
-                    // eventCanvas.SetActive(true);
-                    if(playerData.GetIsClamedBonus()){
-                        eventCanvas.SetActive(false);
-                        playerData.SetDailyBonusAlreadyShown(false);
-                    }else{
-                        eventCanvas.SetActive(true);
-                        playerData.SetDailyBonusAlreadyShown(true);
-                    }
-                }else{
-                    eventCanvas.SetActive(false);
-                    playerData.SetDailyBonusAlreadyShown(false);
-                }
+                eventCanvas.SetActive(false);
+            }
+            CheckRewardButton();
+            RefershCoin();
+            RefreshDimond();
+            CheckForDailyReward();
+            playerData.onCurrencyValueChange += RefershCoin;
+            playerData.onDimondValueChange += RefreshDimond;
+            StartCoroutine(nameof(CheckRoutine));
+        }
+        private IEnumerator CheckRoutine(){
+            while(true){
+                currentDay = playerData.GetcurrentDay();
+                CheckRewardButton();
+                yield return null;
+            }
+        }
+        
+
+        private void CheckRewardButton(){
+            if(timeManager.Ready()){
+                playerData.SetClamedBonus(false);
+            }else{
+                playerData.SetClamedBonus(true);
             }
             for (int i = 0; i < rewardClameButtonArray.Length; i++){
-                if(!playerData.GetIsClamedBonus()){
-                    if(i == currentDay){
+                if(timeManager.Ready()){
+                    if(currentDay == rewardClameButtonArray[i].GetCurrentRewardNumber()){
                         rewardClameButtonArray[i].SetIsActive(true);
                         CurrentBonusButton = rewardClameButtonArray[i];
                     }else{
+                        if(i < currentDay){
+                            rewardClameButtonArray[i].SetClamedText("Claimed");
+                        }else {
+                            rewardClameButtonArray[i].SetClamedText("Come Back Later");
+                        }
                         rewardClameButtonArray[i].SetIsActive(false);
                     }
-
                 }else{
+                    if(i < currentDay){
+                        rewardClameButtonArray[i].SetClamedText("Claimed");
+                    }else {
+                        rewardClameButtonArray[i].SetClamedText("Come Back Later");
+                    }
                     rewardClameButtonArray[i].SetIsActive(false);
                 }
             }
-            if(!playerData.GetIsClamedBonus()){
-                claimRewardButton.interactable = true;
-            }else{
-                claimRewardButton.interactable = false;
-            }
-            RefershCoin();
             CheckForDailyReward();
-            playerData.onCurrencyAmountChange += RefershCoin;
-
         }
         private void CheckForDailyReward(){
             if(playerData.GetIsClamedBonus()){
@@ -86,29 +82,33 @@ namespace SheildMaster {
         }
         
         private void RefershCoin(){
-            totalCoinTexts.SetText(playerData.GetTotalCoinValue().ToString()) ;
-            
+            totalCoinTexts.SetText(playerData.GetTotalCoinValue().ToString());
+        }
+        private void RefreshDimond(){
+            totalDimondText.SetText(playerData.GetDimondCount().ToString());
         }
         
-        public void SetAlreadShownEventCanvas(){
-            playerData.SetDailyBonusAlreadyShown(true);
-        }
-        public void Clame(){
-            CurrentBonusButton.ClamReward();
-            if(!playerData.GetIsClamedBonus()){
-                claimRewardButton.interactable = true;
-            }else{
-                claimRewardButton.interactable = false;
-            }
-            CurrentBonusButton.SetIsActive(false);
+        
+        public void Claime(){
             RefershCoin();
+            timeManager.Click();
+            CheckRewardButton();
             CheckForDailyReward();
+            CurrentBonusButton.ClamReward();
+            playerData.SetClamedBonus(true);
+            playerData.IncreaseCurrentDayNumber();
+            CurrentBonusButton.SetIsActive(false);
+            claimRewardButton.interactable = false;
         }
         
-        private void OnApplicationQuit(){
-            if(!playerData.GetIsClamedBonus()){
-                playerData.SetcurrentDay(-1);
-            }
+        
+        
+        public void CloseWindow(){
+            CancelInvoke(nameof(CloseInvoke));
+            Invoke(nameof(CloseInvoke),closeTime);
+        }
+        private void CloseInvoke(){
+            eventCanvas.SetActive(false);
         }
         
         

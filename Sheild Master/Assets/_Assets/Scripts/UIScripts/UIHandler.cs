@@ -9,7 +9,7 @@ namespace SheildMaster {
         [SerializeField] private PlayerDataSO playerData;
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI[] levelNumberTexts;
-        [SerializeField] private TextMeshProUGUI[] TotalcoinAmountText,currentLevelCoinAmountText;
+        [SerializeField] private TextMeshProUGUI[] TotalcoinAmountText,currentLevelCoinAmountText/*dimondTextButton*/;
 
         [Header("Windows")]
         [SerializeField] private GameObject abilityWindow;
@@ -21,6 +21,7 @@ namespace SheildMaster {
         [SerializeField] private TextMeshProUGUI armourAbilityCountText,KillOneEnemyCountText;
 
         [SerializeField] private Button armourForPlayerAbiliyButton,KillOneEnemyBeforePlayingAbiliyButton;
+        [SerializeField] private GameObject notUnlockViewForSheild,notUnlockViewForKillOne;
         [SerializeField] private AbilitySO armourForPlayerAbiliy,KillOneEnemyBeforePlayingAbiliy;
 
         #region Singleton......
@@ -39,7 +40,8 @@ namespace SheildMaster {
 
             SetCurrentLevel();
             UpdateCoinAmountUI();
-            playerData.onCurrencyAmountChange += UpdateCoinAmountUI;
+            playerData.onCurrencyValueChange += UpdateCoinAmountUI;
+            playerData.onDimondValueChange += UpdateCoinAmountUI;
             UpdateAbililyValueUI();
         }
         public void SetInkTankValue(float value){
@@ -53,12 +55,16 @@ namespace SheildMaster {
             for (int i = 0; i < currentLevelCoinAmountText.Length; i++){
                 currentLevelCoinAmountText[i].SetText(coinAmont.ToString());
             }
+            
         }
 
         public void UpdateCoinAmountUI(){
             for (int i = 0; i < TotalcoinAmountText.Length; i++){
                 TotalcoinAmountText[i].SetText(playerData.GetTotalCoinValue().ToString());
             }
+            // for (int i = 0; i < dimondTextButton.Length; i++){
+            //     dimondTextButton[i].SetText(playerData.GetDimondCount().ToString());
+            // }
         }
         private void SetCurrentLevel(){
             for (int i = 0; i < levelNumberTexts.Length; i++){
@@ -67,6 +73,23 @@ namespace SheildMaster {
                 }else{
                     levelNumberTexts[i].SetText("Level " + playerData.GetLevelNumber().ToString());
                 }
+            }
+        }
+        public void HideSheildAbilityIcon(bool hide){
+            notUnlockViewForSheild.SetActive(hide);
+            if(!hide){
+                armourForPlayerAbiliyButton.interactable = true;
+            }else{
+                armourForPlayerAbiliyButton.interactable = false;
+            }
+
+        }
+        public void HideKillAbilityIcon(bool hide){
+            notUnlockViewForKillOne.SetActive(hide);
+            if(!hide){
+                KillOneEnemyBeforePlayingAbiliyButton.interactable = true;
+            }else{
+                KillOneEnemyBeforePlayingAbiliyButton.interactable = false;
             }
         }
         public void UpdateAbililyValueUI(){
@@ -78,21 +101,23 @@ namespace SheildMaster {
         }
         public void UseArmourForPlayerAbiliy(){
             armourForPlayerAbiliy.UseAbility();
-            LevelManager.current.ArmourForPlayer();
+            if(armourForPlayerAbiliy.CanUseAbility()){
+                LevelManager.current.ArmourForPlayer();
+            }
             UpdateAbililyValueUI();
         }
         public void UseKillOneEnemyBeforePlaying(){
             KillOneEnemyBeforePlayingAbiliy.UseAbility();
-            LevelManager.current.KillOneEnemyBeforePlaying();
+            if(KillOneEnemyBeforePlayingAbiliy.CanUseAbility()){
+                LevelManager.current.KillOneEnemyBeforePlaying();
+            }
             UpdateAbililyValueUI();
         }
         
         public void WatchRewardedAds(){
             AdController.current.ShowRewarededAds();
         }
-        public void WatchInterstetialAds(){
-            AdController.current.ShowInterStaialAds();
-        }
+        
         public void PauseMusic(){
             AudioManager.current.PauseMusic(SoundType.BGM);
         }

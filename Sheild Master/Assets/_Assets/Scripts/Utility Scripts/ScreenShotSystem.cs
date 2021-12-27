@@ -20,9 +20,6 @@ namespace GamerWolf.Utils {
         }
         private void Update(){
             if(Input.GetKeyDown(KeyCode.T)){
-                // onBeforScreenShot?.Invoke();
-                // ScreenCapture.CaptureScreenshot(string.Concat("Game Screen Shot",screenShotCount,".png"));
-                // Invoke(nameof(InvoekAfterScreenShot),0.1f);
                 TakeScreenShot();
             }
         }

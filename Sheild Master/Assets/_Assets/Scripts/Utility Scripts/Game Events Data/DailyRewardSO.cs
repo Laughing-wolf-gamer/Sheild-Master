@@ -5,11 +5,14 @@ namespace SheildMaster {
     [CreateAssetMenu(fileName = "New Daily Reward",menuName = "ScriptableObject/Daily Reward")]
     public class DailyRewardSO : ScriptableObject {
 
-        public DayOfWeek dayOfWeek;
+        public int dayNumber;
         [TextArea(10,10)]
         public string discription;
         public DailyData dailyBonyData;
 
+        public void SetDayNumber(int dayNum){
+            dayNumber = dayNum;
+        }
         
     }
     [Serializable]

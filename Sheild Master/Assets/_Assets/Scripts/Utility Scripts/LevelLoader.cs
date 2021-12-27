@@ -21,7 +21,7 @@ namespace SheildMaster{
     public class LevelLoader : MonoBehaviour{
         
         [SerializeField] private GameObject loadingScreen;
-        [SerializeField] private List<LevelDataSO> levelList;
+        // [SerializeField] private List<LevelDataSO> levelList;
         [SerializeField] private Image loadingBar;
         [SerializeField] private SceneIndex currentLevel;
         public static LevelLoader current {get;private set;}
@@ -88,12 +88,12 @@ namespace SheildMaster{
         
         
         private IEnumerator GetLoadSceneProgress(SceneIndex _sceneToLoad){
-            float extraLoading = 2f;
             loadingScreen.SetActive(true);
             AsyncOperation operation = SceneManager.LoadSceneAsync((int)_sceneToLoad);
             totalProgress = 0f;
             while(!operation.isDone){
-                totalProgress = Mathf.Clamp01(operation.progress / 0.9f) + extraLoading;
+                
+                totalProgress = Mathf.Clamp01(operation.progress / 0.9f);
                 loadingBar.fillAmount = totalProgress;
                 yield return null;
                 

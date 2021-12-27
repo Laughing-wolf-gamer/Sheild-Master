@@ -14,8 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   savePlace: SettingsData
   settingsData:
+    hasPlayerConsent: 1
     currentLanguage: 0
+    isNotificaitonOn: 1
     isMusicOn: 1
     isSoundOn: 1
-    notification: 0
-    privacyAndPolicy: 
+    privacyAndPolicy: http://playresume.in/privacy-policy/

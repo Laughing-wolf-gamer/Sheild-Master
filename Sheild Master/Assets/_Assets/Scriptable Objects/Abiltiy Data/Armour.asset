@@ -19,5 +19,5 @@ MonoBehaviour:
     dimondCount: 20
   abilitySpriteDisplay: {fileID: 21300000, guid: b670268e01ee6d448bfa6d7096b3c43c, type: 3}
   abilitySaveData:
-    isUnlocked: 1
-    abilityUseCount: 50
+    isUnlocked: 0
+    abilityUseCount: 0

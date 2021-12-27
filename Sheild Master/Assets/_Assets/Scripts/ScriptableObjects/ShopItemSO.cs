@@ -11,11 +11,8 @@ namespace SheildMaster{
     [CreateAssetMenu(fileName = "New Item",menuName = "ScriptableObject/Shop/Item")]
     public class ShopItemSO : ScriptableObject {
 
-        public ShopItemType shopItemType;        
-        public Sprite itemDisplay;
+        public ShopItemType shopItemType;
         public Material playerSkin;
-        public Material playerBelt;
-        public Material playerCloths;
         public ShopItemData itemData;
         public int GetItemCost(){
             return itemData.cost;

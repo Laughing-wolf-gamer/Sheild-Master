@@ -1,16 +1,16 @@
+using System;
 using System.IO;
 using UnityEngine;
-using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SheildMaster{
     [CreateAssetMenu(fileName = "New Player Data",menuName = "ScriptableObject/Player Data")]
     public class PlayerDataSO : ScriptableObject {
-        public System.Action onCurrencyAmountChange;
+        public Action onCurrencyValueChange,onDimondValueChange;
+        
         public PlayerSaveData playerSaveData;
         public AbilitySO[] abiliys;
-        public Material playerSkinMaterial,playerClothMaterial,playerBeltMat;
-        // public Material forceFeildMaterial;
+        public Material playerSkinMaterial;
         private void OnValidate(){
             if(playerSaveData.currentLevelNumber <= 0){
                 playerSaveData.currentLevelNumber = 1;
@@ -19,30 +19,36 @@ namespace SheildMaster{
         
         public void AddCoins(int value){
             playerSaveData.maxCoinCount += value;
-            onCurrencyAmountChange?.Invoke();
+            onCurrencyValueChange?.Invoke();
         }
         public void ReduceCoins(int value){
             playerSaveData.maxCoinCount -= value;
             if(playerSaveData.maxCoinCount <= 0){
                 playerSaveData.maxCoinCount = 0;
             }
-            onCurrencyAmountChange?.Invoke();
+            onCurrencyValueChange?.Invoke();
         }
-        public bool GetDailyBonusWindowAlreadyShown(){
-            return playerSaveData.alreadyShownDailyBonusWindow;
+        public void SetLostLevelIndex(int value){
+            playerSaveData.lostLevelIndex = value;
         }
-        public void SetDailyBonusAlreadyShown(bool _value){
-            playerSaveData.alreadyShownDailyBonusWindow = _value;
+        public int GetLostLevelIndex(){
+            return playerSaveData.lostLevelIndex;
         }
+        
+        
         public void SetClamedBonus(bool _value){
             playerSaveData.isClamedDailyBonus = _value;
         }
         public bool GetIsClamedBonus(){
             return playerSaveData.isClamedDailyBonus;
         }
-        public void SetcurrentDay(int day){
-            playerSaveData.currentDay = day;
+        public void IncreaseCurrentDayNumber(){
+            playerSaveData.currentDay++;
+            if(playerSaveData.currentDay >= 7){
+                playerSaveData.currentDay = 0;
+            }
         }
+        
         public int GetcurrentDay(){
             return playerSaveData.currentDay;
         }
@@ -61,6 +67,7 @@ namespace SheildMaster{
         public bool GetHasAdsInGame(){
             return playerSaveData.HasAdsInGame;
         }
+        
         public void OnLevelComplete(){
             playerSaveData.currentLevelNumber++;
             AnayltyicsManager.current.SetPlayerLevelAnaylytics(playerSaveData.currentLevelNumber);
@@ -76,12 +83,14 @@ namespace SheildMaster{
         }
         public void AddDimond(int amount){
             playerSaveData.dimondAmount += amount;
+            onDimondValueChange?.Invoke();
         }
         public void UseDimond(int amount){
             playerSaveData.dimondAmount -= amount;
             if(playerSaveData.dimondAmount <= 0){
                 playerSaveData.dimondAmount = 0;
             }
+            onDimondValueChange?.Invoke();
         }
         public int GetDimondCount(){
             return playerSaveData.dimondAmount;
@@ -132,15 +141,16 @@ namespace SheildMaster{
     }
     [System.Serializable]
     public class PlayerSaveData {
+        
         public bool HasAdsInGame;
-        public bool alreadyShownDailyBonusWindow;
         public bool isClamedDailyBonus;
-        public int currentDay;
         public int dimondAmount;
         public int currentLevelNumber;
         public int maxCoinCount;
         public int currentExperience;
         public int totalKillCounts = 0;
+        public int currentDay;
+        public int lostLevelIndex;
     }
 
 }

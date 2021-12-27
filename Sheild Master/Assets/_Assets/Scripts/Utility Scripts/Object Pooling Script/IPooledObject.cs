@@ -4,6 +4,6 @@ using System.Collections.Generic;
 namespace GamerWolf.Utils{
     public interface IPooledObject{
         void OnObjectReuse();
-        void DestroyMySelf();
+        void DestroyMySelf(float delay = 0f);
     }
 }

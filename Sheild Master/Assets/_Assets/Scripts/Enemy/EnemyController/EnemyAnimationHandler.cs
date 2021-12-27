@@ -8,10 +8,12 @@ namespace SheildMaster {
         private int randomJoyAnim,randomDeathAnim;
         private Animator animator;
         [SerializeField] private Rig rig;
+        private bool isAlreadyDead;
         private void Awake(){
             animator = GetComponent<Animator>();
         }
         private void Start(){
+            isAlreadyDead = false;
             rig.weight = 0f;
             randomJoyAnim = UnityEngine.Random.Range(1,3);
             randomDeathAnim = Random.Range(0,4);
@@ -31,10 +33,12 @@ namespace SheildMaster {
             animator.SetInteger("dance Number",randomJoyAnim);
         }
         public void PlayIsDeadAnimations(){
-
-            animator.SetInteger("death Numb",randomDeathAnim);
-            animator.SetTrigger("isDead");
-            rig.weight = 0f;
+            if(!isAlreadyDead){
+                animator.SetInteger("death Numb",randomDeathAnim);
+                animator.SetTrigger("isDead");
+                rig.weight = 0f;
+                isAlreadyDead = true;
+            }
         }
         public void PlayShootingAnimations(){
             rig.weight = 1f;

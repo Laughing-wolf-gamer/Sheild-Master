@@ -72,7 +72,9 @@ public class PlayGamesController : MonoBehaviour {
     }
 
     public static void ShowLeaderboardUI(){
-        PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_level_up);
+        if(Social.localUser.authenticated){
+            PlayGamesPlatform.Instance.ShowLeaderboardUI(GPGSIds.leaderboard_level_up);
+        }
     }
     /*
     public static void OpenSave(bool _isSaveing){

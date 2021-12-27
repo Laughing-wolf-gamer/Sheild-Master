@@ -14,17 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSaveData:
     HasAdsInGame: 1
-    alreadyShownDailyBonusWindow: 0
     isClamedDailyBonus: 0
-    currentDay: -1
     dimondAmount: 0
     currentLevelNumber: 1
     maxCoinCount: 0
     currentExperience: 0
     totalKillCounts: 0
+    currentDay: 0
+    lostLevelIndex: -1
   abiliys:
   - {fileID: 11400000, guid: bdd96a405d83a6e4197e2f92396bc21a, type: 2}
   - {fileID: 11400000, guid: c761f0f505e045b4286f328f3ee17056, type: 2}
-  playerSkinMaterial: {fileID: 2100000, guid: be176e129e6fe554eb27d884ed447f9e, type: 2}
-  playerClothMaterial: {fileID: 2100000, guid: 54478202e4334854497098bd40c21eff, type: 2}
-  playerBeltMat: {fileID: 2100000, guid: 1b344971b3f88d34ba1a8ccc830546f4, type: 2}
+  playerSkinMaterial: {fileID: 2100000, guid: ffbc79092e15d034aa518bfcb70c98a6, type: 2}

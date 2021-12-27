@@ -27,7 +27,9 @@ namespace SheildMaster {
             }
         }
         public void UseAbility(){
-            abilitySaveData.abilityUseCount--;
+            if(CanUseAbility()){
+                abilitySaveData.abilityUseCount--;
+            }
             if(abilitySaveData.abilityUseCount <= 0){
                 abilitySaveData.abilityUseCount = 0;
                 if(abilitySaveData.isUnlocked){
@@ -36,8 +38,17 @@ namespace SheildMaster {
             }
             
         }
+        public bool CanUseAbility(){
+            if(abilitySaveData.isUnlocked){
+                if(abilitySaveData.abilityUseCount > 0){
+                    return true;
+                }
+            }
+            return false;
+
+        }
         public bool CanBuyItem(int coinAmount,int dimondAmount,int useCount){
-            if(coinAmount >= cost.coinCount){
+            if(coinAmount >= cost.coinCount && dimondAmount >= cost.dimondCount){
                 if(!abilitySaveData.isUnlocked){
                     abilitySaveData.isUnlocked = true;
                     IncreaseAbility(useCount);

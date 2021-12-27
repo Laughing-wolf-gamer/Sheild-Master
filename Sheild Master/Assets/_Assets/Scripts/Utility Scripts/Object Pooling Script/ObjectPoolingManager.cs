@@ -1,10 +1,11 @@
 using UnityEngine;
 using System.Collections.Generic;
 
+
 namespace GamerWolf.Utils{
 
     
-    public enum PoolObjectTag{Wall,Projectile,}
+    public enum PoolObjectTag{Wall,Projectile,cashUIParitical,DimondUiPartical}
     public class ObjectPoolingManager : MonoBehaviour{
 
         #region Singelton.

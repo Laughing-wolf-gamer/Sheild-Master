@@ -10,16 +10,13 @@ namespace SheildMaster {
         [SerializeField] private PlayerDataSO playerDataSO;
         [SerializeField] private Button purchaseButton,UseButton;
         [SerializeField] private TextMeshProUGUI skinNameText,itemCostText;
-        [SerializeField] private Image viewImage;
         [SerializeField] private TextMeshProUGUI coinAmountText;
         [SerializeField] private ShopItemSO[] itemSO;
         [SerializeField] private int currentItemIndex;
+        [SerializeField] private SkinnedMeshRenderer dummyRenderer;
+        
         private void Start(){
-            // if(PlayerPrefs.HasKey("Current Index")){
-            //     currentItemIndex = PlayerPrefs.GetInt("Current Index");
-            // }
             RefreshShop();
-            
         }
         
         public void RefreshShop(){
@@ -27,7 +24,7 @@ namespace SheildMaster {
                 if(i == currentItemIndex){
                     skinNameText.SetText(itemSO[i].name);
                     itemCostText.SetText(string.Concat(itemSO[i].GetItemCost().ToString()," $"));
-                    viewImage.sprite = itemSO[i].itemDisplay;
+                    dummyRenderer.material = itemSO[i].playerSkin;
                     
                 }
             }
@@ -44,11 +41,6 @@ namespace SheildMaster {
             }else{
                 purchaseButton.gameObject.SetActive(true);
                 UseButton.gameObject.SetActive(false);
-                // if(playerDataSO.GetCoinValue() >= itemSO[currentItemIndex].GetItemCost()){
-                //     purchaseButton.interactable = true;
-                // }else{
-                //     purchaseButton.interactable = false;
-                // }
             }
             RefreshCoinValue();
             RefreshPurchaseData();
@@ -80,8 +72,6 @@ namespace SheildMaster {
             for(int i = 0; i < itemSO.Length; i++){
                 if(itemSO[i].GetIsItemSelected()){
                     playerDataSO.playerSkinMaterial = itemSO[i].playerSkin;
-                    playerDataSO.playerClothMaterial = itemSO[i].playerCloths;
-                    playerDataSO.playerBeltMat = itemSO[i].playerBelt;
                     break;
                 }
             }
@@ -111,23 +101,19 @@ namespace SheildMaster {
                 playerDataSO.ReduceCoins(itemSO[currentItemIndex].GetItemCost());
                 if(itemSO[currentItemIndex].playerSkin != null){
                     playerDataSO.playerSkinMaterial = itemSO[currentItemIndex].playerSkin;
-                    playerDataSO.playerClothMaterial = itemSO[currentItemIndex].playerCloths;
-                    playerDataSO.playerBeltMat = itemSO[currentItemIndex].playerBelt;
                 }
                 AnayltyicsManager.current.SetShopItemPurcases_UnityAnayltics(itemSO[currentItemIndex].name);
-                ToolTipSystem.showToolTip_static("Purchase Succesfull",Color.green);
-                if(itemSO[currentItemIndex].GetItemCost() >= 1500){
-                    PlayGamesController.PostAchivements(GPGSIds.achievement_first_spend);
+                if(itemSO[currentItemIndex].GetItemCost() >= 200){
+                    PlayGamesController.PostAchivements(GPGSIds.achievement_first_shopper);
+                }
+                if(itemSO[currentItemIndex].GetItemCost() >= 2000){
+                    PlayGamesController.PostAchivements(GPGSIds.achievement_big_shopper);
                 }
                 if(itemSO[currentItemIndex].GetItemCost() >= 5000){
-                    PlayGamesController.PostAchivements(GPGSIds.achievement_big_spender);
-                }
-                if(itemSO[currentItemIndex].GetItemCost() >= 10000){
-                    PlayGamesController.PostAchivements(GPGSIds.achievement_super_spender);
+                    PlayGamesController.PostAchivements(GPGSIds.achievement_supper_shopper);
+                    
                 }
 
-            }else{
-                ToolTipSystem.showToolTip_static("Not enough money",Color.red);
             }
             RefreshShop();
             RefreshCoinValue();
@@ -136,12 +122,11 @@ namespace SheildMaster {
             for (int i = 0; i < itemSO.Length; i++){
                 if(currentItemIndex == i){
                     itemSO[currentItemIndex].SelectItem();
+                    
                     AnayltyicsManager.current.SetMostUsedSkin_UnityAnayltics(itemSO[currentItemIndex].name);
                 }
                 else{
                     itemSO[i].UnSelectItem();
-                    // if(itemSO[currentItemIndex].playerSkin != null){
-                    // }
                 }
                 
             }

@@ -15,11 +15,12 @@ namespace SheildMaster {
         public bool GetIsSoundOn(){
             return settingsData.isSoundOn;
         }
-        public bool GetNotification(){
-            return settingsData.notification;
+        public bool GetNotificationOn(){
+            return settingsData.isNotificaitonOn;
         }
+        
         public void SetNotificaiton(){
-            settingsData.notification = !settingsData.notification;
+            settingsData.isNotificaitonOn = !settingsData.isNotificaitonOn;
         }
         public void SetMusic(){
             settingsData.isMusicOn = !settingsData.isMusicOn;
@@ -32,6 +33,15 @@ namespace SheildMaster {
         }
         public void SetCurrentLanguage(int value){
             settingsData.currentLanguage = value;
+        }
+        public void SetPlayerConsent(bool value){
+            settingsData.hasPlayerConsent = value;
+        }
+        public bool GetPlayerConsent(){
+            return settingsData.hasPlayerConsent;
+        }
+        public string GetPrivacyAndPolicy(){
+            return settingsData.privacyAndPolicy;
         }
         [ContextMenu("Save")]
         public void Save(){
@@ -55,11 +65,12 @@ namespace SheildMaster {
         }
     }
     [System.Serializable]
-    public class SettingsData{
+    public class SettingsData {
+        public bool hasPlayerConsent;
         public int currentLanguage;
+        public bool isNotificaitonOn;
         public bool isMusicOn;
         public bool isSoundOn;
-        public bool notification;
         public string privacyAndPolicy;
     }
     

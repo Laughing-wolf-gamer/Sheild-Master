@@ -8,7 +8,7 @@ namespace SheildMaster {
         [SerializeField] private Button skinWindowButton,itemWindowButton;
         [SerializeField] private PlayerDataSO playerDataSO;
         [SerializeField] private TextMeshProUGUI coinAmountText;
-        [SerializeField] private TextMeshProUGUI itemNameText,itemCostText;
+        [SerializeField] private TextMeshProUGUI itemNameText,itemCoinCostText,itemDimondCostText;
         [SerializeField] private Image abilityShopView;
         [SerializeField] private AbilitySO[] abilityItemArray;
         [SerializeField] private int currentIndex;
@@ -20,7 +20,8 @@ namespace SheildMaster {
             for (int i = 0; i < abilityItemArray.Length; i++){
                 if(i == currentIndex){
                     itemNameText.SetText(abilityItemArray[i].name);
-                    itemCostText.SetText(abilityItemArray[i].cost.coinCount.ToString() + "$");
+                    itemCoinCostText.SetText(abilityItemArray[i].cost.coinCount.ToString() + "$");
+                    itemDimondCostText.SetText(abilityItemArray[i].cost.dimondCount.ToString());
                     abilityShopView.sprite = abilityItemArray[i].abilitySpriteDisplay;
                 }
             }
@@ -50,9 +51,7 @@ namespace SheildMaster {
         public void TryBuyAbility(){
             if(abilityItemArray[currentIndex].CanBuyItem(playerDataSO.GetTotalCoinValue(),playerDataSO.GetDimondCount(),2)){
                 AudioManager.current.PlayOneShotMusic(SoundType.Item_Purchase);
-                ToolTipSystem.showToolTip_static("Purchase Succesfull",Color.green);
-            }else{
-                ToolTipSystem.showToolTip_static("Purchase UnSuccessfull",Color.red);
+                // ToolTipSystem.showToolTip_static("Purchase Succesfull",Color.green);
             }
         }
     }

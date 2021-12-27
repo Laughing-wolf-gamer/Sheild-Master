@@ -99,19 +99,38 @@ namespace SheildMaster{
         
         public void PlayMusic(SoundType soundType){
             Sounds s = Array.Find(sounds ,s => s.soundType == soundType);
-            s.source.Play();
+            if(s != null){
+                if(s.source.clip != null){
+                    s.source.Play();
+
+                }
+            }
         }
         public void PauseMusic(SoundType soundType){
             Sounds s = Array.Find(sounds ,s => s.soundType == soundType);
-            s.source.Pause();
+            if(s != null){
+                if(s.source.clip != null){
+                    s.source.Pause();
+                    
+                }
+            }
         }
         public void PlayOneShotMusic(SoundType soundType){
             Sounds s = Array.Find(sounds ,s => s.soundType == soundType);
-            s.source.PlayOneShot(s.audioClip);
+            if(s != null){
+                if(s.source.clip != null){
+                    s.source.PlayOneShot(s.audioClip);
+                }
+            }
         }
         public void StopAudio(SoundType soundType){
             Sounds s = Array.Find(sounds ,s => s.soundType == soundType);
-            s.source.Stop();
+            if(s != null){
+                if(s.source.clip != null){
+                    s.source.Stop();
+                }
+                
+            }
         }
         
     }

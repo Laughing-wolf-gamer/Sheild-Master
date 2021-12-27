@@ -1,5 +1,6 @@
 using UnityEngine;
 using GamerWolf.Utils;
+using System.Collections;
 namespace SheildMaster { 
     public class ExpandingWall : MonoBehaviour,IPooledObject{
         [SerializeField] private Transform newWallSpawnPoint;
@@ -14,18 +15,24 @@ namespace SheildMaster {
                 DestroyMySelf();
             };
         }
-        public void DestroyMySelf(){
+        public void DestroyMySelf(float delay = 0f){
             m_collider.enabled = false;
             animator.SetBool("Grow",false);
-            Invoke(nameof(HideWall),0.5f);
+            CancelInvoke(nameof(HideWall));
+            Invoke(nameof(HideWall),delay);
         }
         public void HideWall(){
             gameObject.SetActive(false);
+            StopAllCoroutines();
         }
         public void OnObjectReuse(){
             m_collider.enabled = true;
             animator.SetBool("Grow",true);
-            Invoke(nameof(DestroyMySelf),lifeTime);
+            StartCoroutine(DestroyRoutine(lifeTime));
+        }
+        private IEnumerator DestroyRoutine(float lifeTime){
+            yield return new WaitForSeconds(lifeTime);
+            DestroyMySelf();
         }
 
         public void SetExpandDir(Vector3 dir){

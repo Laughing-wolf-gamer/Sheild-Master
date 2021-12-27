@@ -67,12 +67,15 @@ namespace SheildMaster{
             //     spawnAmount = UnityEngine.Random.Range(1,spawnPointList.Count);
             // }
             if(playerDataSO.GetLevelNumber() <= 25){
+                
                 currentStage = LevelStag.Stage_1;
             }
             if(playerDataSO.GetLevelNumber() > 25){
+                
                 currentStage = LevelStag.Stage_2;
             }
             if(playerDataSO.GetLevelNumber() >= 60){
+                
                 currentStage = LevelStag.Stage_3;
             }
             if(playerDataSO.GetLevelNumber() >= 100){

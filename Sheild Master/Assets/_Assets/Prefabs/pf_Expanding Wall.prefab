@@ -90,7 +90,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 64bb9f19af7d6ef4d824819296901eb2, type: 2}
+  - {fileID: 2100000, guid: e92e5b4fabcb20046bc13ae28e65838d, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -191,6 +191,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   newWallSpawnPoint: {fileID: 6503490568559861803}
-  lifeTime: 5
+  lifeTime: 4
   m_collider: {fileID: 7600704904877328911}
   animator: {fileID: 5514325113118979057}

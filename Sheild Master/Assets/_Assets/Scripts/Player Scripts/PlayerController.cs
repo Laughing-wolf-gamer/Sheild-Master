@@ -25,6 +25,7 @@ namespace SheildMaster {
         #endregion
 
         #region Singelton...
+
         public static PlayerController player;
         protected override void Awake(){
             base.Awake();
@@ -37,19 +38,17 @@ namespace SheildMaster {
             playerInputController = GetComponent<PlayerInputController>();
         }
         
+        #endregion
+
+
         protected override void Start(){
             forceFieldObject.SetActive(false);
             base.Start();
             gameHandler.onGameOver += (object sender, OnGamoverEventsAargs args) =>{
                 RotatePlayer(onWinLookPoint.position);
             };
-            #if UNITY_EDITOR
-                onPc = true;
-            #else
-                onPc = false;
-            #endif
+            
         }
-        #endregion
 
         
         private void Update(){

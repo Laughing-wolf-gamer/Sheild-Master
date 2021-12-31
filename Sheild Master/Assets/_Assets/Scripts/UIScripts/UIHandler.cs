@@ -19,6 +19,7 @@ namespace SheildMaster {
         [SerializeField] private Image inkBarImage;
 
         [SerializeField] private TextMeshProUGUI armourAbilityCountText,KillOneEnemyCountText;
+        [SerializeField] private GameObject armourAbilityCountTextObject,killAbilityCountObject; 
 
         [SerializeField] private Button armourForPlayerAbiliyButton,KillOneEnemyBeforePlayingAbiliyButton;
         [SerializeField] private GameObject notUnlockViewForSheild,notUnlockViewForKillOne;
@@ -31,7 +32,7 @@ namespace SheildMaster {
             if(current == null){
                 current = this;
             }else{
-                Destroy(current.gameObject);
+                Destroy(current);
             }
         }
         #endregion
@@ -60,11 +61,8 @@ namespace SheildMaster {
 
         public void UpdateCoinAmountUI(){
             for (int i = 0; i < TotalcoinAmountText.Length; i++){
-                TotalcoinAmountText[i].SetText(playerData.GetTotalCoinValue().ToString());
+                TotalcoinAmountText[i].SetText(playerData.GetCashAmount().ToString());
             }
-            // for (int i = 0; i < dimondTextButton.Length; i++){
-            //     dimondTextButton[i].SetText(playerData.GetDimondCount().ToString());
-            // }
         }
         private void SetCurrentLevel(){
             for (int i = 0; i < levelNumberTexts.Length; i++){
@@ -78,8 +76,10 @@ namespace SheildMaster {
         public void HideSheildAbilityIcon(bool hide){
             notUnlockViewForSheild.SetActive(hide);
             if(!hide){
+                armourAbilityCountTextObject.SetActive(true);
                 armourForPlayerAbiliyButton.interactable = true;
             }else{
+                armourAbilityCountTextObject.SetActive(false);
                 armourForPlayerAbiliyButton.interactable = false;
             }
 
@@ -87,8 +87,10 @@ namespace SheildMaster {
         public void HideKillAbilityIcon(bool hide){
             notUnlockViewForKillOne.SetActive(hide);
             if(!hide){
+                killAbilityCountObject.SetActive(true);
                 KillOneEnemyBeforePlayingAbiliyButton.interactable = true;
             }else{
+                killAbilityCountObject.SetActive(false);
                 KillOneEnemyBeforePlayingAbiliyButton.interactable = false;
             }
         }
@@ -100,16 +102,20 @@ namespace SheildMaster {
             abilityWindow.SetActive(enable);
         }
         public void UseArmourForPlayerAbiliy(){
-            armourForPlayerAbiliy.UseAbility();
             if(armourForPlayerAbiliy.CanUseAbility()){
                 LevelManager.current.ArmourForPlayer();
+            }else{
+                HideSheildAbilityIcon(true);
             }
+            armourForPlayerAbiliy.UseAbility();
             UpdateAbililyValueUI();
         }
         public void UseKillOneEnemyBeforePlaying(){
             KillOneEnemyBeforePlayingAbiliy.UseAbility();
             if(KillOneEnemyBeforePlayingAbiliy.CanUseAbility()){
                 LevelManager.current.KillOneEnemyBeforePlaying();
+            }else{
+                HideKillAbilityIcon(true);
             }
             UpdateAbililyValueUI();
         }

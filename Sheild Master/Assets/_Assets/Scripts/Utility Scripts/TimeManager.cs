@@ -2,10 +2,11 @@ using TMPro;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace SheildMaster{
+namespace GamerWolf.Utils{
     public class TimeManager : MonoBehaviour {
 
         [SerializeField] private Button ClickButton;
@@ -15,12 +16,14 @@ namespace SheildMaster{
         [SerializeField] private string timerName = "LastTimeClicked";
         [SerializeField] private string timerFullString = "Reward Available in ";
         private long lastTimeClicked;
+
+
         
         
         
     
         private void Start() {
-            Debug.Log("Last Time Clicked " + lastTimeClicked);
+            Debug.Log(timerName + lastTimeClicked);
             if(PlayerPrefs.GetString(timerName) != string.Empty){
                 lastTimeClicked = long.Parse(PlayerPrefs.GetString(timerName));
             }else{
@@ -82,9 +85,7 @@ namespace SheildMaster{
     
             return false;
         }
-        public void SettimeInMs(float time){
-            msToWait = time;
-        }
+        
         
     }
 }

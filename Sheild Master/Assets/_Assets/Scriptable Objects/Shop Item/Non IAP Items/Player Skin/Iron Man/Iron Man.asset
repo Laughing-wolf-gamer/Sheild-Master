@@ -18,3 +18,4 @@ MonoBehaviour:
     cost: 10000
     isSelected: 0
     isBought: 0
+  isUsingTemprary: 0

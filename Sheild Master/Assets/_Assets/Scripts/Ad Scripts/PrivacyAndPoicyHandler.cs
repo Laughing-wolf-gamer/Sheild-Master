@@ -2,6 +2,7 @@ using System;
 using Yodo1.MAS;
 using UnityEngine;
 using SheildMaster;
+using GamerWolf.Utils;
 public class PrivacyAndPoicyHandler : MonoBehaviour {
     [SerializeField] private PlayerDataSO playerData;
     [SerializeField] private SettingsSO settingsData;

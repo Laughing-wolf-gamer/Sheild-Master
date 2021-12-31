@@ -35,37 +35,23 @@ namespace SheildMaster{
             
             
             if(playerDataSO.GetLevelNumber() <= 5){
-                
                 return 1;
-                // Debug.Log("SpawnAmount is " + spawnAmount);
             }
             else if(playerDataSO.GetLevelNumber() > 5 && playerDataSO.GetLevelNumber() <= 15){
 
                 return 2;
             }
             else if(playerDataSO.GetLevelNumber() > 15 && playerDataSO.GetLevelNumber() <= 26){
-                
-                // Debug.Log("SpawnAmount is " + spawnAmount);
                 return 3;
 
             }else{
                 return UnityEngine.Random.Range(1,spawnPointList.Count);
             }
-            // if(returnAmount >= spawnPointList.Count){
-            //     returnAmount = spawnPointList.Count;
-            // }
-            // Debug.Log("SpawnAmount is " + spawnAmount);
-            
-            
-            
         }
         public void SpawnEnemyes(){
             enemiesList = new List<EnemyController>();
             newEnemy = null;
             currentSpawnPointsList = new List<Vector3>();
-            // if(spawnAmount >= spawnPointList.Count){
-            //     spawnAmount = UnityEngine.Random.Range(1,spawnPointList.Count);
-            // }
             if(playerDataSO.GetLevelNumber() <= 25){
                 
                 currentStage = LevelStag.Stage_1;
@@ -81,11 +67,6 @@ namespace SheildMaster{
             if(playerDataSO.GetLevelNumber() >= 100){
                 currentStage = LevelStag.Stage_4;
             }
-            // if(!spawnOnAllPoint){
-            //     spawnAmount = GetSpawnCount(spawnPointList.Count);
-            // }else{
-            //     spawnAmount = UnityEngine.Random.Range(1,spawnPointList.Count);
-            // }
             if(!spawnOnAllPoint){
                 if(spawnAmount > spawnPointList.Count){
                     spawnAmount = spawnPointList.Count;
@@ -133,13 +114,11 @@ namespace SheildMaster{
                 currentSpawnPointsList.Add(points);
             }
         }
-        public void SpawnEnemyes(List<Vector3> points,int _spawnAmount){
+        public void SpawnEnemyes(List<Vector3> points,int _prviousSpawnAmount){
             enemiesList = new List<EnemyController>();
             currentSpawnPointsList = new List<Vector3>();
-            int currentSpawnAmount = _spawnAmount;
-            // if(spawnAmount >= spawnPointList.Count){
-            //     spawnAmount = UnityEngine.Random.Range(1,spawnPointList.Count);
-            // }
+            
+            spawnAmount = _prviousSpawnAmount;
             if(playerDataSO.GetLevelNumber() <= 25){
                 currentStage = LevelStag.Stage_1;
             }
@@ -152,22 +131,8 @@ namespace SheildMaster{
             if(playerDataSO.GetLevelNumber() >= 100){
                 currentStage = LevelStag.Stage_4;
             }
-            // if(!spawnOnAllPoint){
-            //     spawnAmount = GetSpawnCount(spawnPointList.Count);
-            // }else{
-            //     spawnAmount = UnityEngine.Random.Range(1,spawnPointList.Count);
-            // }
-            spawnAmount = _spawnAmount;
-            if(!spawnOnAllPoint){
-                // currentSpawnAmount = _spawnAmount;
-                // if(_spawnAmount > spawnPointList.Count){
-                //     currentSpawnAmount = spawnPointList.Count;
-                // }else{
-                // }
-            }
-            Debug.Log("Priviouse spawn Count "+ currentSpawnAmount);
-            for (int i = 0; i < currentSpawnAmount; i++){
-
+            Debug.Log("Priviouse spawn Count "+ spawnAmount);
+            for (int i = 0; i < spawnAmount; i++){
                 switch(currentStage){
                     case LevelStag.Stage_1:
                         newEnemy = Instantiate(enemyPrefabArray[0],points[i],Quaternion.identity);

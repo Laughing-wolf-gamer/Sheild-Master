@@ -83,8 +83,8 @@ namespace SheildMaster {
                 }
                 if(cameFromEnemy.GetEnemyType() == EnemyType.Armourd || cameFromEnemy.GetEnemyType() == EnemyType.Super){
                     if(_hit.transform.TryGetComponent<ExpandingWall>(out ExpandingWall wall)){
-                        if(collisionCount <= 1){
-                            wall.DestroyMySelf();
+                        if(collisionCount == 1){
+                            wall.DestroyMySelf(0.5f);
                         }
                     }
                 }

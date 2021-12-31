@@ -25,9 +25,9 @@ namespace SheildMaster{
         }
         
         private IEnumerator CollectionRoutine(int coinValue,float increaseTime){
-            int currentValue = playerData.GetTotalCoinValue();
+            int currentValue = playerData.GetCashAmount();
             coinAmountText.SetText(currentValue.ToString());
-            int totalvalue = playerData.GetTotalCoinValue() + coinValue;
+            int totalvalue = playerData.GetCashAmount() + coinValue;
             if(isCoinMultiplier){
                 playerData.AddCoins(coinValue);
             }else{

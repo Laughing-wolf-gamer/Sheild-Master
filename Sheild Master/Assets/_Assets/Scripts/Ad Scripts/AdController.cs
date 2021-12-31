@@ -5,8 +5,9 @@ namespace SheildMaster{
 
     public class AdController : MonoBehaviour {
         
-        public bool askingforExtraCoinFromShop;
-        public bool askinforExtraCoinFromGame;
+        [SerializeField] private bool askingforExtraCoinFromShop;
+        [SerializeField] private bool trySkinAds;
+        [SerializeField] private bool askinforExtraCoinFromGame;
         public bool isRewardedAdLoaded;
         public bool isInterstialLoaded;
         public static AdController current;
@@ -20,12 +21,6 @@ namespace SheildMaster{
             }
             DontDestroyOnLoad(current.gameObject);
         }
-
-
-        
-        // private void Start(){
-        //     InitializeADs();
-        // }
         public void InitializeADs(){
             Yodo1U3dMas.InitializeSdk();
             SetInterStetialAdsCallBack();
@@ -69,6 +64,9 @@ namespace SheildMaster{
             }
             if(askingforExtraCoinFromShop){
                 AskAdForCoin.askAdForCoinCurrent.RewardCoinWithCoins(true);
+            }
+            if(trySkinAds){
+                SkinShopHandler.current.TryCurrentSkinAfterAd();
             }
 
             SetRewardAdsCallBack();
@@ -170,6 +168,29 @@ namespace SheildMaster{
         
 
 
+        #endregion
+
+
+        #region External Methods...
+
+        public bool GetExtraCoinFromShop(){
+            return askinforExtraCoinFromGame;
+        }
+        public bool GetAskinforExtraCoinFromGame(){
+            return askinforExtraCoinFromGame;
+        }
+        public bool GetTryGetSkinAd(){
+            return trySkinAds;
+        }
+        public void AskingforExtraCoinFromShop(bool isActive){
+            askingforExtraCoinFromShop = isActive;
+        }
+        public void AskinforExtraCoinFromGame(bool isActive){
+            askinforExtraCoinFromGame = isActive;
+        }
+        public void SetTryGetSkinAd(bool isAcitve){
+            trySkinAds = isAcitve;
+        }
         #endregion
         
     }

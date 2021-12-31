@@ -10,6 +10,7 @@ namespace SheildMaster {
     }
     
     public class EnemyController : HealthEntity {
+        
         [SerializeField] protected EnemyType enemyType;
 
         [Header("Enemy Shooting")]
@@ -24,12 +25,10 @@ namespace SheildMaster {
         
         private ObjectPoolingManager objectPoolingManager;
         private PlayerController player;
-        private string timerName = "Fire Timer";
         
         protected override void Awake(){
             base.Awake();
         }
-        
         protected override void Start(){
             
             base.OnHit += (object sender ,EventArgs e) => {
@@ -47,9 +46,7 @@ namespace SheildMaster {
         }
         
         public void StartEnemy(){
-            Debug.Log("On Game Start " + transform.name);
             StartCoroutine(nameof(ShootingRoutine));
-            
             GameHandler.current.onGameOver += (object sender,OnGamoverEventsAargs e)=> {
                 StopCoroutine(nameof(ShootingRoutine));
                 wepon.SetActive(false);

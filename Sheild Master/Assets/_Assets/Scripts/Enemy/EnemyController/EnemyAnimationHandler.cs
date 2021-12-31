@@ -29,8 +29,10 @@ namespace SheildMaster {
             }
         }
         private void PlayIsWonAnimations(){
-            animator.SetTrigger("isWon");
-            animator.SetInteger("dance Number",randomJoyAnim);
+            if(!isAlreadyDead){
+                animator.SetTrigger("isWon");
+                animator.SetInteger("dance Number",randomJoyAnim);
+            }
         }
         public void PlayIsDeadAnimations(){
             if(!isAlreadyDead){

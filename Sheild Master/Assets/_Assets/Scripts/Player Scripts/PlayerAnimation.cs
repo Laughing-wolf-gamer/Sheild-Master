@@ -9,13 +9,15 @@ namespace SheildMaster {
         private int randomDeathAnim,randomJoyAnim;
         private Animator animator;
 
+        private bool isWon;        
         private void Awake(){
             animator = GetComponent<Animator>();
         }
         private void Start(){
             
+            isWon = false;
             randomDeathAnim =Random.Range(0,3);
-            randomJoyAnim = Random.Range(1,3);
+            randomJoyAnim = Random.Range(0,2);
             GameHandler.current.onGameOver += OnGameOver;
             player.OnHit += OnPlayerDeath;
         }
@@ -32,9 +34,11 @@ namespace SheildMaster {
             }
         }
         public void PlayIsWonAnimations(){
-            
-            animator.SetTrigger("isWon");
-            animator.SetInteger("dance Number",randomJoyAnim);
+            if(!isWon){
+                animator.SetInteger("dance Number",randomJoyAnim);
+                animator.SetTrigger("isWon");
+                isWon = true;
+            }
             
         }
         public void PlayIsDeadAnimations(){

@@ -46,7 +46,6 @@ namespace SheildMaster {
                         isFirstTouchUp = true;
                         if(levelManager != null){
                             levelManager.StartGame();
-
                         }
                     }
                 }

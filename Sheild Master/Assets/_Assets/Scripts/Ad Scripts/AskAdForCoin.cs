@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using GamerWolf.Utils;
 using System.Collections;
 namespace SheildMaster {
     public class AskAdForCoin : MonoBehaviour {
@@ -13,7 +14,7 @@ namespace SheildMaster {
         [SerializeField] private GameObject overlay;
         [SerializeField] private TimeManager timeManager;
         private AdController adController;
-        public static AskAdForCoin askAdForCoinCurrent;
+        public static AskAdForCoin askAdForCoinCurrent{get;private set;}
         private void Awake(){
             if(askAdForCoinCurrent == null){
                 askAdForCoinCurrent = this;
@@ -21,10 +22,11 @@ namespace SheildMaster {
         }
         private void Start(){
             adController = AdController.current;
-            adController.askingforExtraCoinFromShop = true;
+            adController.AskingforExtraCoinFromShop(true);
+            adController.SetTryGetSkinAd(false);
             checkAdStatus();
             playerData.onCurrencyValueChange += RefreshCoinAmount;        
-            StartCoroutine(CheckRoutine());    
+            StartCoroutine(CheckRoutine());
         }
         private IEnumerator CheckRoutine(){
             while(true){
@@ -54,17 +56,27 @@ namespace SheildMaster {
         }
         
         public void RequestAdForCoin(){
+            adController.SetTryGetSkinAd(false);
+            adController.AskingforExtraCoinFromShop(true);
+            timeManager.Click();
             AdController.current.ShowRewarededAds();
         }
         public void RewardCoinWithCoins(bool canReward){
             if(canReward){
                 coinMultiplier.CollectCoin(itemSO.CoinAmount);
                 AudioManager.current.PlayOneShotMusic(SoundType.Item_Purchase);
-                timeManager.Click();
             }
         }
+        public void OnCoinShopOpen(){
+            adController.SetTryGetSkinAd(false);
+            adController.AskingforExtraCoinFromShop(true);
+        }
+        public void OncoinShopClose(){
+            adController.AskingforExtraCoinFromShop(false);
+            adController.SetTryGetSkinAd(false);
+        }
         private void RefreshCoinAmount(){
-            totalCoinAmount.SetText(playerData.GetTotalCoinValue().ToString());
+            totalCoinAmount.SetText(playerData.GetCashAmount().ToString());
         }
         
     }

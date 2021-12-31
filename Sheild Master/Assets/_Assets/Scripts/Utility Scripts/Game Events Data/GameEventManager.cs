@@ -1,11 +1,13 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using GamerWolf.Utils;
 using System.Collections;
 namespace SheildMaster {
     public class GameEventManager : MonoBehaviour {
         [SerializeField] private int currentDay;
         [SerializeField] private float closeTime = 2f;
+        [SerializeField] private GameObject mainMenuWindow;
         [SerializeField] private GameObject noitificationIcon;
         [SerializeField] private TextMeshProUGUI totalCoinTexts,totalDimondText;
         [SerializeField] private PlayerDataSO playerData;
@@ -19,8 +21,10 @@ namespace SheildMaster {
             if(timeManager.Ready()){
                 claimRewardButton.interactable = true;
                 if(playerData.GetIsClamedBonus()){
+                    mainMenuWindow.SetActive(true);
                     eventCanvas.SetActive(false);
                 }else{
+                    mainMenuWindow.SetActive(false);
                     eventCanvas.SetActive(true);
                 }
             }else{
@@ -51,6 +55,7 @@ namespace SheildMaster {
             }
             for (int i = 0; i < rewardClameButtonArray.Length; i++){
                 if(timeManager.Ready()){
+
                     if(currentDay == rewardClameButtonArray[i].GetCurrentRewardNumber()){
                         rewardClameButtonArray[i].SetIsActive(true);
                         CurrentBonusButton = rewardClameButtonArray[i];
@@ -82,7 +87,7 @@ namespace SheildMaster {
         }
         
         private void RefershCoin(){
-            totalCoinTexts.SetText(playerData.GetTotalCoinValue().ToString());
+            totalCoinTexts.SetText(playerData.GetCashAmount().ToString());
         }
         private void RefreshDimond(){
             totalDimondText.SetText(playerData.GetDimondCount().ToString());
@@ -108,6 +113,7 @@ namespace SheildMaster {
             Invoke(nameof(CloseInvoke),closeTime);
         }
         private void CloseInvoke(){
+            mainMenuWindow.SetActive(true);
             eventCanvas.SetActive(false);
         }
         

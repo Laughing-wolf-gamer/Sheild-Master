@@ -51,10 +51,8 @@ namespace SheildMaster {
             if(coinAmount >= cost.coinCount && dimondAmount >= cost.dimondCount){
                 if(!abilitySaveData.isUnlocked){
                     abilitySaveData.isUnlocked = true;
-                    IncreaseAbility(useCount);
-                }else{
-                    IncreaseAbility(useCount);
                 }
+                IncreaseAbility(useCount);
                 return true;
             }
             return false;

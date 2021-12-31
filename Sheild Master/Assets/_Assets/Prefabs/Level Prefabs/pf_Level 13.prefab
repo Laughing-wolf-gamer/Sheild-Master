@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372377362116873913}
   m_LocalRotation: {x: -0, y: -0, z: 2.3283064e-10, w: 1}
-  m_LocalPosition: {x: 0.65, y: 1.7900008, z: 8.100002}
+  m_LocalPosition: {x: 1.6, y: 1.7900008, z: 8.100002}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 9113455489014946208}
@@ -245,7 +245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5483442856774444145}
   m_LocalRotation: {x: -0, y: -0, z: 2.3283064e-10, w: 1}
-  m_LocalPosition: {x: -3.3700001, y: 2.04, z: 14.800004}
+  m_LocalPosition: {x: -4.95, y: 1.15, z: 9.29}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 9113455489014946208}
@@ -430,7 +430,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8050310320231767278}
   m_LocalRotation: {x: -0, y: -0, z: 2.3283064e-10, w: 1}
-  m_LocalPosition: {x: 4.5550003, y: 7.2800026, z: 15.430003}
+  m_LocalPosition: {x: 2.18, y: 12.34, z: 12.42}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 9113455489014946208}
@@ -460,7 +460,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8165988293075295168}
   m_LocalRotation: {x: -0, y: -0, z: 2.3283064e-10, w: 1}
-  m_LocalPosition: {x: 8.24, y: 0.9500007, z: 18.380005}
+  m_LocalPosition: {x: -17.83, y: 0.9500007, z: 9.1}
   m_LocalScale: {x: 5, y: 1, z: 5}
   m_Children: []
   m_Father: {fileID: 9113455489014946208}
@@ -521,7 +521,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef0c2e3d46fdf7f40a57641c0b5c4e9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gizmosSize: 2
+  gizmosBoxSize: 2
   spawnOnAllPoint: 0
   playerDataSO: {fileID: 11400000, guid: e8274db418ab89f42b503eac970bd4b3, type: 2}
   enemyPrefabArray:
@@ -555,7 +555,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8206861691854431612, guid: 42780b03eeb150449b2a92fc5065e14f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.096682
+      value: -10.69
       objectReference: {fileID: 0}
     - target: {fileID: 8206861691854431612, guid: 42780b03eeb150449b2a92fc5065e14f, type: 3}
       propertyPath: m_LocalPosition.y
@@ -563,7 +563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8206861691854431612, guid: 42780b03eeb150449b2a92fc5065e14f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 7.2239304
+      value: 1.48
       objectReference: {fileID: 0}
     - target: {fileID: 8206861691854431612, guid: 42780b03eeb150449b2a92fc5065e14f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -613,7 +613,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1075420574513648119, guid: 51b18db8961d7c848bb50ffba824ff47, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -14.84
+      value: -22.33
       objectReference: {fileID: 0}
     - target: {fileID: 1075420574513648119, guid: 51b18db8961d7c848bb50ffba824ff47, type: 3}
       propertyPath: m_LocalPosition.y
@@ -621,7 +621,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1075420574513648119, guid: 51b18db8961d7c848bb50ffba824ff47, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -6.26
+      value: -11.65
       objectReference: {fileID: 0}
     - target: {fileID: 1075420574513648119, guid: 51b18db8961d7c848bb50ffba824ff47, type: 3}
       propertyPath: m_LocalRotation.w
@@ -687,11 +687,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2312984801595608921, guid: eaca1de9ec031a14baa9e8a42e4000f0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.56
+      value: -3.6
       objectReference: {fileID: 0}
     - target: {fileID: 2312984801595608921, guid: eaca1de9ec031a14baa9e8a42e4000f0, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -1.9
       objectReference: {fileID: 0}
     - target: {fileID: 2312984801595608921, guid: eaca1de9ec031a14baa9e8a42e4000f0, type: 3}
       propertyPath: m_LocalPosition.z
@@ -780,5 +780,5 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 5.3881955, y: 10.090603, z: 1.0381559}
-  m_Center: {x: 3.7807171, y: -7.460001, z: 6.569958}
+  m_Size: {x: 8.237517, y: 10.090602, z: 5.8540387}
+  m_Center: {x: 5.205378, y: -7.4600086, z: 8.977898}

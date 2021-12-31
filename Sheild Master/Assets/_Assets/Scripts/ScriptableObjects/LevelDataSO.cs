@@ -20,7 +20,6 @@ namespace SheildMaster{
         }
         public void SetLostData(List<Vector3> spawnPointList) {
             this.lostData.spawnPointlist = spawnPointList;
-            // Save();
         }
         public int GetSpawnAmount(){
             return lostData.spawnAmount;
@@ -32,6 +31,8 @@ namespace SheildMaster{
             return lostData.spawnPointlist;
         }
         public void RemakeNewSpawnPoint(){
+            SetSpawnAmount(0);
+            SetLostBool(false);
             lostData.spawnPointlist = new List<Vector3>();
         }
         [ContextMenu("Save")]

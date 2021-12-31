@@ -49,7 +49,7 @@ namespace SheildMaster {
 
         }
         public void TryBuyAbility(){
-            if(abilityItemArray[currentIndex].CanBuyItem(playerDataSO.GetTotalCoinValue(),playerDataSO.GetDimondCount(),2)){
+            if(abilityItemArray[currentIndex].CanBuyItem(playerDataSO.GetCashAmount(),playerDataSO.GetDimondCount(),2)){
                 AudioManager.current.PlayOneShotMusic(SoundType.Item_Purchase);
                 // ToolTipSystem.showToolTip_static("Purchase Succesfull",Color.green);
             }

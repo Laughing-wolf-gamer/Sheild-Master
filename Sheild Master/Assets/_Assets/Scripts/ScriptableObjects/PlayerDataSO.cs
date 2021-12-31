@@ -10,7 +10,7 @@ namespace SheildMaster{
         
         public PlayerSaveData playerSaveData;
         public AbilitySO[] abiliys;
-        public Material playerSkinMaterial;
+        public Material playerSkinMaterial,temporarySkin;
         private void OnValidate(){
             if(playerSaveData.currentLevelNumber <= 0){
                 playerSaveData.currentLevelNumber = 1;
@@ -48,16 +48,19 @@ namespace SheildMaster{
                 playerSaveData.currentDay = 0;
             }
         }
+        public void SetTemprorarySkin(ShopItemSO itemSO){
+            temporarySkin = itemSO.playerSkin;
+        }
         
         public int GetcurrentDay(){
             return playerSaveData.currentDay;
         }
-        public int GetTotalCoinValue(){
+        public int GetCashAmount(){
             return playerSaveData.maxCoinCount;
         }
-        public int GetExperience(){
-            return playerSaveData.currentExperience;
-        }
+        // public int GetExperience(){
+        //     return playerSaveData.currentExperience;
+        // }
         public int GetLevelNumber(){
             return playerSaveData.currentLevelNumber;
         }
@@ -147,7 +150,7 @@ namespace SheildMaster{
         public int dimondAmount;
         public int currentLevelNumber;
         public int maxCoinCount;
-        public int currentExperience;
+        // public int currentExperience;
         public int totalKillCounts = 0;
         public int currentDay;
         public int lostLevelIndex;

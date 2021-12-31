@@ -14,6 +14,8 @@ namespace SheildMaster{
         public ShopItemType shopItemType;
         public Material playerSkin;
         public ShopItemData itemData;
+
+        public bool isUsingTemprary;
         public int GetItemCost(){
             return itemData.cost;
         }
@@ -23,6 +25,9 @@ namespace SheildMaster{
                     itemData.isSelected = true;
                 }
             }
+        }
+        public void SetUsingTemproray(bool value){
+            isUsingTemprary = value;
         }
         public bool GetIsItemSelected(){
             return itemData.isSelected;

@@ -11,7 +11,11 @@ namespace SheildMaster {
             SetcurrentSkin();
         }
         private void SetcurrentSkin(){
-            playerSkinMat.material = playerDataSO.playerSkinMaterial;
+            if(playerDataSO.temporarySkin != null){
+                playerSkinMat.material = playerDataSO.temporarySkin;
+            }else{
+                playerSkinMat.material = playerDataSO.playerSkinMaterial;
+            }
             
         }
         

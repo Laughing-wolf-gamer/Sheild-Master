@@ -65,6 +65,7 @@ namespace SheildMaster {
         
 
         private void CheckForAd(){
+            
             if(adController != null){
                 if(adController.IsRewardedAdsLoaded()){
                     SetCanRewardedShowAd(true);
@@ -84,11 +85,17 @@ namespace SheildMaster {
 
         }
         private void Start(){
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+            #if UNITY_ANDROID
+            Application.targetFrameRate = 60;
+            #endif
             CheckForAd();
             blurVolume.weight = 0f;
             Time.timeScale = 1f;
             adController = AdController.current;
-            adController.askinforExtraCoinFromGame = true;
+            adController.AskinforExtraCoinFromGame(true);
+            adController.AskingforExtraCoinFromShop(false);
+            adController.SetTryGetSkinAd(false);
             onGameResume?.Invoke();
 
 
@@ -202,16 +209,14 @@ namespace SheildMaster {
             AudioManager.current.StopAudio(SoundType.Player_Lost);
             AudioManager.current.StopAudio(SoundType.Enemy_Death);
             LevelLoader.current.SwitchScene(SceneIndex.Main_Menu);
-            adController.askinforExtraCoinFromGame = false;
         }
         public void PlayInterStetialAds(){
-            if(playerData.GetLevelNumber() > 1){
-                if((playerData.GetLevelNumber() % 2) == 0){    
+            int currentLevel = playerData.GetLevelNumber();
+            if(currentLevel > 1){
+                if((currentLevel % 2) == 0){    
                     if(playerData.GetHasAdsInGame()){
                         if(canShowInterstetialAds){
-                            if(!isShowingRewardAds){
-                                adController.ShowInterStaialAds();
-                            }
+                            AdController.current.ShowInterStaialAds();
                         }
                     }
                 }

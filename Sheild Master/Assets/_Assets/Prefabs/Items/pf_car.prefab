@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &2833332157047169837
+--- !u!1 &974648369048135999
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,46 +8,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 3177804354804300183}
-  - component: {fileID: 1996800716525778482}
-  - component: {fileID: 4346810256988521208}
-  - component: {fileID: 4030630753654062710}
-  m_Layer: 12
-  m_Name: CAR
+  - component: {fileID: 2175272750824073154}
+  - component: {fileID: 818095857253039899}
+  - component: {fileID: 5034007136781072449}
+  m_Layer: 0
+  m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &3177804354804300183
+--- !u!4 &2175272750824073154
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2833332157047169837}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.16, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_GameObject: {fileID: 974648369048135999}
+  m_LocalRotation: {x: 0.00000006657903, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.055054948, y: 0.4565113, z: 0.040474888}
+  m_LocalScale: {x: 0.0989681, y: 0.0989681, z: 0.0989681}
   m_Children: []
-  m_Father: {fileID: 7419834398196749220}
+  m_Father: {fileID: 3968428972401190166}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1996800716525778482
+--- !u!33 &818095857253039899
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2833332157047169837}
-  m_Mesh: {fileID: -8545447256379345787, guid: e201cb4407bc0c84c92ba147120b2205, type: 3}
---- !u!23 &4346810256988521208
+  m_GameObject: {fileID: 974648369048135999}
+  m_Mesh: {fileID: -8545447256379345787, guid: 81f9048607ab01346822f60c1cc67a39, type: 3}
+--- !u!23 &5034007136781072449
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2833332157047169837}
+  m_GameObject: {fileID: 974648369048135999}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -83,19 +82,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!65 &4030630753654062710
-BoxCollider:
+--- !u!1 &4348614338423504812
+GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2833332157047169837}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 18.498281, y: 5.3386135, z: 6.864176}
-  m_Center: {x: 0.055628777, y: -0.46127105, z: -0.040896893}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3968428972401190166}
+  m_Layer: 0
+  m_Name: Car
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 4294967295
+  m_IsActive: 1
+--- !u!4 &3968428972401190166
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4348614338423504812}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.13, y: 2.628134, z: -0.15}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 2175272750824073154}
+  m_Father: {fileID: 7419834398196749220}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6351087837755964264
 GameObject:
   m_ObjectHideFlags: 0
@@ -123,7 +140,7 @@ Transform:
   m_LocalPosition: {x: 0, y: -3.16, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 3177804354804300183}
+  - {fileID: 3968428972401190166}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

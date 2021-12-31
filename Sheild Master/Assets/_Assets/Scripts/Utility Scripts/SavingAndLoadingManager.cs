@@ -51,10 +51,18 @@ namespace SheildMaster{
             
         }
         private void OnApplicationPause(){
+            // saveData.playerData.temporarySkin = null;
+            // for (int i = 0; i < saveData.itemSOArray.Length; i++){
+            //     saveData.itemSOArray[i].isUsingTemprary = false;
+            // }
             SaveGame();
         }
         
         private void OnApplicationQuit(){
+            saveData.playerData.temporarySkin = null;
+            for (int i = 0; i < saveData.itemSOArray.Length; i++){
+                saveData.itemSOArray[i].isUsingTemprary = false;
+            }
             SaveGame();
             
         }

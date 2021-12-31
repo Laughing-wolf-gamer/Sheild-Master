@@ -26,7 +26,7 @@ namespace SheildMaster {
             RefreshCoinAmount();
         }
         private void RefreshCoinAmount(){
-            totalCoinAmountTexts.SetText(string.Concat(playerData.GetTotalCoinValue().ToString()));
+            totalCoinAmountTexts.SetText(string.Concat(playerData.GetCashAmount().ToString()));
         }
         
         public void OnPurchaseComplete(){

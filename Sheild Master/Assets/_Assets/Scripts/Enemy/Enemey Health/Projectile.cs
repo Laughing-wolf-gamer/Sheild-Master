@@ -39,17 +39,22 @@ namespace SheildMaster {
 
 
         public void DestroyMySelf(float delay = 0f){
+            CancelInvoke(nameof(orignalDestroy));
+            Invoke(nameof(orignalDestroy),delay);
+        }
+        private void orignalDestroy(){
             onDestroy?.Invoke();
             Move = false;
             cameFromEnemy = null;
             gameObject.SetActive(false);
             collisionCount = 0;
+
         }
 
         public void OnObjectReuse(){
             collisionCount = 0;
-            Invoke(nameof(DestroyMySelf),maxLifeTime);
             onResuse?.Invoke();
+            DestroyMySelf(maxLifeTime);
         }
         
         private void Update(){
@@ -81,10 +86,10 @@ namespace SheildMaster {
                 if(_hit.transform.TryGetComponent<ForcefieldImpact>(out ForcefieldImpact forcefield)){
                     forcefield.OnImpcat(_hit);
                 }
-                if(cameFromEnemy.GetEnemyType() == EnemyType.Armourd || cameFromEnemy.GetEnemyType() == EnemyType.Super){
+                if(cameFromEnemy.GetEnemyType() == EnemyType.Super){
                     if(_hit.transform.TryGetComponent<ExpandingWall>(out ExpandingWall wall)){
                         if(collisionCount == 1){
-                            wall.DestroyMySelf(0.5f);
+                            wall.DestroyMySelf(3f);
                         }
                     }
                 }

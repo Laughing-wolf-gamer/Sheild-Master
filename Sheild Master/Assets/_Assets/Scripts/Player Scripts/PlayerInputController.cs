@@ -1,13 +1,13 @@
 using UnityEngine;
+using GamerWolf.Utils;
 using UnityEngine.EventSystems;
-
 namespace SheildMaster {
     public class PlayerInputController : MonoBehaviour {
         
         [SerializeField] private LayerMask hitMask;
         [SerializeField] private GameObject[] playText;
-        
         [SerializeField] private LevelManager levelManager;
+        [SerializeField] private TutorialManager tutorialManager;
         private bool isTouchDown;
         private bool isTouchMoving;
         private bool isTouchEnded;
@@ -33,8 +33,8 @@ namespace SheildMaster {
                     if(playText[i].activeInHierarchy){
                         playText[i].SetActive(false);
                     }
-                    
                 }
+                tutorialManager.ShowInitTutorailWindow(false);
             }
             if(!EventSystem.current.IsPointerOverGameObject()){
                 isTouchDown = Input.GetMouseButtonDown(0) && GetMousePoint() != Vector3.zero;
@@ -60,8 +60,8 @@ namespace SheildMaster {
                     if(playText[i].activeInHierarchy){
                         playText[i].SetActive(false);
                     }
-                    
                 }
+                tutorialManager.ShowInitTutorailWindow(false);
             }
             if(Input.touchCount > 0){
                 Touch touch = Input.touches[0];

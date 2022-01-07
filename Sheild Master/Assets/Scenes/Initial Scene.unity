@@ -264,10 +264,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3040155}
     m_Modifications:
-    - target: {fileID: 1279969402044636256, guid: 719a5c8e296a57d4fab57533f4307a2d, type: 3}
-      propertyPath: m_FillAmount
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3663154951975845190, guid: 719a5c8e296a57d4fab57533f4307a2d, type: 3}
       propertyPath: m_Name
       value: loading Screen
@@ -276,14 +272,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4983499253595904185, guid: 719a5c8e296a57d4fab57533f4307a2d, type: 3}
-      propertyPath: m_fontAsset
-      value: 
-      objectReference: {fileID: 11400000, guid: b8b9c0ac9b725df47b45384cca381e02, type: 2}
-    - target: {fileID: 4983499253595904185, guid: 719a5c8e296a57d4fab57533f4307a2d, type: 3}
-      propertyPath: m_sharedMaterial
-      value: 
-      objectReference: {fileID: -8474088118592032305, guid: b8b9c0ac9b725df47b45384cca381e02, type: 2}
     - target: {fileID: 8259274325133904032, guid: 719a5c8e296a57d4fab57533f4307a2d, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -9,8 +9,11 @@ namespace GamerWolf.Utils {
         private void Update(){
             if(Input.GetKeyDown(KeyCode.Escape)){
                 SheildMaster.AudioManager.current.PlayOneShotMusic(SheildMaster.SoundType.ButtonClickSound);        
-                onEscape?.Invoke();
+                InvokeEscape();
             }
+        }
+        public void InvokeEscape(){
+            onEscape?.Invoke();
         }
         
     }

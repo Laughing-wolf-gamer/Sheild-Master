@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using UnityEngine;
+using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 
 namespace SheildMaster{
@@ -10,7 +11,8 @@ namespace SheildMaster{
         
         public PlayerSaveData playerSaveData;
         public AbilitySO[] abiliys;
-        public Material playerSkinMaterial,temporarySkin;
+        public ShopItemSO playerSkinItem;
+        public Material temporarySkin;
         private void OnValidate(){
             if(playerSaveData.currentLevelNumber <= 0){
                 playerSaveData.currentLevelNumber = 1;
@@ -116,6 +118,34 @@ namespace SheildMaster{
         public int GetTotalKillCount(){
             return playerSaveData.totalKillCounts;
         }
+
+        // public void SetLostBool(bool value){
+        //     this.playerSaveData.lostData.lostOnThisLevel = value;
+            
+        // }
+        public void SetSpawnAmount(int amount){
+            this.playerSaveData.lostData.spawnAmount = amount;
+        }
+        public void SetLostData(List<Vector3> spawnPointList) {
+            this.playerSaveData.lostData.spawnPointlist = spawnPointList;
+        }
+        public int GetSpawnAmount(){
+            return playerSaveData.lostData.spawnAmount;
+        }
+        // public bool GetIsLostOnLevel(){
+        //     return playerSaveData.lostData.lostOnThisLevel;
+        // }
+        public List<Vector3> GetSpawnPointList(){
+            return playerSaveData.lostData.spawnPointlist;
+        }
+        public void RemakeNewSpawnPoint(){
+            playerSaveData.lostData.spawnPointlist = new List<Vector3>();
+            SetSpawnAmount(0);
+            // SetLostBool(false);
+        }
+
+
+
         [ContextMenu("Save")]
         public void Save(){
             for (int i = 0; i < abiliys.Length; i++){
@@ -154,6 +184,13 @@ namespace SheildMaster{
         public int totalKillCounts = 0;
         public int currentDay;
         public int lostLevelIndex;
+        public OnLostPlayerData lostData;
+    }
+    [System.Serializable]
+    public class OnLostPlayerData{
+        public int spawnAmount;
+        // public bool lostOnThisLevel;
+        public List<Vector3> spawnPointlist;
     }
 
 }

@@ -11,6 +11,9 @@ namespace SheildMaster{
                 Argentina,
                 Thai,
                 Malaysian,
+                French,
+                Arabic,
+                Russian,
 
             }
         [SerializeField] private SettingsSO settingsSO;

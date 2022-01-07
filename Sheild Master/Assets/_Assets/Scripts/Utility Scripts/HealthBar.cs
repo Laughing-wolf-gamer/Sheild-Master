@@ -18,8 +18,10 @@ namespace GamerWolf.Utils.HealthSystem {
             transform.LookAt(viewCam.transform);
         }
         private void LateUpdate(){
+            if(viewCam != null){
+                transform.LookAt(viewCam.transform);
+            }
 
-            transform.LookAt(viewCam.transform);
         }
         
         public void UpdateHealthBar(float healthAmount){

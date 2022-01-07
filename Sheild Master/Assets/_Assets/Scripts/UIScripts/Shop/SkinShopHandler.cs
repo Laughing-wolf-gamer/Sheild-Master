@@ -9,6 +9,7 @@ namespace SheildMaster {
         [SerializeField] private Sprite highlightedSprite,nonHighLightedSprite;
         [SerializeField] private PlayerDataSO playerDataSO;
         [SerializeField] private Button purchaseButton,UseButton;
+        [SerializeField] private GameObject usingTextOverLay;
         [SerializeField] private TextMeshProUGUI skinNameText,itemCostText;
         [SerializeField] private TextMeshProUGUI coinAmountText;
         [SerializeField] private ShopItemSO[] itemSO;
@@ -18,7 +19,6 @@ namespace SheildMaster {
         [Header("On No Money")]
         [SerializeField] private GameObject noMoneyDialogWindow;
         [SerializeField] private Button watchAdButton;
-        // [SerializeField] private TimeManager timeManager;
         private AdController adController;
 
 
@@ -39,82 +39,67 @@ namespace SheildMaster {
             adController = AdController.current;
             OnSkinWindowOpen();
             noMoneyDialogWindow.SetActive(false);
+            usingTextOverLay.SetActive(false);
+            if(playerDataSO.playerSkinItem == null){
+                for (int i = 0; i < itemSO.Length; i++){
+                    if(itemSO[i].GetIsItemSelected()){
+                        playerDataSO.playerSkinItem = itemSO[i];
+                        break;
+                    }
+                }
+            }
             RefreshShop();
-            // StartCoroutine(CheckRoutine());
         }
-        // private IEnumerator CheckRoutine(){
-            
-        //     while(true){
-        //         checkAdStatus();
-        //         // CheckIfTemporaryUsing();
-        //         yield return null;
-        //     }
-        // }
         
-        // private void checkAdStatus(){
-        //     if(timeManager.Ready()){
-        //         Debug.Log("Button Ready To Play");
-        //         watchAdButton.gameObject.SetActive(true);
-        //         overlay.SetActive(false);
-        //         if(adController != null){
-        //             if(adController.IsRewardedAdsLoaded()){
-        //                 watchAdButton.interactable = true;
-        //             }else{
-        //                 watchAdButton.interactable = false;
-        //                 // adController.SetRewardAdsCallBack();
-        //             }
-        //         }
-        //     }else{
-        //         Debug.Log("Button Not Ready To Play");
-        //         watchAdButton.interactable = false;
-        //         watchAdButton.gameObject.SetActive(false);
-        //         overlay.SetActive(true);
-        //     }
-        // }
-        // private void CheckIfTemporaryUsing(){
-        //     for(int i = 0; i < itemSO.Length; i++){
-        //         if(i == currentItemIndex){
-        //             if(!itemSO[currentItemIndex].GetIsItemBought()){
-        //                 if(itemSO[currentItemIndex].isUsingTemprary){
-        //                     purchaseButton.interactable = false;
-        //                 }else{
-        //                     purchaseButton.interactable = true;
-        //                 }
-        //             }
-        //         }else{
-        //             purchaseButton.interactable = true;
-        //         }
-
-        //     }
-        // }
+        private bool hasTemporaryItem(){
+            for (int i = 0; i < itemSO.Length; i++){
+                if(itemSO[i].isUsingTemprary){
+                    return true;
+                }
+            }
+            return false;
+        }
         public void RefreshShop(){
             for(int i = 0; i < itemSO.Length; i++){
                 if(i == currentItemIndex){
                     skinNameText.SetText(itemSO[i].name);
-                    itemCostText.SetText(string.Concat(itemSO[i].GetItemCost().ToString()," $"));
+                    itemCostText.SetText(string.Concat(itemSO[i].GetItemCost().ToString()," CASH"));
                     dummyRenderer.material = itemSO[i].playerSkin;
-                    
-                    
                 }
                 
             }
             if(itemSO[currentItemIndex].GetIsItemBought()){
+                itemSO[currentItemIndex].isUsingTemprary = false;
+                usingTextOverLay.SetActive(false);
                 purchaseButton.gameObject.SetActive(false);
                 UseButton.gameObject.SetActive(true);
                 if(itemSO[currentItemIndex].GetIsItemSelected()){
+                    usingTextOverLay.SetActive(true);
                     itemCostText.SetText("Using");
-                    UseButton.interactable = false;
+                    UseButton.gameObject.SetActive(false);
                 }else{
                     itemCostText.SetText("Purchased");
-                    UseButton.interactable = true;
+                    usingTextOverLay.SetActive(false);
+                    UseButton.gameObject.SetActive(true);
                 }
-            }else{
+            }else{ 
                 purchaseButton.gameObject.SetActive(true);
                 UseButton.gameObject.SetActive(false);
+                usingTextOverLay.gameObject.SetActive(false);
+            }
+            
+            
+            if(!itemSO[currentItemIndex].GetIsItemBought()){
+                if(itemSO[currentItemIndex].isUsingTemprary){
+                    purchaseButton.gameObject.SetActive(false);
+                    UseButton.gameObject.SetActive(false);
+                    usingTextOverLay.SetActive(true);
+                }
             }
             RefreshCoinValue();
             RefreshPurchaseData();
         }
+        
         public void OnShopClose(){
             noMoneyDialogWindow.SetActive(false);
             RefreshCoinValue();
@@ -129,8 +114,8 @@ namespace SheildMaster {
                 currentItemIndex = PlayerPrefs.GetInt("Current Index");
             }
             RefreshShop();
-            adController.SetTryGetSkinAd(false);
-            adController.AskingforExtraCoinFromShop(false);
+            adController.trySkinAds = false;
+            adController.askingforExtraCoinFromShop = false;
             
         }
         public void OnSkinWindowOpen(){
@@ -142,8 +127,9 @@ namespace SheildMaster {
         }
         private void RefreshPurchaseData(){
             for(int i = 0; i < itemSO.Length; i++){
+                
                 if(itemSO[i].GetIsItemSelected()){
-                    playerDataSO.playerSkinMaterial = itemSO[i].playerSkin;
+                    playerDataSO.playerSkinItem = itemSO[i];
                     break;
                 }
             }
@@ -167,12 +153,12 @@ namespace SheildMaster {
         }
         public void TryBuyItem(){
             if(itemSO[currentItemIndex].TryBuyitems(playerDataSO.GetCashAmount())){
-                adController.AskingforExtraCoinFromShop(false);
-                adController.SetTryGetSkinAd(false);
+                adController.askingforExtraCoinFromShop = false;
+                adController.trySkinAds = false;
                 AudioManager.current.PlayOneShotMusic(SoundType.Item_Purchase);
                 playerDataSO.ReduceCoins(itemSO[currentItemIndex].GetItemCost());
                 if(itemSO[currentItemIndex].playerSkin != null){
-                    playerDataSO.playerSkinMaterial = itemSO[currentItemIndex].playerSkin;
+                    playerDataSO.playerSkinItem = itemSO[currentItemIndex];
                 }
                 AnayltyicsManager.current.SetShopItemPurcases_UnityAnayltics(itemSO[currentItemIndex].name);
                 if(itemSO[currentItemIndex].GetItemCost() >= 200){
@@ -186,13 +172,13 @@ namespace SheildMaster {
                     
                 }
             }else{
+                
                 noMoneyDialogWindow.SetActive(true);
-                adController.AskingforExtraCoinFromShop(false);
-                adController.SetTryGetSkinAd(true);
+                adController.askingforExtraCoinFromShop = false;
+                adController.trySkinAds = true;
             }
             RefreshShop();
             RefreshCoinValue();
-            // CheckIfTemporaryUsing();
         }
         public void TrySelectItem(){
             for (int i = 0; i < itemSO.Length; i++){
@@ -203,6 +189,9 @@ namespace SheildMaster {
                     AnayltyicsManager.current.SetMostUsedSkin_UnityAnayltics(itemSO[currentItemIndex].name);
                 }
                 else{
+                    if(itemSO[i].isUsingTemprary){
+                        itemSO[i].isUsingTemprary = false;
+                    }
                     itemSO[i].UnSelectItem();
                 }
             }
@@ -210,19 +199,33 @@ namespace SheildMaster {
             RefreshPurchaseData();
         }
         public void TryCurrentSkinAfterAd(){
-            if(!itemSO[currentItemIndex].GetIsItemBought() && !itemSO[currentItemIndex].GetIsItemSelected()){
-                if(itemSO[currentItemIndex].GetItemCost() > playerDataSO.GetCashAmount()){
-                    itemSO[currentItemIndex].SetUsingTemproray(true);
-                    playerDataSO.SetTemprorarySkin(itemSO[currentItemIndex]);
+            for (int i = 0; i < itemSO.Length; i++){
+                if(i == currentItemIndex){
+                    if(!itemSO[currentItemIndex].GetIsItemBought() && !itemSO[currentItemIndex].GetIsItemSelected()){
+                        if(itemSO[currentItemIndex].GetItemCost() > playerDataSO.GetCashAmount()){
+                            itemSO[currentItemIndex].SetUsingTemproray(true);
+                            playerDataSO.SetTemprorarySkin(itemSO[currentItemIndex]);
+                        }
+                    }
+                }else{
+                    if(itemSO[i].GetIsItemSelected()){
+                        itemSO[i].UnSelectItem();
+                    }
+                    if(itemSO[i].isUsingTemprary){
+                        itemSO[i].isUsingTemprary = false;
+                    }
                 }
             }
+            RefreshShop();
+            RefreshPurchaseData();
         }
         public void WatchAds(){
-            adController.SetTryGetSkinAd(true);
-            adController.AskingforExtraCoinFromShop(false);
-            adController.AskinforExtraCoinFromGame(false);
-            adController.ShowRewarededAds();
-            // TryCurrentSkinAfterAd(); 
+            if(adController != null){
+                adController.trySkinAds  = true;
+                adController.askingforExtraCoinFromShop = false;
+                adController.askinforExtraCoinFromGame = false;
+                // adController.ShowRewarededAds();
+            }
         }
         
         

@@ -33,9 +33,9 @@ namespace SheildMaster{
             for (int i = 0; i < saveData.itemSOArray.Length; i++){
                 saveData.itemSOArray[i].Save();
             }
-            for (int i = 0; i < saveData.levelDatas.Length; i++){
-                saveData.levelDatas[i].Save();
-            }
+            // for (int i = 0; i < saveData.levelDatas.Length; i++){
+            //     saveData.levelDatas[i].Save();
+            // }
             
         }
         [ContextMenu("LOAD GAME")]
@@ -45,9 +45,9 @@ namespace SheildMaster{
             for (int i = 0; i < saveData.itemSOArray.Length; i++){
                 saveData.itemSOArray[i].Load();
             }
-            for (int i = 0; i < saveData.levelDatas.Length; i++){
-                saveData.levelDatas[i].Load();
-            }
+            // for (int i = 0; i < saveData.levelDatas.Length; i++){
+            //     saveData.levelDatas[i].Load();
+            // }
             
         }
         private void OnApplicationPause(){
@@ -59,9 +59,15 @@ namespace SheildMaster{
         }
         
         private void OnApplicationQuit(){
+            
             saveData.playerData.temporarySkin = null;
             for (int i = 0; i < saveData.itemSOArray.Length; i++){
-                saveData.itemSOArray[i].isUsingTemprary = false;
+                if(saveData.itemSOArray[i].isUsingTemprary){
+                    saveData.itemSOArray[i].isUsingTemprary = false;
+                }
+                if(saveData.itemSOArray[i] == saveData.playerData.playerSkinItem){
+                    saveData.itemSOArray[i].SelectItem();
+                }
             }
             SaveGame();
             

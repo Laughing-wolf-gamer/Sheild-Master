@@ -9,6 +9,7 @@ namespace SheildMaster{
 
         public int CoinAmount;
         
+        
     }
 
 }

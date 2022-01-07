@@ -21,8 +21,11 @@ MonoBehaviour:
     totalKillCounts: 0
     currentDay: 0
     lostLevelIndex: -1
+    lostData:
+      spawnAmount: 0
+      spawnPointlist: []
   abiliys:
   - {fileID: 11400000, guid: bdd96a405d83a6e4197e2f92396bc21a, type: 2}
   - {fileID: 11400000, guid: c761f0f505e045b4286f328f3ee17056, type: 2}
-  playerSkinMaterial: {fileID: 2100000, guid: dd4f773f3df1546448a38099de050bfb, type: 2}
+  playerSkinItem: {fileID: 11400000, guid: a0da3f19e9725b44fb9019c7cb642c8b, type: 2}
   temporarySkin: {fileID: 0}

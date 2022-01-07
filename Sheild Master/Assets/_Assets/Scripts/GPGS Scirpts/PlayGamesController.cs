@@ -34,14 +34,16 @@ public class PlayGamesController : MonoBehaviour {
         Social.localUser.Authenticate((bool success) =>{
             if (success){
                 Debug.Log("Logged in to Google Play Games Services");
-                logingText.SetText(string.Concat("Logged in to Google Play Games Services"));
+                if(logingText != null){
+                    logingText.SetText(string.Concat("Logged in to Google Play Games Services"));
+                }
                 Invoke(nameof(ChangeScene),0.5f);
-                // ChangeScene();
             }
             else{
                 Debug.LogError("Unable to sign in to Google Play Games Services");
-                logingText.SetText(string.Concat("Unable to sign in to Google Play Games Services"));
-                // ChangeScene();
+                if(logingText != null){
+                    logingText.SetText(string.Concat("Unable to sign in to Google Play Games Services"));
+                }
                 Invoke(nameof(ChangeScene),0.5f);
             }
         });

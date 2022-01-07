@@ -1,7 +1,5 @@
-using System;
 using UnityEngine;
 using System.Collections.Generic;
-
 namespace SheildMaster {
     public class LevelManager : MonoBehaviour {
         [SerializeField] private PlayerDataSO playerDataSO;
@@ -19,7 +17,7 @@ namespace SheildMaster {
         private LevelDataSO currentUsedLevelDataSO;
         private LevelData currentLevel;
         private UIHandler uIHandler;
-
+        
 
         #region Singelton.......
 
@@ -39,11 +37,23 @@ namespace SheildMaster {
             uIHandler = UIHandler.current;
             
             enemyList = new List<EnemyController>();
-            if(playerDataSO.GetLevelNumber() == 1){
-                SpawnForLevel1();
-            }else {
+            randLevel = UnityEngine.Random.Range(0,levelDataList.Count);
+            switch(playerDataSO.GetLevelNumber()){
+                case 1:
+                    SpawnTutorialLevels(0);
+                break;
+                case 25:
+                    SpawnTutorialLevels(2);
+                break;
+                case 50:
+                    SpawnTutorialLevels(2);
+                break;
+                default:
                 SpawnLevel();
+                break;
             }
+
+            
 
         }
         public void CheckForAllEnemyDead(){
@@ -51,7 +61,6 @@ namespace SheildMaster {
             if(player.GetIsDead()){
                 levelDataList[randLevel].playerDeathCountOnLevel++;
                 gameHandler.SetGameOver(false);
-                playerDataSO.SetLostLevelIndex(levelDataList.IndexOf(currentUsedLevelDataSO));
                 SetLostLevel();
                 return;
             }
@@ -63,22 +72,26 @@ namespace SheildMaster {
             if(!player.GetIsDead()){
                 gameHandler.SetGameOver(true);
                 currenCoinCount = enemyList.Count;
-                playerDataSO.SetLostLevelIndex(-1);
-                UIHandler.current.SetCurrentLevelEarnedCoins(currenCoinCount);    
+                uIHandler.SetCurrentLevelEarnedCoins(currenCoinCount);    
                 SetWinLevel();
                 if(playerDataSO.GetLevelNumber() >= 25){
-                    sheildAbility.IncreaseAbility(2);
+                    if((playerDataSO.GetLevelNumber() % 5) == 0){
+                        sheildAbility.IncreaseAbility(2);
+                    }
                 }
-                if(playerDataSO.GetLevelNumber() >= 50){
-                    KillAbility.IncreaseAbility(2);
+                if(playerDataSO.GetLevelNumber() >= 60){
+                    if((playerDataSO.GetLevelNumber() % 5) == 0){
+                        KillAbility.IncreaseAbility(2);
+                    }
                 }
             }
         }
         public void CollectCoin(){
             gameHandler.AddCoin(currenCoinCount);
-            UIHandler.current.UpdateCoinAmountUI();
+            uIHandler.UpdateCoinAmountUI();
         }
         public void AddTwiceMoney(){
+            // Add Extra money after Ads..
             currenCoinCount = currenCoinCount * 2;
             UIHandler.current.SetCurrentLevelEarnedCoins(currenCoinCount);
             UIHandler.current.UpdateCoinAmountUI();
@@ -91,50 +104,43 @@ namespace SheildMaster {
                 AnayltyicsManager.current.OnGameWon_UnityAnayltics(levelDataList[randLevel].name,surviveTime);
             }
         }
-        private void SpawnForLevel1(){
-            currentUsedLevelDataSO = levelDataList[0];
-            if(!currentUsedLevelDataSO.GetIsLostOnLevel()){
-                currentLevel = Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
-                currentLevel.SpawnEnemyes();
+        
+        private void SpawnLevel(){
+            if(playerDataSO.GetLostLevelIndex() >= 0){
+                Debug.Log("Spawning the same Level");
+                SpawnSameLevel();
             }else{
-                currentLevel =  Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
-                currentLevel.SpawnEnemyes(currentUsedLevelDataSO.GetSpawnPointList(),currentUsedLevelDataSO.GetSpawnAmount());
+                Debug.Log("Spawning Random Level");
+                SpawnRandomLevel();
             }
             
             enemyList = currentLevel.GetEnemieList();
-            for (int i = 0; i < enemyList.Count; i++){
-                enemyList[i].SetViewCameraForHealthBar(UiCamera);
-            }
             currenCoinCount = enemyList.Count;
-            currentUsedLevelDataSO.RemakeNewSpawnPoint();
-        }
-        private void SpawnLevel(){
-            randLevel = UnityEngine.Random.Range(0,levelDataList.Count);
-            if(playerDataSO.GetLostLevelIndex() != -1){
-                if(levelDataList[playerDataSO.GetLostLevelIndex()].GetIsLostOnLevel()){
-                    SpawnSameLevel();
-                }else{
-                    SpawnRandomLevel();
-                }
-            }else{
-                SpawnRandomLevel();  
-            }            
-            enemyList = currentLevel.GetEnemieList();
-            for (int i = 0; i < enemyList.Count; i++){
-                enemyList[i].SetViewCameraForHealthBar(UiCamera);
-            }
-            currenCoinCount = enemyList.Count;
-            currentUsedLevelDataSO.RemakeNewSpawnPoint();
+            playerDataSO.RemakeNewSpawnPoint();
         }
         private void SpawnSameLevel(){
             currentUsedLevelDataSO = levelDataList[playerDataSO.GetLostLevelIndex()];
             currentLevel =  Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
-            currentLevel.SpawnEnemyes(currentUsedLevelDataSO.GetSpawnPointList(),currentUsedLevelDataSO.GetSpawnAmount());
+            currentLevel.SpawnEnemyes(playerDataSO.GetSpawnPointList(),playerDataSO.GetSpawnAmount());
+            
+        }
+        private void SpawnTutorialLevels(int indexNumber){
+            currentUsedLevelDataSO = levelDataList[indexNumber];
+            currentLevel = Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
+            if(indexNumber == 2){
+                currentLevel.SpawnEnemyes(indexNumber);
+            }else{
+                currentLevel.SpawnEnemyes();
+            }
+            enemyList = currentLevel.GetEnemieList();
+            currenCoinCount = enemyList.Count;
+            playerDataSO.RemakeNewSpawnPoint();
         }
         private void SpawnRandomLevel(){
             currentUsedLevelDataSO = levelDataList[randLevel];
             currentLevel = Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
             currentLevel.SpawnEnemyes();
+            
         }
         
         public void StartGame(){
@@ -184,16 +190,18 @@ namespace SheildMaster {
         }
         private void SetLostLevel(){
             if(gameHandler.GetIslost()){
-                currentUsedLevelDataSO.SetSpawnAmount(currentLevel.previousSpawnCount());
-                currentUsedLevelDataSO.SetLostBool(true) ;
-                currentUsedLevelDataSO.SetLostData(currentLevel.GetSpawnPoint());
+                playerDataSO.SetLostLevelIndex(levelDataList.IndexOf(currentUsedLevelDataSO));
+                playerDataSO.SetSpawnAmount(currentLevel.previousSpawnCount());
+                // playerDataSO.SetLostBool(true) ;
+                playerDataSO.SetLostData(currentLevel.GetSpawnPoint());
             }
         }
         private void SetWinLevel(){
             if(gameHandler.GetIsWon()){
-                currentUsedLevelDataSO.SetLostBool(false);
-                currentUsedLevelDataSO.RemakeNewSpawnPoint();
-                currentUsedLevelDataSO.SetSpawnAmount(0);
+                playerDataSO.SetLostLevelIndex(-1);
+                // playerDataSO.SetLostBool(false);
+                playerDataSO.RemakeNewSpawnPoint();
+                playerDataSO.SetSpawnAmount(0);
             }
         }
         

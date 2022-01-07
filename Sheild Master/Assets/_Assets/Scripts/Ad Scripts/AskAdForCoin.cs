@@ -5,7 +5,6 @@ using GamerWolf.Utils;
 using System.Collections;
 namespace SheildMaster {
     public class AskAdForCoin : MonoBehaviour {
-        [SerializeField] private CoinMultiplier coinMultiplier;
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private Button watchAdButton;
         [SerializeField] private IAPItemSO itemSO;
@@ -14,16 +13,16 @@ namespace SheildMaster {
         [SerializeField] private GameObject overlay;
         [SerializeField] private TimeManager timeManager;
         private AdController adController;
-        public static AskAdForCoin askAdForCoinCurrent{get;private set;}
+        public static AskAdForCoin current{get;private set;}
         private void Awake(){
-            if(askAdForCoinCurrent == null){
-                askAdForCoinCurrent = this;
+            if(current == null){
+                current = this;
             }
         }
         private void Start(){
             adController = AdController.current;
-            adController.AskingforExtraCoinFromShop(true);
-            adController.SetTryGetSkinAd(false);
+            adController.askingforExtraCoinFromShop = true;
+            adController.trySkinAds = false;
             checkAdStatus();
             playerData.onCurrencyValueChange += RefreshCoinAmount;        
             StartCoroutine(CheckRoutine());
@@ -40,13 +39,15 @@ namespace SheildMaster {
             if(timeManager.Ready()){
                 watchAdButton.gameObject.SetActive(true);
                 overlay.SetActive(false);
+                // check if the time is above the maxTime for ads.
                 if(adController != null){
-                    if(adController.IsRewardedAdsLoaded()){
-                        watchAdButton.interactable = true;
-                    }else{
-                        watchAdButton.interactable = false;
-                        adController.SetRewardAdsCallBack();
-                    }
+                    
+                    // if(adController.IsRewardedAdsLoaded()){
+                    //     watchAdButton.interactable = true;
+                    // }else{
+                    //     watchAdButton.interactable = false;
+                    //     // adController.SetRewardAdsCallBack();
+                    // }
                 }
             }else{
                 watchAdButton.interactable = false;
@@ -56,24 +57,29 @@ namespace SheildMaster {
         }
         
         public void RequestAdForCoin(){
-            adController.SetTryGetSkinAd(false);
-            adController.AskingforExtraCoinFromShop(true);
+            // Request Extra coins in the shop.
+            adController.trySkinAds = false;
+            adController.askingforExtraCoinFromShop =true;
             timeManager.Click();
-            AdController.current.ShowRewarededAds();
+            // AdController.current.ShowRewarededAds();
         }
-        public void RewardCoinWithCoins(bool canReward){
-            if(canReward){
-                coinMultiplier.CollectCoin(itemSO.CoinAmount);
-                AudioManager.current.PlayOneShotMusic(SoundType.Item_Purchase);
-            }
+        public void RewardCoinWithCoins(){
+
+            // Reward Player with 50 coins......
+            playerData.AddCoins(itemSO.CoinAmount);
+            AudioManager.current.PlayOneShotMusic(SoundType.Item_Purchase);
         }
         public void OnCoinShopOpen(){
-            adController.SetTryGetSkinAd(false);
-            adController.AskingforExtraCoinFromShop(true);
+            if(adController != null){
+                adController.trySkinAds = false;
+                adController.askingforExtraCoinFromShop = true;
+            }
         }
         public void OncoinShopClose(){
-            adController.AskingforExtraCoinFromShop(false);
-            adController.SetTryGetSkinAd(false);
+            if(adController != null){
+                adController.askingforExtraCoinFromShop = false;
+                adController.trySkinAds = false;
+            }
         }
         private void RefreshCoinAmount(){
             totalCoinAmount.SetText(playerData.GetCashAmount().ToString());

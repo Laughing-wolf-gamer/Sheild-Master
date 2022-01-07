@@ -20,11 +20,14 @@ namespace SheildMaster {
 
         [Header("External References")]
         [SerializeField] private EnemyAnimationHandler animationHandler;
-        [SerializeField] private HealthBar healthBar;
         [SerializeField] private Rotator[] rotators;
         
         private ObjectPoolingManager objectPoolingManager;
         private PlayerController player;
+
+        [Header("Initial Check")]
+        [SerializeField] private float checkRange = 2f;
+        [SerializeField] private LayerMask checkLayer;
         
         protected override void Awake(){
             base.Awake();
@@ -32,10 +35,10 @@ namespace SheildMaster {
         protected override void Start(){
             
             base.OnHit += (object sender ,EventArgs e) => {
-                healthBar.UpdateHealthBar(base.GetHealthNormalized());
                 GameHandler.current.IncreaseKills();
+                animationHandler.OnHitReaction();
             };
-            healthBar.HideHealthBar();
+   
             base.Start();
             player = PlayerController.player;
             objectPoolingManager = ObjectPoolingManager.current;
@@ -43,25 +46,25 @@ namespace SheildMaster {
                 animationHandler.PlayIsDeadAnimations();
                 StopCoroutine(nameof(ShootingRoutine));
             };
+            RotateTowardsPlayer();
         }
         
         public void StartEnemy(){
+
             StartCoroutine(nameof(ShootingRoutine));
             GameHandler.current.onGameOver += (object sender,OnGamoverEventsAargs e)=> {
                 StopCoroutine(nameof(ShootingRoutine));
                 wepon.SetActive(false);
             };
         }
-        public void SetViewCameraForHealthBar(Camera viewCamera){
-            healthBar.SetworldCamera(viewCamera);
-        }
+
         
         
         private IEnumerator ShootingRoutine(){
             yield return new WaitForSeconds(1f);
             while(!isDead){
+                // RotateTowardsPlayer();
                 Fire();
-                
                 yield return new WaitForSeconds(maxFireTime);
             }
         }
@@ -74,18 +77,28 @@ namespace SheildMaster {
                 RotateTowardsPlayer();
             }
         }
-        
+        private bool hasWallinFront(){
+            if(Physics.Raycast(transform.position,transform.forward,out RaycastHit hit,checkRange,checkLayer,QueryTriggerInteraction.UseGlobal)){
+                Debug.Log("hit with " + hit.transform.name);
+                return true;
+            }
+            return false;
+        }
 
         protected virtual void Fire(){
-            
-            wepon.SetActive(true);
-            GameObject projectile =  objectPoolingManager.SpawnFromPool(PoolObjectTag.Projectile,firePoint.position,firePoint.rotation);
-            Projectile bullet = projectile.GetComponent<Projectile>();
-            if(bullet != null){
-                bullet.SetCameFromEnemy(this);
+            if(!hasWallinFront()){
+                wepon.SetActive(true);
+                GameObject projectile =  objectPoolingManager.SpawnFromPool(PoolObjectTag.Projectile,firePoint.position,firePoint.rotation);
+                Projectile bullet = projectile.GetComponent<Projectile>();
+                if(bullet != null){
+                    bullet.SetCameFromEnemy(this);
+                }
+                animationHandler.PlayShootingAnimations();
+                AudioManager.current.PlayMusic(SoundType.Fire_Sound);
+            }else {
+                Debug.Log("Wall infront");
+                TakeHit(20);
             }
-            animationHandler.PlayShootingAnimations();
-            AudioManager.current.PlayMusic(SoundType.Fire_Sound);
         }
 
         
@@ -99,7 +112,10 @@ namespace SheildMaster {
         public EnemyType GetEnemyType(){
             return enemyType;
         }
-        
+        private void OnDrawGizmos(){
+            Gizmos.color = Color.red;
+            Gizmos.DrawRay(transform.position,transform.forward * checkRange);
+        }
         
     }
 

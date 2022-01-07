@@ -167,6 +167,6 @@ Material:
     - _fillTiling: {r: 30, g: 20, b: 0, a: 0}
     - _impactPoint: {r: 0.06, g: 0.1483, b: 0, a: 0}
     - _impactRippleDirection: {r: 1, g: 0, b: 0, a: 0}
-    - _rimColor: {r: 38.341, g: 13.697616, b: 0, a: 1}
+    - _rimColor: {r: 0, g: 16.079144, b: 51.188244, a: 1}
     - _rimPower: {r: 3, g: 3, b: 0, a: 0}
   m_BuildTextureStacks: []

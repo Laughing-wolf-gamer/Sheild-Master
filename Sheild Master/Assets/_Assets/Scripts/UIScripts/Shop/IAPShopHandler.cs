@@ -4,8 +4,6 @@ using UnityEngine.UI;
 
 namespace SheildMaster {
     public class IAPShopHandler : MonoBehaviour {
-        [SerializeField] private CoinMultiplier coinCollecter;
-        [SerializeField] private float collectionSpeed = 0.1f;
         [SerializeField] private IAPItemSO itemSO;
         [SerializeField] private Button buyButton;
         [SerializeField] private TextMeshProUGUI coinAmountText;
@@ -40,7 +38,7 @@ namespace SheildMaster {
             if(itemSO.CoinAmount >= 10000){
                 PlayGamesController.PostAchivements(GPGSIds.achievement_super_spender);
             }
-            coinCollecter.CollectCoin(itemSO.CoinAmount,collectionSpeed);
+            playerData.AddCoins(itemSO.CoinAmount);
             RefreshCoinAmount();
         }
         public void OnPurchaseFailed(){

@@ -13,6 +13,7 @@ namespace SheildMaster {
         [SerializeField] private PlayerDataSO playerData;
         [SerializeField] private Button claimRewardButton;
         [SerializeField] private GameObject eventCanvas;
+        [SerializeField] private UIBackSpaceOnOff uIBackSpaceOnOff;
         [SerializeField] private DailyBonuUIButton[] rewardClameButtonArray;
         [SerializeField] private TimeManager timeManager;
         private DailyBonuUIButton CurrentBonusButton;
@@ -96,6 +97,7 @@ namespace SheildMaster {
         
         public void Claime(){
             RefershCoin();
+            RefreshDimond();
             timeManager.Click();
             CheckRewardButton();
             CheckForDailyReward();
@@ -109,12 +111,17 @@ namespace SheildMaster {
         
         
         public void CloseWindow(){
+            RefershCoin();
+            RefreshDimond();
             CancelInvoke(nameof(CloseInvoke));
             Invoke(nameof(CloseInvoke),closeTime);
         }
         private void CloseInvoke(){
+            RefershCoin();
+            RefreshDimond();
             mainMenuWindow.SetActive(true);
             eventCanvas.SetActive(false);
+            uIBackSpaceOnOff.InvokeEscape();
         }
         
         

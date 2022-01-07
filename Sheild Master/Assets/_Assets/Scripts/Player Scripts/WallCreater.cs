@@ -16,7 +16,6 @@ namespace SheildMaster {
         [Header("Mouse Targets Variables")]
         [SerializeField] private Transform mouseObject;
         [SerializeField] private float maxDistanceForSpawn = 2f;
-        [SerializeField] private float maxDistanceFromPlayer = 2f;
 
         [Header("Animation Rigging")]
         [SerializeField] private Rig rig;
@@ -26,13 +25,13 @@ namespace SheildMaster {
         #region Private Variables.....
         private ObjectPoolingManager objectPoolingManager;
         private PlayerInputController playerInputController;
-        [SerializeField] private int touchCount;
         private int currentInkAmount;
         private Vector3 previousMousePositon;
         private ExpandingWall currentWall;
         private Vector3 previousDir;
         private Vector3 initPoint;
         private float firstTouchDistance;
+        private const float maxDistanceFromPlayer = 13f;
         #endregion
 
 
@@ -83,6 +82,8 @@ namespace SheildMaster {
                         ReduceInk();
                         currentWall = SpawnNewWall(mouseObject.position);
                         previousDir = (initPoint - mouseObject.position).normalized;
+                    }else{
+                        UIHandler.current.ShowErrorWindow();
                     }
                 }
                 if(playerInputController.GetTouchMoving()){
@@ -106,7 +107,6 @@ namespace SheildMaster {
             }
             if(playerInputController.GetTouchEnded()){
                 rig.weight = 0f;
-                touchCount++;
             }
             
         }
@@ -139,9 +139,7 @@ namespace SheildMaster {
         }
         
        
-        public int GetTouchCount(){
-            return touchCount;
-        }
+        
     }
 
 }

@@ -42,6 +42,11 @@ namespace SheildMaster {
 
 
         protected override void Start(){
+            #if UNITY_EDITOR
+                onPc = true;
+            #else
+                onPc = false;
+            #endif
             forceFieldObject.SetActive(false);
             base.Start();
             gameHandler.onGameOver += (object sender, OnGamoverEventsAargs args) =>{
@@ -79,9 +84,6 @@ namespace SheildMaster {
             wallCreater.FillInk(20);
         }
         
-        public int GetTouchCount(){
-            return wallCreater.GetTouchCount();
-        }
         
         public void OnLevelComplete(){
             playerData.OnLevelComplete();

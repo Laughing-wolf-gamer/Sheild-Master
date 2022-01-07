@@ -28,6 +28,10 @@ namespace SheildMaster {
                 PlayIsWonAnimations();
             }
         }
+        public void OnHitReaction(){
+            StopRig();
+            animator.SetTrigger("isHit");
+        }
         private void PlayIsWonAnimations(){
             if(!isAlreadyDead){
                 animator.SetTrigger("isWon");

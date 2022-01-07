@@ -14,7 +14,7 @@ namespace SheildMaster {
             if(playerDataSO.temporarySkin != null){
                 playerSkinMat.material = playerDataSO.temporarySkin;
             }else{
-                playerSkinMat.material = playerDataSO.playerSkinMaterial;
+                playerSkinMat.material = playerDataSO.playerSkinItem.playerSkin;
             }
             
         }

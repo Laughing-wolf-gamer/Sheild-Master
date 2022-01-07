@@ -13,6 +13,7 @@ namespace SheildMaster {
 
         [Header("Windows")]
         [SerializeField] private GameObject abilityWindow;
+        [SerializeField] private GameObject errorWindow;
         [Header("Ad window")]
         [SerializeField] private GameObject adRewardButton;
         [Header("Images")]
@@ -121,11 +122,19 @@ namespace SheildMaster {
         }
         
         public void WatchRewardedAds(){
-            AdController.current.ShowRewarededAds();
+            // AdController.current.ShowRewarededAds();
         }
         
         public void PauseMusic(){
             AudioManager.current.PauseMusic(SoundType.BGM);
+        }
+        public void ShowErrorWindow(){
+            errorWindow.SetActive(true);
+            CancelInvoke(nameof(HideErrorWindow));
+            Invoke(nameof(HideErrorWindow),1f);
+        }
+        private void HideErrorWindow(){
+            errorWindow.SetActive(false);
         }
     }
     

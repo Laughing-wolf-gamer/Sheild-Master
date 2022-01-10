@@ -36,7 +36,6 @@ namespace SheildMaster {
             
             base.OnHit += (object sender ,EventArgs e) => {
                 GameHandler.current.IncreaseKills();
-                animationHandler.OnHitReaction();
             };
    
             base.Start();
@@ -50,7 +49,6 @@ namespace SheildMaster {
         }
         
         public void StartEnemy(){
-
             StartCoroutine(nameof(ShootingRoutine));
             GameHandler.current.onGameOver += (object sender,OnGamoverEventsAargs e)=> {
                 StopCoroutine(nameof(ShootingRoutine));
@@ -63,7 +61,7 @@ namespace SheildMaster {
         private IEnumerator ShootingRoutine(){
             yield return new WaitForSeconds(1f);
             while(!isDead){
-                // RotateTowardsPlayer();
+                RotateTowardsPlayer();
                 Fire();
                 yield return new WaitForSeconds(maxFireTime);
             }
@@ -72,11 +70,11 @@ namespace SheildMaster {
         public void EndGame(){
             StopCoroutine(nameof(ShootingRoutine));
         }
-        private void Update(){
-            if(!isDead){
-                RotateTowardsPlayer();
-            }
-        }
+        // private void Update(){
+        //     // if(!isDead){
+        //     //     RotateTowardsPlayer();
+        //     // }
+        // }
         private bool hasWallinFront(){
             if(Physics.Raycast(transform.position,transform.forward,out RaycastHit hit,checkRange,checkLayer,QueryTriggerInteraction.UseGlobal)){
                 Debug.Log("hit with " + hit.transform.name);

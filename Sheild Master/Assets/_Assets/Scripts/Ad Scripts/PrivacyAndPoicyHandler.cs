@@ -1,5 +1,4 @@
-using System;
-// using Yodo1.MAS;
+using Yodo1.MAS;
 using UnityEngine;
 using SheildMaster;
 using GamerWolf.Utils;
@@ -16,7 +15,7 @@ public class PrivacyAndPoicyHandler : MonoBehaviour {
             adController.gameObject.SetActive(true);
             mainMenuUI.SetActive(true);
             gameObject.SetActive(false);
-            // adController.InitializeADs();
+            adController.InitializeADs();
         }else{
             privacyPolicyDialogWindow.SetActive(true);
             adController.gameObject.SetActive(false);
@@ -27,7 +26,7 @@ public class PrivacyAndPoicyHandler : MonoBehaviour {
     }
 
     public void Agree(){
-        // Yodo1U3dMas.SetGDPR(true);
+        Yodo1U3dMas.SetGDPR(true);
         settingsData.SetPlayerConsent(true);
         StartGame();
     }
@@ -36,11 +35,11 @@ public class PrivacyAndPoicyHandler : MonoBehaviour {
         privacyPolicyDialogWindow.SetActive(false);
         adController.gameObject.SetActive(true);
         mainMenuUI.SetActive(true);
-        // adController.InitializeADs();
+        adController.InitializeADs();
     }
     
     public void DisAgree(){
-        // Yodo1U3dMas.SetGDPR(false);
+        Yodo1U3dMas.SetGDPR(false);
         settingsData.SetPlayerConsent(false);
         StartGame();
     }

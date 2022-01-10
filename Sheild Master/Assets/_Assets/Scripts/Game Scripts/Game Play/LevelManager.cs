@@ -39,6 +39,10 @@ namespace SheildMaster {
             enemyList = new List<EnemyController>();
             randLevel = UnityEngine.Random.Range(0,levelDataList.Count);
             switch(playerDataSO.GetLevelNumber()){
+                default:
+                // SpawnTutorialLevels(-1);
+                SpawnLevel();
+                break;
                 case 1:
                     SpawnTutorialLevels(0);
                 break;
@@ -47,9 +51,6 @@ namespace SheildMaster {
                 break;
                 case 50:
                     SpawnTutorialLevels(2);
-                break;
-                default:
-                SpawnLevel();
                 break;
             }
 

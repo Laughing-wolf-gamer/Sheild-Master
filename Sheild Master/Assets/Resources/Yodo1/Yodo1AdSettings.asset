@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Yodo1AdSettings
   m_EditorClassIdentifier: 
   androidSettings:
-    AppKey: DZPDpjTRKb
-    AdmobAppID: ca-app-pub-5580537606944457~3035123265
+    AppKey: 5n98boFr2i
+    AdmobAppID: ca-app-pub-5580537606944457~4465578836
     BundleID: 
     GooglePlayStore: 1
     ChineseAndroidStores: 0

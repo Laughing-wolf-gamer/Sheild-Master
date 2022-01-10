@@ -224,7 +224,7 @@ namespace SheildMaster {
                 adController.trySkinAds  = true;
                 adController.askingforExtraCoinFromShop = false;
                 adController.askinforExtraCoinFromGame = false;
-                // adController.ShowRewarededAds();
+                adController.ShowRewarededAds();
             }
         }
         

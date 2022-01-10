@@ -22,30 +22,6 @@ namespace SheildMaster{
         private List<Vector3> currentSpawnPointsList;
         
         private void Start(){
-            LevelManager.current.SetGameViewcamera(gameViewCamera);
-        }
-        public List<EnemyController> GetEnemieList(){
-            return enemiesList;
-        }
-
-        private int GetSpawnCount(){
-            if(playerDataSO.GetLevelNumber() <= 5){
-                return 1;
-            }
-            if(playerDataSO.GetLevelNumber() > 5 && playerDataSO.GetLevelNumber() <= 15){
-
-                return 2;
-            }
-            if(playerDataSO.GetLevelNumber() > 15 && playerDataSO.GetLevelNumber() <= 25){
-                return 3;
-
-            }
-            return Random.Range(2,spawnPointList.Count);
-        }
-        public void SpawnEnemyes(int spawnIndex = -1){
-            enemiesList = new List<EnemyController>();
-            newEnemy = null;
-            currentSpawnPointsList = new List<Vector3>();
             if(playerDataSO.GetLevelNumber() <= 24){
                 
                 currentDefficultiy = LevelDefficultiStage.Stage_1;
@@ -61,6 +37,30 @@ namespace SheildMaster{
             if(playerDataSO.GetLevelNumber() >= 80){
                 currentDefficultiy = LevelDefficultiStage.Stage_4;
             }
+            LevelManager.current.SetGameViewcamera(gameViewCamera);
+        }
+        public List<EnemyController> GetEnemieList(){
+            return enemiesList;
+        }
+
+        private int GetSpawnCount(){
+            if(playerDataSO.GetLevelNumber() <= 5){
+                return 1;
+            }
+            if(playerDataSO.GetLevelNumber() > 5){
+
+                return 2;
+            }
+            if(playerDataSO.GetLevelNumber() > 15){
+                return 3;
+            }
+            return Random.Range(2,spawnPointList.Count);
+        }
+        public void SpawnEnemyes(int spawnIndex = -1){
+            enemiesList = new List<EnemyController>();
+            newEnemy = null;
+            currentSpawnPointsList = new List<Vector3>();
+            
             spawnAmount = GetSpawnCount();
             
             if(spawnAmount > spawnPointList.Count){
@@ -82,22 +82,24 @@ namespace SheildMaster{
                         SetcurrentSpawnPoint(spawnPointList[i]);
                     break;
                     case LevelDefficultiStage.Stage_2:
-                        if(spawnIndex > 0){
+                        if(spawnIndex >= 0){
                             int currentIndex = (i == 2 ? spawnIndex : i);
                             newEnemy = Instantiate(enemyPrefabArray[1],spawnPointList[currentIndex].position,Quaternion.identity);
                             SetcurrentSpawnPoint(spawnPointList[currentIndex]);
-                            // continue;
+                            currentIndex = -1;
+                            spawnIndex = -1;
+                            continue;
                         }else{
-                            newEnemy = Instantiate(enemyPrefabArray[1],spawnPointList[1].position,Quaternion.identity);
+                            newEnemy = Instantiate(enemyPrefabArray[1],spawnPointList[i].position,Quaternion.identity);
                             SetcurrentSpawnPoint(spawnPointList[i]);
                         }
                     break;
                     case LevelDefficultiStage.Stage_3:
-                        if(spawnIndex > 0){
+                        if(spawnIndex >= 0){
                             int currentIndex = (i == 2 ? spawnIndex : i);
                             newEnemy = Instantiate(enemyPrefabArray[2],spawnPointList[currentIndex].position,Quaternion.identity);
                             SetcurrentSpawnPoint(spawnPointList[currentIndex]);
-                            // continue;
+                            continue;
                         }else{
                             newEnemy = Instantiate(enemyPrefabArray[2],spawnPointList[i].position,Quaternion.identity);
                             SetcurrentSpawnPoint(spawnPointList[i]);
@@ -130,24 +132,24 @@ namespace SheildMaster{
         public void SpawnEnemyes(List<Vector3> points,int _prviousSpawnAmount){
             enemiesList = new List<EnemyController>();
             currentSpawnPointsList = new List<Vector3>();
-            
-            spawnAmount = _prviousSpawnAmount;
-            if(playerDataSO.GetLevelNumber() <= 25){
-                currentDefficultiy = LevelDefficultiStage.Stage_1;
-            }
-            if(playerDataSO.GetLevelNumber() > 25){
+            // if(playerDataSO.GetLevelNumber() <= 24){
                 
-                currentDefficultiy = LevelDefficultiStage.Stage_2;
-            }
-            if(playerDataSO.GetLevelNumber() > 60){
+            //     currentDefficultiy = LevelDefficultiStage.Stage_1;
+            // }
+            // if(playerDataSO.GetLevelNumber() > 24){
                 
-                currentDefficultiy = LevelDefficultiStage.Stage_3;
-            }
-            if(playerDataSO.GetLevelNumber() >= 80){
-                currentDefficultiy = LevelDefficultiStage.Stage_4;
-            }
-            Debug.Log("Priviouse spawn Count "+ spawnAmount);
-            for (int i = 0; i < spawnAmount; i++){
+            //     currentDefficultiy = LevelDefficultiStage.Stage_2;
+            // }
+            // if(playerDataSO.GetLevelNumber() > 49){
+                
+            //     currentDefficultiy = LevelDefficultiStage.Stage_3;
+            // }
+            // if(playerDataSO.GetLevelNumber() >= 80){
+            //     currentDefficultiy = LevelDefficultiStage.Stage_4;
+            // }
+            Debug.Log("Priviouse spawn Count "+ _prviousSpawnAmount);
+
+            for (int i = 0; i < _prviousSpawnAmount; i++){
                 switch(currentDefficultiy){
                     case LevelDefficultiStage.Stage_1:
                         newEnemy = Instantiate(enemyPrefabArray[0],points[i],Quaternion.identity);

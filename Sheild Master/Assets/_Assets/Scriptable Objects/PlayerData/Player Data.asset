@@ -16,8 +16,8 @@ MonoBehaviour:
     HasAdsInGame: 1
     isClamedDailyBonus: 0
     dimondAmount: 0
-    currentLevelNumber: 1
-    maxCoinCount: 0
+    currentLevelNumber: 26
+    maxCoinCount: 3
     totalKillCounts: 0
     currentDay: 0
     lostLevelIndex: -1

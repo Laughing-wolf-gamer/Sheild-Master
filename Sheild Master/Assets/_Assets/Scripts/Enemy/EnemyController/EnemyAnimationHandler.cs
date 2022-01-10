@@ -16,7 +16,7 @@ namespace SheildMaster {
             isAlreadyDead = false;
             rig.weight = 0f;
             randomJoyAnim = UnityEngine.Random.Range(1,3);
-            randomDeathAnim = Random.Range(0,4);
+            randomDeathAnim = Random.Range(0,3);
             GameHandler.current.onGameOver += OnGameOver;
         }
         private void OnGameOver(object sender , OnGamoverEventsAargs e){
@@ -28,10 +28,10 @@ namespace SheildMaster {
                 PlayIsWonAnimations();
             }
         }
-        public void OnHitReaction(){
-            StopRig();
-            animator.SetTrigger("isHit");
-        }
+        // public void OnHitReaction(){
+        //     StopRig();
+        //     animator.SetTrigger("isHit");
+        // }
         private void PlayIsWonAnimations(){
             if(!isAlreadyDead){
                 animator.SetTrigger("isWon");
@@ -41,7 +41,7 @@ namespace SheildMaster {
         public void PlayIsDeadAnimations(){
             if(!isAlreadyDead){
                 animator.SetInteger("death Numb",randomDeathAnim);
-                animator.SetTrigger("isDead");
+                animator.SetBool("isDead",true);
                 rig.weight = 0f;
                 isAlreadyDead = true;
             }

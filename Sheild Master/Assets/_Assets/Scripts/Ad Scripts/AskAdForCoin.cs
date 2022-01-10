@@ -42,12 +42,12 @@ namespace SheildMaster {
                 // check if the time is above the maxTime for ads.
                 if(adController != null){
                     
-                    // if(adController.IsRewardedAdsLoaded()){
-                    //     watchAdButton.interactable = true;
-                    // }else{
-                    //     watchAdButton.interactable = false;
-                    //     // adController.SetRewardAdsCallBack();
-                    // }
+                    if(adController.IsRewardedAdsLoaded()){
+                        watchAdButton.interactable = true;
+                    }else{
+                        watchAdButton.interactable = false;
+                        adController.SetRewardAdsCallBack();
+                    }
                 }
             }else{
                 watchAdButton.interactable = false;

@@ -15,11 +15,11 @@ G:/Unity Games Projects/Git Repos/Ink-Shield-Clone/Sheild Master
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-59381
+51886
 Successfully changed project path to: G:/Unity Games Projects/Git Repos/Ink-Shield-Clone/Sheild Master
 G:/Unity Games Projects/Git Repos/Ink-Shield-Clone/Sheild Master
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 260.59 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 299.53 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.23f1 (c5d91304a876)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/Resources/UnitySubsystems
@@ -35,49 +35,49 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56028
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56676
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.23f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.006424 seconds.
+Registered in 0.003297 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 208.63 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 222.26 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.687 seconds
+- Completed reload, in  1.615 seconds
 Domain Reload Profiling:
-	ReloadAssembly (1688ms)
-		BeginReloadAssembly (284ms)
+	ReloadAssembly (1616ms)
+		BeginReloadAssembly (126ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (0ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
 			CreateAndSetChildDomain (2ms)
-		EndReloadAssembly (1228ms)
-			LoadAssemblies (280ms)
+		EndReloadAssembly (1336ms)
+			LoadAssemblies (121ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (385ms)
+			SetupTypeCache (386ms)
 			ReleaseScriptCaches (0ms)
-			RebuildScriptCaches (75ms)
-			SetupLoadedEditorAssemblies (523ms)
+			RebuildScriptCaches (77ms)
+			SetupLoadedEditorAssemblies (658ms)
 				LogAssemblyErrors (0ms)
 				InitializePlatformSupportModulesInManaged (9ms)
 				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (209ms)
-				BeforeProcessingInitializeOnLoad (27ms)
-				ProcessInitializeOnLoadAttributes (206ms)
-				ProcessInitializeOnLoadMethodAttributes (72ms)
+				RefreshPlugins (222ms)
+				BeforeProcessingInitializeOnLoad (42ms)
+				ProcessInitializeOnLoadAttributes (284ms)
+				ProcessInitializeOnLoadMethodAttributes (100ms)
 				AfterProcessingInitializeOnLoad (0ms)
-				EditorAssembliesLoaded (0ms)
+				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
 			AwakeInstancesAfterBackupRestoration (0ms)
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.319489 seconds.
+Registered in 0.045146 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image G:\Unity Games Projects\Git Repos\Ink-Shield-Clone\Sheild Master\Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 231.46 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 206.59 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 GPGSUpgrader start
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -102,156 +102,45 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 (Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
 
 Mono: successfully reloaded assembly
-- Completed reload, in  6.133 seconds
+- Completed reload, in  5.169 seconds
 Domain Reload Profiling:
-	ReloadAssembly (6137ms)
-		BeginReloadAssembly (374ms)
-			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (9ms)
-			BackupInstance (0ms)
-			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (40ms)
-		EndReloadAssembly (5647ms)
-			LoadAssemblies (712ms)
-			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (887ms)
-			ReleaseScriptCaches (1ms)
-			RebuildScriptCaches (155ms)
-			SetupLoadedEditorAssemblies (3540ms)
-				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (4ms)
-				SetLoadedEditorAssemblies (0ms)
-				RefreshPlugins (232ms)
-				BeforeProcessingInitializeOnLoad (242ms)
-				ProcessInitializeOnLoadAttributes (2903ms)
-				ProcessInitializeOnLoadMethodAttributes (135ms)
-				AfterProcessingInitializeOnLoad (23ms)
-				EditorAssembliesLoaded (1ms)
-			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (29ms)
-Platform modules already initialized, skipping
-========================================================================
-Worker process is ready to serve import requests
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
-Refreshing native plugins compatible for Editor in 3.52 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4109 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 172.0 MB.
-System memory in use after: 172.3 MB.
-
-Unloading 159 unused Assets to reduce memory usage. Loaded Objects now: 4437.
-Total: 18.637700 ms (FindLiveObjects: 1.048200 ms CreateObjectMapping: 0.581600 ms MarkObjects: 16.740700 ms  DeleteObjects: 0.265000 ms)
-
-AssetImportParameters requested are different than current active one (requested -> active):
-  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
-  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
-  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
-  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
-  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
-  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
-  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
-========================================================================
-Received Import Request.
-  path: Assets/_Assets/Prefabs/Level Prefabs/pf_Level 6.prefab
-  artifactKey: Guid(c574bd0d35eb409409ba6eb2e4184f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Assets/Prefabs/Level Prefabs/pf_Level 6.prefab using Guid(c574bd0d35eb409409ba6eb2e4184f27) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf23352da684386f5be8d72aac23d328') in 1.893661 seconds 
-  Import took 2.027921 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000488 seconds.
-  path: Assets/_Assets/Prefabs/Level Prefabs/pf_Level 4.prefab
-  artifactKey: Guid(35ae21944b0628c4c9275f343a5140d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Assets/Prefabs/Level Prefabs/pf_Level 4.prefab using Guid(35ae21944b0628c4c9275f343a5140d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4945956ede24aecdbe074d199fb6a6c2') in 0.698324 seconds 
-  Import took 0.758572 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000462 seconds.
-  path: Assets/_Assets/Prefabs/Level Prefabs/pf_Level 5.prefab
-  artifactKey: Guid(4f65c8072cd07b74da313ea7b6ed9821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Assets/Prefabs/Level Prefabs/pf_Level 5.prefab using Guid(4f65c8072cd07b74da313ea7b6ed9821) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '63f3d7d73dbe59125ea73c713906f536') in 0.757414 seconds 
-  Import took 0.837622 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.000439 seconds.
-  path: Assets/_Assets/Prefabs/Level Prefabs/pf_Level 2.prefab
-  artifactKey: Guid(cfd2fa1195568234fa73e92c1242f177) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/_Assets/Prefabs/Level Prefabs/pf_Level 2.prefab using Guid(cfd2fa1195568234fa73e92c1242f177) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b4f0bb6119d4b9575d8895962798f223') in 0.235511 seconds 
-  Import took 0.392249 seconds .
-
-========================================================================
-Received Prepare
-Registering precompiled user dll's ...
-Registered in 0.019073 seconds.
-Begin MonoManager ReloadAssembly
-Symbol file LoadedFromMemory doesn't match image G:\Unity Games Projects\Git Repos\Ink-Shield-Clone\Sheild Master\Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll
-Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 2.75 ms, found 5 plugins.
-Preloading 0 native plugins for Editor in 0.00 ms.
-GPGSUpgrader start
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
-
-GPGSUpgrader done
-UnityEngine.StackTraceUtility:ExtractStackTrace ()
-UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
-UnityEngine.Logger:Log (UnityEngine.LogType,object)
-UnityEngine.Debug:Log (object)
-GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
-System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
-UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
-
-(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
-
-Mono: successfully reloaded assembly
-- Completed reload, in  3.913 seconds
-Domain Reload Profiling:
-	ReloadAssembly (3914ms)
-		BeginReloadAssembly (427ms)
+	ReloadAssembly (5170ms)
+		BeginReloadAssembly (358ms)
 			ExecutionOrderSort (0ms)
 			DisableScriptedObjects (15ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (137ms)
-		EndReloadAssembly (3248ms)
-			LoadAssemblies (300ms)
+			CreateAndSetChildDomain (41ms)
+		EndReloadAssembly (4648ms)
+			LoadAssemblies (256ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (795ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (106ms)
-			SetupLoadedEditorAssemblies (1803ms)
+			SetupTypeCache (853ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (179ms)
+			SetupLoadedEditorAssemblies (2906ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (6ms)
-				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (3ms)
-				BeforeProcessingInitializeOnLoad (194ms)
-				ProcessInitializeOnLoadAttributes (1483ms)
-				ProcessInitializeOnLoadMethodAttributes (106ms)
-				AfterProcessingInitializeOnLoad (11ms)
-				EditorAssembliesLoaded (1ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (207ms)
+				BeforeProcessingInitializeOnLoad (236ms)
+				ProcessInitializeOnLoadAttributes (2340ms)
+				ProcessInitializeOnLoadMethodAttributes (101ms)
+				AfterProcessingInitializeOnLoad (14ms)
+				EditorAssembliesLoaded (2ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (42ms)
+			AwakeInstancesAfterBackupRestoration (50ms)
 Platform modules already initialized, skipping
-Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 8.11 ms, found 5 plugins.
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 3.03 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4047 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 169.0 MB.
-System memory in use after: 169.3 MB.
+Unloading 4109 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 172.1 MB.
+System memory in use after: 172.3 MB.
 
-Unloading 291 unused Assets to reduce memory usage. Loaded Objects now: 4485.
-Total: 38.861800 ms (FindLiveObjects: 1.868700 ms CreateObjectMapping: 1.521900 ms MarkObjects: 35.037100 ms  DeleteObjects: 0.428800 ms)
+Unloading 176 unused Assets to reduce memory usage. Loaded Objects now: 4420.
+Total: 16.394000 ms (FindLiveObjects: 0.916000 ms CreateObjectMapping: 0.502600 ms MarkObjects: 14.645000 ms  DeleteObjects: 0.327100 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -261,25 +150,16 @@ AssetImportParameters requested are different than current active one (requested
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
   custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
-  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
-Received Import Request.
-  Time since last request: 86.892414 seconds.
-  path: Assets/Scenes/Game Scene.unity
-  artifactKey: Guid(18859b39fb58bee45a3d5400e3aa211e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Scenes/Game Scene.unity using Guid(18859b39fb58bee45a3d5400e3aa211e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f8b976e4275f2ece0b39c0957ed93f6') in 0.094829 seconds 
-  Import took 0.214868 seconds .
-
-========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.020595 seconds.
+Registered in 0.022210 seconds.
 Begin MonoManager ReloadAssembly
 Symbol file LoadedFromMemory doesn't match image G:\Unity Games Projects\Git Repos\Ink-Shield-Clone\Sheild Master\Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 3.56 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 3.49 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 GPGSUpgrader start
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -304,43 +184,43 @@ UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 (Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
 
 Mono: successfully reloaded assembly
-- Completed reload, in  3.641 seconds
+- Completed reload, in  4.087 seconds
 Domain Reload Profiling:
-	ReloadAssembly (3642ms)
-		BeginReloadAssembly (306ms)
+	ReloadAssembly (4089ms)
+		BeginReloadAssembly (245ms)
 			ExecutionOrderSort (0ms)
-			DisableScriptedObjects (14ms)
+			DisableScriptedObjects (9ms)
 			BackupInstance (0ms)
 			ReleaseScriptingObjects (0ms)
-			CreateAndSetChildDomain (133ms)
-		EndReloadAssembly (3224ms)
-			LoadAssemblies (222ms)
+			CreateAndSetChildDomain (91ms)
+		EndReloadAssembly (3691ms)
+			LoadAssemblies (231ms)
 			RebuildTransferFunctionScriptingTraits (0ms)
-			SetupTypeCache (811ms)
-			ReleaseScriptCaches (3ms)
-			RebuildScriptCaches (133ms)
-			SetupLoadedEditorAssemblies (1686ms)
+			SetupTypeCache (832ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (95ms)
+			SetupLoadedEditorAssemblies (2257ms)
 				LogAssemblyErrors (0ms)
-				InitializePlatformSupportModulesInManaged (9ms)
+				InitializePlatformSupportModulesInManaged (8ms)
 				SetLoadedEditorAssemblies (1ms)
-				RefreshPlugins (4ms)
-				BeforeProcessingInitializeOnLoad (215ms)
-				ProcessInitializeOnLoadAttributes (1350ms)
-				ProcessInitializeOnLoadMethodAttributes (96ms)
+				RefreshPlugins (38ms)
+				BeforeProcessingInitializeOnLoad (324ms)
+				ProcessInitializeOnLoadAttributes (1773ms)
+				ProcessInitializeOnLoadMethodAttributes (101ms)
 				AfterProcessingInitializeOnLoad (11ms)
 				EditorAssembliesLoaded (1ms)
 			ExecutionOrderSort2 (0ms)
-			AwakeInstancesAfterBackupRestoration (42ms)
+			AwakeInstancesAfterBackupRestoration (27ms)
 Platform modules already initialized, skipping
 Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
-Refreshing native plugins compatible for Editor in 2.94 ms, found 5 plugins.
+Refreshing native plugins compatible for Editor in 6.67 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4047 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 169.1 MB.
-System memory in use after: 169.4 MB.
+Unloading 4016 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 162.4 MB.
+System memory in use after: 162.7 MB.
 
-Unloading 291 unused Assets to reduce memory usage. Loaded Objects now: 4487.
-Total: 18.994200 ms (FindLiveObjects: 0.840000 ms CreateObjectMapping: 0.521500 ms MarkObjects: 17.298100 ms  DeleteObjects: 0.331400 ms)
+Unloading 287 unused Assets to reduce memory usage. Loaded Objects now: 4422.
+Total: 26.436400 ms (FindLiveObjects: 1.244900 ms CreateObjectMapping: 0.809700 ms MarkObjects: 23.990600 ms  DeleteObjects: 0.387500 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -355,14 +235,580 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Prepare
-Refreshing native plugins compatible for Editor in 120.39 ms, found 5 plugins.
+Registering precompiled user dll's ...
+Registered in 0.389270 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 3.18 ms, found 5 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 150 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 93.2 MB.
-System memory in use after: 93.5 MB.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
 
-Unloading 150 unused Assets to reduce memory usage. Loaded Objects now: 4487.
-Total: 36.872400 ms (FindLiveObjects: 1.314600 ms CreateObjectMapping: 0.799500 ms MarkObjects: 34.518100 ms  DeleteObjects: 0.235300 ms)
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+[YodoMas] Creating new Yodo1AdSettings.asset
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:22)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 22)
+
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:28)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+[Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs line 28]
+
+[YodoMas] Failed to create the Yodo1 Ad Settings asset.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:37)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 37)
+
+[YodoMas] HttpPost request - {"timestamp":"1641812453426","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"android","sign":"dfc73d8c3c8d6b904a7a5adf52211323"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+[YodoMas] HttpPost request - {"timestamp":"1641812455194","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"iOS","sign":"e069c9de9f20420ca0f5b824c6289a96"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  9.241 seconds
+Domain Reload Profiling:
+	ReloadAssembly (9241ms)
+		BeginReloadAssembly (273ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (94ms)
+		EndReloadAssembly (8832ms)
+			LoadAssemblies (329ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (834ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (141ms)
+			SetupLoadedEditorAssemblies (6815ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (251ms)
+				ProcessInitializeOnLoadAttributes (4415ms)
+				ProcessInitializeOnLoadMethodAttributes (2114ms)
+				AfterProcessingInitializeOnLoad (21ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (64ms)
+Platform modules already initialized, skipping
+Script is not up to date after domain reload: guid(897aeffff85977442889301448f05b74) path("Assets/Plugins/Android/androidx.arch.core.core-runtime-2.1.0.aar") state(2)
+Script is not up to date after domain reload: guid(a25f2105b9fec8d438ac3220305aba0c) path("Assets/Plugins/Android/androidx.exifinterface.exifinterface-1.0.0.aar") state(2)
+Script is not up to date after domain reload: guid(d4c002da112566348906f39370d5d2e0) path("Assets/Plugins/Android/androidx.activity.activity-1.1.0.aar") state(2)
+Script is not up to date after domain reload: guid(caf784ddea6a5d9418e202ed797f2799) path("Assets/Plugins/Android/androidx.concurrent.concurrent-futures-1.0.0.jar") state(2)
+Script is not up to date after domain reload: guid(aef6614001d8d8d4fb405cf8d17446e3) path("Assets/Plugins/Android/androidx.core.core-1.3.2.aar") state(2)
+Script is not up to date after domain reload: guid(e3cc8152e80ca4847ad3cf55adab3bfe) path("Assets/Plugins/Android/androidx.constraintlayout.constraintlayout-2.1.0.aar") state(2)
+Script is not up to date after domain reload: guid(40b347219338af54f8071126633d3dd7) path("Assets/Plugins/Android/androidx.appcompat.appcompat-1.2.0.aar") state(2)
+Script is not up to date after domain reload: guid(bdc73485ee3b13749b716a339e0ade48) path("Assets/Plugins/Android/androidx.constraintlayout.constraintlayout-core-1.0.0.jar") state(2)
+Script is not up to date after domain reload: guid(ec271a55b4890a0479774591106c5f47) path("Assets/Plugins/Android/androidx.browser.browser-1.3.0.aar") state(2)
+Script is not up to date after domain reload: guid(1199be62a01689f4fb1eb214b340e15c) path("Assets/Plugins/Android/androidx.arch.core.core-common-2.1.0.jar") state(2)
+Script is not up to date after domain reload: guid(b08d1ee6cad531a458bd5f0ae45fb3a8) path("Assets/Plugins/Android/androidx.collection.collection-1.1.0.jar") state(2)
+Script is not up to date after domain reload: guid(36a86d01ce852ca498429623231e0392) path("Assets/Plugins/Android/androidx.annotation.annotation-1.2.0.jar") state(2)
+Script is not up to date after domain reload: guid(f8169189cb8830a4ea67d305b91e9018) path("Assets/Plugins/Android/androidx.appcompat.appcompat-resources-1.2.0.aar") state(2)
+Script is not up to date after domain reload: guid(ba67658bbead19f4fbdd6c16993573db) path("Assets/Plugins/Android/androidx.coordinatorlayout.coordinatorlayout-1.1.0.aar") state(2)
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 3.93 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4044 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 163.3 MB.
+System memory in use after: 163.6 MB.
+
+Unloading 283 unused Assets to reduce memory usage. Loaded Objects now: 4457.
+Total: 20.421900 ms (FindLiveObjects: 0.837400 ms CreateObjectMapping: 0.536900 ms MarkObjects: 18.732500 ms  DeleteObjects: 0.312000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/_Assets/Scripts/Ad Scripts/AdController.cs
+  artifactKey: Guid(02a3156f7ab853e4098d7a6f54de35a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scripts/Ad Scripts/AdController.cs using Guid(02a3156f7ab853e4098d7a6f54de35a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c589ea58fca37f60ca79a38578ac9c50') in 0.059585 seconds 
+  Import took 0.074756 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.301010 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 10.27 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+[YodoMas] Creating new Yodo1AdSettings.asset
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:22)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 22)
+
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:28)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+[Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs line 28]
+
+[YodoMas] Failed to create the Yodo1 Ad Settings asset.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:37)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 37)
+
+[YodoMas] HttpPost request - {"timestamp":"1641812914318","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"android","sign":"090dccd7f61ceff2d27a4fcd3af81bf7"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+[YodoMas] HttpPost request - {"timestamp":"1641812916292","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"iOS","sign":"f0aa06723e6fb3d2ab424730743edcd5"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  9.052 seconds
+Domain Reload Profiling:
+	ReloadAssembly (9053ms)
+		BeginReloadAssembly (249ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (92ms)
+		EndReloadAssembly (8662ms)
+			LoadAssemblies (261ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (897ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (125ms)
+			SetupLoadedEditorAssemblies (6672ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (11ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (10ms)
+				BeforeProcessingInitializeOnLoad (539ms)
+				ProcessInitializeOnLoadAttributes (3757ms)
+				ProcessInitializeOnLoadMethodAttributes (2336ms)
+				AfterProcessingInitializeOnLoad (17ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (45ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 6.55 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4162 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 166.8 MB.
+System memory in use after: 167.1 MB.
+
+Unloading 401 unused Assets to reduce memory usage. Loaded Objects now: 4460.
+Total: 20.399300 ms (FindLiveObjects: 2.392300 ms CreateObjectMapping: 2.023100 ms MarkObjects: 15.594200 ms  DeleteObjects: 0.385800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.115503 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 9.99 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+[YodoMas] Creating new Yodo1AdSettings.asset
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:22)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 22)
+
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:28)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+[Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs line 28]
+
+[YodoMas] Failed to create the Yodo1 Ad Settings asset.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:37)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 37)
+
+[YodoMas] HttpPost request - {"timestamp":"1641812956059","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"android","sign":"5bf368105254ffee219af724da4c8ecc"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+[YodoMas] HttpPost request - {"timestamp":"1641812957300","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"iOS","sign":"817480f6ce2421c1bd4f37d839c0d739"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  5.909 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5909ms)
+		BeginReloadAssembly (244ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (89ms)
+		EndReloadAssembly (5526ms)
+			LoadAssemblies (451ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (885ms)
+			ReleaseScriptCaches (2ms)
+			RebuildScriptCaches (124ms)
+			SetupLoadedEditorAssemblies (3568ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (16ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (10ms)
+				BeforeProcessingInitializeOnLoad (462ms)
+				ProcessInitializeOnLoadAttributes (1516ms)
+				ProcessInitializeOnLoadMethodAttributes (1541ms)
+				AfterProcessingInitializeOnLoad (20ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (56ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 9.11 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4162 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 166.9 MB.
+System memory in use after: 167.1 MB.
+
+Unloading 401 unused Assets to reduce memory usage. Loaded Objects now: 4463.
+Total: 15.349000 ms (FindLiveObjects: 0.712600 ms CreateObjectMapping: 0.438000 ms MarkObjects: 13.735400 ms  DeleteObjects: 0.460600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 310.206856 seconds.
+  path: Assets/_Assets/Scripts/Ad Scripts/AdController.cs
+  artifactKey: Guid(02a3156f7ab853e4098d7a6f54de35a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scripts/Ad Scripts/AdController.cs using Guid(02a3156f7ab853e4098d7a6f54de35a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7249e4ac66f0dafafb7d937b0acdc628') in 0.012340 seconds 
+  Import took 0.079316 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 12266.65 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 259 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 90.9 MB.
+System memory in use after: 91.2 MB.
+
+Unloading 259 unused Assets to reduce memory usage. Loaded Objects now: 4463.
+Total: 45.495500 ms (FindLiveObjects: 1.820700 ms CreateObjectMapping: 1.871000 ms MarkObjects: 41.483300 ms  DeleteObjects: 0.313200 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
@@ -374,4 +820,1575 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 1.123882 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 4.54 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in 13.732 seconds
+Domain Reload Profiling:
+	ReloadAssembly (13746ms)
+		BeginReloadAssembly (963ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (104ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (2ms)
+			CreateAndSetChildDomain (558ms)
+		EndReloadAssembly (12564ms)
+			LoadAssemblies (9423ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1009ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (96ms)
+			SetupLoadedEditorAssemblies (1596ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (234ms)
+				ProcessInitializeOnLoadAttributes (1255ms)
+				ProcessInitializeOnLoadMethodAttributes (85ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (60ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 10.62 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 166.9 MB.
+System memory in use after: 167.1 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4465.
+Total: 40.951600 ms (FindLiveObjects: 1.908000 ms CreateObjectMapping: 1.142500 ms MarkObjects: 37.158700 ms  DeleteObjects: 0.736500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.034276 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.42 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+[YodoMas] Creating new Yodo1AdSettings.asset
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:22)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 22)
+
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:28)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+[Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs line 28]
+
+[YodoMas] Failed to create the Yodo1 Ad Settings asset.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:37)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 37)
+
+[YodoMas] HttpPost request - {"timestamp":"1641815191289","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"android","sign":"a895dbc5495dc10c2cadc35b9c239560"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+[YodoMas] HttpPost request - {"timestamp":"1641815192651","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"iOS","sign":"26e1ef31db6b050ec6f95ecb25f5308c"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.353 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6354ms)
+		BeginReloadAssembly (284ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (8ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (123ms)
+		EndReloadAssembly (5927ms)
+			LoadAssemblies (284ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (914ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (119ms)
+			SetupLoadedEditorAssemblies (3977ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (269ms)
+				ProcessInitializeOnLoadAttributes (1969ms)
+				ProcessInitializeOnLoadMethodAttributes (1690ms)
+				AfterProcessingInitializeOnLoad (30ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (72ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.79 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4162 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.2 MB.
+
+Unloading 401 unused Assets to reduce memory usage. Loaded Objects now: 4468.
+Total: 18.467900 ms (FindLiveObjects: 0.952600 ms CreateObjectMapping: 0.674100 ms MarkObjects: 16.407400 ms  DeleteObjects: 0.431100 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 2266.001875 seconds.
+  path: Assets/_Assets/Scripts/Ad Scripts/AdController.cs
+  artifactKey: Guid(02a3156f7ab853e4098d7a6f54de35a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scripts/Ad Scripts/AdController.cs using Guid(02a3156f7ab853e4098d7a6f54de35a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b1899627f7a7b10e17975db211b844b3') in 0.047518 seconds 
+  Import took 0.188337 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.024033 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.56 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+[YodoMas] Creating new Yodo1AdSettings.asset
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:22)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 22)
+
+CreateSerializedAsset is not supported while importing out-of-process
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:28)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+[Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs line 28]
+
+[YodoMas] Failed to create the Yodo1 Ad Settings asset.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+Yodo1.MAS.Yodo1AdSettingsSave:Load () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs:37)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:182)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdSettingsSave.cs Line: 37)
+
+[YodoMas] HttpPost request - {"timestamp":"1641815322972","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"android","sign":"2c0a7b50489d50c3316e3468e2862883"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:188)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+[YodoMas] HttpPost request - {"timestamp":"1641815324487","bundle_id":"com.PlayResume.SheildMaster","plugin_version":"4.4.5","platform":"iOS","sign":"37e7485c9db80b31845010d0f06d175a"}
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:276)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 276)
+
+[YodoMas] HttpPost Exception.Status - ProtocolError, please check your bundle id or package name.
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogWarning (object)
+Yodo1.MAS.Yodo1AdAssetsImporter:HttpPost (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:306)
+Yodo1.MAS.Yodo1AdAssetsImporter:GetAppInfo (string,string) (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:265)
+Yodo1.MAS.Yodo1AdAssetsImporter:UpdateAppInfo () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:195)
+Yodo1.MAS.Yodo1AdAssetsImporter:OnProjectLoadedInEditor () (at Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs:172)
+System.Reflection.MonoMethod:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Yodo1/MAS/Editor/Scripts/Yodo1AdAssetsImporter.cs Line: 306)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  6.306 seconds
+Domain Reload Profiling:
+	ReloadAssembly (6307ms)
+		BeginReloadAssembly (288ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (118ms)
+		EndReloadAssembly (5856ms)
+			LoadAssemblies (297ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (795ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (204ms)
+			SetupLoadedEditorAssemblies (4136ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (433ms)
+				ProcessInitializeOnLoadAttributes (1856ms)
+				ProcessInitializeOnLoadMethodAttributes (1808ms)
+				AfterProcessingInitializeOnLoad (22ms)
+				EditorAssembliesLoaded (2ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (59ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.37 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4162 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.2 MB.
+
+Unloading 401 unused Assets to reduce memory usage. Loaded Objects now: 4471.
+Total: 20.223900 ms (FindLiveObjects: 0.852000 ms CreateObjectMapping: 0.453700 ms MarkObjects: 18.630200 ms  DeleteObjects: 0.283000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 125.52 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 259 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 91.0 MB.
+System memory in use after: 91.3 MB.
+
+Unloading 259 unused Assets to reduce memory usage. Loaded Objects now: 4471.
+Total: 18.734600 ms (FindLiveObjects: 1.138500 ms CreateObjectMapping: 0.638600 ms MarkObjects: 16.713300 ms  DeleteObjects: 0.241700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.484134 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 11.48 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  7.981 seconds
+Domain Reload Profiling:
+	ReloadAssembly (8002ms)
+		BeginReloadAssembly (1664ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (150ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (1ms)
+			CreateAndSetChildDomain (1000ms)
+		EndReloadAssembly (6042ms)
+			LoadAssemblies (1511ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (1189ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (109ms)
+			SetupLoadedEditorAssemblies (2577ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (17ms)
+				SetLoadedEditorAssemblies (4ms)
+				RefreshPlugins (12ms)
+				BeforeProcessingInitializeOnLoad (332ms)
+				ProcessInitializeOnLoadAttributes (2104ms)
+				ProcessInitializeOnLoadMethodAttributes (96ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (34ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 11.45 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.2 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4473.
+Total: 16.356400 ms (FindLiveObjects: 0.735100 ms CreateObjectMapping: 0.435400 ms MarkObjects: 14.518600 ms  DeleteObjects: 0.664300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.389939 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.94 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  5.468 seconds
+Domain Reload Profiling:
+	ReloadAssembly (5469ms)
+		BeginReloadAssembly (401ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (13ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (188ms)
+		EndReloadAssembly (4872ms)
+			LoadAssemblies (349ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (986ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (141ms)
+			SetupLoadedEditorAssemblies (2734ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (360ms)
+				ProcessInitializeOnLoadAttributes (2226ms)
+				ProcessInitializeOnLoadMethodAttributes (121ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (28ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 9.67 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.2 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4475.
+Total: 38.512800 ms (FindLiveObjects: 2.857800 ms CreateObjectMapping: 2.121400 ms MarkObjects: 33.007700 ms  DeleteObjects: 0.520600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.023641 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.15 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.445 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3445ms)
+		BeginReloadAssembly (229ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (93ms)
+		EndReloadAssembly (3096ms)
+			LoadAssemblies (188ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (733ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (138ms)
+			SetupLoadedEditorAssemblies (1659ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (310ms)
+				ProcessInitializeOnLoadAttributes (1256ms)
+				ProcessInitializeOnLoadMethodAttributes (72ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (22ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.01 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.2 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4477.
+Total: 14.460800 ms (FindLiveObjects: 0.604300 ms CreateObjectMapping: 0.392900 ms MarkObjects: 13.251600 ms  DeleteObjects: 0.210300 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019898 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.53 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.397 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3398ms)
+		BeginReloadAssembly (246ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (86ms)
+		EndReloadAssembly (3008ms)
+			LoadAssemblies (251ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (748ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (116ms)
+			SetupLoadedEditorAssemblies (1450ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (259ms)
+				ProcessInitializeOnLoadAttributes (1095ms)
+				ProcessInitializeOnLoadMethodAttributes (73ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (22ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.16 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.2 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4479.
+Total: 14.419700 ms (FindLiveObjects: 0.633500 ms CreateObjectMapping: 0.362600 ms MarkObjects: 13.211200 ms  DeleteObjects: 0.210500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 1602.640683 seconds.
+  path: Assets/_Assets/Scriptable Objects/PlayerData/Player Data.asset
+  artifactKey: Guid(e8274db418ab89f42b503eac970bd4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/PlayerData/Player Data.asset using Guid(e8274db418ab89f42b503eac970bd4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a7b47767a3786486592fad166c39f00') in 0.130490 seconds 
+  Import took 0.151190 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019276 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.47 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.340 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3341ms)
+		BeginReloadAssembly (252ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (96ms)
+		EndReloadAssembly (2976ms)
+			LoadAssemblies (239ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (665ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (147ms)
+			SetupLoadedEditorAssemblies (1541ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (9ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (282ms)
+				ProcessInitializeOnLoadAttributes (1163ms)
+				ProcessInitializeOnLoadMethodAttributes (72ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (22ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.06 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.3 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4481.
+Total: 14.735200 ms (FindLiveObjects: 0.633900 ms CreateObjectMapping: 0.345700 ms MarkObjects: 13.528000 ms  DeleteObjects: 0.225400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.023735 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 11.24 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.982 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3984ms)
+		BeginReloadAssembly (272ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (21ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (104ms)
+		EndReloadAssembly (3594ms)
+			LoadAssemblies (223ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (828ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (124ms)
+			SetupLoadedEditorAssemblies (1832ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (14ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (12ms)
+				BeforeProcessingInitializeOnLoad (289ms)
+				ProcessInitializeOnLoadAttributes (1412ms)
+				ProcessInitializeOnLoadMethodAttributes (91ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (27ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 6.07 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.0 MB.
+System memory in use after: 167.3 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4483.
+Total: 28.447000 ms (FindLiveObjects: 1.440400 ms CreateObjectMapping: 2.299600 ms MarkObjects: 24.363100 ms  DeleteObjects: 0.341000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.022885 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 3.96 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  4.140 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4142ms)
+		BeginReloadAssembly (395ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (18ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (200ms)
+		EndReloadAssembly (3610ms)
+			LoadAssemblies (254ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (767ms)
+			ReleaseScriptCaches (4ms)
+			RebuildScriptCaches (136ms)
+			SetupLoadedEditorAssemblies (2026ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (4ms)
+				BeforeProcessingInitializeOnLoad (316ms)
+				ProcessInitializeOnLoadAttributes (1514ms)
+				ProcessInitializeOnLoadMethodAttributes (165ms)
+				AfterProcessingInitializeOnLoad (19ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (53ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 10.52 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.1 MB.
+System memory in use after: 167.3 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4485.
+Total: 29.993600 ms (FindLiveObjects: 1.214600 ms CreateObjectMapping: 0.818000 ms MarkObjects: 27.504000 ms  DeleteObjects: 0.452800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018897 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.55 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.550 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3551ms)
+		BeginReloadAssembly (330ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (12ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (126ms)
+		EndReloadAssembly (3104ms)
+			LoadAssemblies (266ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (758ms)
+			ReleaseScriptCaches (5ms)
+			RebuildScriptCaches (114ms)
+			SetupLoadedEditorAssemblies (1571ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (10ms)
+				SetLoadedEditorAssemblies (2ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (276ms)
+				ProcessInitializeOnLoadAttributes (1190ms)
+				ProcessInitializeOnLoadMethodAttributes (80ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (24ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.00 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.1 MB.
+System memory in use after: 167.3 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4487.
+Total: 14.649500 ms (FindLiveObjects: 0.609200 ms CreateObjectMapping: 0.382100 ms MarkObjects: 13.438200 ms  DeleteObjects: 0.218000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 470.626730 seconds.
+  path: Assets/_Assets/Animations/Enemy/Enemy Controller 1.controller
+  artifactKey: Guid(c6621fa88e137404eaf58def51eb871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Animations/Enemy/Enemy Controller 1.controller using Guid(c6621fa88e137404eaf58def51eb871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f8a8d7f484d552b11284aed0ffde6fdc') in 0.215815 seconds 
+  Import took 0.370892 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.024404 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 4.60 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.673 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3674ms)
+		BeginReloadAssembly (309ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (93ms)
+		EndReloadAssembly (3165ms)
+			LoadAssemblies (299ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (652ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (110ms)
+			SetupLoadedEditorAssemblies (1719ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (257ms)
+				ProcessInitializeOnLoadAttributes (1352ms)
+				ProcessInitializeOnLoadMethodAttributes (84ms)
+				AfterProcessingInitializeOnLoad (11ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (34ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 6.14 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.1 MB.
+System memory in use after: 167.3 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4489.
+Total: 20.901900 ms (FindLiveObjects: 0.819500 ms CreateObjectMapping: 0.533400 ms MarkObjects: 19.241900 ms  DeleteObjects: 0.304400 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 47.251313 seconds.
+  path: Assets/_Assets/Animations/Enemy/Enemy Controller 2.controller
+  artifactKey: Guid(768a8fa2f8f5fa4458c4739aa021481e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Animations/Enemy/Enemy Controller 2.controller using Guid(768a8fa2f8f5fa4458c4739aa021481e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a4a209cc46a8ba78c3144fe7d05443ad') in 0.231429 seconds 
+  Import took 0.544334 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.729894 seconds.
+  path: Assets/_Assets/Animations/Enemy/Enemy Controller 1.controller
+  artifactKey: Guid(c6621fa88e137404eaf58def51eb871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Animations/Enemy/Enemy Controller 1.controller using Guid(c6621fa88e137404eaf58def51eb871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '441b41c0e6828c3c89036204e8a37894') in 0.049174 seconds 
+  Import took 0.131205 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.019007 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.47 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.656 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3657ms)
+		BeginReloadAssembly (338ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (23ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (120ms)
+		EndReloadAssembly (3188ms)
+			LoadAssemblies (250ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (718ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (118ms)
+			SetupLoadedEditorAssemblies (1721ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (193ms)
+				ProcessInitializeOnLoadAttributes (1406ms)
+				ProcessInitializeOnLoadMethodAttributes (100ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (22ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 6.13 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.1 MB.
+System memory in use after: 167.4 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4491.
+Total: 21.355200 ms (FindLiveObjects: 0.871700 ms CreateObjectMapping: 0.596100 ms MarkObjects: 19.526000 ms  DeleteObjects: 0.358800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 91.009910 seconds.
+  path: Assets/_Assets/Animations/Enemy/Enemy Controller 1.controller
+  artifactKey: Guid(c6621fa88e137404eaf58def51eb871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Animations/Enemy/Enemy Controller 1.controller using Guid(c6621fa88e137404eaf58def51eb871f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f9ce7f31ba6bd6093481524b2b40c1b') in 0.086053 seconds 
+  Import took 0.193709 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018449 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 4.94 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.751 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3752ms)
+		BeginReloadAssembly (277ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (110ms)
+		EndReloadAssembly (3364ms)
+			LoadAssemblies (216ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (682ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (134ms)
+			SetupLoadedEditorAssemblies (1913ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (7ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (5ms)
+				BeforeProcessingInitializeOnLoad (254ms)
+				ProcessInitializeOnLoadAttributes (1547ms)
+				ProcessInitializeOnLoadMethodAttributes (90ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (31ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.08 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.1 MB.
+System memory in use after: 167.4 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4493.
+Total: 17.447900 ms (FindLiveObjects: 0.634400 ms CreateObjectMapping: 0.403700 ms MarkObjects: 16.122900 ms  DeleteObjects: 0.284900 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.023657 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 4.10 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  3.603 seconds
+Domain Reload Profiling:
+	ReloadAssembly (3604ms)
+		BeginReloadAssembly (233ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (11ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (104ms)
+		EndReloadAssembly (3228ms)
+			LoadAssemblies (192ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (844ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (98ms)
+			SetupLoadedEditorAssemblies (1644ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (4ms)
+				BeforeProcessingInitializeOnLoad (214ms)
+				ProcessInitializeOnLoadAttributes (1333ms)
+				ProcessInitializeOnLoadMethodAttributes (78ms)
+				AfterProcessingInitializeOnLoad (8ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (23ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.16 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.1 MB.
+System memory in use after: 167.4 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4495.
+Total: 15.108100 ms (FindLiveObjects: 0.658600 ms CreateObjectMapping: 0.383500 ms MarkObjects: 13.714100 ms  DeleteObjects: 0.349600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 557.327348 seconds.
+  path: Assets/_Assets/Animations/Enemy/Enemy Controller 3.controller
+  artifactKey: Guid(dca3817422cb86942a10a4b708ff5848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Animations/Enemy/Enemy Controller 3.controller using Guid(dca3817422cb86942a10a4b708ff5848) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c474824123409c28410b0894e40ccc2') in 1.170802 seconds 
+  Import took 1.260733 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.018780 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 4.28 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  4.078 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4079ms)
+		BeginReloadAssembly (330ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (7ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (152ms)
+		EndReloadAssembly (3605ms)
+			LoadAssemblies (263ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (751ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (105ms)
+			SetupLoadedEditorAssemblies (2033ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (4ms)
+				BeforeProcessingInitializeOnLoad (241ms)
+				ProcessInitializeOnLoadAttributes (1694ms)
+				ProcessInitializeOnLoadMethodAttributes (77ms)
+				AfterProcessingInitializeOnLoad (9ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (27ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 4.46 ms, found 5 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4161 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 167.1 MB.
+System memory in use after: 167.4 MB.
+
+Unloading 400 unused Assets to reduce memory usage. Loaded Objects now: 4497.
+Total: 18.538500 ms (FindLiveObjects: 0.760100 ms CreateObjectMapping: 0.461000 ms MarkObjects: 17.032300 ms  DeleteObjects: 0.282800 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 95.625218 seconds.
+  path: Assets/_Assets/FBX/Character FBX/Negetive Character/New Enemy/Enemy Two/cha shield master@Flying Back Death.fbx
+  artifactKey: Guid(ee288edd22158e645894cc8e894edf38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/FBX/Character FBX/Negetive Character/New Enemy/Enemy Two/cha shield master@Flying Back Death.fbx using Guid(ee288edd22158e645894cc8e894edf38) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3c453fcb4416be6926c888c97e3ad9b5') in 0.238975 seconds 
+  Import took 0.260206 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.557159 seconds.
+  path: Assets/_Assets/Scriptable Objects/PlayerData/Player Data.asset
+  artifactKey: Guid(e8274db418ab89f42b503eac970bd4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/PlayerData/Player Data.asset using Guid(e8274db418ab89f42b503eac970bd4b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '181e2a9defe9a31004ce2941e75e8cd3') in 0.016455 seconds 
+  Import took 0.074869 seconds .
+
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file

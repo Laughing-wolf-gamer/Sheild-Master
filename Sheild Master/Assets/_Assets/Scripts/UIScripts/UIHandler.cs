@@ -122,7 +122,7 @@ namespace SheildMaster {
         }
         
         public void WatchRewardedAds(){
-            // AdController.current.ShowRewarededAds();
+            AdController.current.ShowRewarededAds();
         }
         
         public void PauseMusic(){

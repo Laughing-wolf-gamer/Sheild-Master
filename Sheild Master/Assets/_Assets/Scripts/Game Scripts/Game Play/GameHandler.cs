@@ -260,7 +260,7 @@ namespace SheildMaster {
             if((currentLevel % 2) == 0){    
                 if(playerData.GetHasAdsInGame()){
                     if(canShowInterstetialAds){
-                        // AdController.current.ShowInterStaialAds();
+                        AdController.current.ShowInterStaialAds();
                     }
                 }
             }

@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e787769e49c66e4448eea2820e44118e, type: 3}
+  m_Name: Player Data
+  m_EditorClassIdentifier: 
+  playerSaveData:
+    HasAdsInGame: 1
+    isClamedDailyBonus: 0
+    dimondAmount: 0
+    currentLevelNumber: 1
+    maxCoinCount: 0
+    totalKillCounts: 0
+    currentDay: 0
+    lostLevelIndex: -1
+    lostData:
+      spawnAmount: 0
+      spawnPointlist: []
+  abiliys:
+  - {fileID: 11400000, guid: bdd96a405d83a6e4197e2f92396bc21a, type: 2}
+  - {fileID: 11400000, guid: c761f0f505e045b4286f328f3ee17056, type: 2}
+  playerSkinItem: {fileID: 11400000, guid: a0da3f19e9725b44fb9019c7cb642c8b, type: 2}
+  temporarySkin: {fileID: 0}

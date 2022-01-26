@@ -31,10 +31,10 @@ namespace SheildMaster{
             onCurrencyValueChange?.Invoke();
         }
         public void SetLostLevelIndex(int value){
-            playerSaveData.lostLevelIndex = value;
+            playerSaveData.lostSceneIndex = value;
         }
         public int GetLostLevelIndex(){
-            return playerSaveData.lostLevelIndex;
+            return playerSaveData.lostSceneIndex;
         }
         
         
@@ -53,16 +53,16 @@ namespace SheildMaster{
         public void SetTemprorarySkin(ShopItemSO itemSO){
             temporarySkin = itemSO.playerSkin;
         }
-        
+        public void SetIsClaimed5XBonus(bool value){
+            playerSaveData.isClaimed_5_Times = value;
+        }
         public int GetcurrentDay(){
             return playerSaveData.currentDay;
         }
         public int GetCashAmount(){
             return playerSaveData.maxCoinCount;
         }
-        // public int GetExperience(){
-        //     return playerSaveData.currentExperience;
-        // }
+
         public int GetLevelNumber(){
             return playerSaveData.currentLevelNumber;
         }
@@ -72,7 +72,9 @@ namespace SheildMaster{
         public bool GetHasAdsInGame(){
             return playerSaveData.HasAdsInGame;
         }
-        
+        public bool GetIsClaimed5X(){
+            return playerSaveData.isClaimed_5_Times;
+        }
         public void OnLevelComplete(){
             playerSaveData.currentLevelNumber++;
             AnayltyicsManager.current.SetPlayerLevelAnaylytics(playerSaveData.currentLevelNumber);
@@ -126,7 +128,7 @@ namespace SheildMaster{
         public void SetSpawnAmount(int amount){
             this.playerSaveData.lostData.spawnAmount = amount;
         }
-        public void SetLostData(List<Vector3> spawnPointList) {
+        public void SetLostEnemySpawnPointsData(List<Vector3> spawnPointList) {
             this.playerSaveData.lostData.spawnPointlist = spawnPointList;
         }
         public int GetSpawnAmount(){
@@ -177,19 +179,19 @@ namespace SheildMaster{
         
         public bool HasAdsInGame;
         public bool isClamedDailyBonus;
+        public bool isClaimed_5_Times;
         public int dimondAmount;
         public int currentLevelNumber;
         public int maxCoinCount;
-        // public int currentExperience;
         public int totalKillCounts = 0;
         public int currentDay;
-        public int lostLevelIndex;
+        // public int lostLevelIndex;
+        public int lostSceneIndex;
         public OnLostPlayerData lostData;
     }
     [System.Serializable]
     public class OnLostPlayerData{
         public int spawnAmount;
-        // public bool lostOnThisLevel;
         public List<Vector3> spawnPointlist;
     }
 

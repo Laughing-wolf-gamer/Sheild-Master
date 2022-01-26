@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Armour
   m_EditorClassIdentifier: 
   abilityType: 1
-  discription: Save You From One Bullet
+  discription: Save You From One Bullet Hit
   cost:
     coinCount: 750
     dimondCount: 20

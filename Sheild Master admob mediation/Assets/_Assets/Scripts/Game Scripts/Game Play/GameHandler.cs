@@ -71,6 +71,7 @@ namespace SheildMaster {
             onGameResume?.Invoke();
             levelManager = GetComponent<LevelManager>();
             uIHandler = UIHandler.current;
+            levelManager.LevelStart();
             CheckForTutoraial();
             StartCoroutine(nameof(GameStartRoutine));
             
@@ -131,12 +132,12 @@ namespace SheildMaster {
 
 
         private IEnumerator GameStartRoutine(){
-            Invoke(nameof(InvokeStartGame),0.2f);
+            Invoke(nameof(InvokeStartGame),0.5f);
             onGameStart?.Invoke();
+            
             while(!isGamePlaying){
                 yield return null;
             }
-            
             isGamePlaying = true;
             StartCoroutine(nameof(GamePlayRoutine));
             
@@ -162,7 +163,7 @@ namespace SheildMaster {
             yield return new WaitForSeconds(2f);
             blurVolume.weight = 1f;
             if(isWon){
-                PlayInterStetialAds();
+                // PlayInterStetialAds();
                 // int rand = UnityEngine.Random.Range(0,4);
                 // if(rand >= 0){
                 // }
@@ -173,14 +174,14 @@ namespace SheildMaster {
                 #endif
                 onWin?.Invoke();
                 // AdManager.instance.GameOver();
-                AdManager.instance.RequestBanner();
+                // AdManager.instance.RequestBanner();
             }else{
-                PlayInterStetialAds();
                 AudioManager.current.PlayMusic(SoundType.Player_Lost);
                 onLoss?.Invoke();
                 
-                AdManager.instance.RequestBanner();
             }
+            PlayInterStetialAds();
+            
         }
        
         
@@ -215,14 +216,11 @@ namespace SheildMaster {
         }
         public void PlayInterStetialAds(){
             int currentLevel = playerData.GetLevelNumber();
-            if((currentLevel % 2) == 0){    
-                if(playerData.GetHasAdsInGame()){
+            if(playerData.GetHasAdsInGame()){
+                if((currentLevel % 5) == 0){
                     AdManager.instance.GameOver();
-                    // if(isWon){
-                    //     AdManager.instance.GameWon();
-                    // }else{
-                    // }
                 }
+                AdManager.instance.RequestBanner();
             }
         }
 
@@ -230,15 +228,6 @@ namespace SheildMaster {
 
 
         #region public Setters.......
-
-        // public void SetCanRewardedShowAd(bool value){
-        //     // Set If Player can Watch an Reward Ad.
-        //     // canShowRewardedAds = value;
-        // }
-        // public void SetIsRewardedAdsPlaying(bool value){
-        //     // Set If Player is Watching a Rewarded Ads....
-        //     isShowingRewardAds = value;
-        // }
         public void SetCanShowInterstetialAds(bool value){
             // Set If Player can see Interstetial Ads..
             canShowInterstetialAds = value;

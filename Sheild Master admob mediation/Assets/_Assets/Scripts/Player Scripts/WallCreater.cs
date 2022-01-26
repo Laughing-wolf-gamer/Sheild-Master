@@ -1,7 +1,6 @@
 using System;
 using UnityEngine;
 using GamerWolf.Utils;
-using System.Collections.Generic;
 using UnityEngine.Animations.Rigging;
 namespace SheildMaster {
 
@@ -57,13 +56,13 @@ namespace SheildMaster {
         }
         private void SetInkAmount(){
             if(playerData.GetLevelNumber() <= 25){
-                maxInkAmount = 20;
+                maxInkAmount = 10;
             }
             if(playerData.GetLevelNumber() > 25){
-                maxInkAmount = 30;
+                maxInkAmount = 20;
             }
             if(playerData.GetLevelNumber() >= 60){                
-                maxInkAmount = 50;
+                maxInkAmount = 40;
             }
             currentInkAmount = maxInkAmount;
         }

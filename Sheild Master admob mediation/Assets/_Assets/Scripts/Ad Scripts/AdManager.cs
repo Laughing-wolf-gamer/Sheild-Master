@@ -10,7 +10,7 @@ public class AdManager : MonoBehaviour {
     public static AdManager instance;
     private bool initAd = false;
     public static int adCount = 0;
-    public int showGameWonInterstitalAdAfter;
+    // public int showGameWonInterstitalAdAfter;
     private BannerView bannerView;
     private InterstitialAd interstitial;
     private RewardedAd rewardedAd;
@@ -145,8 +145,7 @@ public class AdManager : MonoBehaviour {
 
     public void HandleOnAdFailedToLoad(object sender, AdFailedToLoadEventArgs args){
         IsRewardedAdsLoaded = false;
-        Debug.Log("HandleFailedToReceiveAd event received with message: "
-                            + args.ToString());
+        Debug.Log("HandleFailedToReceiveAd event received with message: "+ args.ToString());
     }
 
     public void HandleOnAdOpened(object sender, EventArgs args){
@@ -181,7 +180,7 @@ public class AdManager : MonoBehaviour {
     }
 
     public void HandleRewardedAdFailedToShow(object sender, AdErrorEventArgs args){
-        Debug.Log("HandleRewardedAdFailedToShow event received with message: "+ args.Message);
+        // Debug.Log("HandleRewardedAdFailedToShow event received with message: "+ args.Message);
         dailyReward = false;
         skinShopTry = false;
         winDouble = false;
@@ -198,7 +197,7 @@ public class AdManager : MonoBehaviour {
     public void HandleUserEarnedReward(object sender, Reward args){
         if (dailyReward){
             // Here you have to call the Claim2X() from GameEventManager.
-            GameEventManager.eventManager.Claim2X();
+            GameEventManager.eventManager.Claim5X();
             dailyReward = false;
         }else if (skinShopTry){
             SkinShopHandler.current.TryCurrentSkinAfterAd();
@@ -223,19 +222,19 @@ public class AdManager : MonoBehaviour {
         }
     }
 
-    public void GameWon(){
-        Debug.Log("Adcount is:- " + adCount);
+    // public void GameWon(){
+    //     Debug.Log("Adcount is:- " + adCount);
 
-        if(adCount >= showGameWonInterstitalAdAfter){
-            if (this.interstitial.IsLoaded()){
-                this.interstitial.Show();
-                adCount = 0;
-            }
-        }
-        else{
-            adCount += 1;
-        }
-    }
+    //     if(adCount >= showGameWonInterstitalAdAfter){
+    //         if (this.interstitial.IsLoaded()){
+    //             this.interstitial.Show();
+    //             adCount = 0;
+    //         }
+    //     }
+    //     else{
+    //         adCount += 1;
+    //     }
+    // }
 
     public void UserChoseToWatchAd(){
         if (this.rewardedAd.IsLoaded()){

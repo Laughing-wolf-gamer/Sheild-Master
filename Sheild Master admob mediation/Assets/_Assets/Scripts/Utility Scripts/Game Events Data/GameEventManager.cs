@@ -5,6 +5,7 @@ using GamerWolf.Utils;
 using System.Collections;
 namespace SheildMaster {
     public class GameEventManager : MonoBehaviour {
+        
         [SerializeField] private int currentDay;
         [SerializeField] private float closeTime = 2f;
         [SerializeField] private GameObject mainMenuWindow;
@@ -18,6 +19,8 @@ namespace SheildMaster {
         [SerializeField] private TimeManager timeManager;
         private DailyBonuUIButton CurrentBonusButton;
 
+        #region Singelton.......
+
         public static GameEventManager eventManager{get;private set;}
         private void Awake(){
             if(eventManager == null){
@@ -26,6 +29,9 @@ namespace SheildMaster {
                 Destroy(eventManager);
             }
         }
+
+        #endregion
+
         private void Start() {
             currentDay = playerData.GetcurrentDay();
             if(timeManager.Ready()){
@@ -50,7 +56,6 @@ namespace SheildMaster {
         }
         private IEnumerator CheckRoutine(){
             while(true){
-                currentDay = playerData.GetcurrentDay();
                 CheckRewardButton();
                 yield return null;
             }
@@ -58,8 +63,9 @@ namespace SheildMaster {
         
 
         private void CheckRewardButton(){
-            if(timeManager.Ready()){
-                playerData.SetClamedBonus(false);
+            currentDay = playerData.GetcurrentDay();
+
+            if(!playerData.GetIsClaimed5X()){
                 if(AdManager.instance.IsRewardedAdsLoaded){
                     claimDoubleButton.interactable = true;
                 }else{
@@ -67,6 +73,14 @@ namespace SheildMaster {
                 }
             }else{
                 claimDoubleButton.interactable = false;
+            }
+                // claimDoubleButton.interactable = false;
+            if(timeManager.Ready()){
+                if(playerData.GetIsClaimed5X()){
+                    playerData.SetIsClaimed5XBonus(false);
+                }
+                playerData.SetClamedBonus(false);
+            }else{
                 playerData.SetClamedBonus(true);
             }
             for (int i = 0; i < rewardClameButtonArray.Length; i++){
@@ -123,8 +137,8 @@ namespace SheildMaster {
             claimRewardButton.interactable = false;
         }
 
-        //Change this According to 2X button & call it in AdManager Script.
-        public void Claim2X(){
+        //Change this According to 5X button & call it in AdManager Script.
+        public void Claim5X(){
             CurrentBonusButton.ClamReward5X();
             RefershCoin();
             RefreshDimond();
@@ -136,6 +150,7 @@ namespace SheildMaster {
             playerData.IncreaseCurrentDayNumber();
             CurrentBonusButton.SetIsActive(false);
             claimDoubleButton.interactable = false;
+            playerData.SetIsClaimed5XBonus(true);
         }
         
         

@@ -27,7 +27,6 @@ public class PlayGamesController : MonoBehaviour {
     
     
     public void AuthenticateUser(){
-
         PlayGamesClientConfiguration config = new PlayGamesClientConfiguration.Builder().Build();
         PlayGamesPlatform.InitializeInstance(config);
         PlayGamesPlatform.Activate();
@@ -45,9 +44,11 @@ public class PlayGamesController : MonoBehaviour {
                 }
             }
             Invoke(nameof(ChangeScene),0.5f);
+
         });
         
     }
+    
     private void ChangeScene(){
         SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
     }

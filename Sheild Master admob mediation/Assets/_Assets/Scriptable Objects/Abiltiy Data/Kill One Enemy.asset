@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Kill One Enemy
   m_EditorClassIdentifier: 
   abilityType: 0
-  discription: Kill one Random Enemy in the beggingin
+  discription: Kill one Random Enemy in the Beggning
   cost:
     coinCount: 1250
     dimondCount: 50

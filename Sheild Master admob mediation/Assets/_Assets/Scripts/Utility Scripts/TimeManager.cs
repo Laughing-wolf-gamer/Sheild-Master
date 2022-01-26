@@ -100,7 +100,7 @@ namespace GamerWolf.Utils{
             return false;
         }
 
-        public void DoubleReward(){
+        public void FiveTimeReward(){
             AdManager.dailyReward = true;
             AdManager.instance.UserChoseToWatchAd();
         }

@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Zoom Mat
+  m_Shader: {fileID: -6465566751694194690, guid: 30b617094d1bbd44686735baeb9c325d, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_56e9a69cc69241c3bbc44c2a613149a4: -0.09
+    - Vector1_5d367430bb3c4f97ad93ec87eeea8a1d: -0.62
+    - Vector1_5f015ee7a23945298cb279d7c142d08a: 3.13
+    - Vector1_6c1a80e1406d46ea96e8ad70b1f33a0d: 1
+    m_Colors:
+    - Vector2_dabd52beff0f4a0c81fdeafd8e2e07da: {r: -2.44, g: 2.78, b: 0, a: 0}
+    - _Object_Screen_Posiiton: {r: -0.5, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []

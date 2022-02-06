@@ -16,6 +16,10 @@ namespace SheildMaster{
         public ShopItemData itemData;
 
         public bool isUsingTemprary;
+        [ContextMenu("set New Amount")]
+        public void SetNewAmount(){
+            itemData.cost *= 10;
+        }
         public int GetItemCost(){
             return itemData.cost;
         }

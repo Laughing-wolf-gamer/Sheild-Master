@@ -10805,7 +10805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5X Reward
+  m_text: 10X Reward
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8b9c0ac9b725df47b45384cca381e02, type: 2}
   m_sharedMaterial: {fileID: -8474088118592032305, guid: b8b9c0ac9b725df47b45384cca381e02, type: 2}
@@ -22117,7 +22117,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50 Cash
+  m_text: 500 Cash
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8b9c0ac9b725df47b45384cca381e02, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 6b15c210c117f3f449fe2c99d71162f9, type: 2}
@@ -49465,7 +49465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 10 Diamond
+  m_text: 100 Diamond
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: b8b9c0ac9b725df47b45384cca381e02, type: 2}
   m_sharedMaterial: {fileID: -8474088118592032305, guid: b8b9c0ac9b725df47b45384cca381e02, type: 2}
@@ -49492,7 +49492,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 13.15
+  m_fontSize: 11.7
   m_fontSizeBase: 14
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -49663,31 +49663,31 @@ MonoBehaviour:
   data: 0
   entries:
   - Language: Malaysian
-    Text: 2X Syiling
+    Text: 10X Syiling
     Object: {fileID: 0}
   - Language: Thai
-    Text: "H\u0304er\u012By\u1EF5 5X"
+    Text: "H\u0304er\u012By\u1EF5 10X"
     Object: {fileID: 0}
   - Language: Argentina
-    Text: Moneda 5X
+    Text: Moneda 10X
     Object: {fileID: 0}
   - Language: Mexican
-    Text: Moneda 5X
+    Text: Moneda 10X
     Object: {fileID: 0}
   - Language: Brazilian
-    Text: 5X Reward
+    Text: 10X Reward
     Object: {fileID: 0}
   - Language: English
-    Text: 5X Reward
+    Text: 10X Reward
     Object: {fileID: 0}
   - Language: French
-    Text: "R\xE9compense 5X"
+    Text: "R\xE9compense 10X"
     Object: {fileID: 0}
   - Language: Russian
-    Text: 5-kratnaya nagrada
+    Text: 10-kratnaya nagrada
     Object: {fileID: 0}
   - Language: Arabic
-    Text: 5X mukafa'a
+    Text: 10X mukafa'a
     Object: {fileID: 0}
 --- !u!1 &2071449674
 GameObject:

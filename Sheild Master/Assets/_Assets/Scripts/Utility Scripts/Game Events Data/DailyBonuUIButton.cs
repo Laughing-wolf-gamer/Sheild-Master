@@ -68,7 +68,7 @@ namespace SheildMaster {
         // This function you have to change accordingly for double.
         // It's calling in GameEventManager.
         public void ClamReward5X(){
-            int multiplier = 5;
+            int multiplier = 10;
             coinCollectersCoin.CollectCoin(todayReward.dailyBonyData.coinAmount * multiplier, cashEffectSpeed);
             coinCollectersDimond.CollectDimond(todayReward.dailyBonyData.dimondAmount * multiplier, cashEffectSpeed);
             for (int i = 0; i < playerDataSO.abiliys.Length; i++){

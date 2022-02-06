@@ -42,6 +42,8 @@ public class AdManager : MonoBehaviour {
         IronSourceEvents.onInterstitialAdClickedEvent += InterstitialAdClickedEvent;
         IronSourceEvents.onInterstitialAdOpenedEvent += InterstitialAdOpenedEvent;
         IronSourceEvents.onInterstitialAdClosedEvent += InterstitialAdClosedEvent;
+        IronSourceEvents.onImpressionDataReadyEvent += OnImpressionReadyEvent;
+        IronSourceEvents.onImpressionSuccessEvent += OnImpressionSuccesseEvent;
 
         IronSource.Agent.loadInterstitial();
     }
@@ -56,6 +58,8 @@ public class AdManager : MonoBehaviour {
         IronSourceEvents.onRewardedVideoAdEndedEvent += RewardedVideoAdEndedEvent;
         IronSourceEvents.onRewardedVideoAdRewardedEvent += RewardedVideoAdRewardedEvent;
         IronSourceEvents.onRewardedVideoAdShowFailedEvent += RewardedVideoAdShowFailedEvent;
+        IronSourceEvents.onImpressionDataReadyEvent += OnImpressionReadyEvent;
+        IronSourceEvents.onImpressionSuccessEvent += OnImpressionSuccesseEvent;
         
     }
 
@@ -90,7 +94,13 @@ public class AdManager : MonoBehaviour {
     // NOTE - This event is available only for some of the networks. 
     // You should treat this event as an interstitial impression, but rather use InterstitialAdOpenedEvent
     private void InterstitialAdShowSucceededEvent(){
-
+        AnayltyicsManager.current.OnAdcompleteAnayltyics_UnityAnayltics(false,UnityEngine.Analytics.AdvertisingNetwork.IronSource);
+    }
+    private void OnImpressionReadyEvent(IronSourceImpressionData impressionData){
+        AnayltyicsManager.current.ImpressionSuccesessEvent(impressionData);
+    }
+    private void OnImpressionSuccesseEvent(IronSourceImpressionData impressionData){
+        AnayltyicsManager.current.ImpressionSuccesessEvent(impressionData);
     }
 
     #endregion
@@ -106,6 +116,7 @@ public class AdManager : MonoBehaviour {
     //Your activity will now regain its focus.
     private void RewardedVideoAdClosedEvent(){
         RequestRewarded();
+        AnayltyicsManager.current.OnAdcompleteAnayltyics_UnityAnayltics(true,UnityEngine.Analytics.AdvertisingNetwork.IronSource);
     }
     //Invoked when there is a change in the ad availability status.
     //@param - available - value will change to true when rewarded videos are available. 

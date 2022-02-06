@@ -106,6 +106,26 @@ public class AnayltyicsManager : MonoBehaviour {
     public void BannerAds(){
         FirebaseAnalytics.LogEvent("banner_ads");
     }
+
+    public void ImpressionSuccesessEvent(IronSourceImpressionData impressionData){
+        Debug.Log("Ironsource Impression Log Data: " + impressionData);
+        if(impressionData != null){
+            Firebase.Analytics.Parameter[] AdParameter = {
+                new Parameter("ad_platform","ironSource"),
+                new Parameter("ad_source",impressionData.adNetwork),
+                new Parameter("ad_unit_name",impressionData.adUnit),
+                new Parameter("ad_adformat",impressionData.instanceName),
+                new Parameter("currency","USD"),
+                new Parameter("value",impressionData.revenue.ToString()),
+                new Parameter("life_time_value",impressionData.lifetimeRevenue.ToString())
+
+                
+            };
+            FirebaseAnalytics.LogEvent("ad_impressions",AdParameter);
+            
+
+        }
+    }
     #endregion
 
 

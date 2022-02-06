@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4facddf2c8f04c94e8e202b08ceb29c5, type: 3}
   m_Name: Day 1
   m_EditorClassIdentifier: 
-  dayOfWeek: 0
+  dayNumber: 0
   discription: Get 50 Coins
   dailyBonyData:
     coinAmount: 50

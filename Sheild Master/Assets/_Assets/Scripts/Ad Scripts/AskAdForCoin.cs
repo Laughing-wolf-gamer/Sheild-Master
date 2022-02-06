@@ -23,16 +23,16 @@ namespace SheildMaster {
             // adController = AdController.current;
             // adController.askingforExtraCoinFromShop = true;
             // adController.trySkinAds = false;
-            checkAdStatus();
+            CheckAdAvailability();
             playerData.onCurrencyValueChange += RefreshCoinAmount;
         }
         private void Update(){
-            checkAdStatus();
+            CheckAdAvailability();
         }
         
         
         
-        private void checkAdStatus(){
+        private void CheckAdAvailability(){
             if(timeManager.Ready()){
                 watchAdButton.gameObject.SetActive(true);
                 overlay.SetActive(false);

@@ -82,7 +82,7 @@ namespace SheildMaster {
             }
             if(!player.GetIsDead()){
                 gameHandler.SetGameOver(true);
-                currenCoinCount = enemyList.Count;
+                currenCoinCount = enemyList.Count * 10;
                 uIHandler.SetCurrentLevelEarnedCoins(currenCoinCount);    
                 SetWinLevel();
                 if(playerDataSO.GetLevelNumber() >= 25){
@@ -104,7 +104,7 @@ namespace SheildMaster {
         }
         public void AddTwiceMoney(){
             // Add Extra money after Ads..
-            int multiplier = 5;
+            int multiplier = 10;
             currenCoinCount *= multiplier;
             UIHandler.current.SetCurrentLevelEarnedCoins(currenCoinCount);
             UIHandler.current.UpdateCoinAmountUI();

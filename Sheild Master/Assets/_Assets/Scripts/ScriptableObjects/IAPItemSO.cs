@@ -9,6 +9,10 @@ namespace SheildMaster{
 
         public int CoinAmount;
         
+        [ContextMenu("set New Amount")]
+        public void SetNewAmount(){
+            CoinAmount *= 10;
+        }
         
     }
 

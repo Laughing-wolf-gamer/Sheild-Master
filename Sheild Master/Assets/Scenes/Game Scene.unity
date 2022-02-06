@@ -190,6 +190,42 @@ PrefabInstance:
       propertyPath: spawnLevelDataSO
       value: 
       objectReference: {fileID: 11400000, guid: 0bf91e6dfa781174db419dc10b7e86f7, type: 2}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[0].Text
+      value: 10X Syiling
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[1].Text
+      value: "H\u0304er\u012By\u1EF5 10X"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[2].Text
+      value: Moneda 10X
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[3].Text
+      value: Moneda 10X
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[4].Text
+      value: 10X Reward
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[5].Text
+      value: 10X Reward
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[6].Text
+      value: "R\xE9compense 10X"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[7].Text
+      value: 10-kratnaya nagrada
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216597016650, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: entries.Array.data[8].Text
+      value: 10X mukafa'a
+      objectReference: {fileID: 0}
     - target: {fileID: 4962812217406343915, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
       propertyPath: m_IsActive
       value: 1

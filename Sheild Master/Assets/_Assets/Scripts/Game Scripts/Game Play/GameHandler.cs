@@ -216,8 +216,12 @@ namespace SheildMaster {
             int currentLevel = playerData.GetLevelNumber();
             if(playerData.GetHasAdsInGame()){
                 AdManager.instance.RequestBanner();
-                if((currentLevel % 2) == 0){
-                    Debug.Log("Playing Interstial Ads");
+                if(currentLevel < 4){
+                    if((currentLevel % 2) == 0){
+                        Debug.Log("Playing Interstial Ads");
+                        AdManager.instance.GameOver();
+                    }
+                }else{
                     AdManager.instance.GameOver();
                 }
             }

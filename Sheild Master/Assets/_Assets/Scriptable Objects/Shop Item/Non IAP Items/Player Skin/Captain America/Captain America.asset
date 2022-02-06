@@ -15,7 +15,7 @@ MonoBehaviour:
   shopItemType: 0
   playerSkin: {fileID: 2100000, guid: 6a78b8fa85ea622448c98b7e01152d8c, type: 2}
   itemData:
-    cost: 2000
+    cost: 20000
     isSelected: 0
     isBought: 0
   isUsingTemprary: 0

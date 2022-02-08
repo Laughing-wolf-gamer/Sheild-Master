@@ -1,0 +1,442 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.27f1 (e759542391ea) revision 15161684'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 11  (10.0.22000) 64bit CoreSingleLanguage' Language: 'en' Physical Memory: 8070 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.27f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+G:/Unity Games Projects/Git Repos/Ink-Shield-Clone/Sheild Master
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+63904
+Successfully changed project path to: G:/Unity Games Projects/Git Repos/Ink-Shield-Clone/Sheild Master
+G:/Unity Games Projects/Git Repos/Ink-Shield-Clone/Sheild Master
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 285.17 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.27f1 (e759542391ea)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path G:/Unity Games Projects/Git Repos/Ink-Shield-Clone/Sheild Master/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce MX110 (ID=0x174e)
+    Vendor:   
+    VRAM:     2010 MB
+    Driver:   27.21.14.6280
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56512
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.27f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.002578 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 110.99 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.933 seconds
+Domain Reload Profiling:
+	ReloadAssembly (934ms)
+		BeginReloadAssembly (121ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (0ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (1ms)
+		EndReloadAssembly (666ms)
+			LoadAssemblies (118ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (206ms)
+			ReleaseScriptCaches (0ms)
+			RebuildScriptCaches (43ms)
+			SetupLoadedEditorAssemblies (250ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (6ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (111ms)
+				BeforeProcessingInitializeOnLoad (14ms)
+				ProcessInitializeOnLoadAttributes (83ms)
+				ProcessInitializeOnLoadMethodAttributes (34ms)
+				AfterProcessingInitializeOnLoad (0ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (0ms)
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.032641 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of Firebase.Crashlytics.Editor.iOSPostBuild:SetupGUIDForSymbolUploads due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+Unloading broken assembly Assets/Firebase/Editor/Firebase.Crashlytics.Editor.dll, this assembly can cause crashes in the runtime
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 92.92 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  2.468 seconds
+Domain Reload Profiling:
+	ReloadAssembly (2469ms)
+		BeginReloadAssembly (164ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (23ms)
+		EndReloadAssembly (2241ms)
+			LoadAssemblies (200ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (408ms)
+			ReleaseScriptCaches (1ms)
+			RebuildScriptCaches (73ms)
+			SetupLoadedEditorAssemblies (1360ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (3ms)
+				SetLoadedEditorAssemblies (0ms)
+				RefreshPlugins (93ms)
+				BeforeProcessingInitializeOnLoad (110ms)
+				ProcessInitializeOnLoadAttributes (1077ms)
+				ProcessInitializeOnLoadMethodAttributes (71ms)
+				AfterProcessingInitializeOnLoad (5ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (7ms)
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.04 seconds
+Refreshing native plugins compatible for Editor in 11.29 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4355 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 177.9 MB.
+System memory in use after: 178.1 MB.
+
+Unloading 333 unused Assets to reduce memory usage. Loaded Objects now: 4546.
+Total: 22.398600 ms (FindLiveObjects: 1.094700 ms CreateObjectMapping: 0.921200 ms MarkObjects: 20.118500 ms  DeleteObjects: 0.261200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Balck Ninja Girl/VERSION 13/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(ce9dd4feaaabb91418c73246b9f16169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Balck Ninja Girl/VERSION 13/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(ce9dd4feaaabb91418c73246b9f16169) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5bd045f9615308f06a56771afb55388') in 0.132162 seconds 
+  Import took 0.214827 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 13.720654 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Big Head Boy/version 8/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(0fa13bb4d87d0834d9fa500f2ccd6613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Big Head Boy/version 8/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(0fa13bb4d87d0834d9fa500f2ccd6613) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '23e66a7034799e2994a899af31520cbc') in 0.029354 seconds 
+  Import took 0.043628 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 42.613536 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Black Spider Man/Version 15/shield master new character_1001_AlbedoTransparency.png
+  artifactKey: Guid(d75a9cbb09c254448b90bee288e64cbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Black Spider Man/Version 15/shield master new character_1001_AlbedoTransparency.png using Guid(d75a9cbb09c254448b90bee288e64cbd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c582bb03cdac53f2c20317ae2665b18e') in 0.055928 seconds 
+  Import took 0.069974 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4.097208 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Blue Spider Man/Version 16/shield master new character_1001_AlbedoTransparency.png
+  artifactKey: Guid(c2248f74159ae2d44be82ea6a15e4fe1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Blue Spider Man/Version 16/shield master new character_1001_AlbedoTransparency.png using Guid(c2248f74159ae2d44be82ea6a15e4fe1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e0d3d471fad50a3ab9bebb5f70dd6015') in 0.039702 seconds 
+  Import took 0.053109 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.135043 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Boss Baby Skin/Boss Baby/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(7430dff0b56a2c441bb6e7e1e1390c2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Boss Baby Skin/Boss Baby/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(7430dff0b56a2c441bb6e7e1e1390c2f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'daf8388ae1b0266b12a38b2f40947bef') in 0.036447 seconds 
+  Import took 0.050481 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.547794 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Captain America/version 3/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(60130d3390906c04c9c3fa1c2b73e7cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Captain America/version 3/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(60130d3390906c04c9c3fa1c2b73e7cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7eeccc619ed9f473373fb9b08ad054b3') in 0.024777 seconds 
+  Import took 0.040967 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.062678 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Good Boy/VERSION 12/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(e78ed7d4d53ec3740bad60b9d5b855ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Good Boy/VERSION 12/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(e78ed7d4d53ec3740bad60b9d5b855ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e32109a22bda33586639defd03a920a') in 0.023517 seconds 
+  Import took 0.038458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.517013 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Hulk/VERSION 2/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(f693dd4a5db78dd489e12dba418c16b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Hulk/VERSION 2/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(f693dd4a5db78dd489e12dba418c16b9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fddbfa7b6aeb20c7f797421944765e38') in 0.046489 seconds 
+  Import took 0.091375 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.999032 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Iron Man/version 4/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(c8d1084b26ca47b4ca35b1e8eacc939d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Iron Man/version 4/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(c8d1084b26ca47b4ca35b1e8eacc939d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8bc6b04338953c633be59530f7a5bf88') in 0.032535 seconds 
+  Import took 0.046947 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.424492 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Migty Raju/VERSION 6/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(0ac8c6792f31d9047817d889406bf97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Migty Raju/VERSION 6/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(0ac8c6792f31d9047817d889406bf97c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '68551bcfc8f8f9c5c92363e7b4df30cb') in 0.025110 seconds 
+  Import took 0.038859 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 5.829182 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Penguine/VERSION 11/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(f1accad94056e3b43964e0936b471161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Penguine/VERSION 11/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(f1accad94056e3b43964e0936b471161) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dbc31da364a9600a3cf10390ff06cbb4') in 0.024221 seconds 
+  Import took 0.136841 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 37.981700 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Red Ninja Girl/VERSION 14/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(127eff5f64c669d46abc42dba53fa14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Red Ninja Girl/VERSION 14/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(127eff5f64c669d46abc42dba53fa14f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9603b44fbbb60c047147f605af802d59') in 0.036322 seconds 
+  Import took 0.049909 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.112612 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Smart Boy/version 5/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(357fd1a371ff9d240afc57117c71c4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Smart Boy/version 5/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(357fd1a371ff9d240afc57117c71c4f4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6aff00f43ed2d2f31495990bb1e9cd86') in 0.025075 seconds 
+  Import took 0.041632 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.669307 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/SpongBob/VERSION 9/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(f51638afbb3d8684e946473ae002a4c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/SpongBob/VERSION 9/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(f51638afbb3d8684e946473ae002a4c8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5a0734b47668ab02b65f0a1f8852dae') in 0.022979 seconds 
+  Import took 0.036568 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.740821 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Squid Game Guard/VERSION 10/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(3415c2d21bf7acf43912762ebefc1777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Squid Game Guard/VERSION 10/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(3415c2d21bf7acf43912762ebefc1777) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f254579ecb24a1c05b02156572c49a50') in 0.020112 seconds 
+  Import took 0.033597 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 3.421070 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Thug Skin/version 7/shield master new character_initialShadingGroup_AlbedoTransparency.png
+  artifactKey: Guid(8751b09ba98d73b49b9464c691caef99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Thug Skin/version 7/shield master new character_initialShadingGroup_AlbedoTransparency.png using Guid(8751b09ba98d73b49b9464c691caef99) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '692f0addfe18bf97cb7153fd9ae60ae0') in 0.052151 seconds 
+  Import took 0.064800 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 18.619484 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/White Spider Man/Whtie Spder Man/shield master new character_1001_AlbedoTransparency.png
+  artifactKey: Guid(e89171770b87a764389ba356633755a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/White Spider Man/Whtie Spder Man/shield master new character_1001_AlbedoTransparency.png using Guid(e89171770b87a764389ba356633755a9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4ccb87c24d58a145316feb2e8914cb25') in 0.052928 seconds 
+  Import took 0.066787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2.468377 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/White Spider Man/Whtie Spder Man/shield master new character_1001_AO.png
+  artifactKey: Guid(09feb0b1a6268564eb3d14089e505912) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/White Spider Man/Whtie Spder Man/shield master new character_1001_AO.png using Guid(09feb0b1a6268564eb3d14089e505912) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1d396ce441286adf12feed16097bd087') in 0.026617 seconds 
+  Import took 0.035573 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 6.600894 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Defult Skin/Textures/Version 15/shield master new character_initialShadingGroup_Normal.png
+  artifactKey: Guid(7157588aad777884a9971aec16654711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Defult Skin/Textures/Version 15/shield master new character_initialShadingGroup_Normal.png using Guid(7157588aad777884a9971aec16654711) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '90c74c39d2df9f10ee6411e684f22017') in 0.067671 seconds 
+  Import took 0.118002 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.565647 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Defult Skin/Textures/Version 15/shield master new character_initialShadingGroup_AO.png
+  artifactKey: Guid(00d79580067818f44bbaf7d787e137dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items/Player Skin/Defult Skin/Textures/Version 15/shield master new character_initialShadingGroup_AO.png using Guid(00d79580067818f44bbaf7d787e137dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2288ef4d8bb1750211fb618bac046aba') in 0.044210 seconds 
+  Import took 0.061300 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 77.839636 seconds.
+  path: Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items
+  artifactKey: Guid(eada7cef3db91a04290e369a60e76c6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Scriptable Objects/Shop Item/Non IAP Items using Guid(eada7cef3db91a04290e369a60e76c6d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f134d7bbbe807dd51809bf969979cd3a') in 0.003542 seconds 
+  Import took 0.014794 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.026714 seconds.
+Begin MonoManager ReloadAssembly
+Error: Could not load signature of Firebase.Crashlytics.Editor.iOSPostBuild:SetupGUIDForSymbolUploads due to: Could not load file or assembly 'UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies. assembly:UnityEditor.iOS.Extensions.Xcode, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null type:<unknown type> member:(null) signature:<none>
+Unloading broken assembly Assets/Firebase/Editor/Firebase.Crashlytics.Editor.dll, this assembly can cause crashes in the runtime
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 5.84 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+GPGSUpgrader start
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:38)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 38)
+
+GPGSUpgrader done
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+GooglePlayGames.Editor.GPGSUpgrader:.cctor () (at Assets/GooglePlayGames/Editor/GPGSUpgrader.cs:105)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+(Filename: Assets/GooglePlayGames/Editor/GPGSUpgrader.cs Line: 105)
+
+Mono: successfully reloaded assembly
+- Completed reload, in  4.228 seconds
+Domain Reload Profiling:
+	ReloadAssembly (4229ms)
+		BeginReloadAssembly (358ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (10ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (148ms)
+		EndReloadAssembly (3731ms)
+			LoadAssemblies (311ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (879ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (118ms)
+			SetupLoadedEditorAssemblies (2129ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (8ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (6ms)
+				BeforeProcessingInitializeOnLoad (262ms)
+				ProcessInitializeOnLoadAttributes (1729ms)
+				ProcessInitializeOnLoadMethodAttributes (111ms)
+				AfterProcessingInitializeOnLoad (10ms)
+				EditorAssembliesLoaded (1ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (36ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(13) subTarget(537395200) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 11.79 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4302 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 168.9 MB.
+System memory in use after: 169.2 MB.
+
+Unloading 473 unused Assets to reduce memory usage. Loaded Objects now: 4550.
+Total: 20.268800 ms (FindLiveObjects: 0.754000 ms CreateObjectMapping: 0.696800 ms MarkObjects: 18.526500 ms  DeleteObjects: 0.287700 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:graphics/normal-map-encoding: 01000000000000000000000000000000 -> 02000000000000000000000000000000
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 188.159217 seconds.
+  path: Assets/_Assets/Custom Light Data
+  artifactKey: Guid(5f85c4e5318b659459b27cd3a2182490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Custom Light Data using Guid(5f85c4e5318b659459b27cd3a2182490) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2f45cdcc9cd96705f6968e6babbe93ce') in 0.032595 seconds 
+  Import took 0.078675 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.251935 seconds.
+  path: Assets/_Assets/Materials/shader/ShaderGraphs/Cell Toon Shader.shadergraph
+  artifactKey: Guid(815e8265693393a41a32b6b370d13339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/_Assets/Materials/shader/ShaderGraphs/Cell Toon Shader.shadergraph using Guid(815e8265693393a41a32b6b370d13339) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '96774c3ca896c0c27dcb81bceba61fb9') in 0.039678 seconds 
+  Import took 0.136972 seconds .
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 238.34 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 324 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 92.1 MB.
+System memory in use after: 92.4 MB.
+
+Unloading 324 unused Assets to reduce memory usage. Loaded Objects now: 4550.
+Total: 24.374200 ms (FindLiveObjects: 0.757500 ms CreateObjectMapping: 0.614100 ms MarkObjects: 22.730300 ms  DeleteObjects: 0.268500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

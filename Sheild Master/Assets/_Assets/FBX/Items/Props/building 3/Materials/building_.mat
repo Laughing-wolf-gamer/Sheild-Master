@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: building_
-  m_Shader: {fileID: -6465566751694194690, guid: ec24faeb611dde64980ed01e0ac672d3, type: 3}
+  m_Shader: {fileID: 4800000, guid: 905262dd32d95d24c803786579ad64d1, type: 3}
   m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP _PARALLAXMAP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -33,6 +33,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     - Texture2D_9eaba19222214c87bfef1314afb21606:
         m_Texture: {fileID: 2800000, guid: 083c31ca7d1a8e64cafc35e7c659ee18, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_BC800E8:
+        m_Texture: {fileID: 2800000, guid: bcefa27b004b42047b96142e2f95c50c, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - Texture2D_f979164fc2fc464babb6974d52383e23:
@@ -96,7 +100,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Boolean_4CE87B0C: 0
     - Boolean_d1c5795f8edb439bba4043b9e34e6f55: 0
+    - Vector1_1EF48D8E: 0.1
+    - Vector1_414362D2: 5
+    - Vector1_816F2286: 0.7
     - Vector1_99f533c95e724f18a072fbf9789acc6b: 0.32
     - Vector1_bd52ad806d92427183805c59b9e6b502: -1.74
     - _AlphaClip: 0
@@ -129,7 +137,11 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - Color_0d6122312f854f3a8d75f1a79542edad: {r: 0, g: 0, b: 0, a: 1}
+    - Color_108E5520: {r: 1, g: 1, b: 1, a: 0}
+    - Color_2295CD4B: {r: 1, g: 1, b: 1, a: 0}
+    - Color_3386DC50: {r: 0.6603774, g: 0.6603774, b: 0.6603774, a: 0}
     - Color_769bc1bfae7d424f8250e5d5ef1fbe2e: {r: 1, g: 1, b: 1, a: 1}
+    - Color_BAB95EAD: {r: 1, g: 1, b: 1, a: 0}
     - Vector3_14e25eb93f1446e883bf3e72494b564a: {r: 0, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 0.9063317, g: 0.9063317, b: 0.9063317, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}

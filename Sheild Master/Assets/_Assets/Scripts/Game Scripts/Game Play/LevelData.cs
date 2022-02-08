@@ -1,6 +1,7 @@
 using UnityEngine;
 using Cinemachine;
 using System.Collections.Generic;
+
 public enum LevelDefficultiStage {
     Stage_1,Stage_2,Stage_3,Stage_4
 }
@@ -30,17 +31,16 @@ namespace SheildMaster{
 
         private int GetSpawnCount(){
             if(playerDataSO.GetLevelNumber() <= 5){
-                int amount = UnityEngine.Random.Range(1,3);
-                return amount;
+                
+                return 1;
             }
-            // if(playerDataSO.GetLevelNumber() > 5){
-            //     int amount = UnityEngine.Random.Range(0,3);
-            //     return amount;
-            // }
+            if(playerDataSO.GetLevelNumber() > 5){
+                
+                return 2;
+            }
             if(playerDataSO.GetLevelNumber() > 15){
-                int amount = UnityEngine.Random.Range(1,5);
-                return amount;
-                // return 3;
+                
+                return 3;
             }
             return Random.Range(2,spawnPointList.Count);
         }

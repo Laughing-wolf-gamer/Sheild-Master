@@ -31,7 +31,7 @@ public class AdManager : MonoBehaviour {
     }
 
     public void RequestBanner(){
-        IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);
+        IronSource.Agent.loadBanner(IronSourceBannerSize.BANNER, IronSourceBannerPosition.BOTTOM);        
     }
 
     private void RequestInterstitial(){
@@ -73,6 +73,7 @@ public class AdManager : MonoBehaviour {
     // Invoked when the ad fails to show.
     // @param description - string - contains information about the failure.
     private void InterstitialAdShowFailedEvent(IronSourceError error){
+        
     }
     // Invoked when end user clicked on the interstitial ad
     private void InterstitialAdClickedEvent(){
@@ -111,12 +112,16 @@ public class AdManager : MonoBehaviour {
     //Your Activity will lose focus. Please avoid performing heavy 
     //tasks till the video ad will be closed.
     private void RewardedVideoAdOpenedEvent(){
+
     }
     //Invoked when the RewardedVideo ad view is about to be closed.
     //Your activity will now regain its focus.
     private void RewardedVideoAdClosedEvent(){
         RequestRewarded();
         AnayltyicsManager.current.OnAdcompleteAnayltyics_UnityAnayltics(true,UnityEngine.Analytics.AdvertisingNetwork.IronSource);
+        if(winDouble){
+            UIHandler.current.Show_hideRewardAdsButton(false);
+        }
     }
     //Invoked when there is a change in the ad availability status.
     //@param - available - value will change to true when rewarded videos are available. 
@@ -141,6 +146,7 @@ public class AdManager : MonoBehaviour {
             skinShopTry = false;
         }else if (winDouble){
             LevelManager.current.AddTwiceMoney();
+            UIHandler.current.Show_hideRewardAdsButton(false);
             winDouble = false;
         }else if (watchAdCoin){
             AskAdForCoin.current.RewardCoin();
@@ -158,6 +164,9 @@ public class AdManager : MonoBehaviour {
         winDouble = false;
         watchAdCoin = false;
         watchAdDimond = false;
+        if(UIHandler.current != null){
+            UIHandler.current.Show_hideRewardAdsButton(true);
+        }
     }
 
     // ----------------------------------------------------------------------------------------
@@ -209,7 +218,6 @@ public class AdManager : MonoBehaviour {
 
     public void UserChoseToWatchAd(){
         if (IronSource.Agent.isRewardedVideoAvailable()){
-
             IronSource.Agent.showRewardedVideo();
             AnayltyicsManager.current.SetAdImpressionDataAnayltyics();
             AnayltyicsManager.current.SetIntersteailAdsData();

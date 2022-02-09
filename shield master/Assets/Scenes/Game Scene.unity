@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4962812215802527646, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4962812215802527647, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -346
@@ -183,6 +187,10 @@ PrefabInstance:
       value: Game Data
       objectReference: {fileID: 0}
     - target: {fileID: 4962812216359067067, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: flickerSpeed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4962812216359067067, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
       propertyPath: spawnLevelData
       value: 
       objectReference: {fileID: 0}
@@ -226,6 +234,10 @@ PrefabInstance:
       propertyPath: entries.Array.data[8].Text
       value: 10X mukafa'a
       objectReference: {fileID: 0}
+    - target: {fileID: 4962812217406343913, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+      propertyPath: rewardAmountText
+      value: 
+      objectReference: {fileID: 4962812216650465332}
     - target: {fileID: 4962812217406343915, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -268,3 +280,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+--- !u!114 &4962812216650465332 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4962812216780151159, guid: 35d2a1a85884bdc4ab7cc05eaf4a853d, type: 3}
+  m_PrefabInstance: {fileID: 4962812216650465331}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

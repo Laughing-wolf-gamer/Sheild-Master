@@ -157,6 +157,7 @@ namespace SheildMaster {
 
             }
             levelManager.SetLevelEndResult();
+            levelManager.StartFlicker();
             onGameOver?.Invoke(this,new OnGamoverEventsAargs{iswin = this.isWon});
             onGameEnd?.Invoke();
             uIHandler.ShowRewardAdWindow(true);

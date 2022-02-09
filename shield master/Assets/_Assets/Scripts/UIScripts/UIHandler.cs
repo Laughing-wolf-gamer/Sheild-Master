@@ -10,12 +10,14 @@ namespace SheildMaster {
         [Header("Texts")]
         [SerializeField] private TextMeshProUGUI[] levelNumberTexts;
         [SerializeField] private TextMeshProUGUI[] TotalcoinAmountText,currentLevelCoinAmountText/*dimondTextButton*/;
+        [SerializeField] private TextMeshProUGUI rewardAmountText;
 
         [Header("Windows")]
         [SerializeField] private GameObject abilityWindow;
         [SerializeField] private GameObject errorWindow;
         [Header("Ad window")]
         [SerializeField] private GameObject adRewardButton;
+        [SerializeField] private GameObject adButton;
         [Header("Images")]
         [SerializeField] private Image inkBarImage;
 
@@ -57,7 +59,6 @@ namespace SheildMaster {
             for (int i = 0; i < currentLevelCoinAmountText.Length; i++){
                 currentLevelCoinAmountText[i].SetText(coinAmont.ToString());
             }
-            
         }
 
         public void UpdateCoinAmountUI(){
@@ -125,6 +126,9 @@ namespace SheildMaster {
             }
             UpdateAbililyValueUI();
         }
+        public void Show_hideRewardAdsButton(bool value){
+            adRewardButton.SetActive(value);
+        }
         
         public void WatchRewardedAds(){
             AdManager.winDouble = true;
@@ -142,6 +146,10 @@ namespace SheildMaster {
         }
         private void HideErrorWindow(){
             errorWindow.SetActive(false);
+        }
+
+        public void SetRewardAmountText(int amount){
+            rewardAmountText.SetText(string.Concat(amount,"X Reward"));
         }
     }
     

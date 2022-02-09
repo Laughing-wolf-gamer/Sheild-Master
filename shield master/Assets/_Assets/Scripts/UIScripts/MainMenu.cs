@@ -18,6 +18,7 @@ namespace SheildMaster {
         [SerializeField] private UnityEvent onPopIn;
         [SerializeField] private Animator[] buttonsAnimatior;
         private void Start(){
+            UnityEngine.Android.Permission.RequestUserPermission(UnityEngine.Android.Permission.Microphone);
             quitMenu.SetActive(false);
             #if UNITY_ANDROID
             Application.targetFrameRate = 60;

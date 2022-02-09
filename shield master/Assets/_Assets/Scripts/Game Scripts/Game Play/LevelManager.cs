@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 namespace SheildMaster {
     public class LevelManager : MonoBehaviour {
@@ -10,6 +11,7 @@ namespace SheildMaster {
         [SerializeField] private Camera UiCamera;
         [SerializeField] private bool isTouchedtheScreen;
         [SerializeField] private AbilitySO sheildAbility,KillAbility;
+        [SerializeField] private float flickerSpeed = 0.2f;
         private List<EnemyController> enemyList;
         private GameHandler gameHandler;
         private float surviveTime;
@@ -18,6 +20,9 @@ namespace SheildMaster {
         private LevelDataSO currentUsedLevelDataSO;
         private LevelData currentLevel;
         private UIHandler uIHandler;
+        private int multiplier = 2;
+        
+
         
 
         #region Singelton.......
@@ -30,6 +35,7 @@ namespace SheildMaster {
                 Destroy(current.gameObject);
             }
             gameHandler = GetComponent<GameHandler>();
+
         }
         #endregion
         
@@ -53,7 +59,6 @@ namespace SheildMaster {
             // }
             // LevelStart();
             
-
         }
         public void LevelStart(){
             if(playerDataSO.GetLevelNumber() == 1){
@@ -97,6 +102,27 @@ namespace SheildMaster {
                 }
             }
         }
+
+        
+        public void StartFlicker(){
+            StartCoroutine(RewardAmountChangeRoutine());
+        }
+        private IEnumerator RewardAmountChangeRoutine(){
+
+            yield return new WaitForSeconds(flickerSpeed);
+            
+            if(multiplier == 2){
+                multiplier = 5;
+            }else if(multiplier == 5){
+                multiplier = 10;
+            }
+            else if(multiplier >= 10f){
+                multiplier = 2;
+            }
+            uIHandler.SetRewardAmountText(multiplier);
+            yield return StartCoroutine(RewardAmountChangeRoutine());
+
+        }
         public void CollectCoin(){
             AdManager.instance.DestroyBanner();
             gameHandler.AddCoin(currenCoinCount);
@@ -104,10 +130,10 @@ namespace SheildMaster {
         }
         public void AddTwiceMoney(){
             // Add Extra money after Ads..
-            int multiplier = 10;
             currenCoinCount *= multiplier;
             UIHandler.current.SetCurrentLevelEarnedCoins(currenCoinCount);
             UIHandler.current.UpdateCoinAmountUI();
+            // StopCoroutine(nameof(RewardAmountChangeRoutine));
         }
         
         public void SetLevelEndResult(){

@@ -77,6 +77,7 @@ namespace SheildMaster{
             StartCoroutine(UpdateSoundState());
         }
         private IEnumerator UpdateSoundState(){
+            
             while(true){
                 MuteMusic(!soundSettings.GetIsMusicOn());
                 MuteSFX(!soundSettings.GetIsSoundOn());
@@ -115,7 +116,6 @@ namespace SheildMaster{
             if(s != null){
                 if(s.source.clip != null){
                     s.source.Pause();
-                    
                 }
             }
         }

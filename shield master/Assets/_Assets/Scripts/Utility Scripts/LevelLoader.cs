@@ -47,6 +47,7 @@ namespace SheildMaster{
         
         
         private void Start(){
+            
             PlayLevel(SceneIndex.Main_Menu);
             // for (int i = 0; i < levelList.Count; i++){
             //     if(levelList[i].isCompleted){

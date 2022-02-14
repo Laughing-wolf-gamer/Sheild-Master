@@ -108,7 +108,7 @@ public class AnayltyicsManager : MonoBehaviour {
     }
 
     public void ImpressionSuccesessEvent(IronSourceImpressionData impressionData){
-        Debug.Log("Ironsource Impression Log Data: " + impressionData);
+        // Debug.Log("Ironsource Impression Log Data: " + impressionData);
         if(impressionData != null){
             Firebase.Analytics.Parameter[] AdParameter = {
                 new Parameter("ad_platform","ironSource"),

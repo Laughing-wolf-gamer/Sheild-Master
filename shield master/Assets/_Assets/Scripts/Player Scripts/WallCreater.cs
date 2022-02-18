@@ -30,7 +30,7 @@ namespace SheildMaster {
         private Vector3 previousDir;
         private Vector3 initPoint;
         private float firstTouchDistance;
-        private const float maxDistanceFromPlayer = 13f;
+        [SerializeField] private float maxDistanceFromPlayer = 13f;
         #endregion
 
 

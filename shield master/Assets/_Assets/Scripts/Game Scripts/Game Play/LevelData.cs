@@ -1,7 +1,7 @@
 using UnityEngine;
 using Cinemachine;
+using GamerWolf.Utils;
 using System.Collections.Generic;
-
 public enum LevelDefficultiStage {
     Stage_1,Stage_2,Stage_3,Stage_4
 }
@@ -22,9 +22,12 @@ namespace SheildMaster{
         private int spawnAmount = 1;
         private List<Vector3> currentSpawnPointsList;
         private int currentEnemyIndex;
+
+        [SerializeField] private CameraMultiTarget multiTargetCameraController;
+        
         private void Start(){
             LevelManager.current.SetGameViewcamera(gameViewCamera);
-        }
+        }   
         public List<EnemyController> GetEnemieList(){
             return enemiesList;
         }
@@ -75,6 +78,9 @@ namespace SheildMaster{
                 spawnAmount = 3;
             }
 
+            if(spawnOnAllPoint){
+                spawnAmount = spawnPointList.Count;
+            }
             Debug.Log("Spawn Count "+ spawnAmount);
             for (int i = 0; i < spawnAmount; i++){
                 
@@ -125,8 +131,11 @@ namespace SheildMaster{
                 if(!enemiesList.Contains(newEnemy)){
                     enemiesList.Add(newEnemy);
                 }
+                multiTargetCameraController.SetTargets(newEnemy.transform);
                 newEnemy.transform.SetParent(transform);
+
             }
+
             
         }
         private void SetcurrentSpawnPoint(Transform points){
@@ -158,7 +167,9 @@ namespace SheildMaster{
                 currentDefficultiy = LevelDefficultiStage.Stage_4;
             }
             spawnAmount = _prviousSpawnAmount;
-
+            if(spawnOnAllPoint){
+                spawnAmount = spawnPointList.Count;
+            }
             Debug.Log("Priviouse spawn Count "+ _prviousSpawnAmount);
             for (int i = 0; i < spawnAmount; i++){
                 switch(currentDefficultiy){
@@ -185,6 +196,7 @@ namespace SheildMaster{
                 if(!enemiesList.Contains(newEnemy)){
                     enemiesList.Add(newEnemy);
                 }
+                multiTargetCameraController.SetTargets(newEnemy.transform);
             }
         }
         // public void SpawnTutorialLevels(int levelIndex){
@@ -235,6 +247,9 @@ namespace SheildMaster{
         public int previousSpawnCount(){
             return spawnAmount;
         }
+        public CameraMultiTarget GetMultiTargetCameraController(){
+            return multiTargetCameraController;
+        }
         
         
         private void OnDrawGizmos(){
@@ -245,6 +260,28 @@ namespace SheildMaster{
                 }
             }
         }
+        [ContextMenu("Set Camera Data")]
+        public void SetNewFarClipPlane(){
+            // gameViewCamera.m_Lens.FarClipPlane = 500;
+            multiTargetCameraController.SetCamraTargetingData(68.7f,7.63f,0.19f);
+            
+        }
+        // [ContextMenu("FindMultiTargetCamera")]
+        // public void FindMultiTargetCamera(){
+        //     foreach(Transform kids in transform){
+        //         Cinemachine.CinemachineVirtualCamera multiTarget = kids.GetComponent<Cinemachine.CinemachineVirtualCamera>();
+        //         if(multiTarget != null){
+        //             CameraMultiTarget targetCamera = multiTarget.GetComponent<CameraMultiTarget>();
+        //             if(targetCamera == null){
+        //                 targetCamera = multiTarget.gameObject.AddComponent<CameraMultiTarget>();
+        //             }
+        //             multiTargetCameraController = targetCamera;
+                    
+        //             break;
+        //         }
+        //     }
+            
+        // }
         
     }
 

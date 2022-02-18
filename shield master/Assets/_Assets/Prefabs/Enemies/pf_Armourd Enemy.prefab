@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy Grpahics Parent
       objectReference: {fileID: 0}
+    - target: {fileID: 5305985980860616747, guid: 454fe188558fc7a47bf3613ae183709a, type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 9074858222843277463, guid: 454fe188558fc7a47bf3613ae183709a, type: 3}
       propertyPath: m_WarningMessage
       value: 

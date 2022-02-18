@@ -29,6 +29,7 @@ namespace SheildMaster {
         [SerializeField] private bool isWon;
         [SerializeField] private bool canShowInterstetialAds;
         [SerializeField] private bool isGamePause;
+        
 
         #endregion
 
@@ -69,7 +70,7 @@ namespace SheildMaster {
             blurVolume.weight = 0f;
             Time.timeScale = 1f;
             onGameResume?.Invoke();
-            levelManager = GetComponent<LevelManager>();
+            levelManager = LevelManager.current;
             uIHandler = UIHandler.current;
             levelManager.LevelStart();
             CheckForTutoraial();
@@ -132,7 +133,8 @@ namespace SheildMaster {
 
 
         private IEnumerator GameStartRoutine(){
-            Invoke(nameof(InvokeStartGame),0.5f);
+            
+            Invoke(nameof(InvokeStartGame),0.3f);
             onGameStart?.Invoke();
             
             while(!isGamePlaying){
@@ -247,6 +249,7 @@ namespace SheildMaster {
                 this.isWon = isWon;
             }
         }
+        
 
         #endregion
         

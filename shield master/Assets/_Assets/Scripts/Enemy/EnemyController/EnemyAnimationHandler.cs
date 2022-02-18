@@ -4,7 +4,7 @@ using UnityEngine.Animations.Rigging;
 namespace SheildMaster {
     public class EnemyAnimationHandler : MonoBehaviour {
         
-        
+        [SerializeField] private ParticleSystem muzzelFlashEffect;
         private int randomJoyAnim,randomDeathAnim;
         private Animator animator;
         [SerializeField] private Rig rig;
@@ -45,6 +45,7 @@ namespace SheildMaster {
         public void PlayShootingAnimations(){
             rig.weight = 1f;
             animator.SetTrigger("Shoot");
+            muzzelFlashEffect.Play();
         }
         public void StopRig(){
             rig.weight = 0f;

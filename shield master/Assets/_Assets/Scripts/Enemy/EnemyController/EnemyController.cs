@@ -33,7 +33,8 @@ namespace SheildMaster {
             base.Awake();
         }
         protected override void Start(){
-            
+            // MultiTargetCameraController.current.SetTargetToList(this.transform);
+            SetRootMotion(false);
             base.OnHit += (object sender ,EventArgs e) => {
                 GameHandler.current.IncreaseKills();
             };
@@ -44,6 +45,8 @@ namespace SheildMaster {
             base.onDead += (object sender,EventArgs e) =>{
                 animationHandler.PlayIsDeadAnimations();
                 StopCoroutine(nameof(ShootingRoutine));
+                // MultiTargetCameraController.current.RemoveTarget(this.transform);
+                SetRootMotion(true);
             };
             RotateTowardsPlayer();
         }
@@ -61,8 +64,8 @@ namespace SheildMaster {
         private IEnumerator ShootingRoutine(){
             yield return new WaitForSeconds(1f);
             while(!isDead){
-                RotateTowardsPlayer();
                 Fire();
+                RotateTowardsPlayer();
                 yield return new WaitForSeconds(maxFireTime);
             }
         }
@@ -99,7 +102,9 @@ namespace SheildMaster {
             }
         }
 
-        
+        public void SetRootMotion(bool _value){
+            animationHandler.GetComponent<Animator>().applyRootMotion = _value;
+        }
         
         private void RotateTowardsPlayer(){
             for (int i = 0; i < rotators.Length; i++){

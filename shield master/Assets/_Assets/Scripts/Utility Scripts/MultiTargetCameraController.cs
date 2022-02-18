@@ -1,10 +1,10 @@
 using UnityEngine;
 using Cinemachine;
-using System.Collections;
 using System.Collections.Generic;
 
 namespace SheildMaster {
     [RequireComponent(typeof(CinemachineVirtualCamera))]
+    [ExecuteInEditMode]
     public class MultiTargetCameraController : MonoBehaviour {
 
         [Header("Zooming")]
@@ -21,13 +21,11 @@ namespace SheildMaster {
         [SerializeField]private List<Transform> targetsList;
         private Vector3 velocity;
         private CinemachineVirtualCamera zoomCamera;
+
+        
         private void Start(){
             zoomCamera = GetComponent<CinemachineVirtualCamera>();
         }
-
-
-
-
         private void LateUpdate(){
             if(targetsList.Count == 0){
                 return;

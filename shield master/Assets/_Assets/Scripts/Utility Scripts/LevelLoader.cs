@@ -82,7 +82,6 @@ namespace SheildMaster{
             
         }
         
-        
         public void SwitchScene(SceneIndex sceneToLoad){
             StartCoroutine(GetLoadSceneProgress(sceneToLoad));
         }

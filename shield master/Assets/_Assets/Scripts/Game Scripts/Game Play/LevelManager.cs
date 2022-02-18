@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 namespace SheildMaster {
     public class LevelManager : MonoBehaviour {
+        [SerializeField] private List<LevelDataSO> levelDataList;
         [SerializeField] private PlayerDataSO playerDataSO;
         [SerializeField] private PlayerController player;
-        [SerializeField] private List<LevelDataSO> levelDataList;
         // [SerializeField] private LevelData spawnLevelData;
         [SerializeField] private CinematicCamera cinematicCamera;
         [SerializeField] private Camera UiCamera;
@@ -163,6 +163,7 @@ namespace SheildMaster {
             currentLevel =  Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
             // currentLevel = spawnLevelData;
             currentLevel.SpawnEnemyes(playerDataSO.GetSpawnPointList(),playerDataSO.GetSpawnAmount());
+            currentLevel.GetMultiTargetCameraController().SetTargets(player.transform);
             SetLevelData();
             
         }
@@ -179,6 +180,7 @@ namespace SheildMaster {
 
             enemyList = currentLevel.GetEnemieList();
             currenCoinCount = enemyList.Count;
+            currentLevel.GetMultiTargetCameraController().SetTargets(player.transform);
             SetLevelData();
             // playerDataSO.RemakeNewSpawnPoint();
         }
@@ -188,6 +190,7 @@ namespace SheildMaster {
             currentLevel = Instantiate(currentUsedLevelDataSO.levelData,transform.position,Quaternion.identity);
             // currentLevel = spawnLevelData;
             currentLevel.SpawnEnemyes();
+            currentLevel.GetMultiTargetCameraController().SetTargets(player.transform);
             SetLevelData();
         }
         
@@ -254,6 +257,7 @@ namespace SheildMaster {
                 playerDataSO.SetSpawnAmount(-1);
             }
         }
+        
         
         
     }

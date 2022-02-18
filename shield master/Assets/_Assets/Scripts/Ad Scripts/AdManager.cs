@@ -2,8 +2,8 @@ using System;
 using UnityEngine;
 using SheildMaster;
 using System.Collections.Generic;
-
 public class AdManager : MonoBehaviour {
+    
     public static AdManager instance;
     public static int adCount = 0;
     // public int showGameWonInterstitalAdAfter;
@@ -81,6 +81,7 @@ public class AdManager : MonoBehaviour {
     }
     // Invoked when the interstitial ad closed and the user goes back to the application screen.
     private void InterstitialAdClosedEvent(){
+        
         RequestInterstitial();
     }
     // Invoked when the Interstitial is Ready to shown after load function is called

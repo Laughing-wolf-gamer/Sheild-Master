@@ -16,11 +16,13 @@ namespace SheildMaster{
             float angle = Mathf.Atan2(dir.x,dir.z) * Mathf.Rad2Deg;
             switch(rotationAxis){
                 case RotationAxis.Vertical:
-                    transform.rotation = Quaternion.AngleAxis(angle,Vector3.up);
+                    transform.rotation = Quaternion.Euler(0f,angle,0f);
 
                 break;
                 case RotationAxis.localHorizontal:
-                    transform.LookAt(target);
+                    // float newAngle = Mathf.Atan2(dir.x,dir.z) * Mathf.Rad2Deg;
+                    transform.LookAt(target.localPosition);
+                    
                 break;
             }
         }

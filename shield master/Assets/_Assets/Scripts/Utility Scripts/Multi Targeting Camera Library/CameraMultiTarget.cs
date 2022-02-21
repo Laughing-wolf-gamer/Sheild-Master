@@ -4,6 +4,8 @@ using System.Linq;
 using System.Collections.Generic;
 
 namespace GamerWolf.Utils {
+	[DefaultExecutionOrder(0)]
+	[ExecuteInEditMode]
 	[RequireComponent(typeof(CinemachineVirtualCamera))]
 	public class CameraMultiTarget : MonoBehaviour {
 		public float Pitch;

@@ -34,9 +34,10 @@ namespace SheildMaster {
         }
         protected override void Start(){
             // MultiTargetCameraController.current.SetTargetToList(this.transform);
-            SetRootMotion(false);
-            base.OnHit += (object sender ,EventArgs e) => {
+            // SetRootMotion(false);
+            base.OnHit += (object sender ,OnHitArgs e) => {
                 GameHandler.current.IncreaseKills();
+                animationHandler.PlayHitEffect(e.HitPoint,enemyType);
             };
    
             base.Start();
@@ -46,7 +47,7 @@ namespace SheildMaster {
                 animationHandler.PlayIsDeadAnimations();
                 StopCoroutine(nameof(ShootingRoutine));
                 // MultiTargetCameraController.current.RemoveTarget(this.transform);
-                SetRootMotion(true);
+                // SetRootMotion(true);
             };
             RotateTowardsPlayer();
         }
@@ -92,7 +93,10 @@ namespace SheildMaster {
                 GameObject projectile =  objectPoolingManager.SpawnFromPool(PoolObjectTag.Projectile,firePoint.position,firePoint.rotation);
                 Projectile bullet = projectile.GetComponent<Projectile>();
                 if(bullet != null){
-                    bullet.SetCameFromEnemy(this);
+                    float distFromPlayer = Vector3.Distance(transform.position,player.transform.position);
+                    Debug.Log("Distance from is " + distFromPlayer);
+
+                    bullet.SetCameFromEnemy(this,distFromPlayer);
                 }
                 animationHandler.PlayShootingAnimations();
                 AudioManager.current.PlayMusic(SoundType.Fire_Sound);
@@ -102,9 +106,9 @@ namespace SheildMaster {
             }
         }
 
-        public void SetRootMotion(bool _value){
-            animationHandler.GetComponent<Animator>().applyRootMotion = _value;
-        }
+        // public void SetRootMotion(bool _value){
+        //     animationHandler.GetComponent<Animator>().applyRootMotion = _value;
+        // }
         
         private void RotateTowardsPlayer(){
             for (int i = 0; i < rotators.Length; i++){

@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Collections;
 namespace GamerWolf.Utils {
     public class TutorialManager : MonoBehaviour {
 
@@ -11,6 +12,11 @@ namespace GamerWolf.Utils {
         [SerializeField] private TextMeshProUGUI characterNameText,infoText;
         
         public void ShowCharacterTutorial(bool _showTutorailWindow,string _nameText = null,string _infoText = null){
+            characterTutorialWindow.SetActive(false);
+            StartCoroutine(ShowTutoreialRoutine(_showTutorailWindow,_nameText,_infoText));
+        }
+        private IEnumerator ShowTutoreialRoutine(bool _showTutorailWindow,string _nameText = null,string _infoText = null){
+            yield return new WaitForSeconds(4f);
             characterTutorialWindow.SetActive(_showTutorailWindow);
             if(_showTutorailWindow){
                 Time.timeScale = 0f;

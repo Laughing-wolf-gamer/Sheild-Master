@@ -32,7 +32,12 @@ namespace SheildMaster {
             };
         }
         
-        public void SetCameFromEnemy(EnemyController enemyController){
+        public void SetCameFromEnemy(EnemyController enemyController,float DistanceFromPlayer = 10f){
+            if(DistanceFromPlayer > 10){
+                moveForce += 2;
+            }else if(DistanceFromPlayer > 13){
+                moveForce += 3;
+            }
             cameFromEnemy = enemyController;
             Move = true;
         }
@@ -80,7 +85,7 @@ namespace SheildMaster {
             collisionCount++;
             audioManager.PlayOneShotMusic(SoundType.Wall_hit);
             if(_hit.transform.TryGetComponent<IDamagable>(out IDamagable damagable)){
-                damagable.TakeHit(1);
+                damagable.TakeHit(1,transform.position);
                 DestroyMySelf();
             }else{
                 if(_hit.transform.TryGetComponent<ForcefieldImpact>(out ForcefieldImpact forcefield)){

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace GamerWolf.Utils{
 
     
-    public enum PoolObjectTag{Wall,Projectile,cashUIParitical,DimondUiPartical}
+    public enum PoolObjectTag{Wall,Projectile,cashUIParitical,DimondUiPartical,Hit_Effect_Partical_Red,Hit_Effect_Partical_Green,Hit_Effect_Partical_Blue}
     public class ObjectPoolingManager : MonoBehaviour{
 
         #region Singelton.

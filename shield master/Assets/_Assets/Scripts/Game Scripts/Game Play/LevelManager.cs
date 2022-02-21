@@ -65,7 +65,7 @@ namespace SheildMaster {
                 SpawnTutorialLevels(0);
 
             }
-            else if(playerDataSO.GetLevelNumber() == 25 || playerDataSO.GetLevelNumber() == 50){
+            else if(playerDataSO.GetLevelNumber() == 25 || playerDataSO.GetLevelNumber() == 31){
                 SpawnTutorialLevels(2);
             }
             else{

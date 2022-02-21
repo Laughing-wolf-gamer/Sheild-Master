@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Level 22
   m_EditorClassIdentifier: 
   playerDeathCountOnLevel: 0
-  levelData: {fileID: 248561944607790466, guid: 6a1d158d4df960649944fd13afffb23c, type: 3}
+  levelData: {fileID: 5773106600831514566, guid: 2203731bcd95e0f46967a7c0dc8b9aa6, type: 3}

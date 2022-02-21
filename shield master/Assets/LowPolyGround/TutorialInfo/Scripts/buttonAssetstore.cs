@@ -10,7 +10,7 @@ public class buttonAssetstore : MonoBehaviour {
    
 
     public void m_Assetstorebutton (string val) {
-        UnityEditorInternal.AssetStore.Open("content/"+val);
+//        UnityEditorInternal.AssetStore.Open("content/"+val);
     }
     
 }

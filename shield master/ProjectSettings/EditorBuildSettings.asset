@@ -6,15 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/_Assets/_Scenes/GPGS SignIn.unity
+    path: Assets/_Assets/Scenes/GPGS SignIn.unity
     guid: 6aca75db2101a014d81fb205df9e3ad9
   - enabled: 1
-    path: Assets/_Assets/_Scenes/Initial Scene.unity
+    path: Assets/_Assets/Scenes/Initial Scene.unity
     guid: 8b6270e23368b8f47bea204f35f06b43
   - enabled: 1
-    path: Assets/_Assets/_Scenes/Main Menu.unity
+    path: Assets/_Assets/Scenes/Main Menu.unity
     guid: 625db5eaf937cfe41889282f5f04f354
   - enabled: 1
-    path: Assets/_Assets/_Scenes/Game Scene.unity
+    path: Assets/_Assets/Scenes/Game Scene.unity
     guid: 18859b39fb58bee45a3d5400e3aa211e
   m_configObjects: {}

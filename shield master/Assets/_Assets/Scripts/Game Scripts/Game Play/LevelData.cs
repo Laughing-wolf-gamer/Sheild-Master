@@ -59,11 +59,11 @@ namespace SheildMaster{
                 currentEnemyIndex = 1;
                 currentDefficultiy = LevelDefficultiStage.Stage_2;
             }
-            if(playerDataSO.GetLevelNumber() > 49){
+            if(playerDataSO.GetLevelNumber() > 30){
                 currentEnemyIndex = 2;
                 currentDefficultiy = LevelDefficultiStage.Stage_3;
             }
-            if(playerDataSO.GetLevelNumber() >= 55){
+            if(playerDataSO.GetLevelNumber() >= 40){
                 currentDefficultiy = LevelDefficultiStage.Stage_4;
             }
             spawnAmount = GetSpawnCount();
@@ -263,7 +263,11 @@ namespace SheildMaster{
         [ContextMenu("Set Camera Data")]
         public void SetNewFarClipPlane(){
             // gameViewCamera.m_Lens.FarClipPlane = 500;
-            multiTargetCameraController.SetCamraTargetingData(68.7f,7.63f,0.19f);
+            // multiTargetCameraController.SetCamraTargetingData(68.7f,7.63f,0.19f);
+            
+            if(multiTargetCameraController.transform.GetComponent<MultiTargetCameraController>() != null){
+                DestroyImmediate(multiTargetCameraController.transform.GetComponent<MultiTargetCameraController>());
+            }
             
         }
         // [ContextMenu("FindMultiTargetCamera")]

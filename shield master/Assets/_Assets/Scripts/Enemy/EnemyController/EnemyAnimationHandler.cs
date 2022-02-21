@@ -1,8 +1,9 @@
 using UnityEngine;
+using GamerWolf.Utils;
 using UnityEngine.Animations.Rigging;
-
 namespace SheildMaster {
     public class EnemyAnimationHandler : MonoBehaviour {
+        
         
         [SerializeField] private ParticleSystem muzzelFlashEffect;
         private int randomJoyAnim,randomDeathAnim;
@@ -40,6 +41,26 @@ namespace SheildMaster {
                 animator.SetTrigger("isDead");
                 rig.weight = 0f;
                 isAlreadyDead = true;
+            }
+        }
+        public void PlayHitEffect(Vector3 hitPoint,EnemyType enemyType){
+            switch(enemyType){
+
+                case EnemyType.Normal:
+                    GameObject hitEffectObject = ObjectPoolingManager.current.SpawnFromPool(PoolObjectTag.Hit_Effect_Partical_Red,hitPoint,Quaternion.FromToRotation(Vector3.forward,-hitPoint));
+                    hitEffectObject.GetComponent<ParticleSystem>().Play();
+                break;
+
+                case EnemyType.Armourd:
+                    hitEffectObject = ObjectPoolingManager.current.SpawnFromPool(PoolObjectTag.Hit_Effect_Partical_Green,hitPoint,Quaternion.FromToRotation(Vector3.forward,-hitPoint));
+                    hitEffectObject.GetComponent<ParticleSystem>().Play();
+                break;
+
+                case EnemyType.Super:
+                    hitEffectObject = ObjectPoolingManager.current.SpawnFromPool(PoolObjectTag.Hit_Effect_Partical_Blue,hitPoint,Quaternion.FromToRotation(Vector3.forward,-hitPoint));
+                    hitEffectObject.GetComponent<ParticleSystem>().Play();
+                break;
+                
             }
         }
         public void PlayShootingAnimations(){

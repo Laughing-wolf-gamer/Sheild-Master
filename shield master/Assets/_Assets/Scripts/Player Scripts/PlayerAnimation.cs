@@ -24,8 +24,10 @@ namespace SheildMaster {
         
         private void OnPlayerDeath(object sender,System.EventArgs e){
             PlayIsDeadAnimations();
+            
         }
         private void OnGameOver(object sender , OnGamoverEventsAargs e){
+            animator.applyRootMotion = true;
             if(e.iswin){
                 PlayIsWonAnimations();
             }else{
@@ -44,6 +46,7 @@ namespace SheildMaster {
         public void PlayIsDeadAnimations(){
             animator.SetInteger("death Numb",randomDeathAnim);
             animator.SetTrigger("isDead");
+            
         }
     }
 

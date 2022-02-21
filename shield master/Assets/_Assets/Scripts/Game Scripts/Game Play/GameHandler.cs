@@ -96,7 +96,7 @@ namespace SheildMaster {
                     tutorialManager.ShowInitTutorailWindow(false);
                 break;
 
-                case 50:
+                case 31:
                     tutorialManager.gameObject.SetActive(true);
                     tutorialManager.ShowCharacterTutorial(true,"Super Enemey","Dies with 2 hits and Bullets can break a small potion of the wall and can pass through.");
                     tutorialManager.ShowInitTutorailWindow(false);

@@ -16,9 +16,7 @@ namespace GamerWolf.Utils.HealthSystem {
         protected virtual void Awake(){
             ResetHealth();   
         }
-        protected virtual void Start(){
-            
-        }
+        protected virtual void Start(){}
         public void ResetHealth(){
             Debug.Log("Health is Reset for " + transform.name);
             isDead = false;

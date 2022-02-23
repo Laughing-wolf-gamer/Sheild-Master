@@ -24,7 +24,12 @@ namespace SheildMaster{
         private int currentEnemyIndex;
 
         [SerializeField] private CameraMultiTarget multiTargetCameraController;
-        
+        private void Awake(){
+#if !UNITY_EDITOR
+            spawnOnAllPoint = false;
+#endif
+
+        }
         private void Start(){
             LevelManager.current.SetGameViewcamera(gameViewCamera);
         }   
@@ -47,6 +52,7 @@ namespace SheildMaster{
             }
             return Random.Range(2,spawnPointList.Count);
         }
+        private EnemyController tutorialEnemy;
         public void SpawnEnemyes(int spawnIndex = -1){
             enemiesList = new List<EnemyController>();
             newEnemy = null;
@@ -99,7 +105,7 @@ namespace SheildMaster{
                             Debug.Log("new Enemy is " + newEnemy);
                             continue;
                         }else{
-                            newEnemy = Instantiate(enemyPrefabArray[currentEnemyIndex],spawnPointList[i].position,Quaternion.identity);
+                            tutorialEnemy = Instantiate(enemyPrefabArray[currentEnemyIndex],spawnPointList[i].position,Quaternion.identity);
                             SetcurrentSpawnPoint(spawnPointList[i]);
                             Debug.Log("new Enemy is " + newEnemy);
                         }
@@ -115,9 +121,11 @@ namespace SheildMaster{
                             continue;
                         }else{
                             Vector3 newSpawnPoint = spawnPointList[i].position;
-                            newEnemy = Instantiate(enemyPrefabArray[currentEnemyIndex],newSpawnPoint,Quaternion.identity);
+                            tutorialEnemy = Instantiate(enemyPrefabArray[currentEnemyIndex],newSpawnPoint,Quaternion.identity);
                             SetcurrentSpawnPoint(newSpawnPoint);
+                            
                             Debug.Log("new Enemy is " + newEnemy);
+
                         }
                     break;
 
@@ -128,12 +136,16 @@ namespace SheildMaster{
                         SetcurrentSpawnPoint(spawnPoint);
                     break;
                 }
+                if(tutorialEnemy != null){
+                    if(!enemiesList.Contains(tutorialEnemy)){
+                        enemiesList.Add(tutorialEnemy);
+                    }
+                    tutorialEnemy.transform.SetParent(transform);
+                }
                 if(!enemiesList.Contains(newEnemy)){
                     enemiesList.Add(newEnemy);
                 }
-                multiTargetCameraController.SetTargets(newEnemy.transform);
                 newEnemy.transform.SetParent(transform);
-
             }
 
             
@@ -196,51 +208,10 @@ namespace SheildMaster{
                 if(!enemiesList.Contains(newEnemy)){
                     enemiesList.Add(newEnemy);
                 }
-                multiTargetCameraController.SetTargets(newEnemy.transform);
+                
             }
         }
-        // public void SpawnTutorialLevels(int levelIndex){
-        //     enemiesList = new List<EnemyController>();
-        //     newEnemy = null;
-        //     currentSpawnPointsList = new List<Vector3>();
-        //     if(playerDataSO.GetLevelNumber() <= 24){
-        //         currentEnemyIndex = 0;
-        //         currentDefficultiy = LevelDefficultiStage.Stage_1;
-        //     }
-        //     if(playerDataSO.GetLevelNumber() >= 25){
-        //         currentEnemyIndex = 1;
-        //         currentDefficultiy = LevelDefficultiStage.Stage_2;
-        //     }
-        //     if(playerDataSO.GetLevelNumber() > 49){
-        //         currentEnemyIndex = 2;
-        //         currentDefficultiy = LevelDefficultiStage.Stage_3;
-        //     }
-        //     if(playerDataSO.GetLevelNumber() >= 55){
-        //         currentDefficultiy = LevelDefficultiStage.Stage_4;
-        //     }
-        //     spawnAmount = GetSpawnCount();
-            
-        //     if(spawnAmount > spawnPointList.Count){
-        //         spawnAmount = 2;
-        //     }
-        //     if(spawnAmount <= 0){
-        //         spawnAmount = 1;
-        //     }
-            
 
-        //     Vector3 newSpawnPoint = spawnPointList[levelIndex].position;
-        //     newEnemy = Instantiate(enemyPrefabArray[currentEnemyIndex],spawnPointList[levelIndex].position,Quaternion.identity);
-        //     SetcurrentSpawnPoint(spawnPointList[levelIndex]);
-        //     // currentIndex = -1;
-        //     // spawnIndex = -1;
-        //     Debug.Log("new Enemy is " + newEnemy);
-        //     Debug.Log("Spawn Count "+ spawnAmount);
-            
-        // }
-        // [ContextMenu("Change FOV")]
-        // private void ChangeFOV(){
-        //     gameViewCamera.m_Lens.FieldOfView = newFOV;
-        // }
         public List<Vector3> GetSpawnPoint(){
             return currentSpawnPointsList;
         }
@@ -263,12 +234,7 @@ namespace SheildMaster{
         [ContextMenu("Set Camera Data")]
         public void SetNewFarClipPlane(){
             // gameViewCamera.m_Lens.FarClipPlane = 500;
-            // multiTargetCameraController.SetCamraTargetingData(68.7f,7.63f,0.19f);
-            
-            if(multiTargetCameraController.transform.GetComponent<MultiTargetCameraController>() != null){
-                DestroyImmediate(multiTargetCameraController.transform.GetComponent<MultiTargetCameraController>());
-            }
-            
+            multiTargetCameraController.SetCamraTargetingData(20f,20f);
         }
         // [ContextMenu("FindMultiTargetCamera")]
         // public void FindMultiTargetCamera(){

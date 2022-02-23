@@ -182,7 +182,6 @@ MonoBehaviour:
   PaddingUp: 20
   PaddingDown: 20
   MoveSmoothTime: 0.14
-  _targets: []
 --- !u!1 &778435670347159847
 GameObject:
   m_ObjectHideFlags: 0

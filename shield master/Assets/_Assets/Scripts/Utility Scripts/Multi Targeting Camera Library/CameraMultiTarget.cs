@@ -18,23 +18,20 @@ namespace GamerWolf.Utils {
 		public float MoveSmoothTime = 0.19f;
 
 		private CinemachineVirtualCamera _camera;
-		[SerializeField] private List<Transform> _targets = new List<Transform>();
+		private List<Transform> _targets = new List<Transform>();
 		private DebugProjection _debugProjection;
 
 		enum DebugProjection { DISABLE, IDENTITY, ROTATED }
 		enum ProjectionEdgeHits { TOP_BOTTOM, LEFT_RIGHT }
 
-		public void SetTargets(Transform target) {
-			if(!_targets.Contains(target)){
-				_targets.Add(target);
-			}
-		}
+		public static CameraMultiTarget current{get;private set;}
+		
 		
 		private void Awake(){
+			current = this;
 			_camera = gameObject.GetComponent<CinemachineVirtualCamera>();
 			_debugProjection = DebugProjection.ROTATED;
 		}
-
 		private void LateUpdate() {
 			if (_targets.Count == 0){
 				return;
@@ -168,10 +165,19 @@ namespace GamerWolf.Utils {
 			Quaternion rotation = _debugProjection == DebugProjection.IDENTITY ? Quaternion.identity : transform.rotation;
 			Debug.DrawRay(rotation * start, rotation * direction, color);
 		}
-		public void SetCamraTargetingData(float _pitch,float _Yaw,float smoothSpeed){
-			Pitch = _pitch;
-			Yaw = _Yaw;
-			MoveSmoothTime = smoothSpeed;
+		public void SetCamraTargetingData(float _paddingDown,float _paddingUp){
+			PaddingDown = _paddingDown;
+			PaddingUp = _paddingUp;
+		}
+		public void SetTargets(Transform target) {
+			if(!_targets.Contains(target)){
+				_targets.Add(target);
+			}
+		}
+		public void RemoveTarget(Transform _target){
+			if(_targets.Contains(_target)){
+				_targets.Remove(_target);
+			}
 		}
 
 

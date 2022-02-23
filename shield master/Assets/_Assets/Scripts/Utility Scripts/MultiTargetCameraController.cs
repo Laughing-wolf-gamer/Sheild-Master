@@ -3,8 +3,8 @@ using Cinemachine;
 using System.Collections.Generic;
 
 namespace SheildMaster {
-    [RequireComponent(typeof(CinemachineVirtualCamera))]
     [ExecuteInEditMode]
+    [RequireComponent(typeof(CinemachineVirtualCamera))]
     public class MultiTargetCameraController : MonoBehaviour {
 
         [Header("Zooming")]
@@ -18,9 +18,9 @@ namespace SheildMaster {
         [SerializeField] private float smoothSpeedTime = 0.5f;
         [SerializeField] private Vector3 offset;
         [Header("List Of Target")]
-        [SerializeField]private List<Transform> targetsList;
         private Vector3 velocity;
         private CinemachineVirtualCamera zoomCamera;
+        [SerializeField] private List<Transform> targetsList;
 
         
         private void Start(){

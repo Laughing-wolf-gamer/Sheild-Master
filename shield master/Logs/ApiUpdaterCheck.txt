@@ -788,3 +788,67 @@ C# parse time         : 464ms
 candidates check time : 185ms
 console write time    : 1ms
 
+[api-updater (non-obsolete-error-filter)] 2/22/2022 10:01:52 AM : Starting C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] Exception caught while loading types from C:\Users\Admin\Documents\Git Repositorys\Sheild-Master\shield master\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll (some types may not be loaded)
+	Exception of type 'System.Reflection.ReflectionTypeLoadException' was thrown.
+	  at (wrapper managed-to-native) System.Reflection.Assembly.GetTypes(System.Reflection.Assembly,bool)
+  at System.Reflection.Assembly.GetTypes () [0x00000] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at APIUpdater.NonObsoleteApiUpdaterDetector.ExtraInfoParser+<LoadTypesWithMovedFromAttributeAsync>d__3.MoveNext () [0x000c8] in <68bff7873e0e4aa69a14dfc30bebbe3e>:0 
+	Could not load file or assembly 'UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.
+
+[api-updater (non-obsolete-error-filter)] Exception caught while loading types from C:\Users\Admin\Documents\Git Repositorys\Sheild-Master\shield master\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll (some types may not be loaded)
+	Exception of type 'System.Reflection.ReflectionTypeLoadException' was thrown.
+	  at (wrapper managed-to-native) System.Reflection.Assembly.GetTypes(System.Reflection.Assembly,bool)
+  at System.Reflection.Assembly.GetTypes () [0x00000] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at APIUpdater.NonObsoleteApiUpdaterDetector.ExtraInfoParser+<LoadTypesWithMovedFromAttributeAsync>d__3.MoveNext () [0x000c8] in <68bff7873e0e4aa69a14dfc30bebbe3e>:0 
+	Could not load file or assembly 'UnityEditor.CoreModule, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null' or one of its dependencies.
+
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 433.9326ms
+moved types parse time: 113ms
+candidates parse time : 2ms
+C# parse time         : 1285ms
+candidates check time : 107ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2/22/2022 4:45:18 PM : Starting C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 2823.3733ms
+moved types parse time: 128ms
+candidates parse time : 2ms
+C# parse time         : 1344ms
+candidates check time : 104ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2/22/2022 4:49:09 PM : Starting C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 654.7047ms
+moved types parse time: 100ms
+candidates parse time : 2ms
+C# parse time         : 473ms
+candidates check time : 77ms
+console write time    : 1ms
+
+[api-updater (non-obsolete-error-filter)] 2/22/2022 4:50:39 PM : Starting C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 365.6217ms
+moved types parse time: 101ms
+candidates parse time : 2ms
+C# parse time         : 482ms
+candidates check time : 335ms
+console write time    : 0ms
+
+[api-updater (non-obsolete-error-filter)] 2/22/2022 4:52:23 PM : Starting C:/Program Files/Unity/Hub/Editor/2020.3.29f1/Editor/Data/Tools/ScriptUpdater/APIUpdater.NonObsoleteApiUpdaterDetector.exe
+[api-updater (non-obsolete-error-filter)] 
+----------------------------------
+jit/startup time      : 370.1449ms
+moved types parse time: 115ms
+candidates parse time : 3ms
+C# parse time         : 508ms
+candidates check time : 89ms
+console write time    : 1ms
+

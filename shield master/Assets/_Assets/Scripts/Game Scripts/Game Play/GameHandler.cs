@@ -21,6 +21,7 @@ namespace SheildMaster {
         [SerializeField] private UnityEvent onGamePlaying,onGamePause,onGameResume,onGameEnd,onWin,onLoss;
         [SerializeField] private CoinMultiplier coinMultiplier;
         [SerializeField] private TutorialManager tutorialManager;
+        
 
         [Header("Testing Variables")]
 
@@ -133,7 +134,7 @@ namespace SheildMaster {
 
 
         private IEnumerator GameStartRoutine(){
-            
+            CameraMultiTarget.current.SetTargets(PlayerController.player.transform);
             Invoke(nameof(InvokeStartGame),0.3f);
             onGameStart?.Invoke();
             
@@ -145,6 +146,7 @@ namespace SheildMaster {
             
         }
         private void InvokeStartGame(){
+            
             AudioManager.current.PlayMusic(SoundType.Game_Start);
             Debug.Log("Start The Game After 0.2f seconds");
             PlayGame();
@@ -249,6 +251,7 @@ namespace SheildMaster {
                 this.isWon = isWon;
             }
         }
+        
         
 
         #endregion

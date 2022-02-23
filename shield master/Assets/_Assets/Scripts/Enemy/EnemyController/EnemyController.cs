@@ -33,7 +33,9 @@ namespace SheildMaster {
             base.Awake();
         }
         protected override void Start(){
-            // MultiTargetCameraController.current.SetTargetToList(this.transform);
+            CameraMultiTarget.current.SetTargets(this.transform);
+            objectPoolingManager = ObjectPoolingManager.current;
+            player = PlayerController.player;
             // SetRootMotion(false);
             base.OnHit += (object sender ,OnHitArgs e) => {
                 GameHandler.current.IncreaseKills();
@@ -41,11 +43,10 @@ namespace SheildMaster {
             };
    
             base.Start();
-            player = PlayerController.player;
-            objectPoolingManager = ObjectPoolingManager.current;
             base.onDead += (object sender,EventArgs e) =>{
                 animationHandler.PlayIsDeadAnimations();
                 StopCoroutine(nameof(ShootingRoutine));
+                CameraMultiTarget.current.RemoveTarget(this.transform);
                 // MultiTargetCameraController.current.RemoveTarget(this.transform);
                 // SetRootMotion(true);
             };

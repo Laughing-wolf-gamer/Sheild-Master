@@ -179,10 +179,9 @@ MonoBehaviour:
   Roll: 0
   PaddingLeft: 5
   PaddingRight: 5
-  PaddingUp: 10
-  PaddingDown: 5
+  PaddingUp: 20
+  PaddingDown: 20
   MoveSmoothTime: 0.1
-  _targets: []
 --- !u!1 &778435670347159847
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +338,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gizmosBoxSize: 1.69
-  spawnOnAllPoint: 1
+  spawnOnAllPoint: 0
   playerDataSO: {fileID: 11400000, guid: e8274db418ab89f42b503eac970bd4b3, type: 2}
   enemyPrefabArray:
   - {fileID: 2631001762348821827, guid: 39a5aa1d7b013ab4f940deff40f0631c, type: 3}

@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using GamerWolf.Utils;
 using GamerWolf.Utils.HealthSystem;
 namespace SheildMaster {
     public class PlayerController : HealthEntity{
@@ -49,7 +50,9 @@ namespace SheildMaster {
             #endif
             forceFieldObject.SetActive(false);
             base.Start();
+            
             gameHandler.onGameOver += (object sender, OnGamoverEventsAargs args) =>{
+                CameraMultiTarget.current.RemoveTarget(this.transform);
                 RotatePlayer(onWinLookPoint.position);
             };
             

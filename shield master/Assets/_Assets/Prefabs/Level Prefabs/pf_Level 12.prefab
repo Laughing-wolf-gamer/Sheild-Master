@@ -614,10 +614,9 @@ MonoBehaviour:
   Roll: 0
   PaddingLeft: 5
   PaddingRight: 5
-  PaddingUp: 5
-  PaddingDown: 5
+  PaddingUp: 20
+  PaddingDown: 20
   MoveSmoothTime: 0.19
-  _targets: []
 --- !u!1001 &968289317
 PrefabInstance:
   m_ObjectHideFlags: 0

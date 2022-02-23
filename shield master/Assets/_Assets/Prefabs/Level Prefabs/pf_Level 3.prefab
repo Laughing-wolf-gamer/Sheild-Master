@@ -179,10 +179,9 @@ MonoBehaviour:
   Roll: 0
   PaddingLeft: 5
   PaddingRight: 5
-  PaddingUp: 18.54
-  PaddingDown: 10.1
+  PaddingUp: 20
+  PaddingDown: 20
   MoveSmoothTime: 0.1
-  _targets: []
 --- !u!1 &2256461541261396287
 GameObject:
   m_ObjectHideFlags: 0

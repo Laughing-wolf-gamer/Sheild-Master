@@ -100,7 +100,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4590111662116156423}
   - component: {fileID: 477170106395077663}
-  - component: {fileID: 1661555614}
   - component: {fileID: 262247069098768695}
   m_Layer: 12
   m_Name: CM vcam1
@@ -159,24 +158,6 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1389483441199480938}
---- !u!114 &1661555614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3558791860035910162}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 85fc1a30f1454e14095a244fad17befd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  zoomLiminter: 50
-  minZoom: 90
-  maxZoom: 10
-  smoothSpeedTime: 0.5
-  offset: {x: 0, y: 39.16, z: -33.2}
-  targetsList: []
 --- !u!114 &262247069098768695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -194,10 +175,9 @@ MonoBehaviour:
   Roll: 0
   PaddingLeft: 5
   PaddingRight: 5
-  PaddingUp: 5
-  PaddingDown: 5
+  PaddingUp: 20
+  PaddingDown: 20
   MoveSmoothTime: 0.19
-  _targets: []
 --- !u!1 &3638295351771426788
 GameObject:
   m_ObjectHideFlags: 0

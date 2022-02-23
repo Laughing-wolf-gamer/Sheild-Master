@@ -155,6 +155,81 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 128461398612473282}
+  - {fileID: 3067825855762376024}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 84.14, z: 0}
+--- !u!1001 &851070053111801900
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 8362965171026975845}
+    m_Modifications:
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5.19885
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5.1988506
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12.3051605
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.23
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2403938038784331145, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+      propertyPath: m_Name
+      value: pf Decal Projector (1)
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+--- !u!4 &3067825855762376024 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2403938038784331124, guid: ce138fa42b106744e98a10bbfc091204, type: 3}
+  m_PrefabInstance: {fileID: 851070053111801900}
+  m_PrefabAsset: {fileID: 0}
